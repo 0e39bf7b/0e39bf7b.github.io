@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Developer&#39;s blog</title>
+    <link>https://0e39bf7b.github.io/posts/</link>
+    <description>Recent content in Posts on Developer&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Apr 2019 11:05:05 +0000</lastBuildDate>
+    
+	<atom:link href="https://0e39bf7b.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Overengineering</title>
+      <link>https://0e39bf7b.github.io/posts/overengineering/</link>
+      <pubDate>Sat, 20 Apr 2019 11:05:05 +0000</pubDate>
+      
+      <guid>https://0e39bf7b.github.io/posts/overengineering/</guid>
+      <description>&lt;p&gt;In the modern, world there are a lot of different libraries and tools which were created to simplify
+software development, make it faster and less error-prone. Let&amp;rsquo;s talk about frontend development. 10
+- 15 years ago the size of the JavaScript code on a regular Internet resource was much smaller.
+The majority of resources used &lt;a href=&#34;https://jquery.com/&#34;&gt;jQuery&lt;/a&gt; with several plugins and a bit of
+business logic. Nowadays web applications become much more complicated, contain a lot of business
+logic and that is why being built using the Single Page Application (SPA) approach. When an
+application is written like SPA it creates page content in the browser dynamically instead of
+rendering HTML received from a server.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
