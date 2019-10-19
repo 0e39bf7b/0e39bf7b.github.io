@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.55.1" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Configure Emacs for Python development &middot; Developer&#39;s blog</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Developer&#39;s blog" />
+
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://0e39bf7b.github.io/"><h1>Developer&#39;s blog</h1></a>
+      <p class="lead">
+       My thoughts about everything 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://0e39bf7b.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Configure Emacs for Python development</h1>
+  <time datetime=2019-10-19T10:30:00Z class="post-date">Sat, Oct 19, 2019</time>
+  <p>I like to have the same development environment on the local machine and remote servers. In this
+case it&rsquo;s possible to write and debug programs not only with your laptop, but also using lightweight
+tablet or netbook and at the same time have all stuff you have used to like fast CPU, enough memory
+and all the features of IDE like code navigation or autocompletion. I prefer using Emacs on the
+Ubuntu machine to achieve this goal.</p>
+
+<p><img src="/emacs-gui.png" alt="Emacs GUI version" /></p>
+
+<p>In this article I&rsquo;ll show how to install and configure Emacs for Python development.</p>
+
+<p>Assume you have minimal installation of Ubuntu 18.04. First of all, install python and dependencies:</p>
+
+<pre><code>sudo apt-get install python3 python3-pip python3-venv
+</code></pre>
+
+<p>Install Emacs (<code>emacs</code> package for desktop or <code>emacs-nox</code> for server):</p>
+
+<pre><code>sudo apt-get install emacs-nox
+</code></pre>
+
+<p>A lot of projects use <a href="https://www.git-scm.com/">git</a> as a version control system, so it&rsquo;s better to
+have it installed:</p>
+
+<pre><code>sudo apt-get install git
+</code></pre>
+
+<p>Emacs has it&rsquo;s own package system <code>package.el</code>. It allows to download and install different Emacs
+extensions from the Internet. <code>package.el</code> allows to use different repositories with packages. One
+of the most popular is <a href="https://melpa.org/">MELPA</a>. Add such lines into <code>~/.emacs/init.el</code> file to
+configure <code>package.el</code>:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#0086b3">require</span> <span style="color:#990073">&#39;package</span>)
+(<span style="color:#008080">add-to-list</span> <span style="color:#990073">&#39;package-archives</span>
+             <span style="color:#000;font-weight:bold">&#39;</span>(<span style="color:#d14">&#34;melpa&#34;</span> <span style="color:#000;font-weight:bold">.</span> <span style="color:#d14">&#34;https://melpa.org/packages/&#34;</span>))
+
+(<span style="color:#008080">package-initialize</span>)</code></pre></div>
+<p>When Emacs installs packages it checks integrity using package signature. Unfortunately Emacs in
+Ubuntu 18.04 distribution doesn&rsquo;t have public keys to verify MELPA packages, so if signature
+checking is enabled then you&rsquo;ll have error like this during package installation:</p>
+
+<pre><code>Failed to verify signature archive-contents.sig:
+No public key for 066DAFCB81E42C40
+Command output:
+gpg: Can't check signature: No public key
+</code></pre>
+
+<p>There are to options how to solve this problem:</p>
+
+<ol>
+<li>disable signature checking;</li>
+<li>update public keys.</li>
+</ol>
+
+<p>The first option increases security risks, so we&rsquo;ll use the second one.</p>
+
+<p>Add such line at the beginning of <code>~/.emacs/init.el</code> to disable signature checking temporarily:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#0086b3">setq</span> <span style="color:#008080">package-check-signature</span> <span style="color:#008080">nil</span>)</code></pre></div>
+<p>Then open Emacs, press <code>M-x</code> and type <code>package-refresh-contents</code> to download packages info. Press
+<code>M-x</code> and type <code>package-install</code> then enter package name <code>gnu-elpa-keyring-update</code>. This package
+updates the GPG keys used by Emacs package manager to verify authenticity of packages downloaded
+from the MELPA archive.</p>
+
+<p>Then delete <code>(setq package-check-signature nil)</code> from Emacs config and restart editor.</p>
+
+<p>Open Emacs, press <code>M-x</code> and type <code>package-list-packages</code>. Select packages:</p>
+
+<ul>
+<li><a href="https://github.com/technomancy/better-defaults">better-defaults</a> - project title speaks for
+itself;</li>
+<li><a href="https://github.com/jorgenschaefer/elpy">elpy</a> - Emacs Python Development Environment;</li>
+<li><a href="https://github.com/bbatsov/projectile">projectile</a> - Project Interaction Library for Emacs;</li>
+<li><a href="https://github.com/magit/magit">magit</a> - an interface to the Git, implemented as an Emacs
+package;</li>
+<li><a href="https://github.com/bbatsov/zenburn-emacs">zenburn-theme</a> - low contrast color theme available for
+Emacs and popular terminal emulators.</li>
+</ul>
+
+<p>To select package use <code>i</code>. After all packages have been selected use <code>x</code> to install them.</p>
+
+<p>To enable and configure installed package add following lines into <code>~/.emacs/init.el</code>:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp"><span style="color:#998;font-style:italic">;; Activate better-defaults package</span>
+(<span style="color:#0086b3">require</span> <span style="color:#990073">&#39;better-defaults</span>)
+
+<span style="color:#998;font-style:italic">;; Activate zenburn theme</span>
+(<span style="color:#008080">load-theme</span> <span style="color:#990073">&#39;zenburn</span> <span style="color:#008080">t</span>)
+
+<span style="color:#998;font-style:italic">;; Enable line numbers for python files</span>
+(<span style="color:#008080">add-hook</span> <span style="color:#990073">&#39;python-mode-hook</span> <span style="color:#990073">&#39;linum-mode</span>)
+<span style="color:#998;font-style:italic">;; Insert space after line number to make it easier to read</span>
+(<span style="color:#0086b3">setq</span> <span style="color:#008080">linum-format</span> <span style="color:#d14">&#34;%d &#34;</span>)
+
+<span style="color:#998;font-style:italic">;; Use python3 for autocompletion and code navigation</span>
+(<span style="color:#0086b3">setq</span> <span style="color:#008080">elpy-rpc-python-command</span> <span style="color:#d14">&#34;python3&#34;</span>)
+<span style="color:#998;font-style:italic">;; Use python3 as a interpreter in integrated python shell</span>
+(<span style="color:#0086b3">setq</span> <span style="color:#008080">python-shell-interpreter</span> <span style="color:#d14">&#34;python3&#34;</span>)
+
+<span style="color:#998;font-style:italic">;; Activate elpy</span>
+(<span style="color:#008080">elpy-enable</span>)
+
+<span style="color:#998;font-style:italic">;; Activate projectile</span>
+(<span style="color:#008080">projectile-mode</span> <span style="color:#099">+1</span>)
+(<span style="color:#900;font-weight:bold">define-key</span> <span style="color:#008080">projectile-mode-map</span> (<span style="color:#008080">kbd</span> <span style="color:#d14">&#34;C-c p&#34;</span>) <span style="color:#990073">&#39;projectile-command-map</span>)</code></pre></div>
+<p>Open some python file and start typing. Emacs will ask you for installing elpy dependencies required
+for autocompletion and code navigation. Install it and that&rsquo;s it.</p>
+
+<p>If you use Emacs from terminal make sure your <code>TERM</code> environment variable equals to
+<code>xterm-256color</code>. Terminal version looks almost the same as GUI one:</p>
+
+<p><img src="/emacs-terminal.png" alt="Emacs terminal version" /></p>
+
+<p>Now you can write python code in Emacs using desktop or remote server. For remote server I recommend
+using <a href="https://en.wikipedia.org/wiki/Tmux">tmux</a>. It allows to make only one connection to the
+server and run multiple shells in it. Also if you use unstable Internet connection you will not
+loose any data in case of disconnect.</p>
+
+<p>You may continue exploring the world of Emacs packages or try one of Emacs distributions like
+<a href="https://prelude.emacsredux.com/en/latest/">Prelude</a> or <a href="http://spacemacs.org/">Spacemacs</a>.
+There are a lot of interesting staff.</p>
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

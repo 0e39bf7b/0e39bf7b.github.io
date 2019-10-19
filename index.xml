@@ -6,10 +6,25 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Jul 2019 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Oct 2019 10:30:00 +0000</lastBuildDate>
     
 	<atom:link href="https://0e39bf7b.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Configure Emacs for Python development</title>
+      <link>https://0e39bf7b.github.io/posts/emacs-for-python/</link>
+      <pubDate>Sat, 19 Oct 2019 10:30:00 +0000</pubDate>
+      
+      <guid>https://0e39bf7b.github.io/posts/emacs-for-python/</guid>
+      <description>&lt;p&gt;I like to have the same development environment on the local machine and remote servers. In this
+case it&amp;rsquo;s possible to write and debug programs not only with your laptop, but also using lightweight
+tablet or netbook and at the same time have all stuff you have used to like fast CPU, enough memory
+and all the features of IDE like code navigation or autocompletion. I prefer using Emacs on the
+Ubuntu machine to achieve this goal.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.github.io/emacs-gui.png&#34; alt=&#34;Emacs GUI version&#34; /&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Code Reuse with React Hooks</title>
