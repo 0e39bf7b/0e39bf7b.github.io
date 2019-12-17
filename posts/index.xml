@@ -6,17 +6,61 @@
     <description>Recent content in Posts on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Oct 2019 10:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Dec 2019 12:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://0e39bf7b.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>React Journey: componentWillMount in Concurrent Mode</title>
+      <link>https://0e39bf7b.github.io/posts/react-journey-componentwillmount-in-concurrent-mode/</link>
+      <pubDate>Tue, 17 Dec 2019 12:00:00 +0000</pubDate>
+      
+      <guid>https://0e39bf7b.github.io/posts/react-journey-componentwillmount-in-concurrent-mode/</guid>
+      <description>&lt;p&gt;Several days ago I was updating one of my React.JS projects and I found deprecation warning like:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Warning: componentWillMount has been renamed, and is not recommended for use. See
+&lt;a href=&#34;https://fb.me/react-unsafe-component-lifecycles&#34;&gt;https://fb.me/react-unsafe-component-lifecycles&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Move code with side effects to componentDidMount, and set initial state in the constructor.&lt;/li&gt;
+&lt;li&gt;Rename componentWillMount to UNSAFE&lt;em&gt;componentWillMount to suppress this warning in non-strict
+mode. In React 17.x, only the UNSAFE&lt;/em&gt; name will work. To rename all deprecated lifecycles to their
+new names, you can run &lt;code&gt;npx react-codemod rename-unsafe-lifecycles&lt;/code&gt; in your project source folder.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I had followed &lt;a href=&#34;https://fb.me/react-unsafe-component-lifecycles&#34;&gt;the link from this warning&lt;/a&gt; and
+found such an explanation about why this method is deprecated:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;One of the biggest lessons we’ve learned is that some of our legacy component lifecycles tend to
+encourage unsafe coding practices. They are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;componentWillMount&lt;/li&gt;
+&lt;li&gt;componentWillReceiveProps&lt;/li&gt;
+&lt;li&gt;componentWillUpdate&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These lifecycle methods have often been misunderstood and subtly misused; furthermore, we
+anticipate that their potential misuse may be more problematic with async rendering.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I think it&amp;rsquo;s important to understand why using &lt;code&gt;componentWillMount&lt;/code&gt; callback can be unsafe and why
+you need to change your code somehow. First of all, let&amp;rsquo;s find out different usage examples of
+&lt;code&gt;componentWillMount&lt;/code&gt; callback and check if it is safe or not to use this callback in different
+situations in the stable version of React.JS 16.12.0 for browser rendering (there are some issues
+with server rendering but it&amp;rsquo;s a subject of a separate article).&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Configure Emacs for Python development</title>
-      <link>https://0e39bf7b.github.io/posts/emacs-for-python/</link>
+      <link>https://0e39bf7b.github.io/posts/configure-emacs-for-python-development/</link>
       <pubDate>Sat, 19 Oct 2019 10:30:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/emacs-for-python/</guid>
+      <guid>https://0e39bf7b.github.io/posts/configure-emacs-for-python-development/</guid>
       <description>&lt;p&gt;I like to have the same development environment on the local machine and remote servers. In this
 case it&amp;rsquo;s possible to write and debug programs not only with your laptop, but also using lightweight
 tablet or netbook and at the same time have all stuff you have used to like fast CPU, enough memory
@@ -28,10 +72,10 @@ Ubuntu machine to achieve this goal.&lt;/p&gt;
     
     <item>
       <title>Code Reuse with React Hooks</title>
-      <link>https://0e39bf7b.github.io/posts/code-reuse-with-hooks/</link>
+      <link>https://0e39bf7b.github.io/posts/code-reuse-with-react-hooks/</link>
       <pubDate>Sun, 07 Jul 2019 12:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/code-reuse-with-hooks/</guid>
+      <guid>https://0e39bf7b.github.io/posts/code-reuse-with-react-hooks/</guid>
       <description>&lt;p&gt;One of the most challenging problems for frontend developers is the reuse of code. It&amp;rsquo;s especially
 important for big applications. Traditional approaches with higher-order components and render-props
 have advantages and disadvantages. In some cases, it can be inconvenient to use them. React.JS 16.8

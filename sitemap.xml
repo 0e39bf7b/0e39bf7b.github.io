@@ -3,24 +3,29 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://0e39bf7b.github.io/posts/emacs-for-python/</loc>
-    <lastmod>2019-10-19T10:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://0e39bf7b.github.io/</loc>
-    <lastmod>2019-10-19T10:30:00+00:00</lastmod>
+    <lastmod>2019-12-17T12:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://0e39bf7b.github.io/posts/</loc>
-    <lastmod>2019-10-19T10:30:00+00:00</lastmod>
+    <lastmod>2019-12-17T12:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://0e39bf7b.github.io/posts/code-reuse-with-hooks/</loc>
+    <loc>https://0e39bf7b.github.io/posts/react-journey-componentwillmount-in-concurrent-mode/</loc>
+    <lastmod>2019-12-17T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://0e39bf7b.github.io/posts/configure-emacs-for-python-development/</loc>
+    <lastmod>2019-10-19T10:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://0e39bf7b.github.io/posts/code-reuse-with-react-hooks/</loc>
     <lastmod>2019-07-07T12:00:00+00:00</lastmod>
   </url>
   

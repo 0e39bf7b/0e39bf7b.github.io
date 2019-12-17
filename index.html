@@ -53,7 +53,53 @@
     <div class="posts">
 <article class="post">
   <h1 class="post-title">
-    <a href="https://0e39bf7b.github.io/posts/emacs-for-python/">Configure Emacs for Python development</a>
+    <a href="https://0e39bf7b.github.io/posts/react-journey-componentwillmount-in-concurrent-mode/">React Journey: componentWillMount in Concurrent Mode</a>
+  </h1>
+  <time datetime="2019-12-17T12:00:00Z" class="post-date">Tue, Dec 17, 2019</time>
+  <p>Several days ago I was updating one of my React.JS projects and I found deprecation warning like:</p>
+
+<blockquote>
+<p>Warning: componentWillMount has been renamed, and is not recommended for use. See
+<a href="https://fb.me/react-unsafe-component-lifecycles">https://fb.me/react-unsafe-component-lifecycles</a> for details.</p>
+
+<ul>
+<li>Move code with side effects to componentDidMount, and set initial state in the constructor.</li>
+<li>Rename componentWillMount to UNSAFE<em>componentWillMount to suppress this warning in non-strict
+mode. In React 17.x, only the UNSAFE</em> name will work. To rename all deprecated lifecycles to their
+new names, you can run <code>npx react-codemod rename-unsafe-lifecycles</code> in your project source folder.</li>
+</ul>
+</blockquote>
+
+<p>I had followed <a href="https://fb.me/react-unsafe-component-lifecycles">the link from this warning</a> and
+found such an explanation about why this method is deprecated:</p>
+
+<blockquote>
+<p>One of the biggest lessons we’ve learned is that some of our legacy component lifecycles tend to
+encourage unsafe coding practices. They are:</p>
+
+<ul>
+<li>componentWillMount</li>
+<li>componentWillReceiveProps</li>
+<li>componentWillUpdate</li>
+</ul>
+
+<p>These lifecycle methods have often been misunderstood and subtly misused; furthermore, we
+anticipate that their potential misuse may be more problematic with async rendering.</p>
+</blockquote>
+
+<p>I think it&rsquo;s important to understand why using <code>componentWillMount</code> callback can be unsafe and why
+you need to change your code somehow. First of all, let&rsquo;s find out different usage examples of
+<code>componentWillMount</code> callback and check if it is safe or not to use this callback in different
+situations in the stable version of React.JS 16.12.0 for browser rendering (there are some issues
+with server rendering but it&rsquo;s a subject of a separate article).</p>
+  
+  <div class="read-more-link">
+    <a href="/posts/react-journey-componentwillmount-in-concurrent-mode/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="https://0e39bf7b.github.io/posts/configure-emacs-for-python-development/">Configure Emacs for Python development</a>
   </h1>
   <time datetime="2019-10-19T10:30:00Z" class="post-date">Sat, Oct 19, 2019</time>
   <p>I like to have the same development environment on the local machine and remote servers. In this
@@ -65,12 +111,12 @@ Ubuntu machine to achieve this goal.</p>
 <p><img src="/emacs-gui.png" alt="Emacs GUI version" /></p>
   
   <div class="read-more-link">
-    <a href="/posts/emacs-for-python/">Read More…</a>
+    <a href="/posts/configure-emacs-for-python-development/">Read More…</a>
   </div>
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://0e39bf7b.github.io/posts/code-reuse-with-hooks/">Code Reuse with React Hooks</a>
+    <a href="https://0e39bf7b.github.io/posts/code-reuse-with-react-hooks/">Code Reuse with React Hooks</a>
   </h1>
   <time datetime="2019-07-07T12:00:00Z" class="post-date">Sun, Jul 7, 2019</time>
   <p>One of the most challenging problems for frontend developers is the reuse of code. It&rsquo;s especially
@@ -80,7 +126,7 @@ introduced a new feature called React Hooks. Let&rsquo;s take a look at it and t
 it work and how does it solve the problem of code reuse.</p>
   
   <div class="read-more-link">
-    <a href="/posts/code-reuse-with-hooks/">Read More…</a>
+    <a href="/posts/code-reuse-with-react-hooks/">Read More…</a>
   </div>
   
 </article><article class="post">
