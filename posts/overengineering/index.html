@@ -59,18 +59,18 @@ time.</p>
 <p>If you have a fast network and high-performance computers such problem is invisible or unimportant.
 There is another problem which can&rsquo;t be solved using better hardware, the problem familiar for every
 developer - overengineering. Let&rsquo;s take a look at a classic &ldquo;Hello world&rdquo; application in JavaScript:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#d14">&#34;Hello world&#34;</span>);
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#2aa198">&#34;Hello world&#34;</span>);
 </code></pre></div>
 <p>Nice and easy, but what if tomorrow I&rsquo;ll need to print this text several times in different
 functions? It&rsquo;s good practice to extract it into a constant.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#000;font-weight:bold">const</span> HELLO_TEXT <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Hello world&#34;</span>;
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
 console.log(HELLO_TEXT);
 </code></pre></div>
 <p>I think the logging is tightly coupled with the application logic. It&rsquo;s not OK. Well known books
 suggest to avoid such situations, so let&rsquo;s add a bit of dependency injection.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#000;font-weight:bold">const</span> HELLO_TEXT <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Hello world&#34;</span>;
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
 
-<span style="color:#000;font-weight:bold">function</span> run(log) {
+<span style="color:#268bd2">function</span> run(log) {
   log(HELLO_TEXT);
 }
 
@@ -80,25 +80,25 @@ run(console.log.bind(console));
 every time when requirements are changed. What if tomorrow I&rsquo;ll need to send this text over the
 network instead of simple printing to the console? Let&rsquo;s add some logger class which I can inherit
 from and overwrite its behavior.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#000;font-weight:bold">const</span> HELLO_TEXT <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Hello world&#34;</span>;
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
 
-<span style="color:#000;font-weight:bold">class</span> Logger {
+<span style="color:#719e07">class</span> Logger {
   log(msg) {
-    <span style="color:#000;font-weight:bold">throw</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#0086b3">Error</span>(<span style="color:#d14">&#34;Not Implemented&#34;</span>);
+    <span style="color:#719e07">throw</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Error</span>(<span style="color:#2aa198">&#34;Not Implemented&#34;</span>);
   }
 }
 
-<span style="color:#000;font-weight:bold">class</span> DefaultLogger {
+<span style="color:#719e07">class</span> DefaultLogger {
   log(msg) {
     console.log(msg);
   }
 }
 
-<span style="color:#000;font-weight:bold">function</span> run(logger) {
+<span style="color:#268bd2">function</span> run(logger) {
   logger.log(HELLO_TEXT);
 }
 
-run(<span style="color:#000;font-weight:bold">new</span> DefaultLogger);
+run(<span style="color:#719e07">new</span> DefaultLogger);
 </code></pre></div>
 <p>As you see simple one line application grew up a lot. Do you think it&rsquo;s easier to read? Do you think
 this application solves some new problem? Do you think this application will cover all new

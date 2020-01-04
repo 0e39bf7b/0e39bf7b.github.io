@@ -74,37 +74,37 @@ with server rendering but it&rsquo;s a subject of a separate article).</p>
 <h3 id="initializing-state">Initializing state</h3>
 
 <p>When a component needs initial state it can be provided like this:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">class</span> Counter <span style="color:#000;font-weight:bold">extends</span> React.Component {
-  state <span style="color:#000;font-weight:bold">=</span> {};
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#719e07">class</span> Counter <span style="color:#719e07">extends</span> React.Component {
+  state <span style="color:#719e07">=</span> {};
 
   componentWillMount() {
-    <span style="color:#000;font-weight:bold">this</span>.setState({ value<span style="color:#000;font-weight:bold">:</span> <span style="color:#099">0</span> });
+    <span style="color:#719e07">this</span>.setState({ value<span style="color:#719e07">:</span> <span style="color:#2aa198">0</span> });
   }
 }</code></pre></div>
 <p>In this case, using <code>componentWillMount</code> is safe and it makes no troubles. It&rsquo;s possible to make
 your code a bit more clear and use property initializer like this:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">class</span> Counter <span style="color:#000;font-weight:bold">extends</span> React.Component {
-  state <span style="color:#000;font-weight:bold">=</span> { value<span style="color:#000;font-weight:bold">:</span> <span style="color:#099">0</span> };
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#719e07">class</span> Counter <span style="color:#719e07">extends</span> React.Component {
+  state <span style="color:#719e07">=</span> { value<span style="color:#719e07">:</span> <span style="color:#2aa198">0</span> };
 }</code></pre></div>
 <p>But I think there are no problems with <code>componentWillMount</code> here.</p>
 
 <h3 id="fetching-external-data">Fetching external data</h3>
 
 <p>Some components need external data from the server and it&rsquo;s possible to fetch it this way:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">class</span> TariffSelector <span style="color:#000;font-weight:bold">extends</span> React.Component {
-  state <span style="color:#000;font-weight:bold">=</span> { tariffs<span style="color:#000;font-weight:bold">:</span> [] };
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#719e07">class</span> TariffSelector <span style="color:#719e07">extends</span> React.Component {
+  state <span style="color:#719e07">=</span> { tariffs<span style="color:#719e07">:</span> [] };
 
   componentWillMount() {
     fetchTariffs().then(tariffs =&gt; {
-      <span style="color:#000;font-weight:bold">this</span>.setState({ tariffs });
+      <span style="color:#719e07">this</span>.setState({ tariffs });
     });
   }
 
   render() {
-    <span style="color:#000;font-weight:bold">return</span> (
-      &lt;<span style="color:#000080">select</span>&gt;
-        {<span style="color:#000;font-weight:bold">this</span>.tariffs.map(tariff =&gt; &lt;<span style="color:#000080">option</span> <span style="color:#008080">value</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{tariff.value}</span>&gt;{tariff.caption}&lt;/<span style="color:#000080">option</span>&gt;)}
-      &lt;/<span style="color:#000080">select</span>&gt;
+    <span style="color:#719e07">return</span> (
+      &lt;<span style="color:#268bd2">select</span>&gt;
+        {<span style="color:#719e07">this</span>.tariffs.map(tariff =&gt; &lt;<span style="color:#268bd2">option</span> value<span style="color:#719e07">=</span><span style="color:#2aa198">{tariff.value}</span>&gt;{tariff.caption}&lt;/<span style="color:#268bd2">option</span>&gt;)}
+      &lt;/<span style="color:#268bd2">select</span>&gt;
     );
   }
 }</code></pre></div>
@@ -131,17 +131,17 @@ ready for such a case and provide some loading state if it is required.</p>
 
 <p>Some components subscribe to an external event dispatcher on the mount stage and unsubscribe on the
 unmount stage:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">class</span> Chat <span style="color:#000;font-weight:bold">extends</span> React.Component {
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#719e07">class</span> Chat <span style="color:#719e07">extends</span> React.Component {
   componentWillMount() {
-    <span style="color:#000;font-weight:bold">this</span>.props.chatService.subscribe(<span style="color:#d14">&#39;newMessage&#39;</span>, <span style="color:#000;font-weight:bold">this</span>.handleNewMessage);
+    <span style="color:#719e07">this</span>.props.chatService.subscribe(<span style="color:#2aa198">&#39;newMessage&#39;</span>, <span style="color:#719e07">this</span>.handleNewMessage);
   }
 
   componentWillUnmount() {
-    <span style="color:#000;font-weight:bold">this</span>.props.chatService.unsubscribe(<span style="color:#d14">&#39;newMessage&#39;</span>, <span style="color:#000;font-weight:bold">this</span>.handleNewMessage);
+    <span style="color:#719e07">this</span>.props.chatService.unsubscribe(<span style="color:#2aa198">&#39;newMessage&#39;</span>, <span style="color:#719e07">this</span>.handleNewMessage);
   }
 
-  handleNewMessage <span style="color:#000;font-weight:bold">=</span> (msg) =&gt; {
-    <span style="color:#000;font-weight:bold">this</span>.setState({ newMessage<span style="color:#000;font-weight:bold">:</span> msg });
+  handleNewMessage <span style="color:#719e07">=</span> (msg) =&gt; {
+    <span style="color:#719e07">this</span>.setState({ newMessage<span style="color:#719e07">:</span> msg });
   }
 }</code></pre></div>
 <p>As it is said in React.JS documentation this code can be dangerous for server rendering and async
@@ -160,103 +160,103 @@ good user experience for big applications.</p>
 
 <p>In React.JS 16 new Fiber Architecture was introduced. The idea is to split rendering into several
 chunks and perform them independently. Let&rsquo;s take a look at the example:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">function</span> App() {
-  <span style="color:#000;font-weight:bold">return</span> (
-    &lt;<span style="color:#000080">div</span>&gt;
-      &lt;<span style="color:#000080">Header</span> /&gt;
-      &lt;<span style="color:#000080">Content</span> /&gt;
-    &lt;/<span style="color:#000080">div</span>&gt;
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#268bd2">function</span> App() {
+  <span style="color:#719e07">return</span> (
+    &lt;<span style="color:#268bd2">div</span>&gt;
+      &lt;<span style="color:#268bd2">Header</span> /&gt;
+      &lt;<span style="color:#268bd2">Content</span> /&gt;
+    &lt;/<span style="color:#268bd2">div</span>&gt;
   );
 }
 
-<span style="color:#000;font-weight:bold">function</span> Header() {
-  <span style="color:#000;font-weight:bold">return</span> (
-    &lt;<span style="color:#000080">header</span>&gt;
-      &lt;<span style="color:#000080">h1</span>&gt;My Application&lt;/<span style="color:#000080">h1</span>&gt;
-    &lt;/<span style="color:#000080">header</span>&gt;
+<span style="color:#268bd2">function</span> Header() {
+  <span style="color:#719e07">return</span> (
+    &lt;<span style="color:#268bd2">header</span>&gt;
+      &lt;<span style="color:#268bd2">h1</span>&gt;My Application&lt;/<span style="color:#268bd2">h1</span>&gt;
+    &lt;/<span style="color:#268bd2">header</span>&gt;
   );
 }
 
-<span style="color:#000;font-weight:bold">class</span> Content <span style="color:#000;font-weight:bold">extends</span> React.Component {
-  state <span style="color:#000;font-weight:bold">=</span> { article<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">null</span> };
+<span style="color:#719e07">class</span> Content <span style="color:#719e07">extends</span> React.Component {
+  state <span style="color:#719e07">=</span> { article<span style="color:#719e07">:</span> <span style="color:#cb4b16">null</span> };
 
   componentDidMount() {
     fetchArticle().then(article =&gt; {
-      <span style="color:#000;font-weight:bold">this</span>.setState({ article });
+      <span style="color:#719e07">this</span>.setState({ article });
     });
   }
 
   render() {
-    <span style="color:#000;font-weight:bold">if</span> (<span style="color:#000;font-weight:bold">this</span>.state.article) {
-      <span style="color:#000;font-weight:bold">return</span> &lt;<span style="color:#000080">div</span> <span style="color:#008080">className</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{&#39;content&#39;}</span>&gt;{<span style="color:#000;font-weight:bold">this</span>.state.article}&lt;/<span style="color:#000080">div</span>&gt;;
+    <span style="color:#719e07">if</span> (<span style="color:#719e07">this</span>.state.article) {
+      <span style="color:#719e07">return</span> &lt;<span style="color:#268bd2">div</span> className<span style="color:#719e07">=</span><span style="color:#2aa198">{&#39;content&#39;}</span>&gt;{<span style="color:#719e07">this</span>.state.article}&lt;/<span style="color:#268bd2">div</span>&gt;;
     }
 
-    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">null</span>;
+    <span style="color:#719e07">return</span> <span style="color:#cb4b16">null</span>;
   }
 }
 
-ReactDOM.render(&lt;<span style="color:#000080">App</span> /&gt;, <span style="color:#0086b3">document</span>.getElementById(<span style="color:#d14">&#39;root&#39;</span>));</code></pre></div>
+ReactDOM.render(&lt;<span style="color:#268bd2">App</span> /&gt;, <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;root&#39;</span>));</code></pre></div>
 <p>To understand how this code works, first of all, let&rsquo;s remove jsx and see how this code will look
 like:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000;font-weight:bold">function</span> App() {
-  <span style="color:#000;font-weight:bold">return</span> React.createElement(
-    <span style="color:#d14">&#39;div&#39;</span>,
-    <span style="color:#000;font-weight:bold">null</span>,
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> App() {
+  <span style="color:#719e07">return</span> React.createElement(
+    <span style="color:#2aa198">&#39;div&#39;</span>,
+    <span style="color:#cb4b16">null</span>,
     React.createElement(
       Header,
-      <span style="color:#000;font-weight:bold">null</span>
+      <span style="color:#cb4b16">null</span>
     ),
     React.createElement(
       Content,
-      <span style="color:#000;font-weight:bold">null</span>
+      <span style="color:#cb4b16">null</span>
     )
   );
 }
 
-<span style="color:#000;font-weight:bold">function</span> Header() {
-  <span style="color:#000;font-weight:bold">return</span> React.createElement(
-    <span style="color:#d14">&#39;header&#39;</span>,
-    <span style="color:#000;font-weight:bold">null</span>,
+<span style="color:#268bd2">function</span> Header() {
+  <span style="color:#719e07">return</span> React.createElement(
+    <span style="color:#2aa198">&#39;header&#39;</span>,
+    <span style="color:#cb4b16">null</span>,
     React.createElement(
-      <span style="color:#d14">&#39;h1&#39;</span>,
-      <span style="color:#000;font-weight:bold">null</span>,
-      <span style="color:#d14">&#39;My Application&#39;</span>
+      <span style="color:#2aa198">&#39;h1&#39;</span>,
+      <span style="color:#cb4b16">null</span>,
+      <span style="color:#2aa198">&#39;My Application&#39;</span>
     )
   );
 }
 
-<span style="color:#000;font-weight:bold">class</span> Content <span style="color:#000;font-weight:bold">extends</span> React.Component {
-  state <span style="color:#000;font-weight:bold">=</span> { article<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">null</span> };
+<span style="color:#719e07">class</span> Content <span style="color:#719e07">extends</span> React.Component {
+  state <span style="color:#719e07">=</span> { article<span style="color:#719e07">:</span> <span style="color:#cb4b16">null</span> };
 
   componentDidMount() {
     fetchArticle().then(article =&gt; {
-      <span style="color:#000;font-weight:bold">this</span>.setState({
+      <span style="color:#719e07">this</span>.setState({
         article
       });
     });
   }
 
   render() {
-    <span style="color:#000;font-weight:bold">if</span> (<span style="color:#000;font-weight:bold">this</span>.state.article) {
-      <span style="color:#000;font-weight:bold">return</span> React.createElement(
-        <span style="color:#d14">&#39;div&#39;</span>, {
-        className<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;content&#39;</span>
-      }, <span style="color:#000;font-weight:bold">this</span>.state.article);
+    <span style="color:#719e07">if</span> (<span style="color:#719e07">this</span>.state.article) {
+      <span style="color:#719e07">return</span> React.createElement(
+        <span style="color:#2aa198">&#39;div&#39;</span>, {
+        className<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;content&#39;</span>
+      }, <span style="color:#719e07">this</span>.state.article);
     }
 
-    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">null</span>;
+    <span style="color:#719e07">return</span> <span style="color:#cb4b16">null</span>;
   }
 
 }
 
-ReactDOM.render(React.createElement(App, <span style="color:#000;font-weight:bold">null</span>), <span style="color:#0086b3">document</span>.getElementById(<span style="color:#d14">&#39;root&#39;</span>));
+ReactDOM.render(React.createElement(App, <span style="color:#cb4b16">null</span>), <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;root&#39;</span>));
 </code></pre></div>
 <p>As you can see React.JS creates elements using <code>createElement</code> function. This function returns plain
 JS object like:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
-  type<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;h1&#39;</span>,
-  props<span style="color:#000;font-weight:bold">:</span> {
-    children<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;My Application&#39;</span>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+  type<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;h1&#39;</span>,
+  props<span style="color:#719e07">:</span> {
+    children<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;My Application&#39;</span>
   }
 }
 </code></pre></div>
@@ -266,30 +266,30 @@ JS object like:</p>
 <p>To build the final virtual DOM React.JS needs to perform several steps.</p>
 
 <p><strong>Step 1:</strong> convert</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
-  type<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;App&#39;</span>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+  type<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;App&#39;</span>
 }
 </code></pre></div>
 <p>into</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
-  type<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;div&#39;</span>,
-  props<span style="color:#000;font-weight:bold">:</span> {
-    children<span style="color:#000;font-weight:bold">:</span> [
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+  type<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;div&#39;</span>,
+  props<span style="color:#719e07">:</span> {
+    children<span style="color:#719e07">:</span> [
       {
-        type<span style="color:#000;font-weight:bold">:</span> Header
+        type<span style="color:#719e07">:</span> Header
       },
       {
-        type<span style="color:#000;font-weight:bold">:</span> Content
+        type<span style="color:#719e07">:</span> Content
       }
     ]
   }
 }
 </code></pre></div>
 <p><strong>Step 2:</strong> convert <code>Header</code> child into</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
-  type<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;header&#39;</span>,
-  props<span style="color:#000;font-weight:bold">:</span> {
-    children<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;My Application&#39;</span>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+  type<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;header&#39;</span>,
+  props<span style="color:#719e07">:</span> {
+    children<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;My Application&#39;</span>
   }
 </code></pre></div>
 <p><strong>Step 3:</strong> create instance of <code>Content</code> class and call it&rsquo;s <code>render</code> function. It returns <code>null</code>
@@ -297,11 +297,11 @@ because data is loaded asynchronously in the <code>componentDidUpdate</code> hoo
 
 <p><strong>Step 4:</strong> in response to <code>setState</code> update state and call <code>render</code> for <code>Content</code> class instance
 again what will lead to final result like this:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
-  type<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;div&#39;</span>,
-  props<span style="color:#000;font-weight:bold">:</span> {
-    className<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;content&#39;</span>,
-    children<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;Hello world&#39;</span>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+  type<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;div&#39;</span>,
+  props<span style="color:#719e07">:</span> {
+    className<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;content&#39;</span>,
+    children<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;Hello world&#39;</span>
   }
 }
 </code></pre></div>
@@ -338,32 +338,32 @@ are added into the end of it.</p>
 <p>As it was said earlier React.JS splits reconciliation into pieces and executes them one by one. It
 solves the problem of choppy animations because rendering is interruptible for browser tasks but
 it does not solve the problem of responsiveness. Let&rsquo;s take a look at the example:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">class</span> ArticlesList {
-  state <span style="color:#000;font-weight:bold">=</span> {
-    articles<span style="color:#000;font-weight:bold">:</span> [],
-    filter<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;&#39;</span>,
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#719e07">class</span> ArticlesList {
+  state <span style="color:#719e07">=</span> {
+    articles<span style="color:#719e07">:</span> [],
+    filter<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;&#39;</span>,
   }
 
-  handleFilter <span style="color:#000;font-weight:bold">=</span> (event) =&gt; {
-    <span style="color:#000;font-weight:bold">this</span>.setState({ filter<span style="color:#000;font-weight:bold">:</span> event.target.value });
+  handleFilter <span style="color:#719e07">=</span> (event) =&gt; {
+    <span style="color:#719e07">this</span>.setState({ filter<span style="color:#719e07">:</span> event.target.value });
   }
 
   componentDidMount() {
     fetchArticles().then(articles =&gt; {
-      <span style="color:#000;font-weight:bold">this</span>.setState({ articles });
+      <span style="color:#719e07">this</span>.setState({ articles });
     });
   }
 
   render() {
-    <span style="color:#000;font-weight:bold">const</span> { articles, filter } <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">this</span>.state;
+    <span style="color:#719e07">const</span> { articles, filter } <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>.state;
 
-    <span style="color:#000;font-weight:bold">return</span> (
-      &lt;<span style="color:#000080">div</span>&gt;
-        &lt;<span style="color:#000080">input</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text&#34;</span> <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;filter&#34;</span> <span style="color:#008080">onChange</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{this.handleFilter}</span> /&gt;
-        &lt;<span style="color:#000080">div</span>&gt;
-          {applyFilter(articles, filter).map(article =&gt; &lt;<span style="color:#000080">Article</span> <span style="color:#008080">data</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{article}</span> /&gt;)}
-        &lt;/<span style="color:#000080">div</span>&gt;
-      &lt;/<span style="color:#000080">div</span>&gt;
+    <span style="color:#719e07">return</span> (
+      &lt;<span style="color:#268bd2">div</span>&gt;
+        &lt;<span style="color:#268bd2">input</span> type<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;text&#34;</span> name<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;filter&#34;</span> onChange<span style="color:#719e07">=</span><span style="color:#2aa198">{this.handleFilter}</span> /&gt;
+        &lt;<span style="color:#268bd2">div</span>&gt;
+          {applyFilter(articles, filter).map(article =&gt; &lt;<span style="color:#268bd2">Article</span> data<span style="color:#719e07">=</span><span style="color:#2aa198">{article}</span> /&gt;)}
+        &lt;/<span style="color:#268bd2">div</span>&gt;
+      &lt;/<span style="color:#268bd2">div</span>&gt;
     )
   }
 }</code></pre></div>
@@ -397,60 +397,60 @@ the browser&rsquo;s DOM and returns to processing long rendering. If it&rsquo;s 
 rendering it will be restarted.</p>
 
 <p>This example illustrates Concurrent Mode in action:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">let</span> lastCounter <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>; <span style="color:#998;font-style:italic">// Global variable for multiple mounts detection
-</span><span style="color:#998;font-style:italic"></span>
-<span style="color:#000;font-weight:bold">class</span> Counter <span style="color:#000;font-weight:bold">extends</span> React.Component {
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#268bd2">let</span> lastCounter <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; <span style="color:#586e75">// Global variable for multiple mounts detection
+</span><span style="color:#586e75"></span>
+<span style="color:#719e07">class</span> Counter <span style="color:#719e07">extends</span> React.Component {
   componentWillMount() {
-    <span style="color:#000;font-weight:bold">if</span> (lastCounter <span style="color:#000;font-weight:bold">===</span> <span style="color:#000;font-weight:bold">this</span>.props.value) {
-      console.log(<span style="color:#d14">`mount counter with value = </span><span style="color:#d14">${</span><span style="color:#000;font-weight:bold">this</span>.props.value<span style="color:#d14">}</span><span style="color:#d14"> multiple times`</span>);
+    <span style="color:#719e07">if</span> (lastCounter <span style="color:#719e07">===</span> <span style="color:#719e07">this</span>.props.value) {
+      console.log(<span style="color:#586e75">`mount counter with value = </span><span style="color:#2aa198">${</span><span style="color:#719e07">this</span>.props.value<span style="color:#2aa198">}</span><span style="color:#586e75"> multiple times`</span>);
     }
-    lastCounter <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">this</span>.props.value;
+    lastCounter <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>.props.value;
 
-    <span style="color:#998;font-style:italic">// Syncronously wait for 100ms to emulate long work
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">const</span> start <span style="color:#000;font-weight:bold">=</span> <span style="color:#0086b3">Date</span>.now();
-    <span style="color:#000;font-weight:bold">while</span> (<span style="color:#0086b3">Date</span>.now() <span style="color:#000;font-weight:bold">-</span> start <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#099">100</span>);
+    <span style="color:#586e75">// Syncronously wait for 100ms to emulate long work
+</span><span style="color:#586e75"></span>    <span style="color:#719e07">const</span> start <span style="color:#719e07">=</span> <span style="color:#b58900">Date</span>.now();
+    <span style="color:#719e07">while</span> (<span style="color:#b58900">Date</span>.now() <span style="color:#719e07">-</span> start <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">100</span>);
   }
 
   render() {
-    <span style="color:#000;font-weight:bold">return</span> &lt;<span style="color:#000080">div</span>&gt;{<span style="color:#000;font-weight:bold">this</span>.props.value}&lt;/<span style="color:#000080">div</span>&gt;;
+    <span style="color:#719e07">return</span> &lt;<span style="color:#268bd2">div</span>&gt;{<span style="color:#719e07">this</span>.props.value}&lt;/<span style="color:#268bd2">div</span>&gt;;
   }
 }
 
-<span style="color:#000;font-weight:bold">class</span> App <span style="color:#000;font-weight:bold">extends</span> React.Component {
-  state <span style="color:#000;font-weight:bold">=</span> { counter<span style="color:#000;font-weight:bold">:</span> <span style="color:#099">0</span>, showGreetings<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">true</span> };
+<span style="color:#719e07">class</span> App <span style="color:#719e07">extends</span> React.Component {
+  state <span style="color:#719e07">=</span> { counter<span style="color:#719e07">:</span> <span style="color:#2aa198">0</span>, showGreetings<span style="color:#719e07">:</span> <span style="color:#cb4b16">true</span> };
 
   componentDidMount() {
-    <span style="color:#000;font-weight:bold">this</span>.interval <span style="color:#000;font-weight:bold">=</span> setInterval(() =&gt; {
-      <span style="color:#000;font-weight:bold">this</span>.setState({ counter<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">this</span>.state.counter <span style="color:#000;font-weight:bold">+</span> <span style="color:#099">1</span> });
-    }, <span style="color:#099">500</span>);
+    <span style="color:#719e07">this</span>.interval <span style="color:#719e07">=</span> setInterval(() =&gt; {
+      <span style="color:#719e07">this</span>.setState({ counter<span style="color:#719e07">:</span> <span style="color:#719e07">this</span>.state.counter <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span> });
+    }, <span style="color:#2aa198">500</span>);
   }
 
   componentWillUnmount() {
-    clearInterval(<span style="color:#000;font-weight:bold">this</span>.interval);
+    clearInterval(<span style="color:#719e07">this</span>.interval);
   }
 
-  toggleGreetings <span style="color:#000;font-weight:bold">=</span> () =&gt; {
-    <span style="color:#000;font-weight:bold">this</span>.setState({ showGreetings<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">!</span><span style="color:#000;font-weight:bold">this</span>.state.showGreetings });
+  toggleGreetings <span style="color:#719e07">=</span> () =&gt; {
+    <span style="color:#719e07">this</span>.setState({ showGreetings<span style="color:#719e07">:</span> <span style="color:#719e07">!</span><span style="color:#719e07">this</span>.state.showGreetings });
   };
 
   render() {
-    <span style="color:#998;font-style:italic">// Use key attribute to force React.JS to remount Counter component
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">return</span> (
-      <span style="color:#000;font-weight:bold">&lt;&gt;</span>
-        &lt;<span style="color:#000080">button</span> <span style="color:#008080">onClick</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{this.toggleGreetings}</span>&gt;Toggle greetings&lt;/<span style="color:#000080">button</span>&gt;
-        {<span style="color:#000;font-weight:bold">this</span>.state.showGreetings <span style="color:#000;font-weight:bold">&amp;&amp;</span> &lt;<span style="color:#000080">h1</span>&gt;Hello world<span style="color:#000;font-weight:bold">!</span>&lt;/<span style="color:#000080">h1</span>&gt;}
-        &lt;<span style="color:#000080">Counter</span> <span style="color:#008080">value</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{this.state.counter}</span> <span style="color:#008080">key</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{`counter-${this.state.counter}`}</span> /&gt;
-        &lt;<span style="color:#000080">div</span>&gt;{<span style="color:#000;font-weight:bold">this</span>.state.counter2}&lt;/<span style="color:#000080">div</span>&gt;
-      <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#a61717;background-color:#e3d2d2">/&gt;</span>
+    <span style="color:#586e75">// Use key attribute to force React.JS to remount Counter component
+</span><span style="color:#586e75"></span>    <span style="color:#719e07">return</span> (
+      <span style="color:#719e07">&lt;&gt;</span>
+        &lt;<span style="color:#268bd2">button</span> onClick<span style="color:#719e07">=</span><span style="color:#2aa198">{this.toggleGreetings}</span>&gt;Toggle greetings&lt;/<span style="color:#268bd2">button</span>&gt;
+        {<span style="color:#719e07">this</span>.state.showGreetings <span style="color:#719e07">&amp;&amp;</span> &lt;<span style="color:#268bd2">h1</span>&gt;Hello world<span style="color:#719e07">!</span>&lt;/<span style="color:#268bd2">h1</span>&gt;}
+        &lt;<span style="color:#268bd2">Counter</span> value<span style="color:#719e07">=</span><span style="color:#2aa198">{this.state.counter}</span> key<span style="color:#719e07">=</span><span style="color:#2aa198">{`counter-${this.state.counter}`}</span> /&gt;
+        &lt;<span style="color:#268bd2">div</span>&gt;{<span style="color:#719e07">this</span>.state.counter2}&lt;/<span style="color:#268bd2">div</span>&gt;
+      <span style="color:#719e07">&lt;</span>/&gt;
     );
 
   }
 }
 
-<span style="color:#998;font-style:italic">// Instead of regular initialization
-</span><span style="color:#998;font-style:italic">// ReactDOM.render(&lt;App /&gt;, document.getElementById(&#39;root&#39;));
-</span><span style="color:#998;font-style:italic">// use Concurrent Rendering for this component
-</span><span style="color:#998;font-style:italic"></span>ReactDOM.createRoot(<span style="color:#0086b3">document</span>.getElementById(<span style="color:#d14">&#39;root&#39;</span>)).render(&lt;<span style="color:#000080">App</span> /&gt;);</code></pre></div>
+<span style="color:#586e75">// Instead of regular initialization
+</span><span style="color:#586e75">// ReactDOM.render(&lt;App /&gt;, document.getElementById(&#39;root&#39;));
+</span><span style="color:#586e75">// use Concurrent Rendering for this component
+</span><span style="color:#586e75"></span>ReactDOM.createRoot(<span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;root&#39;</span>)).render(&lt;<span style="color:#268bd2">App</span> /&gt;);</code></pre></div>
 <p>There is a counter increased with <code>setInterval</code> every 500ms. Every change of the counter initiate
 rendering of the <code>App</code> component and as a result - remounting and rendering of the <code>Counter</code>
 component. There is a button that can be used to hide and show greetings caption. It means that

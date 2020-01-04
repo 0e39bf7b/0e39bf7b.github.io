@@ -45,14 +45,14 @@ it work and how does it solve the problem of code reuse.</p>
 <p>During the software development process of frontend project, every developer meets code reuse
 problem sooner or later. This code can be stateless or stateful. A typical example of stateless
 shared code is date formatting function. It can be used like this:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">import</span> { formatDate } from <span style="color:#d14">&#39;utils&#39;</span>;
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#719e07">import</span> { formatDate } from <span style="color:#2aa198">&#39;utils&#39;</span>;
 
-<span style="color:#000;font-weight:bold">function</span> Comment(props) {
-  <span style="color:#000;font-weight:bold">return</span> (
-    &lt;<span style="color:#000080">div</span> <span style="color:#008080">className</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;comment&#34;</span>&gt;
-      &lt;<span style="color:#000080">div</span> <span style="color:#008080">className</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;createdAt&#34;</span>&gt;{formatDate(props.createdAt)}&lt;/<span style="color:#000080">div</span>&gt;
-      &lt;<span style="color:#000080">p</span>&gt;{props.text}&lt;/<span style="color:#000080">p</span>&gt;
-    &lt;/<span style="color:#000080">div</span>&gt;
+<span style="color:#268bd2">function</span> Comment(props) {
+  <span style="color:#719e07">return</span> (
+    &lt;<span style="color:#268bd2">div</span> className<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;comment&#34;</span>&gt;
+      &lt;<span style="color:#268bd2">div</span> className<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;createdAt&#34;</span>&gt;{formatDate(props.createdAt)}&lt;/<span style="color:#268bd2">div</span>&gt;
+      &lt;<span style="color:#268bd2">p</span>&gt;{props.text}&lt;/<span style="color:#268bd2">p</span>&gt;
+    &lt;/<span style="color:#268bd2">div</span>&gt;
   );
 }</code></pre></div>
 <p>It&rsquo;s easy to use stateless shared code because you don&rsquo;t need to think about the state, so it can be
@@ -69,81 +69,81 @@ between all components.</p>
 <p><a href="https://reactjs.org/docs/render-props.html">Render props</a> is a technique for sharing the code
 between React components using a prop whose value is a function. Such an approach makes it possible
 to separate logic and rendering into two different components.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">class</span> UserProvider <span style="color:#000;font-weight:bold">extends</span> React.Component {
-  state <span style="color:#000;font-weight:bold">=</span> { user<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">null</span> };
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#719e07">class</span> UserProvider <span style="color:#719e07">extends</span> React.Component {
+  state <span style="color:#719e07">=</span> { user<span style="color:#719e07">:</span> <span style="color:#cb4b16">null</span> };
 
-  <span style="color:#000;font-weight:bold">async</span> componentDidMount() {
-    <span style="color:#000;font-weight:bold">const</span> user <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">await</span> fetchUser();
-    <span style="color:#000;font-weight:bold">this</span>.setState({ user });
+  <span style="color:#268bd2">async</span> componentDidMount() {
+    <span style="color:#719e07">const</span> user <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> fetchUser();
+    <span style="color:#719e07">this</span>.setState({ user });
   }
 
   render() {
-    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">this</span>.props.render(<span style="color:#000;font-weight:bold">this</span>.state.user);
+    <span style="color:#719e07">return</span> <span style="color:#719e07">this</span>.props.render(<span style="color:#719e07">this</span>.state.user);
   }
 }
 
-<span style="color:#000;font-weight:bold">function</span> App(user) {
-  <span style="color:#000;font-weight:bold">return</span> (
-    &lt;<span style="color:#000080">p</span>&gt;
-      Current user<span style="color:#000;font-weight:bold">:</span> {user <span style="color:#000;font-weight:bold">?</span> user.name <span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;anonymous&#39;</span>}
-    &lt;/<span style="color:#000080">p</span>&gt;
+<span style="color:#268bd2">function</span> App(user) {
+  <span style="color:#719e07">return</span> (
+    &lt;<span style="color:#268bd2">p</span>&gt;
+      Current user<span style="color:#719e07">:</span> {user <span style="color:#719e07">?</span> user.name <span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;anonymous&#39;</span>}
+    &lt;/<span style="color:#268bd2">p</span>&gt;
   );
 }
 
-ReactDOM.render(&lt;<span style="color:#000080">UserProvider</span> <span style="color:#008080">render</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{App}</span> /&gt;, <span style="color:#0086b3">document</span>.getElementById(<span style="color:#d14">&#39;app&#39;</span>));</code></pre></div>
+ReactDOM.render(&lt;<span style="color:#268bd2">UserProvider</span> render<span style="color:#719e07">=</span><span style="color:#2aa198">{App}</span> /&gt;, <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;app&#39;</span>));</code></pre></div>
 <p>In the example above user fetching extracted into separate <code>UserProvider</code> component. This component
 takes a function as a <code>render</code> prop that returns a React element and calls it instead of
 implementing its own render logic, so different components can reuse <code>UserProvider</code>.</p>
 
 <p>If some component needs two different render props components it can be implemented like this:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">class</span> UserProvider <span style="color:#000;font-weight:bold">extends</span> React.Component {
-  state <span style="color:#000;font-weight:bold">=</span> { user<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">null</span> };
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#719e07">class</span> UserProvider <span style="color:#719e07">extends</span> React.Component {
+  state <span style="color:#719e07">=</span> { user<span style="color:#719e07">:</span> <span style="color:#cb4b16">null</span> };
 
-  <span style="color:#000;font-weight:bold">async</span> componentDidMount() {
-    <span style="color:#000;font-weight:bold">const</span> user <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">await</span> fetchUser();
-    <span style="color:#000;font-weight:bold">this</span>.setState({ user });
+  <span style="color:#268bd2">async</span> componentDidMount() {
+    <span style="color:#719e07">const</span> user <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> fetchUser();
+    <span style="color:#719e07">this</span>.setState({ user });
   }
 
   render() {
-    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">this</span>.props.render(<span style="color:#000;font-weight:bold">this</span>.state.user);
+    <span style="color:#719e07">return</span> <span style="color:#719e07">this</span>.props.render(<span style="color:#719e07">this</span>.state.user);
   }
 }
 
-<span style="color:#000;font-weight:bold">class</span> CommentsProvider <span style="color:#000;font-weight:bold">extends</span> React.Component {
-  state <span style="color:#000;font-weight:bold">=</span> { comments<span style="color:#000;font-weight:bold">:</span> [] };
+<span style="color:#719e07">class</span> CommentsProvider <span style="color:#719e07">extends</span> React.Component {
+  state <span style="color:#719e07">=</span> { comments<span style="color:#719e07">:</span> [] };
 
-  <span style="color:#000;font-weight:bold">async</span> componentDidMount() {
-    <span style="color:#000;font-weight:bold">const</span> comments <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">await</span> fetchComments();
-    <span style="color:#000;font-weight:bold">this</span>.setState({ comments });
+  <span style="color:#268bd2">async</span> componentDidMount() {
+    <span style="color:#719e07">const</span> comments <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> fetchComments();
+    <span style="color:#719e07">this</span>.setState({ comments });
   }
 
   render() {
-    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">this</span>.props.render(<span style="color:#000;font-weight:bold">this</span>.state.comments);
+    <span style="color:#719e07">return</span> <span style="color:#719e07">this</span>.props.render(<span style="color:#719e07">this</span>.state.comments);
   }
 }
 
-<span style="color:#000;font-weight:bold">function</span> App(user, comments) {
-  <span style="color:#000;font-weight:bold">return</span> (
-    <span style="color:#000;font-weight:bold">&lt;&gt;</span>
-      &lt;<span style="color:#000080">p</span>&gt;Current user<span style="color:#000;font-weight:bold">:</span> {user <span style="color:#000;font-weight:bold">?</span> user.name <span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;anonymous&#34;</span>}&lt;/<span style="color:#000080">p</span>&gt;
-      &lt;<span style="color:#000080">div</span> <span style="color:#008080">className</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;comments&#34;</span>&gt;
+<span style="color:#268bd2">function</span> App(user, comments) {
+  <span style="color:#719e07">return</span> (
+    <span style="color:#719e07">&lt;&gt;</span>
+      &lt;<span style="color:#268bd2">p</span>&gt;Current user<span style="color:#719e07">:</span> {user <span style="color:#719e07">?</span> user.name <span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;anonymous&#34;</span>}&lt;/<span style="color:#268bd2">p</span>&gt;
+      &lt;<span style="color:#268bd2">div</span> className<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;comments&#34;</span>&gt;
         {comments.map(c =&gt; (
-          &lt;<span style="color:#000080">div</span> <span style="color:#008080">className</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;comment&#34;</span>&gt;{c.text}&lt;/<span style="color:#000080">div</span>&gt;)
+          &lt;<span style="color:#268bd2">div</span> className<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;comment&#34;</span>&gt;{c.text}&lt;/<span style="color:#268bd2">div</span>&gt;)
         )}
-      &lt;/<span style="color:#000080">div</span>&gt;
-    <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#a61717;background-color:#e3d2d2">/&gt;</span>
+      &lt;/<span style="color:#268bd2">div</span>&gt;
+    <span style="color:#719e07">&lt;</span>/&gt;
   );
 }
 
 ReactDOM.render(
-  &lt;<span style="color:#000080">UserProvider</span>
-    <span style="color:#008080">render</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{user</span> <span style="color:#a61717;background-color:#e3d2d2">=</span>&gt; (
-      &lt;<span style="color:#000080">CommentsProvider</span> <span style="color:#008080">render</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{comments</span> <span style="color:#a61717;background-color:#e3d2d2">=</span>&gt; (
+  &lt;<span style="color:#268bd2">UserProvider</span>
+    render<span style="color:#719e07">=</span><span style="color:#2aa198">{user</span> =&gt; (
+      &lt;<span style="color:#268bd2">CommentsProvider</span> render<span style="color:#719e07">=</span><span style="color:#2aa198">{comments</span> =&gt; (
         App(user, comments)
-      )} <span style="color:#000;font-weight:bold">/&gt;</span>;
+      )} <span style="color:#719e07">/&gt;</span>;
     )}
-  <span style="color:#000;font-weight:bold">/&gt;</span>,
-  <span style="color:#0086b3">document</span>.getElementById(<span style="color:#d14">&#34;app&#34;</span>)
+  <span style="color:#719e07">/&gt;</span>,
+  <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#34;app&#34;</span>)
 );</code></pre></div>
 <p>As you can see, this code looks a bit dirty.</p>
 
@@ -152,97 +152,97 @@ ReactDOM.render(
 <p><a href="https://reactjs.org/docs/higher-order-components.html">Higher-order components</a> (HOC) is a function
 that takes a component and returns a new component. Such a technique can be used for extracting
 logic into a wrapper-component and reuse it later in several places.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">function</span> withUser(WrappedComponent) {
-  <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#000;font-weight:bold">extends</span> React.Component {
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#268bd2">function</span> withUser(WrappedComponent) {
+  <span style="color:#719e07">return</span> <span style="color:#719e07">class</span> <span style="color:#719e07">extends</span> React.Component {
     constructor(props) {
-      <span style="color:#000;font-weight:bold">super</span>(props);
-      <span style="color:#000;font-weight:bold">this</span>.state <span style="color:#000;font-weight:bold">=</span> { user<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">null</span> };
+      <span style="color:#719e07">super</span>(props);
+      <span style="color:#719e07">this</span>.state <span style="color:#719e07">=</span> { user<span style="color:#719e07">:</span> <span style="color:#cb4b16">null</span> };
     }
 
-    <span style="color:#000;font-weight:bold">async</span> componentDidMount() {
-      <span style="color:#000;font-weight:bold">const</span> user <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">await</span> fetchUser();
-      <span style="color:#000;font-weight:bold">this</span>.setState({ user });
+    <span style="color:#268bd2">async</span> componentDidMount() {
+      <span style="color:#719e07">const</span> user <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> fetchUser();
+      <span style="color:#719e07">this</span>.setState({ user });
     }
 
     render() {
-      <span style="color:#000;font-weight:bold">return</span> (
-        &lt;<span style="color:#000080">WrappedComponent</span> {<span style="color:#008080">...this.props</span>} <span style="color:#008080">user</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{this.state.user}</span> /&gt;
+      <span style="color:#719e07">return</span> (
+        &lt;<span style="color:#268bd2">WrappedComponent</span> {...this.props} user<span style="color:#719e07">=</span><span style="color:#2aa198">{this.state.user}</span> /&gt;
       );
     }
   }
 }
 
-<span style="color:#000;font-weight:bold">function</span> App({ user }) {
-  <span style="color:#000;font-weight:bold">return</span> (
-    &lt;<span style="color:#000080">p</span>&gt;
-      Current user<span style="color:#000;font-weight:bold">:</span> {user <span style="color:#000;font-weight:bold">?</span> user.name <span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;anonymous&#39;</span>}
-    &lt;/<span style="color:#000080">p</span>&gt;
+<span style="color:#268bd2">function</span> App({ user }) {
+  <span style="color:#719e07">return</span> (
+    &lt;<span style="color:#268bd2">p</span>&gt;
+      Current user<span style="color:#719e07">:</span> {user <span style="color:#719e07">?</span> user.name <span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;anonymous&#39;</span>}
+    &lt;/<span style="color:#268bd2">p</span>&gt;
   );
 }
 
-<span style="color:#000;font-weight:bold">const</span> WrappedApp <span style="color:#000;font-weight:bold">=</span> withUser(App);
+<span style="color:#719e07">const</span> WrappedApp <span style="color:#719e07">=</span> withUser(App);
 
-ReactDOM.render(&lt;<span style="color:#000080">WrappedApp</span> /&gt;, <span style="color:#0086b3">document</span>.getElementById(<span style="color:#d14">&#39;app&#39;</span>));</code></pre></div>
+ReactDOM.render(&lt;<span style="color:#268bd2">WrappedApp</span> /&gt;, <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;app&#39;</span>));</code></pre></div>
 <p>In the example above user fetching extracted into separate component returned by <code>withUser</code>
 function. This component wraps the original <code>App</code> component and provides <code>user</code> property for it.</p>
 
 <p>Any component can be wrapped by several HOCs to connect different logic:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">function</span> withUser(WrappedComponent) {
-  <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#000;font-weight:bold">extends</span> React.Component {
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#268bd2">function</span> withUser(WrappedComponent) {
+  <span style="color:#719e07">return</span> <span style="color:#719e07">class</span> <span style="color:#719e07">extends</span> React.Component {
     constructor(props) {
-      <span style="color:#000;font-weight:bold">super</span>(props);
-      <span style="color:#000;font-weight:bold">this</span>.state <span style="color:#000;font-weight:bold">=</span> { user<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">null</span> };
+      <span style="color:#719e07">super</span>(props);
+      <span style="color:#719e07">this</span>.state <span style="color:#719e07">=</span> { user<span style="color:#719e07">:</span> <span style="color:#cb4b16">null</span> };
     }
 
-    <span style="color:#000;font-weight:bold">async</span> componentDidMount() {
-      <span style="color:#000;font-weight:bold">const</span> user <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">await</span> fetchUser();
-      <span style="color:#000;font-weight:bold">this</span>.setState({ user });
+    <span style="color:#268bd2">async</span> componentDidMount() {
+      <span style="color:#719e07">const</span> user <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> fetchUser();
+      <span style="color:#719e07">this</span>.setState({ user });
     }
 
     render() {
-      <span style="color:#000;font-weight:bold">return</span> (
-        &lt;<span style="color:#000080">WrappedComponent</span> {<span style="color:#008080">...this.props</span>} <span style="color:#008080">user</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{this.state.user}</span> /&gt;
+      <span style="color:#719e07">return</span> (
+        &lt;<span style="color:#268bd2">WrappedComponent</span> {...this.props} user<span style="color:#719e07">=</span><span style="color:#2aa198">{this.state.user}</span> /&gt;
       );
     }
   }
 }
 
-<span style="color:#000;font-weight:bold">function</span> withComments(WrappedComponent) {
-  <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#000;font-weight:bold">extends</span> React.Component {
+<span style="color:#268bd2">function</span> withComments(WrappedComponent) {
+  <span style="color:#719e07">return</span> <span style="color:#719e07">class</span> <span style="color:#719e07">extends</span> React.Component {
     constructor(props) {
-      <span style="color:#000;font-weight:bold">super</span>(props);
-      <span style="color:#000;font-weight:bold">this</span>.state <span style="color:#000;font-weight:bold">=</span> { comments<span style="color:#000;font-weight:bold">:</span> [] };
+      <span style="color:#719e07">super</span>(props);
+      <span style="color:#719e07">this</span>.state <span style="color:#719e07">=</span> { comments<span style="color:#719e07">:</span> [] };
     }
 
-    <span style="color:#000;font-weight:bold">async</span> componentDidMount() {
-      <span style="color:#000;font-weight:bold">const</span> comments <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">await</span> fetchComments();
-      <span style="color:#000;font-weight:bold">this</span>.setState({ comments });
+    <span style="color:#268bd2">async</span> componentDidMount() {
+      <span style="color:#719e07">const</span> comments <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> fetchComments();
+      <span style="color:#719e07">this</span>.setState({ comments });
     }
 
     render() {
-      <span style="color:#000;font-weight:bold">return</span> (
-        &lt;<span style="color:#000080">WrappedComponent</span> {<span style="color:#008080">...this.props</span>} <span style="color:#008080">comments</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{this.state.comments}</span> /&gt;
+      <span style="color:#719e07">return</span> (
+        &lt;<span style="color:#268bd2">WrappedComponent</span> {...this.props} comments<span style="color:#719e07">=</span><span style="color:#2aa198">{this.state.comments}</span> /&gt;
       );
     }
   }
 }
 
-<span style="color:#000;font-weight:bold">function</span> App({ user, comments }) {
-  <span style="color:#000;font-weight:bold">return</span> (
-    <span style="color:#000;font-weight:bold">&lt;&gt;</span>
-      &lt;<span style="color:#000080">p</span>&gt;Current user<span style="color:#000;font-weight:bold">:</span> {user <span style="color:#000;font-weight:bold">?</span> user.name <span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;anonymous&#34;</span>}&lt;/<span style="color:#000080">p</span>&gt;
-      &lt;<span style="color:#000080">div</span> <span style="color:#008080">className</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;comments&#34;</span>&gt;
+<span style="color:#268bd2">function</span> App({ user, comments }) {
+  <span style="color:#719e07">return</span> (
+    <span style="color:#719e07">&lt;&gt;</span>
+      &lt;<span style="color:#268bd2">p</span>&gt;Current user<span style="color:#719e07">:</span> {user <span style="color:#719e07">?</span> user.name <span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;anonymous&#34;</span>}&lt;/<span style="color:#268bd2">p</span>&gt;
+      &lt;<span style="color:#268bd2">div</span> className<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;comments&#34;</span>&gt;
         {comments.map(c =&gt; (
-          &lt;<span style="color:#000080">div</span> <span style="color:#008080">className</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;comment&#34;</span>&gt;{c.text}&lt;/<span style="color:#000080">div</span>&gt;)
+          &lt;<span style="color:#268bd2">div</span> className<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;comment&#34;</span>&gt;{c.text}&lt;/<span style="color:#268bd2">div</span>&gt;)
         )}
-      &lt;/<span style="color:#000080">div</span>&gt;
-    <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#a61717;background-color:#e3d2d2">/&gt;</span>
+      &lt;/<span style="color:#268bd2">div</span>&gt;
+    <span style="color:#719e07">&lt;</span>/&gt;
   );
 }
 
-<span style="color:#000;font-weight:bold">const</span> WrappedApp <span style="color:#000;font-weight:bold">=</span> withComments(withUser(App));
+<span style="color:#719e07">const</span> WrappedApp <span style="color:#719e07">=</span> withComments(withUser(App));
 
-ReactDOM.render(&lt;<span style="color:#000080">WrappedApp</span> /&gt;, <span style="color:#0086b3">document</span>.getElementById(<span style="color:#d14">&#39;app&#39;</span>));</code></pre></div>
+ReactDOM.render(&lt;<span style="color:#268bd2">WrappedApp</span> /&gt;, <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;app&#39;</span>));</code></pre></div>
 <p>I think such chain <code>withCommens(withUser(App))</code> looks much better than render props variant.</p>
 
 <p>All wrapper-components are displayed in React Debugger:</p>
@@ -265,28 +265,28 @@ to convert it to a class. Now you can use a Hook inside the existing function co
 </blockquote>
 
 <p>So the border between stateful and stateless components is blurring.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">function</span> useUser() {
-  <span style="color:#000;font-weight:bold">const</span> [user, setUser] <span style="color:#000;font-weight:bold">=</span> useState(<span style="color:#000;font-weight:bold">null</span>);
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#268bd2">function</span> useUser() {
+  <span style="color:#719e07">const</span> [user, setUser] <span style="color:#719e07">=</span> useState(<span style="color:#cb4b16">null</span>);
 
-  useEffect(<span style="color:#000;font-weight:bold">async</span> () =&gt; {
-    <span style="color:#000;font-weight:bold">const</span> u <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">await</span> fetchUser();
+  useEffect(<span style="color:#268bd2">async</span> () =&gt; {
+    <span style="color:#719e07">const</span> u <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> fetchUser();
     setUser(u);
   }, []);
 
-  <span style="color:#000;font-weight:bold">return</span> user;
+  <span style="color:#719e07">return</span> user;
 }
 
-<span style="color:#000;font-weight:bold">function</span> App() {
-  <span style="color:#000;font-weight:bold">const</span> user <span style="color:#000;font-weight:bold">=</span> useUser();
+<span style="color:#268bd2">function</span> App() {
+  <span style="color:#719e07">const</span> user <span style="color:#719e07">=</span> useUser();
 
-  <span style="color:#000;font-weight:bold">return</span> (
-    &lt;<span style="color:#000080">p</span>&gt;
-      Current user<span style="color:#000;font-weight:bold">:</span> {user <span style="color:#000;font-weight:bold">?</span> user.name <span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;anonymous&#39;</span>}
-    &lt;/<span style="color:#000080">p</span>&gt;
+  <span style="color:#719e07">return</span> (
+    &lt;<span style="color:#268bd2">p</span>&gt;
+      Current user<span style="color:#719e07">:</span> {user <span style="color:#719e07">?</span> user.name <span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;anonymous&#39;</span>}
+    &lt;/<span style="color:#268bd2">p</span>&gt;
   );
 }
 
-ReactDOM.render(&lt;<span style="color:#000080">App</span> /&gt;, <span style="color:#0086b3">document</span>.getElementById(<span style="color:#d14">&#39;app&#39;</span>));</code></pre></div>
+ReactDOM.render(&lt;<span style="color:#268bd2">App</span> /&gt;, <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;app&#39;</span>));</code></pre></div>
 <p>Before React Hooks it was a rule that functional components do not have any state but now it&rsquo;s not
 true. React.JS provides some sort of external context for every functional component and React Hooks
 use this context to store state and perform some effects like <code>componentDidMount</code> hook does for
@@ -297,45 +297,45 @@ understand better how React Hooks is implemented.</p>
 <p>In the example above custom hook <code>useUser</code> was introduced. It encapsulates user state and makes it
 possible to use it in <code>App</code> functional component. Several custom hooks can be used in one functional
 component:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">function</span> useUser() {
-  <span style="color:#000;font-weight:bold">const</span> [user, setUser] <span style="color:#000;font-weight:bold">=</span> useState(<span style="color:#000;font-weight:bold">null</span>);
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#268bd2">function</span> useUser() {
+  <span style="color:#719e07">const</span> [user, setUser] <span style="color:#719e07">=</span> useState(<span style="color:#cb4b16">null</span>);
 
-  useEffect(<span style="color:#000;font-weight:bold">async</span> () =&gt; {
-    <span style="color:#000;font-weight:bold">const</span> u <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">await</span> fetchUser();
+  useEffect(<span style="color:#268bd2">async</span> () =&gt; {
+    <span style="color:#719e07">const</span> u <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> fetchUser();
     setUser(u);
   }, []);
 
-  <span style="color:#000;font-weight:bold">return</span> user;
+  <span style="color:#719e07">return</span> user;
 }
 
-<span style="color:#000;font-weight:bold">function</span> useComments() {
-  <span style="color:#000;font-weight:bold">const</span> [comments, setComments] <span style="color:#000;font-weight:bold">=</span> useState([]);
+<span style="color:#268bd2">function</span> useComments() {
+  <span style="color:#719e07">const</span> [comments, setComments] <span style="color:#719e07">=</span> useState([]);
 
-  useEffect(<span style="color:#000;font-weight:bold">async</span> () =&gt; {
-    <span style="color:#000;font-weight:bold">const</span> c <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">await</span> fetchComments();
+  useEffect(<span style="color:#268bd2">async</span> () =&gt; {
+    <span style="color:#719e07">const</span> c <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> fetchComments();
     setComments(c);
   }, []);
 
-  <span style="color:#000;font-weight:bold">return</span> user;
+  <span style="color:#719e07">return</span> user;
 }
 
-<span style="color:#000;font-weight:bold">function</span> App() {
-  <span style="color:#000;font-weight:bold">const</span> user <span style="color:#000;font-weight:bold">=</span> useUser();
-  <span style="color:#000;font-weight:bold">const</span> comments <span style="color:#000;font-weight:bold">=</span> useUser();
+<span style="color:#268bd2">function</span> App() {
+  <span style="color:#719e07">const</span> user <span style="color:#719e07">=</span> useUser();
+  <span style="color:#719e07">const</span> comments <span style="color:#719e07">=</span> useUser();
 
-  <span style="color:#000;font-weight:bold">return</span> (
-    <span style="color:#000;font-weight:bold">&lt;&gt;</span>
-      &lt;<span style="color:#000080">p</span>&gt;Current user<span style="color:#000;font-weight:bold">:</span> {user <span style="color:#000;font-weight:bold">?</span> user.name <span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;anonymous&#34;</span>}&lt;/<span style="color:#000080">p</span>&gt;
-      &lt;<span style="color:#000080">div</span> <span style="color:#008080">className</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;comments&#34;</span>&gt;
+  <span style="color:#719e07">return</span> (
+    <span style="color:#719e07">&lt;&gt;</span>
+      &lt;<span style="color:#268bd2">p</span>&gt;Current user<span style="color:#719e07">:</span> {user <span style="color:#719e07">?</span> user.name <span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;anonymous&#34;</span>}&lt;/<span style="color:#268bd2">p</span>&gt;
+      &lt;<span style="color:#268bd2">div</span> className<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;comments&#34;</span>&gt;
         {comments.map(c =&gt; (
-          &lt;<span style="color:#000080">div</span> <span style="color:#008080">className</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;comment&#34;</span>&gt;{c.text}&lt;/<span style="color:#000080">div</span>&gt;)
+          &lt;<span style="color:#268bd2">div</span> className<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;comment&#34;</span>&gt;{c.text}&lt;/<span style="color:#268bd2">div</span>&gt;)
         )}
-      &lt;/<span style="color:#000080">div</span>&gt;
-    <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#a61717;background-color:#e3d2d2">/&gt;</span>
+      &lt;/<span style="color:#268bd2">div</span>&gt;
+    <span style="color:#719e07">&lt;</span>/&gt;
   );
 }
 
-ReactDOM.render(&lt;<span style="color:#000080">App</span> /&gt;, <span style="color:#0086b3">document</span>.getElementById(<span style="color:#d14">&#39;app&#39;</span>));</code></pre></div>
+ReactDOM.render(&lt;<span style="color:#268bd2">App</span> /&gt;, <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;app&#39;</span>));</code></pre></div>
 <p>The example with hooks requires less code and it seems that it is easier to read but there are some
 disadvantages to this approach.</p>
 
@@ -350,22 +350,22 @@ code without errors.</p>
 <p>Also, it&rsquo;s more difficult to test your code with React Hooks. Assume you want to check rendering
 logic. In case of render props or HOC you just provide some attributes for your presentational
 component and check the result:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#000;font-weight:bold">function</span> App({ user, comments }) {
-  <span style="color:#000;font-weight:bold">return</span> (
-    <span style="color:#000;font-weight:bold">&lt;&gt;</span>
-      &lt;<span style="color:#000080">p</span>&gt;Current user<span style="color:#000;font-weight:bold">:</span> {user <span style="color:#000;font-weight:bold">?</span> user.name <span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;anonymous&#34;</span>}&lt;/<span style="color:#000080">p</span>&gt;
-      &lt;<span style="color:#000080">div</span> <span style="color:#008080">className</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;comments&#34;</span>&gt;
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#268bd2">function</span> App({ user, comments }) {
+  <span style="color:#719e07">return</span> (
+    <span style="color:#719e07">&lt;&gt;</span>
+      &lt;<span style="color:#268bd2">p</span>&gt;Current user<span style="color:#719e07">:</span> {user <span style="color:#719e07">?</span> user.name <span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;anonymous&#34;</span>}&lt;/<span style="color:#268bd2">p</span>&gt;
+      &lt;<span style="color:#268bd2">div</span> className<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;comments&#34;</span>&gt;
         {comments.map(c =&gt; (
-          &lt;<span style="color:#000080">div</span> <span style="color:#008080">className</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;comment&#34;</span>&gt;{c.text}&lt;/<span style="color:#000080">div</span>&gt;)
+          &lt;<span style="color:#268bd2">div</span> className<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;comment&#34;</span>&gt;{c.text}&lt;/<span style="color:#268bd2">div</span>&gt;)
         )}
-      &lt;/<span style="color:#000080">div</span>&gt;
-    <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#a61717;background-color:#e3d2d2">/&gt;</span>
+      &lt;/<span style="color:#268bd2">div</span>&gt;
+    <span style="color:#719e07">&lt;</span>/&gt;
   );
 }
 
-it(<span style="color:#d14">&#39;Renders &#34;anonymous&#34; if user prop is null&#39;</span>, () =&gt; {
-  <span style="color:#000;font-weight:bold">const</span> app <span style="color:#000;font-weight:bold">=</span> shallow(&lt;<span style="color:#000080">App</span> <span style="color:#008080">user</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{null}</span> <span style="color:#008080">comments</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{[]}</span> /&gt;);
-  expect(app.text()).to.contain(<span style="color:#d14">&#39;anonymous&#39;</span>);
+it(<span style="color:#2aa198">&#39;Renders &#34;anonymous&#34; if user prop is null&#39;</span>, () =&gt; {
+  <span style="color:#719e07">const</span> app <span style="color:#719e07">=</span> shallow(&lt;<span style="color:#268bd2">App</span> user<span style="color:#719e07">=</span><span style="color:#2aa198">{null}</span> comments<span style="color:#719e07">=</span><span style="color:#2aa198">{[]}</span> /&gt;);
+  expect(app.text()).to.contain(<span style="color:#2aa198">&#39;anonymous&#39;</span>);
 });</code></pre></div>
 <p>In case of React Hooks, you have to mock <code>fetchUser</code> and <code>fetchComments</code> function somehow. Sometimes
 it can tricky and moreover you check not only rendering logic but custom hooks logic too.</p>
