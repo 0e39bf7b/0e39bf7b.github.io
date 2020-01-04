@@ -29,142 +29,39 @@
 </head>
 
   <body class=" ">
-  <aside class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <a href="https://0e39bf7b.github.io/"><h1>Developer&#39;s blog</h1></a>
-      <p class="lead">
-       My thoughts about everything 
-      </p>
-    </div>
-
-    <nav>
-      <ul class="sidebar-nav">
-        <li><a href="https://0e39bf7b.github.io/">Home</a> </li>
-        
-      </ul>
-    </nav>
-
-    <p>&copy; 2019. All rights reserved. </p>
-  </div>
-</aside>
-
+    <h1 class="site-title"><a href="https://0e39bf7b.github.io/">Developer&#39;s blog</a></h1>
     <main class="content container">
     <div class="posts">
 <article class="post">
-  <h1 class="post-title">
+  <h2 class="post-title">
     <a href="https://0e39bf7b.github.io/posts/react-journey-componentwillmount-in-concurrent-mode/">React Journey: componentWillMount in Concurrent Mode</a>
-  </h1>
+  </h2>
   <time datetime="2019-12-17T12:00:00Z" class="post-date">Tue, Dec 17, 2019</time>
-  <p>Several days ago I was updating one of my React.JS projects and I found deprecation warning like:</p>
-
-<blockquote>
-<p>Warning: componentWillMount has been renamed, and is not recommended for use. See
-<a href="https://fb.me/react-unsafe-component-lifecycles">https://fb.me/react-unsafe-component-lifecycles</a> for details.</p>
-
-<ul>
-<li>Move code with side effects to componentDidMount, and set initial state in the constructor.</li>
-<li>Rename componentWillMount to UNSAFE<em>componentWillMount to suppress this warning in non-strict
-mode. In React 17.x, only the UNSAFE</em> name will work. To rename all deprecated lifecycles to their
-new names, you can run <code>npx react-codemod rename-unsafe-lifecycles</code> in your project source folder.</li>
-</ul>
-</blockquote>
-
-<p>I had followed <a href="https://fb.me/react-unsafe-component-lifecycles">the link from this warning</a> and
-found such an explanation about why this method is deprecated:</p>
-
-<blockquote>
-<p>One of the biggest lessons we’ve learned is that some of our legacy component lifecycles tend to
-encourage unsafe coding practices. They are:</p>
-
-<ul>
-<li>componentWillMount</li>
-<li>componentWillReceiveProps</li>
-<li>componentWillUpdate</li>
-</ul>
-
-<p>These lifecycle methods have often been misunderstood and subtly misused; furthermore, we
-anticipate that their potential misuse may be more problematic with async rendering.</p>
-</blockquote>
-
-<p>I think it&rsquo;s important to understand why using <code>componentWillMount</code> callback can be unsafe and why
-you need to change your code somehow. First of all, let&rsquo;s find out different usage examples of
-<code>componentWillMount</code> callback and check if it is safe or not to use this callback in different
-situations in the stable version of React.JS 16.12.0 for browser rendering (there are some issues
-with server rendering but it&rsquo;s a subject of a separate article).</p>
-  
-  <div class="read-more-link">
-    <a href="/posts/react-journey-componentwillmount-in-concurrent-mode/">Read More…</a>
-  </div>
-  
 </article><article class="post">
-  <h1 class="post-title">
+  <h2 class="post-title">
     <a href="https://0e39bf7b.github.io/posts/configure-emacs-for-python-development/">Configure Emacs for Python development</a>
-  </h1>
+  </h2>
   <time datetime="2019-10-19T10:30:00Z" class="post-date">Sat, Oct 19, 2019</time>
-  <p>I like to have the same development environment on the local machine and remote servers. In this
-case it&rsquo;s possible to write and debug programs not only with your laptop, but also using lightweight
-tablet or netbook and at the same time have all stuff you have used to like fast CPU, enough memory
-and all the features of IDE like code navigation or autocompletion. I prefer using Emacs on the
-Ubuntu machine to achieve this goal.</p>
-
-<p><img src="/emacs-gui.png" alt="Emacs GUI version" /></p>
-  
-  <div class="read-more-link">
-    <a href="/posts/configure-emacs-for-python-development/">Read More…</a>
-  </div>
-  
 </article><article class="post">
-  <h1 class="post-title">
+  <h2 class="post-title">
     <a href="https://0e39bf7b.github.io/posts/code-reuse-with-react-hooks/">Code Reuse with React Hooks</a>
-  </h1>
+  </h2>
   <time datetime="2019-07-07T12:00:00Z" class="post-date">Sun, Jul 7, 2019</time>
-  <p>One of the most challenging problems for frontend developers is the reuse of code. It&rsquo;s especially
-important for big applications. Traditional approaches with higher-order components and render-props
-have advantages and disadvantages. In some cases, it can be inconvenient to use them. React.JS 16.8
-introduced a new feature called React Hooks. Let&rsquo;s take a look at it and try to figure out how does
-it work and how does it solve the problem of code reuse.</p>
-  
-  <div class="read-more-link">
-    <a href="/posts/code-reuse-with-react-hooks/">Read More…</a>
-  </div>
-  
 </article><article class="post">
-  <h1 class="post-title">
+  <h2 class="post-title">
     <a href="https://0e39bf7b.github.io/posts/js-vs-jpg/">JS vs JPG</a>
-  </h1>
+  </h2>
   <time datetime="2019-05-25T10:00:00Z" class="post-date">Sat, May 25, 2019</time>
-  <p><img src="/js-vs-jpg.png" alt="Comparation between JS and JPG processing" /></p>
-
-<p><strong>TL;DR: sometimes processing of JS file can be slower than the processing of JPG of the same size
-in bytes, you&rsquo;d better check your own project before optimizing it.</strong></p>
-  
-  <div class="read-more-link">
-    <a href="/posts/js-vs-jpg/">Read More…</a>
-  </div>
-  
 </article><article class="post">
-  <h1 class="post-title">
+  <h2 class="post-title">
     <a href="https://0e39bf7b.github.io/posts/overengineering/">Overengineering</a>
-  </h1>
+  </h2>
   <time datetime="2019-04-20T11:05:05Z" class="post-date">Sat, Apr 20, 2019</time>
-  <p>In the modern, world there are a lot of different libraries and tools which were created to simplify
-software development, make it faster and less error-prone. Let&rsquo;s talk about frontend development. 10
-- 15 years ago the size of the JavaScript code on a regular Internet resource was much smaller.
-The majority of resources used <a href="https://jquery.com/">jQuery</a> with several plugins and a bit of
-business logic. Nowadays web applications become much more complicated, contain a lot of business
-logic and that is why being built using the Single Page Application (SPA) approach. When an
-application is written like SPA it creates page content in the browser dynamically instead of
-rendering HTML received from a server.</p>
-  
-  <div class="read-more-link">
-    <a href="/posts/overengineering/">Read More…</a>
-  </div>
-  
 </article>
 </div>
     </main>
 
+    <div class="copyright">&copy; 2020. All rights reserved. </div>
     
   </body>
 </html>

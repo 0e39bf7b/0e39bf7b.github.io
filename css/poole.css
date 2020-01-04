@@ -301,9 +301,8 @@ tbody tr:nth-child(odd) th {
  * page is wrapped in `.page` and is only used on the page layout.
  */
 
-.page,
-.post {
-  margin-bottom: 4em;
+.page {
+  margin-bottom: 1em;
 }
 
 /* Blog post or page title */
@@ -323,6 +322,7 @@ tbody tr:nth-child(odd) th {
   margin-top: -.5rem;
   margin-bottom: 1rem;
   color: #9a9a9a;
+  font-size: 0.8rem;
 }
 
 /* Related posts */
