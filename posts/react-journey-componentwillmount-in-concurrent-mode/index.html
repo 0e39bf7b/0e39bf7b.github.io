@@ -34,7 +34,7 @@
     <div class="post">
   <h1 class="post-title">React Journey: componentWillMount in Concurrent Mode</h1>
   <time datetime=2019-12-17T12:00:00Z class="post-date">Tue, Dec 17, 2019</time>
-  <p>Several days ago I was updating one of my React.JS projects and I found deprecation warning like:</p>
+  <p>Several days ago I was updating one of my React projects and I found deprecation warning like:</p>
 
 <blockquote>
 <p>Warning: componentWillMount has been renamed, and is not recommended for use. See
@@ -68,7 +68,7 @@ anticipate that their potential misuse may be more problematic with async render
 <p>I think it&rsquo;s important to understand why using <code>componentWillMount</code> callback can be unsafe and why
 you need to change your code somehow. First of all, let&rsquo;s find out different usage examples of
 <code>componentWillMount</code> callback and check if it is safe or not to use this callback in different
-situations in the stable version of React.JS 16.12.0 for browser rendering (there are some issues
+situations in the stable version of React 16.12.0 for browser rendering (there are some issues
 with server rendering but it&rsquo;s a subject of a separate article).</p>
 
 <h3 id="initializing-state">Initializing state</h3>
@@ -108,20 +108,20 @@ your code a bit more clear and use property initializer like this:</p>
     );
   }
 }</code></pre></div>
-<p>React.JS documentation says:</p>
+<p>React documentation says:</p>
 
 <blockquote>
 <p>The above code is problematic for both server rendering (where the external data won’t be used)
 and the upcoming async rendering mode (where the request might be initiated multiple times).</p>
 </blockquote>
 
-<p>There are two different conceptions in React.JS: async rendering and concurrent rendering. They are
+<p>There are two different conceptions in React: async rendering and concurrent rendering. They are
 similar but not the same. We&rsquo;ll discuss it later in more details but for now, I can say that there
 are no problems with <code>componentWillMount</code> when we are talking about async rendering. The callback
-will be called only once. Async rendering is enabled in React.JS 16.12.0 by default. There can be
+will be called only once. Async rendering is enabled in React 16.12.0 by default. There can be
 some troubles with <code>componentWillMount</code> when we are talking about
 <a href="https://reactjs.org/docs/concurrent-mode-intro.html">concurrent rendering</a> but it&rsquo;s still
-experimental and disabled in the current version of React.JS by default.</p>
+experimental and disabled in the current version of React by default.</p>
 
 <p>It&rsquo;s important to remember that <code>componentWillMount</code> is a sync function so in the example above
 the first call of <code>render</code> will be performed with empty <code>tariffs</code>. That is why it&rsquo;s essential to be
@@ -144,21 +144,21 @@ unmount stage:</p>
     <span style="color:#719e07">this</span>.setState({ newMessage<span style="color:#719e07">:</span> msg });
   }
 }</code></pre></div>
-<p>As it is said in React.JS documentation this code can be dangerous for server rendering and async
+<p>As it is said in React documentation this code can be dangerous for server rendering and async
 rendering mode. Actually, it&rsquo;s safe for async rendering mode and dangerous for concurrent mode.</p>
 
-<p>Async rendering mode was mentioned several times in React.JS documentation when talking about
+<p>Async rendering mode was mentioned several times in React documentation when talking about
 <code>componentWillMount</code>. Let&rsquo;s talk a bit more about it.</p>
 
 <h3 id="react-fiber-architecture-and-async-rendering">React Fiber Architecture and Async Rendering</h3>
 
 <p>When you have a lot of components on the page rendering can take a lot of time but the browser has
 to update screen 60 times per second to make animations and scrolling smooth. If the rendering takes
-more than 16ms browser has to drop frames and animations look choppy. React.JS 15 and older versions
+more than 16ms browser has to drop frames and animations look choppy. React 15 and older versions
 perform rendering of the whole application as a single task that is why it was difficult to provide
 good user experience for big applications.</p>
 
-<p>In React.JS 16 new Fiber Architecture was introduced. The idea is to split rendering into several
+<p>In React 16 new Fiber Architecture was introduced. The idea is to split rendering into several
 chunks and perform them independently. Let&rsquo;s take a look at the example:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#268bd2">function</span> App() {
   <span style="color:#719e07">return</span> (
@@ -251,7 +251,7 @@ like:</p>
 
 ReactDOM.render(React.createElement(App, <span style="color:#cb4b16">null</span>), <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;root&#39;</span>));
 </code></pre></div>
-<p>As you can see React.JS creates elements using <code>createElement</code> function. This function returns plain
+<p>As you can see React creates elements using <code>createElement</code> function. This function returns plain
 JS object like:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
   type<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;h1&#39;</span>,
@@ -263,7 +263,7 @@ JS object like:</p>
 <p>You can find more information about this topic in
 <a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a> article.</p>
 
-<p>To build the final virtual DOM React.JS needs to perform several steps.</p>
+<p>To build the final virtual DOM React needs to perform several steps.</p>
 
 <p><strong>Step 1:</strong> convert</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
@@ -305,13 +305,13 @@ again what will lead to final result like this:</p>
   }
 }
 </code></pre></div>
-<p>After these steps React.JS can get final virtual DOM and perform changes in the browser&rsquo;s DOM. The
+<p>After these steps React can get final virtual DOM and perform changes in the browser&rsquo;s DOM. The
 process described above is called <a href="https://reactjs.org/docs/reconciliation.html">Reconciliation</a>.</p>
 
-<p>In React.JS 15 and earlier versions steps 1 - 3 processed synchronously as a single task. It&rsquo;s OK
+<p>In React 15 and earlier versions steps 1 - 3 processed synchronously as a single task. It&rsquo;s OK
 for simple cases but when a component tree is big enough it can become a problem.</p>
 
-<p>In React.JS 16 Fiber Architecture was introduced. This approach treats each step as a separate task
+<p>In React 16 Fiber Architecture was introduced. This approach treats each step as a separate task
 that is why rendering can be paused and the browser can process animations. It makes the application
 more smooth and responsive. <a href="https://github.com/acdlite">Andrew Clark</a> wrote
 <a href="https://github.com/acdlite/react-fiber-architecture">a good description of Fiber Architecture</a> and
@@ -325,17 +325,17 @@ It&rsquo;s definitely worth reading.</p>
 <p>There was a lot of information about Fiber during React Conf 2017. You can find
 <a href="https://www.youtube.com/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0">records of the conference on youtube</a>.</p>
 
-<p>And of course, the best way to understand Fiber Architecture is by exploring the code of React.JS.
+<p>And of course, the best way to understand Fiber Architecture is by exploring the code of React.
 You can create a small application set breakpoints and follow the execution step by step. A lot of
 interesting things can be found this way.</p>
 
-<p>For now, you need to remember that React.JS uses Fiber Architecture. It splits rendering into pieces
+<p>For now, you need to remember that React uses Fiber Architecture. It splits rendering into pieces
 and executes each piece asynchronously until all work is done. There is a task queue and new tasks
 are added into the end of it.</p>
 
 <h3 id="concurrent-mode">Concurrent Mode</h3>
 
-<p>As it was said earlier React.JS splits reconciliation into pieces and executes them one by one. It
+<p>As it was said earlier React splits reconciliation into pieces and executes them one by one. It
 solves the problem of choppy animations because rendering is interruptible for browser tasks but
 it does not solve the problem of responsiveness. Let&rsquo;s take a look at the example:</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#719e07">class</span> ArticlesList {
@@ -372,7 +372,7 @@ filter value new task for updating the interface will be enqueued but it will be
 the current rendering will be finished. Such behavior makes the user experience poor that is why
 developers have to use different approaches (e.g. debouncing) to solve this problem.</p>
 
-<p>React.JS has an experimental feature called
+<p>React has an experimental feature called
 <a href="https://reactjs.org/docs/concurrent-mode-intro.html">Concurrent Mode</a>. It defines
 <a href="https://github.com/facebook/react/blob/master/packages/react-reconciler/src/SchedulerWithReactIntegration.js#L58-L64">priorities</a>
 and allows rendering with lower priority to be interrupted by rendering with higher priority. So it
@@ -388,10 +388,10 @@ fetching data from the network.</p>
 <li>when work is done - update interface.</li>
 </ol>
 
-<p>React.JS docs comparing this with SCM like Git when developer create a separate branch for some
+<p>React docs comparing this with SCM like Git when developer create a separate branch for some
 feature, work on in and then merge it into the main branch of the project.</p>
 
-<p>What if the user clicks some button during long rendering? In this case, React.JS pauses current
+<p>What if the user clicks some button during long rendering? In this case, React pauses current
 rendering and initializes new one for a processing button click, commits new rendering results into
 the browser&rsquo;s DOM and returns to processing long rendering. If it&rsquo;s not possible to continue long
 rendering it will be restarted.</p>
@@ -434,7 +434,7 @@ rendering it will be restarted.</p>
   };
 
   render() {
-    <span style="color:#586e75">// Use key attribute to force React.JS to remount Counter component
+    <span style="color:#586e75">// Use key attribute to force React to remount Counter component
 </span><span style="color:#586e75"></span>    <span style="color:#719e07">return</span> (
       <span style="color:#719e07">&lt;&gt;</span>
         &lt;<span style="color:#268bd2">button</span> onClick<span style="color:#719e07">=</span><span style="color:#2aa198">{this.toggleGreetings}</span>&gt;Toggle greetings&lt;/<span style="color:#268bd2">button</span>&gt;
@@ -465,11 +465,11 @@ component splits into several steps:</p>
 <li>reconciling children.</li>
 </ol>
 
-<p>Steps 1 - 2 performed one after another as a single chunk of work for React.JS. Step 3 is a separate
+<p>Steps 1 - 2 performed one after another as a single chunk of work for React. Step 3 is a separate
 chunk. Step 4 is a separate chunk of work but for complex components, it can lead to several chunks
 of work.</p>
 
-<p>Rendering of the <code>Counter</code> component can be interrupted after step 2. In this case, React.JS needs
+<p>Rendering of the <code>Counter</code> component can be interrupted after step 2. In this case, React needs
 to restart mounting. You can run the example above on the local machine or online service like
 <a href="https://codesandbox.io/">https://codesandbox.io/</a> and click the button multiple times. It&rsquo;s possible that you will see
 something like this in the browser console:</p>
@@ -505,7 +505,7 @@ global state).</li>
 <p>Coming to a conclusion I want to mention several points:</p>
 
 <ul>
-<li>it&rsquo;s safe to use <code>componentWillMount</code> in React.JS 16.12.0;</li>
+<li>it&rsquo;s safe to use <code>componentWillMount</code> in React 16.12.0;</li>
 <li>it&rsquo;s unsafe to use <code>componentWillMount</code> with Concurrent Mode;</li>
 <li><code>componentWillMount</code> can be replaced with more suitable solutions in most cases.</li>
 </ul>

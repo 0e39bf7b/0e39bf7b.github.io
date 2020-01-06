@@ -36,7 +36,7 @@
   <time datetime=2019-07-07T12:00:00Z class="post-date">Sun, Jul 7, 2019</time>
   <p>One of the most challenging problems for frontend developers is the reuse of code. It&rsquo;s especially
 important for big applications. Traditional approaches with higher-order components and render-props
-have advantages and disadvantages. In some cases, it can be inconvenient to use them. React.JS 16.8
+have advantages and disadvantages. In some cases, it can be inconvenient to use them. React 16.8
 introduced a new feature called React Hooks. Let&rsquo;s take a look at it and try to figure out how does
 it work and how does it solve the problem of code reuse.</p>
 
@@ -254,7 +254,7 @@ application contains such chains maybe its structure needs to be redesigned.</p>
 
 <h2 id="react-hooks">React Hooks</h2>
 
-<p>Before React.JS 16.8 there were two types of components: stateless functional components and
+<p>Before React 16.8 there were two types of components: stateless functional components and
 stateful class components. In <a href="https://reactjs.org/blog/2019/02/06/react-v16.8.0.html">React 16.8</a>
 Hooks were introduced. As it is said in the
 <a href="https://reactjs.org/docs/hooks-state.html#whats-a-hook">official documentation</a>:</p>
@@ -288,7 +288,7 @@ to convert it to a class. Now you can use a Hook inside the existing function co
 
 ReactDOM.render(&lt;<span style="color:#268bd2">App</span> /&gt;, <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;app&#39;</span>));</code></pre></div>
 <p>Before React Hooks it was a rule that functional components do not have any state but now it&rsquo;s not
-true. React.JS provides some sort of external context for every functional component and React Hooks
+true. React provides some sort of external context for every functional component and React Hooks
 use this context to store state and perform some effects like <code>componentDidMount</code> hook does for
 class components. I suggest reading
 <a href="https://github.com/acdlite/react-fiber-architecture">react fiber architecture description</a> to
@@ -343,7 +343,7 @@ disadvantages to this approach.</p>
 components internal data is stored in <code>this.state</code> variable and the only source of external data is
 props. It&rsquo;s easy to understand such code works and easy to debug it because all your internal data
 encapsulated in your instance. When you use hooks you have to know that your function is being
-executed in some special React.JS context and Hooks can store and extract data using some sort of
+executed in some special React context and Hooks can store and extract data using some sort of
 magic, you need to remember <a href="https://reactjs.org/docs/hooks-rules.html">Rules of Hooks</a> to write
 code without errors.</p>
 

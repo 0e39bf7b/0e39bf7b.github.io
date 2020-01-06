@@ -17,7 +17,7 @@
       <pubDate>Tue, 17 Dec 2019 12:00:00 +0000</pubDate>
       
       <guid>https://0e39bf7b.github.io/posts/react-journey-componentwillmount-in-concurrent-mode/</guid>
-      <description>&lt;p&gt;Several days ago I was updating one of my React.JS projects and I found deprecation warning like:&lt;/p&gt;
+      <description>&lt;p&gt;Several days ago I was updating one of my React projects and I found deprecation warning like:&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Warning: componentWillMount has been renamed, and is not recommended for use. See
@@ -51,7 +51,7 @@ anticipate that their potential misuse may be more problematic with async render
 &lt;p&gt;I think it&amp;rsquo;s important to understand why using &lt;code&gt;componentWillMount&lt;/code&gt; callback can be unsafe and why
 you need to change your code somehow. First of all, let&amp;rsquo;s find out different usage examples of
 &lt;code&gt;componentWillMount&lt;/code&gt; callback and check if it is safe or not to use this callback in different
-situations in the stable version of React.JS 16.12.0 for browser rendering (there are some issues
+situations in the stable version of React 16.12.0 for browser rendering (there are some issues
 with server rendering but it&amp;rsquo;s a subject of a separate article).&lt;/p&gt;</description>
     </item>
     
@@ -78,7 +78,7 @@ Ubuntu machine to achieve this goal.&lt;/p&gt;
       <guid>https://0e39bf7b.github.io/posts/code-reuse-with-react-hooks/</guid>
       <description>&lt;p&gt;One of the most challenging problems for frontend developers is the reuse of code. It&amp;rsquo;s especially
 important for big applications. Traditional approaches with higher-order components and render-props
-have advantages and disadvantages. In some cases, it can be inconvenient to use them. React.JS 16.8
+have advantages and disadvantages. In some cases, it can be inconvenient to use them. React 16.8
 introduced a new feature called React Hooks. Let&amp;rsquo;s take a look at it and try to figure out how does
 it work and how does it solve the problem of code reuse.&lt;/p&gt;</description>
     </item>
