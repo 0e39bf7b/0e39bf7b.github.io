@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Dec 2019 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2020 08:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://0e39bf7b.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Proxy and Magical Print</title>
+      <link>https://0e39bf7b.github.io/posts/proxy-and-magical-print/</link>
+      <pubDate>Wed, 22 Jan 2020 08:00:00 +0000</pubDate>
+      
+      <guid>https://0e39bf7b.github.io/posts/proxy-and-magical-print/</guid>
+      <description>Once upon a time my colleague and I were working on end-to-end tests of one Angular.JS application. We used Node.js v8.9.1. Tests had such workflow:
+ open a page; click an element; check if the page has some content.  As you can see it&amp;rsquo;s just a regular workflow for end-to-end tests, nothing special. Such tests allow us to reduce the amount of manual testing and eliminate bugs before the code will be delivered to the users.</description>
+    </item>
     
     <item>
       <title>React Journey: componentWillMount in Concurrent Mode</title>

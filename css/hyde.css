@@ -18,7 +18,6 @@
  * Contents
  *
  * Global resets
- * Sidebar
  * Container
  * Reverse layout
  * Themes
@@ -51,8 +50,7 @@ html {
 
 /* Container
  *
- * Align the contents of the site above the proper threshold with some margin-fu
- * with a 25%-wide `.sidebar`.
+ * Align the contents of the site above the proper threshold with some margin-fu.
  */
 
 .content {
