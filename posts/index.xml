@@ -35,8 +35,8 @@
 
 &lt;ul&gt;
 &lt;li&gt;Move code with side effects to componentDidMount, and set initial state in the constructor.&lt;/li&gt;
-&lt;li&gt;Rename componentWillMount to UNSAFE&lt;em&gt;componentWillMount to suppress this warning in non-strict
-mode. In React 17.x, only the UNSAFE&lt;/em&gt; name will work. To rename all deprecated lifecycles to their
+&lt;li&gt;Rename componentWillMount to UNSAFE_componentWillMount to suppress this warning in non-strict
+mode. In React 17.x, only the UNSAFE_ name will work. To rename all deprecated lifecycles to their
 new names, you can run &lt;code&gt;npx react-codemod rename-unsafe-lifecycles&lt;/code&gt; in your project source folder.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
