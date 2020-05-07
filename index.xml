@@ -101,7 +101,7 @@ it work and how does it solve the problem of code reuse.&lt;/p&gt;</description>
       <guid>https://0e39bf7b.github.io/posts/js-vs-jpg/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.github.io/js-vs-jpg.png&#34; alt=&#34;Comparation between JS and JPG processing&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;TL;DR: sometimes processing of JS file can be slower than the processing of JPG of the same size
+&lt;p&gt;&lt;strong&gt;TL;DR: sometimes processing of JS file can be faster than the processing of JPG of the same size
 in bytes, you&amp;rsquo;d better check your own project before optimizing it.&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     
