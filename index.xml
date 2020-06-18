@@ -6,10 +6,23 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Jan 2020 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2020 11:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://0e39bf7b.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Interesting Things from Webpack Sources</title>
+      <link>https://0e39bf7b.github.io/posts/interesting-things-from-webpack-sources/</link>
+      <pubDate>Wed, 17 Jun 2020 11:00:00 +0000</pubDate>
+      
+      <guid>https://0e39bf7b.github.io/posts/interesting-things-from-webpack-sources/</guid>
+      <description>&lt;p&gt;A lot of frontend projects use &lt;a href=&#34;https://webpack.js.org/&#34;&gt;webpack&lt;/a&gt; as a bundler tool. It allows to
+transform, bundle, or package different resources like JavaScript, styles, images, or fonts.
+Recently I&amp;rsquo;d been exploring &lt;a href=&#34;https://github.com/webpack/webpack&#34;&gt;webpack sources&lt;/a&gt; and I found
+several interesting solutions to different programming problems that can be used in JavaScript
+projects.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Proxy and Magical Print</title>
