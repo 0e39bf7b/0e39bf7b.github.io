@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 17 Jun 2020 11:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2020 12:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://0e39bf7b.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Most Weird Parts of JavaScript</title>
+      <link>https://0e39bf7b.github.io/posts/the-most-weird-parts-of-javascript/</link>
+      <pubDate>Thu, 16 Jul 2020 12:00:00 +0000</pubDate>
+      
+      <guid>https://0e39bf7b.github.io/posts/the-most-weird-parts-of-javascript/</guid>
+      <description>&lt;p&gt;JavaScript is one of the most popular programming languages nowadays. Originally it was created in
+10 days by Brendan Eich in 1995 for building simple scripts on the web pages but now it&amp;rsquo;s used for
+the development of different types of applications like sophisticated frontend or highload backend
+or even terminal tools - the one language to rule them all.&lt;/p&gt;
+
+&lt;p&gt;JavaScript evolves dramatically during the last 25 years. In 2020 it has a bunch of features that
+allow developers to write elegant code for solving everyday problems. JavaScript object model
+differs a lot from other languages like Java or Python. Some people in the community love
+JavaScript, but it would be futile to deny that the language has some weird moments. In this
+article, I&amp;rsquo;ll try to describe the top 3 things in JavaScript that are most weird for me.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Interesting Things from Webpack Sources</title>
