@@ -91,7 +91,7 @@ it&rsquo;s possible to add or overwrite some behavior for almost all objects:</p
 </span></code></pre></div>
 <p>From the one side, such a feature allows you to implement polyfills (like
 <a href="https://github.com/zloirock/core-js">core-js</a> does) but from the other side, it can affect
-performance if you accidentally replace native code by the polyfill or even brake down some code
+performance if you accidentally replace native code by the polyfill or even break down some code
 because you can&rsquo;t predict who and when will change core objects behavior.</p>
 
 <p>Another operator related to inheritance is <a href="https://javascript.info/instanceof"><code>instanceof</code></a>. It
@@ -154,7 +154,7 @@ detail in the
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality">MDN docs</a>:</p>
 
 <ul>
-<li>it is said that if one operand is an object and another is a sting JavaScript tries to convert
+<li>it is said that if one operand is an object and another is a string JavaScript tries to convert
 an object into a string using <code>valueOf</code> and <code>toString</code> methods. That is why <code>'' == []</code>;</li>
 <li>in case the operands are both objects equality operator returns true only if both operands
 reference the same object. So <code>[] != []</code>, because there are two different objects;</li>
