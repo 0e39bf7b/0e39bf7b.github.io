@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.55.6" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ubuntu Snap: the Price of the Isolation &middot; Developer&#39;s blog</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Developer&#39;s blog" />
+
+  
+</head>
+
+  <body class=" ">
+    <h1 class="site-title"><a href="https://0e39bf7b.github.io/">Developer&#39;s blog</a></h1>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title">Ubuntu Snap: the Price of the Isolation</h1>
+  <time datetime=2020-09-12T06:00:00Z class="post-date">Sat, Sep 12, 2020</time>
+  <p>The idea of the majority of Linux distributions is to compile Linux kernel, collect existing Open
+Source and proprietary software, test and then patch it if required, add something own and pack the
+results into the packages, so users can install and use these programs. Ubuntu packages grouped into
+APT repositories. Users can manage packages with <code>apt</code> command.</p>
+
+<p>Software developers usually do not write all the code required by their programs, but use different
+libraries and frameworks (e.g. graphical applications can use GTK to draw widgets like button or
+label). It allows developers to save some time and make fewer bugs. As a result the majority of
+software nowadays has dependencies. Different programs can depend on the same library (most of the
+GUI programs in Gnome depend on GTK) that is why there is no need to install the same library
+several times. Each APT package defines a list of dependencies, so when the user executes a command
+like <code>apt install gnome-calculator</code> package manager install not only <code>gnome-calculator</code> itself but
+also its dependencies like <code>libgtksourceview-4-0</code>.</p>
+
+<p>Such an approach allows users to save disk space and reduce security risks: if there is some problem
+in the common library it&rsquo;s enough to update it once and all dependent programs will use the new
+version. Unfortunately, such an approach is not a silver bullet and has some downsides:</p>
+
+<ul>
+<li>Suppose two programs depend on different versions of the same library. It this case there will be
+a conflict during dependencies resolution that is why <code>apt</code> command will fail and the user can&rsquo;t
+install both programs at the same time.</li>
+<li>Providers of third-party software like Viber or Skype have to make different packages of the same
+product for different Ubuntu distributions, e.g. 18.04 and 20.04 have different versions of system
+libraries that, so it&rsquo;s required to build and maintain two different packages for one program.</li>
+<li><code>apt</code> installs each program globally so it will be a conflict when two packages try to create a
+file with the same name.</li>
+<li>Traditional programs can access all user files and resources that is why it&rsquo;s difficult to control
+such software. In case of a security vulnerability in one program all user&rsquo;s files are in danger.</li>
+</ul>
+
+<p>Several years ago Ubuntu introduced <a href="https://snapcraft.io/">Snap</a> - a package manager with an
+alternative approach, designed to solve <code>apt</code> problems.</p>
+
+<p>The idea of this package manager is to pack not only the program but also all its dependencies into
+one package called snap. In this case software maintainer prepares only one package for all versions
+of Ubuntu and even other Linux distributions like Arch Linux, CentOS, or Manjaro. There are no
+conflicts between different packages because there are no common dependencies, so it&rsquo;s normal when
+two JavaScript applications use different versions of the Node.JS.</p>
+
+<p>Snap especially useful when the user wants to try a new version of some program, e.g.
+<a href="https://www.videolan.org/vlc/index.html">VLC</a>. With <code>apt</code>, it&rsquo;s not always safe because the
+installation of one program can lead to updating some libraries required by another program and this
+can make a conflict preventing the installation of the new program or even break the entire system.
+That is why when I want to try some new unstable version of some software I have to use a virtual
+machine that uses a lot more resources and also has some limitations. With Snap the programs are
+isolated from each other that is why it&rsquo;s safe to try a new version of the software and return to a
+stable one in case of troubles. For VLC I just execute a command:</p>
+
+<pre><code>sudo snap install vlc --channel=latest/edge
+</code></pre>
+
+<p>It installs a bleeding edge version of the popular media player. User can find their own balance
+between stability and the latest features for each program.</p>
+
+<p>By default each snap is isolated from the external world but what if it&rsquo;s required to interact with
+the system? There is a well-known image editor <a href="https://www.gimp.org/">GIMP</a>. It&rsquo;s obvious that the
+user wants to give GIMP access to the home directory, so it will be possible to edit photos. To
+achieve this goal the <a href="https://snapcraft.io/docs/interface-management">mechanism of plugs and slots</a>
+was introduced.  A snap describes the interfaces it requires. For each of the required interface,
+snap defines a plug which will be connected to the corresponding slot by the <code>snapd</code> daemon either
+automatically, or manually, depending on the interface. GIMP snap requires the <code>home</code> interface and
+defines <code>gimp:home</code> plug. <code>snapd</code> daemon connects this plug to the <code>:home</code> slot, so GIMP can read
+and write files in the user&rsquo;s home directory. There are a
+<a href="https://snapcraft.io/docs/supported-interfaces">lot of different interfaces</a> that allow programs to
+request access for resources like network, sound, or gpio. I think such an approach is very
+convenient and increases security level because the user can give programs only required permissions
+(like in iOS or Android) e.g. the user can forbid the browser to access the webcam and it will be
+impossible to record the video from the webcam even in case of browser jailbreak.</p>
+
+<p>Unfortunately, the isolation is not a free feature and the user has to pay some price for it:</p>
+
+<ul>
+<li>More data have to be downloaded: <code>apt install gimp</code> - 19Mb, <code>snap install gimp</code> - 263Mb.</li>
+<li>Applications need more time to startup.</li>
+<li>Application maintainers have to keep in mind that their applications would be run in the
+isolated container. For one application there will be no difference but for another, there will be
+plenty of issues with logging, packaging, and so on.</li>
+</ul>
+
+<p>Things I&rsquo;ve described above are fundamental problems of containerization and isolation. I agree to
+pay such a price for the benefits I get, but there is an issue specific to Ubuntu snap. I know that
+updates are important and it&rsquo;s better to update the system as soon as possible to reduce security
+risks but I like to control updates myself. Usually, I disable auto-updates and call <code>apt upgrade</code>
+every week but only when I have an actual backup and some time to solve possible update issues.
+Auto-updates are one of the core concepts of Snap and it&rsquo;s impossible to disable this feature. I can
+use
+<a href="https://askubuntu.com/questions/1131182/how-can-i-disable-automatic-update-for-a-single-snap-in-ubuntu">some hacks</a>
+like setting <code>refresh.hold=&quot;2030-01-01T00:00:00-00:00&quot;</code> to disable updates til 2030 but it looks
+strange.</p>
+
+<p>Concluding, I don&rsquo;t think that all the software should be containerized but a Snap approach is very
+useful for third-party programs. It can save a lot of time for developers and make the distribution
+of Linux programs much easier for the developers and safer for the users. I think the Snaps package
+manager or its alternatives like <a href="https://appimage.org/">AppImage</a> or
+<a href="https://flatpak.org/">Flatpak</a> will be very widespread in near future.</p>
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>
