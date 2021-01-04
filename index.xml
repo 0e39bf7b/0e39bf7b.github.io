@@ -6,10 +6,28 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Sep 2020 06:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Jan 2021 11:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://0e39bf7b.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Wrong Copying Progress and Long Disk Unmounting on Ubuntu</title>
+      <link>https://0e39bf7b.github.io/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</link>
+      <pubDate>Mon, 04 Jan 2021 11:00:00 +0000</pubDate>
+      
+      <guid>https://0e39bf7b.github.io/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.github.io/unmount-freezes.png&#34; alt=&#34;Unmount freezes&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Sometimes I need to copy files from an internal SSD to an external hard drive. Recently I&amp;rsquo;ve found a
+strange behavior on Ubuntu 20.04. When I try to copy a fairly big file (like 2Gb - 4Gb) Nautilus
+shows insane writing speed and the progress bar instantly reaches 100%, but when I want to unmount
+the device - it freezes for several minutes. I tried different file managers like
+&lt;a href=&#34;https://docs.xfce.org/xfce/thunar/start&#34;&gt;Thunar&lt;/a&gt; from Xfce,
+&lt;a href=&#34;https://midnight-commander.org/&#34;&gt;midnight-commander&lt;/a&gt;, or even utilities like &lt;code&gt;rsync&lt;/code&gt; or &lt;code&gt;pv&lt;/code&gt; - the
+result was the same. For me, it&amp;rsquo;s a bit inconvenient when I don&amp;rsquo;t know how much time I have to wait
+until all data will be transferred, so I tried to find the solution to this problem.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Ubuntu Snap: the Price of the Isolation</title>
