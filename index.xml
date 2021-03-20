@@ -6,10 +6,34 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Jan 2021 11:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Mar 2021 10:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://0e39bf7b.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DNS without a Server</title>
+      <link>https://0e39bf7b.github.io/posts/dns-wihtout-a-server/</link>
+      <pubDate>Sat, 20 Mar 2021 10:00:00 +0000</pubDate>
+      
+      <guid>https://0e39bf7b.github.io/posts/dns-wihtout-a-server/</guid>
+      <description>&lt;p&gt;A few days ago I&amp;rsquo;d decided to configure Raspberry PI as a weather station to check temperature,
+humidity, and pressure. So I need to access it on the network with SSH and a web browser. The
+easiest way of solving this problem is using a static IP address. In this case, I have to set static
+IP for Raspberry PI and then use this address in a browser. For me, it&amp;rsquo;s more convenient to use a
+human-readable hostname than remembering an IP address. I can modify &lt;code&gt;/etc/hosts&lt;/code&gt; to associate
+Raspberry PI IP with custom hostname but I have to perform this action on all of my devices. It&amp;rsquo;s a
+bit monotonous work if you have several computers and for some mobile devices, it&amp;rsquo;s impossible to
+configure.&lt;/p&gt;
+
+&lt;p&gt;In the case of complicated enterprise networks, it&amp;rsquo;s common to configure a name server to perform
+hostname resolution, but for a small home network with several computers, it can be a bit overkill
+to configure and support a dedicated DNS server. Searching through the Internet I&amp;rsquo;d found
+&lt;a href=&#34;https://www.khoi.io/post/raspberry-pi-ipad-pro-usb-c/&#34;&gt;an article&lt;/a&gt; about connecting Raspberry PI to
+an iPad with a USB cable. The author accessed a device with the address &lt;code&gt;raspberrypi.local&lt;/code&gt; without
+any additional DNS configuration. So it should be a more lightweight alternative than a dedicated
+DNS server for home networks.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Wrong Copying Progress and Long Disk Unmounting on Ubuntu</title>
