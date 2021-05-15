@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.55.6" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Network Tools &middot; Developer&#39;s blog</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Developer&#39;s blog" />
+
+  
+</head>
+
+  <body class=" ">
+    <h1 class="site-title"><a href="https://0e39bf7b.github.io/">Developer&#39;s blog</a></h1>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title">Network Tools</h1>
+  <time datetime=2021-05-15T08:00:00Z class="post-date">May 15, 2021</time>
+  
+
+<p>Almost every user sooner or later faces network problems, so it&rsquo;s essential to have at least a basic
+understanding of network troubleshooting. In this article, I&rsquo;d like to overview tools I use to
+explore network configuration and solve network issues on the Ubuntu desktop. Most of these
+applications can be used on a server but some of them are specific to desktop systems.</p>
+
+<h3 id="ip-and-networkmanager">ip and NetworkManager</h3>
+
+<p><code>ip</code> is a tool that allows to show or manipulate routing and network devices. Older Ubuntu
+distributions used the <code>ifconfig</code> for the same purpose. There are some commands I use in everyday
+life:</p>
+
+<ul>
+<li><code>ip addr</code> — show system IP and MAC addresses;</li>
+<li><code>ip route</code> — show routing table;</li>
+<li><code>ip addr show docker0 | grep -Po 'inet \K[\d.]+'</code> — print Docker host address.</li>
+</ul>
+
+<p><code>ip</code> has a lot more options described on man page. Even though <code>ip</code> allows to manipulate network
+settings I prefer to avoid it because it&rsquo;s a temporary solution and all modifications will be lost
+after a reboot.</p>
+
+<p><a href="https://netplan.io/">Netplan</a> is a default tool for network configuration in Ubuntu 20.04. It
+allows to create declarative representation of complex networks. Netplan does not configure the
+network itself but generates configs for the underlying backend. It supports two backends:
+NetworkManager (usually used on desktops) and systemd-networkd (usually used on servers). There is
+more explanation about why Ubuntu switched from <code>ifupdown</code> to Netplan on
+<a href="https://wiki.ubuntu.com/MigratingToNetplan">MigratingToNetplan page</a>.</p>
+
+<p>Although Netplan may be convenient for complex solutions like clouds or enterprise networks, for my
+desktop is a bit overkill. So I prefer to configure
+<a href="https://wiki.gnome.org/Projects/NetworkManager">NetworkManager</a> directly. All config files of
+NetowkManager are stored in <code>/etc/NetworkManager</code> directory. It&rsquo;s possible to modify configs by hand
+but I prefer to use <code>nmcli</code> utility. E.g. to make static IP ethernet connection with preconfigured
+DNS address I use these commands:</p>
+
+<pre><code># eno1 - my network interface
+nmcli con mod eno1 ipv4.addresses 192.168.2.10/24
+nmcli con mod eno1 ipv4.gateway 192.168.2.1
+nmcli con mod eno1 ipv4.dns &quot;8.8.8.8&quot;
+nmcli con mod eno1 ipv4.method manual
+nmcli con up eno1
+</code></pre>
+
+<p>One more useful command is <code>nmcli general status</code>. It prints the current network status including
+information about network connectivity.</p>
+
+<h3 id="ss">ss</h3>
+
+<p><code>ss</code> is a utility for sockets investigation. It dumps socket statistics of the system and shows
+information similar to <code>netstat</code>. Some examples:</p>
+
+<ul>
+<li><code>sudo ss -ltpn '( sport = :8080 )'</code> — show the process listening port 8080 (it helps me with
+errors like &ldquo;Address already in use&rdquo;)</li>
+<li><code>ss -s</code> — show connections statistics.</li>
+</ul>
+
+<h3 id="traceroute-and-mtr">traceroute and mtr</h3>
+
+<p>Sometimes network request is executed slowly or even fails. <code>traceroute</code> can help to find out what
+is going on. It&rsquo;s a network diagnostic tool that tracks the path of IP packets using ICMP and
+different TTL values. It also measures transit delays for every host in a chain so it&rsquo;s possible to
+determine which host causes problems. The most common use case for me looks like
+<code>traceroute example.com</code>.</p>
+
+<p>It&rsquo;s also possible to use <code>mtr</code> instead of <code>traceroute</code>. It works almost the same but has more
+user-friendly output and allows to export statistics into XML file what is convenient for scripting
+purposes.</p>
+
+<p>System administrators may
+<a href="https://blog.securityevaluators.com/icmp-the-good-the-bad-and-the-ugly-130413e56030">disable ICMP for security reasons</a>
+that is why even if network connections work properly <code>traceroute</code> and <code>mtr</code> may not work at all or
+at least show incomplete information.</p>
+
+<h3 id="dns-dig-and-systemd-resolved">DNS: dig and systemd-resolved</h3>
+
+<p>Hostname resolution is an important part of the network configuration. During network issues
+debugging there are two common tasks: resolving a hostname and checking system DNS configuration.</p>
+
+<p>For resolving a hostname I use <code>dig</code> utility. It&rsquo;s a powerful command-line tool for querying DNS
+servers. E.g. <code>dig example.com</code> uses the default system DNS server to find and show all records for
+<code>example.com</code>.</p>
+
+<p>In Ubuntu 20.04 DNS is managed by <code>systemd-resolved</code>. <code>resolvectl status</code> gives details about the
+uplink DNS servers currently in use.</p>
+
+<h3 id="iptables">iptables</h3>
+
+<p><code>iptables</code> is an application that allows creating rules for the kernel that controls network
+traffic.  It acts as a firewall that examines and directs packets based on address, port, and other
+criteria.  <code>iptables</code> is a sophisticated tool, so it&rsquo;s a good idea to read some tutorials explaining
+how to use it (e.g. <a href="https://wiki.archlinux.org/title/iptables">tutorial from archlinux wiki</a>).</p>
+
+<p>I usually check <code>iptables</code> rules when network configuration looks OK but some applications can&rsquo;t
+establish network connections or Docker containers can&rsquo;t access the external network. First of all,
+I type <code>sudo iptables -L</code> to find out what is going on.</p>
+
+<h3 id="tcpdump-and-wireshark">tcpdump and wireshark</h3>
+
+<p>Network debugging becomes easier when you can capture and analyze the traffic going through the
+system.  <code>tcpdump</code> can help with this task. This utility reads packets from the network interface
+that match the boolean expression and then prints them on the screen or stores them in a file.</p>
+
+<p>I have two use cases for <code>tcpdump</code>:</p>
+
+<ul>
+<li>check if some packets match an expression like <code>tcp and port 80</code> (I use it when an application is
+not working as expected and I want to make sure that it receives or sends any data; I don&rsquo;t need
+to store these packets anywhere);</li>
+<li>write all packets into a file to analyze it in more detail later.</li>
+</ul>
+
+<p>Using <code>tcpdump</code> can be suitable not only for troubleshooting but also for network exploration.</p>
+
+<p>On the desktop, it can be more convenient to use <a href="https://www.wireshark.org/">Wireshark</a>. It&rsquo;s a GUI
+that uses the same mechanisms as a <code>tcpdump</code>.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>There are a lot of articles and tutorials on the Internet about each of these tools, so check it if
+you need more info. Described tools always give me a clue to what is wrong with the network
+configuration and then I can decide what to do to fix a problem.</p>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>
