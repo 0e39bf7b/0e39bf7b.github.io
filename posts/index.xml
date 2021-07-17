@@ -6,10 +6,23 @@
     <description>Recent content in Posts on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 May 2021 03:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 Jul 2021 06:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://0e39bf7b.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ubuntu periodic tasks</title>
+      <link>https://0e39bf7b.github.io/posts/ubuntu-periodic-tasks/</link>
+      <pubDate>Sat, 17 Jul 2021 06:00:00 +0000</pubDate>
+      
+      <guid>https://0e39bf7b.github.io/posts/ubuntu-periodic-tasks/</guid>
+      <description>&lt;p&gt;Ubuntu is an open-source system that allows users to control different components. Default desktop
+installation has a bunch of periodic tasks out of the box. It&amp;rsquo;s important to understand what is the
+purpose of these tasks and how often they are called. This knowledge allows to predict the network
+activity, reduce the number of unexpected CPU spikes and improve user experience. Moreover, some of
+the default tasks can be redundant for the particular user and that is why should be disabled.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>mDNS on Ubuntu Server</title>

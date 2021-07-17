@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.55.6" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ubuntu periodic tasks &middot; Developer&#39;s blog</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Developer&#39;s blog" />
+
+  
+</head>
+
+  <body class=" ">
+    <h1 class="site-title"><a href="https://0e39bf7b.github.io/">Developer&#39;s blog</a></h1>
+    <main class="content container">
+    <div class="post">
+  <h1 class="post-title">Ubuntu periodic tasks</h1>
+  <time datetime=2021-07-17T06:00:00Z class="post-date">Jul 17, 2021</time>
+  <p>Ubuntu is an open-source system that allows users to control different components. Default desktop
+installation has a bunch of periodic tasks out of the box. It&rsquo;s important to understand what is the
+purpose of these tasks and how often they are called. This knowledge allows to predict the network
+activity, reduce the number of unexpected CPU spikes and improve user experience. Moreover, some of
+the default tasks can be redundant for the particular user and that is why should be disabled.</p>
+
+<p>Ubuntu 21.04 on my laptop uses <a href="https://www.freedesktop.org/wiki/Software/systemd/">systemd</a> as a
+core component, so periodic jobs are implemented as
+<a href="https://wiki.archlinux.org/title/Systemd/Timers">timer units</a>. Timers mechanism is an alternative
+for the <a href="https://wiki.archlinux.org/title/Cron">cron</a>, the most well-known job scheduler. For
+backward compatibility, cron is also installed into default Ubuntu distribution. It&rsquo;s started by the
+<code>cron.service</code> on a boot time. Systemd timers are more flexible than cron jobs. It&rsquo;s possible to
+point out such advantages of systemd timers:</p>
+
+<ul>
+<li>easier debugging with verbose logging in systemd journal;</li>
+<li>advanced resource management as for any other systemd service: syscall filtering, IO scheduling,
+etc;</li>
+<li>possibility to define the relationships between the timer and any other systemd service, e.g.
+forbid parallel execution with another service using <code>Conflicts</code> instruction;</li>
+<li>systemd timer can be activated not only at the specified time but also by the complex conditions,
+like a minute after some hardware had been plugged.</li>
+</ul>
+
+<p>The command <code>systemctl list-timers</code> lists all active timers in the system. A fresh Ubuntu 21.04
+installation gives such output:</p>
+
+<pre><code>logrotate.timer
+fstrim.timer
+systemd-tmpfiles-clean.timer
+e2scrub_all.timer
+man-db.timer
+ua-messaging.timer
+apt-daily.timer
+apt-daily-upgrade.timer
+update-notifier-download.timer
+update-notifier-motd.timer
+fwupd-refresh.timer
+motd-news.timer
+anacron.timer
+</code></pre>
+
+<p>The timer is defined by the corresponding file in the <code>/usr/lib/systemd/system</code> directory. It
+describes when the process should be started. Each timer has a service that describes what process
+and how should be started. Almost any file in the system belongs to a particular package. It&rsquo;s
+possible to find the package using the command <code>dpkg -S file-name</code>.</p>
+
+<p>The timers described above can be split into several groups. Detailed information on each of them is
+represented below.</p>
+
+<h3 id="regular-maintenance-jobs">Regular maintenance jobs</h3>
+
+<p>Every system needs some maintenance from time to time. It allows to check integrity, increase
+performance and reduce disk usage. Here are the timers responsible for such jobs:</p>
+
+<ul>
+<li><code>logrotate.timer</code> allows automatic rotation, compression, removal, and mailing of log files once a
+day;</li>
+<li><code>fstrim.timer</code> discards (or &ldquo;trim&rdquo;) blocks that are not in use by the filesystem once a week; it&rsquo;s
+useful for solid-state drives (SSDs);</li>
+<li><code>systemd-tmpfiles-clean.timer</code> — daily cleanup of temporary directories;</li>
+<li><code>e2scrub_all.timer</code> — periodic ext4 online metadata check for all filesystems;</li>
+<li><code>man-db.timer</code> — daily man-db regeneration.</li>
+</ul>
+
+<p>I don&rsquo;t fully understand the purpose of the <code>man-db.timer</code>: it&rsquo;s better to regenerate man-db indexes
+by <code>dpkg</code> when a new package is being installed, that is why additional periodic updates look
+redundant.</p>
+
+<h3 id="ubuntu-advantage">Ubuntu Advantage</h3>
+
+<p><code>ua-messaging.timer</code> is a part of <code>ubuntu-advantage-tools</code> package — management tools for
+<a href="https://ubuntu.com/support">Ubuntu Advantage</a>, the paid support for enterprises. The timer starts
+updating the messaging text for use in MOTD and APT custom Ubuntu Advantage messages.</p>
+
+<p>The package is installed by default. From the description of the package, I&rsquo;d found that it provides
+users with a simple mechanism to view, enable, and disable offerings from Canonical on their system.
+I don&rsquo;t use Canonical paid services on my laptop, that is why I prefer to delete the package with
+<code>apt purge ubuntu-advantage-tools</code> command.</p>
+
+<h3 id="software-updates">Software updates</h3>
+
+<p>A bunch of timers is responsible for automatic software updates:</p>
+
+<ul>
+<li><code>apt-daily.timer</code> checks for updates and downloads new packages;</li>
+<li><code>apt-daily-upgrade.timer</code> installs new packages without interaction with user;</li>
+<li><code>update-notifier-download.timer</code> download data for packages that failed at package install time;</li>
+<li><code>update-notifier-motd.timer</code> checks if new release available.</li>
+</ul>
+
+<p>On the one side, it&rsquo;s important to keep the system up to date, because of security issues. On the
+other side, auto-updates can cause unexpected network traffic, poor user experience (like the
+requirement to restart Firefox with a lot of opened tabs after background update), or even system
+instability. I prefer to remove <code>update-notifier-common</code> package, which is responsible for
+auto-updates, and execute command <code>apt update &amp;&amp; apt upgrade</code> several times a week by hands only
+when I&rsquo;m ready for updates.</p>
+
+<h3 id="firmware-update">Firmware update</h3>
+
+<p>Modern hardware is sophisticated and often has internal firmware that needs to be updated from time
+to time to improve the user experience, increase stability and fix security issues. Updating
+firmware on devices is difficult for Linux users due to the lack of Windows-specific flashing tools.
+That is why <a href="https://fwupd.org/">Linux Vendor Firmware Service</a> (LVFS) was introduced. It allows
+hardware vendors to upload firmware updates that will be used by all major Linux distributions.</p>
+
+<p><a href="https://github.com/fwupd/fwupd">fwupdmgr</a> is a client for LVFS. <code>fwupd-refresh.timer</code> is a timer
+that downloads the latest metadata from LVFS regularly using fwupdmgr. It&rsquo;s an important process and
+should be done from time to time but I prefer to do it by hand. That is why I choose to disable
+this timer with such commands:</p>
+
+<pre><code>sudo systemctl stop fwupd-refresh.timer
+sudo systemctl disable fwupd-refresh.timer
+</code></pre>
+
+<h3 id="motd-news">motd news</h3>
+
+<p>There is a message displayed on different Unix-like systems on the login called &ldquo;message of the day&rdquo;
+(<a href="https://en.wikipedia.org/wiki/Motd_(Unix)">motd</a>). On Ubuntu, a part of motd is a news message
+from <a href="https://motd.ubuntu.com">https://motd.ubuntu.com</a>. According to <code>/etc/update-motd.d/50-motd-news</code> file the system sends a
+request to the Ubuntu server containing information about release version, kernel version, CPU
+architecture, and cloud ID, so the server can send messages that are relevant to a particular
+distribution or hardware. The typical message looks like this:</p>
+
+<pre><code> * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+</code></pre>
+
+<p>The idea is to show the user some useful information on login looks reasonable, but I don&rsquo;t like
+when the system sends some data about my configuration to an external server from time to time even
+if it&rsquo;s a server of Canonical. Also, the messages from <a href="https://motd.ubuntu.com">https://motd.ubuntu.com</a> look like tech
+advertising rather than useful info.</p>
+
+<p>The <code>/etc/update-motd.d/50-motd-news</code> file belongs to one of the core packages of the system —
+<code>base-files</code>, that is why it&rsquo;s difficult to delete it safely. Fortunately, this feature is disabled
+for desktops and no external requests are being sent. Also, I turn off this timer with such
+commands:</p>
+
+<pre><code>sudo systemctl stop motd-news.timer
+sudo systemctl disable motd-news.timer
+</code></pre>
+
+<h3 id="anacron">anacron</h3>
+
+<p><a href="https://man7.org/linux/man-pages/man8/anacron.8.html">Anacron</a> is a tool that is used to execute
+commands with a frequency specified in days. I&rsquo;d checked <code>/etc/anacrontab</code> and found three groups of
+tasks:</p>
+
+<ul>
+<li><code>/etc/cron.daily</code>;</li>
+<li><code>/etc/cron.weekly</code>;</li>
+<li><code>/etc/cron.monthly</code>.</li>
+</ul>
+
+<p>There are no weekly and monthly tasks, but <code>/etc/cron.daily</code> directory contains several files. Some
+of tasks have systemd timers equivalents:</p>
+
+<ul>
+<li><code>apt-compat</code> -&gt; <code>apt-daily.timer</code>;</li>
+<li><code>logrotate</code> -&gt; <code>logrotate.timer</code>;</li>
+<li><code>man-db</code> -&gt; <code>man-db.timer</code>.</li>
+</ul>
+
+<p>These files contain a check for systemd existence and if it&rsquo;s found — tasks do nothing and exit.</p>
+
+<p>Also, there are some maintenance tasks:</p>
+
+<ul>
+<li><code>apport</code> cleans all crash reports that are older than a week;</li>
+<li><code>dpkg</code> backups the 7 last versions of dpkg databases containing user data, so it&rsquo;s possible to
+recover in case of corruption.</li>
+<li><code>cracklib-runtime</code> updates <a href="http://www.fifi.org/doc/cracklib2/">cracklib</a> dictionaries if
+required. For me such decision looks a bit strange: why don&rsquo;t update dictionaries in case of
+deb-package upgrade instead of running the same task periodically without any data changes?</li>
+</ul>
+
+<p>Also, I use some third-party software: Google Chrome and Slack. I found the tasks for each of them:
+<code>/etc/cron.daily/google-chrome</code> and <code>/etc/cron.daily/slack</code>. Each piece of software creates the
+repository configuration file for the package updates. The idea of the periodic task is monitoring
+that config to see if it has been disabled by the overly aggressive distro upgrade process. When
+this situation is detected, the repository will be re-enabled.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Linux is a complicated system. It can be configured in different ways. Ubuntu can provide the
+defaults that look reasonable for maintainers but can be a bit controversial for a particular user.
+The only option to find the best decision is a system exploration. The user should understand what
+some particular process does. Only in this case he can decide is it suitable for his setup or it&rsquo;s
+better to make some changes.</p>
+
+<p>In the article, I&rsquo;d described the decisions I&rsquo;d made for my setup and why. Some people will agree
+with them and others will not. It&rsquo;s OK. The idea of the article is not to suggest some particular
+solution but to encourage users to explore the system and make their own meaningful choice.</p>
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>
