@@ -8,7 +8,84 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-12-17">
+  <meta property="og:title" content="React Journey: componentWillMount in Concurrent Mode &middot; Developer&#39;s blog">
+  <meta name="description" content="Several days ago I was updating one of my React projects and I found deprecation warning like:
+
+
+Warning: componentWillMount has been renamed, and is not recommended for use. See
+https://fb.me/react-unsafe-component-lifecycles for details.
+
+
+Move code with side effects to componentDidMount, and set initial state in the constructor.
+Rename componentWillMount to UNSAFE_componentWillMount to suppress this warning in non-strict
+mode. In React 17.x, only the UNSAFE_ name will work. To rename all deprecated lifecycles to their
+new names, you can run npx react-codemod rename-unsafe-lifecycles in your project source folder.
+
+
+
+I had followed the link from this warning and
+found such an explanation about why this method is deprecated:
+
+
+One of the biggest lessons we’ve learned is that some of our legacy component lifecycles tend to
+encourage unsafe coding practices. They are:
+
+
+componentWillMount
+componentWillReceiveProps
+componentWillUpdate
+
+
+These lifecycle methods have often been misunderstood and subtly misused; furthermore, we
+anticipate that their potential misuse may be more problematic with async rendering.
+
+
+I think it&rsquo;s important to understand why using componentWillMount callback can be unsafe and why
+you need to change your code somehow. First of all, let&rsquo;s find out different usage examples of
+componentWillMount callback and check if it is safe or not to use this callback in different
+situations in the stable version of React 16.12.0 for browser rendering (there are some issues
+with server rendering but it&rsquo;s a subject of a separate article).">
+  <meta property="og:description" content="Several days ago I was updating one of my React projects and I found deprecation warning like:
+
+
+Warning: componentWillMount has been renamed, and is not recommended for use. See
+https://fb.me/react-unsafe-component-lifecycles for details.
+
+
+Move code with side effects to componentDidMount, and set initial state in the constructor.
+Rename componentWillMount to UNSAFE_componentWillMount to suppress this warning in non-strict
+mode. In React 17.x, only the UNSAFE_ name will work. To rename all deprecated lifecycles to their
+new names, you can run npx react-codemod rename-unsafe-lifecycles in your project source folder.
+
+
+
+I had followed the link from this warning and
+found such an explanation about why this method is deprecated:
+
+
+One of the biggest lessons we’ve learned is that some of our legacy component lifecycles tend to
+encourage unsafe coding practices. They are:
+
+
+componentWillMount
+componentWillReceiveProps
+componentWillUpdate
+
+
+These lifecycle methods have often been misunderstood and subtly misused; furthermore, we
+anticipate that their potential misuse may be more problematic with async rendering.
+
+
+I think it&rsquo;s important to understand why using componentWillMount callback can be unsafe and why
+you need to change your code somehow. First of all, let&rsquo;s find out different usage examples of
+componentWillMount callback and check if it is safe or not to use this callback in different
+situations in the stable version of React 16.12.0 for browser rendering (there are some issues
+with server rendering but it&rsquo;s a subject of a separate article).">
   <title>React Journey: componentWillMount in Concurrent Mode &middot; Developer&#39;s blog</title>
+  
 
   
   <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/print.css" media="print">
@@ -510,8 +587,6 @@ global state).</li>
 <li><code>componentWillMount</code> can be replaced with more suitable solutions in most cases.</li>
 </ul>
 </div>
-
-
     </main>
 
     

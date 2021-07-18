@@ -8,7 +8,32 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2021-01-04">
+  <meta property="og:title" content="Wrong Copying Progress and Long Disk Unmounting on Ubuntu &middot; Developer&#39;s blog">
+  <meta name="description" content="
+
+Sometimes I need to copy files from an internal SSD to an external hard drive. Recently I&rsquo;ve found a
+strange behavior on Ubuntu 20.04. When I try to copy a fairly big file (like 2Gb - 4Gb) Nautilus
+shows insane writing speed and the progress bar instantly reaches 100%, but when I want to unmount
+the device - it freezes for several minutes. I tried different file managers like
+Thunar from Xfce,
+midnight-commander, or even utilities like rsync or pv - the
+result was the same. For me, it&rsquo;s a bit inconvenient when I don&rsquo;t know how much time I have to wait
+until all data will be transferred, so I tried to find the solution to this problem.">
+  <meta property="og:description" content="
+
+Sometimes I need to copy files from an internal SSD to an external hard drive. Recently I&rsquo;ve found a
+strange behavior on Ubuntu 20.04. When I try to copy a fairly big file (like 2Gb - 4Gb) Nautilus
+shows insane writing speed and the progress bar instantly reaches 100%, but when I want to unmount
+the device - it freezes for several minutes. I tried different file managers like
+Thunar from Xfce,
+midnight-commander, or even utilities like rsync or pv - the
+result was the same. For me, it&rsquo;s a bit inconvenient when I don&rsquo;t know how much time I have to wait
+until all data will be transferred, so I tried to find the solution to this problem.">
   <title>Wrong Copying Progress and Long Disk Unmounting on Ubuntu &middot; Developer&#39;s blog</title>
+  
 
   
   <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/print.css" media="print">
@@ -151,8 +176,6 @@ the whole system&rsquo;s performance.</p>
 <p>Using external disks is a rare operation nowadays, but it does not mean that it should be
 inconvenient, so one of the solutions from the article can make the user experience much better.</p>
 </div>
-
-
     </main>
 
     
