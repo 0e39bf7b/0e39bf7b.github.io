@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,6 @@ human-readable hostname than remembering an IP address. I can modify /etc/hosts 
 Raspberry PI IP with custom hostname but I have to perform this action on all of my devices. It&rsquo;s a
 bit monotonous work if you have several computers and for some mobile devices, it&rsquo;s impossible to
 configure.
-
 In the case of complicated enterprise networks, it&rsquo;s common to configure a name server to perform
 hostname resolution, but for a small home network with several computers, it can be a bit overkill
 to configure and support a dedicated DNS server. Searching through the Internet I&rsquo;d found
@@ -36,7 +35,6 @@ human-readable hostname than remembering an IP address. I can modify /etc/hosts 
 Raspberry PI IP with custom hostname but I have to perform this action on all of my devices. It&rsquo;s a
 bit monotonous work if you have several computers and for some mobile devices, it&rsquo;s impossible to
 configure.
-
 In the case of complicated enterprise networks, it&rsquo;s common to configure a name server to perform
 hostname resolution, but for a small home network with several computers, it can be a bit overkill
 to configure and support a dedicated DNS server. Searching through the Internet I&rsquo;d found
@@ -48,10 +46,10 @@ DNS server for home networks.">
   
 
   
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
@@ -66,7 +64,7 @@ DNS server for home networks.">
 </head>
 
   <body class=" ">
-    <h1 class="site-title"><a href="https://0e39bf7b.github.io/">Developer&#39;s blog</a></h1>
+    <h1 class="site-title"><a href="https://0e39bf7b.blog/">Developer&#39;s blog</a></h1>
     <main class="content container">
     <div class="post">
   <h1 class="post-title">DNS without a Server</h1>
@@ -79,7 +77,6 @@ human-readable hostname than remembering an IP address. I can modify <code>/etc/
 Raspberry PI IP with custom hostname but I have to perform this action on all of my devices. It&rsquo;s a
 bit monotonous work if you have several computers and for some mobile devices, it&rsquo;s impossible to
 configure.</p>
-
 <p>In the case of complicated enterprise networks, it&rsquo;s common to configure a name server to perform
 hostname resolution, but for a small home network with several computers, it can be a bit overkill
 to configure and support a dedicated DNS server. Searching through the Internet I&rsquo;d found
@@ -87,12 +84,10 @@ to configure and support a dedicated DNS server. Searching through the Internet 
 an iPad with a USB cable. The author accessed a device with the address <code>raspberrypi.local</code> without
 any additional DNS configuration. So it should be a more lightweight alternative than a dedicated
 DNS server for home networks.</p>
-
 <p>A computer connected to a network has an address of the DNS server as a part of its network
 configuration. When a piece of software (e.g. web browser) tries to access a remote host using
 hostname it asks the DNS server to resolve a hostname into an IP address and then access a remote
 host using the received IP address.</p>
-
 <p>But what if there is no DNS server? Is it possible to perform hostname resolution? There is a set of
 technologies called <a href="https://en.wikipedia.org/wiki/Zero-configuration_networking">zeroconf</a>. It
 allows to creates a usable computer network without any additional manual configuration. One part of
@@ -101,18 +96,12 @@ that allows resolving some hostnames without a dedicated DNS server. When a mDNS
 resolve a hostname, it sends a multicast message to <code>224.0.0.251</code> (or <code>ff02::fb</code> for IPv6) that asks
 the host having that name to identify itself. The target machine multicasts a response with its
 address, so all computers in the network can use this information to update their mDNS caches.</p>
-
 <p>Multicast DNS is supported by various operating systems like Linux, MacOS X, or Windows 10.</p>
-
 <p>Usually, there is a file on Linux devices named <code>/etc/nnswitch.conf</code> that allows different
 applications to determine the sources from which to obtain name-service information and in what
 order. On my Ubuntu 20.04 desktop the configuration looks like this:</p>
-
 <pre><code>hosts: files mdns4_minimal [NOTFOUND=return] dns mymachines
-</code></pre>
-
-<p>It describes such a chain of actions:</p>
-
+</code></pre><p>It describes such a chain of actions:</p>
 <ul>
 <li>check <code>/etc/hosts</code> for a requested address;</li>
 <li>if <code>.local</code> domain was requested make a mDNS IPv4 request with avahi-daemon;</li>
@@ -121,21 +110,17 @@ order. On my Ubuntu 20.04 desktop the configuration looks like this:</p>
 <li>try to resolve a hostname of container registered with
 <a href="https://www.freedesktop.org/wiki/Software/systemd/machined/">systemd-machined</a>.</li>
 </ul>
-
 <p>There are two services on Ubuntu that provide mDNS support: <a href="https://www.avahi.org/">Avahi</a> and
 <a href="https://wiki.archlinux.org/index.php/Systemd-resolved">systemd-resolved</a>. By default, Ubuntu 20.04
 uses Avahi for mDNS requests and systemd-resolved for DNS requests.</p>
-
 <p>One more useful service connected with mDNS is
 <a href="https://en.wikipedia.org/wiki/Zero-configuration_networking#DNS-based_service_discovery">DNS Service Discovery</a>.
 It&rsquo;s a way of using standard DNS programming interfaces, servers, and packet formats to browse the
 network for services like printers, file-sharing, or chats.</p>
-
 <p>It&rsquo;s a pity but I haven&rsquo;t found how to configure Android Chrome to support mDNS. Moreover by default
 my Android phone ignores DNS server from the router and uses <code>8.8.8.8</code> that is why even
 configuration with a dedicated DNS server will not work out of the box. So I need to access my
 Raspberry PI with IP address from my Android devices.</p>
-
 <p>After all, a just set a hostname <code>weather</code> for the Raspberry PI, configured nginx to listen to port
 80 and it made it possible to check the weather with <code>http://weather.local</code> from my computers and
 iOS devices.</p>

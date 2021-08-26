@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Developer&#39;s blog</title>
-    <link>https://0e39bf7b.github.io/posts/</link>
+    <link>https://0e39bf7b.blog/posts/</link>
     <description>Recent content in Posts on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Jul 2021 06:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://0e39bf7b.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 17 Jul 2021 06:00:00 +0000</lastBuildDate><atom:link href="https://0e39bf7b.blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu periodic tasks</title>
-      <link>https://0e39bf7b.github.io/posts/ubuntu-periodic-tasks/</link>
+      <link>https://0e39bf7b.blog/posts/ubuntu-periodic-tasks/</link>
       <pubDate>Sat, 17 Jul 2021 06:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/ubuntu-periodic-tasks/</guid>
+      <guid>https://0e39bf7b.blog/posts/ubuntu-periodic-tasks/</guid>
       <description>&lt;p&gt;Ubuntu is an open-source system that allows users to control different components. Default desktop
 installation has a bunch of periodic tasks out of the box. It&amp;rsquo;s important to understand what is the
 purpose of these tasks and how often they are called. This knowledge allows to predict the network
@@ -26,10 +22,10 @@ the default tasks can be redundant for the particular user and that is why shoul
     
     <item>
       <title>mDNS on Ubuntu Server</title>
-      <link>https://0e39bf7b.github.io/posts/mdns-on-ubuntu-server/</link>
+      <link>https://0e39bf7b.blog/posts/mdns-on-ubuntu-server/</link>
       <pubDate>Tue, 25 May 2021 03:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/mdns-on-ubuntu-server/</guid>
+      <guid>https://0e39bf7b.blog/posts/mdns-on-ubuntu-server/</guid>
       <description>&lt;p&gt;Recently I was configuring a virtual network of several KVM machines for the testing of Gitlab
 installation. It&amp;rsquo;s more convenient when I can access machines by hostname but I don&amp;rsquo;t want to
 install and support a DNS server. So I&amp;rsquo;d decided to use mDNS.&lt;/p&gt;</description>
@@ -37,20 +33,20 @@ install and support a DNS server. So I&amp;rsquo;d decided to use mDNS.&lt;/p&gt
     
     <item>
       <title>Network Tools</title>
-      <link>https://0e39bf7b.github.io/posts/network-tools/</link>
+      <link>https://0e39bf7b.blog/posts/network-tools/</link>
       <pubDate>Sat, 15 May 2021 08:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/network-tools/</guid>
+      <guid>https://0e39bf7b.blog/posts/network-tools/</guid>
       <description>Almost every user sooner or later faces network problems, so it&amp;rsquo;s essential to have at least a basic understanding of network troubleshooting. In this article, I&amp;rsquo;d like to overview tools I use to explore network configuration and solve network issues on the Ubuntu desktop. Most of these applications can be used on a server but some of them are specific to desktop systems.
 ip and NetworkManager ip is a tool that allows to show or manipulate routing and network devices.</description>
     </item>
     
     <item>
       <title>DNS without a Server</title>
-      <link>https://0e39bf7b.github.io/posts/dns-wihtout-a-server/</link>
+      <link>https://0e39bf7b.blog/posts/dns-wihtout-a-server/</link>
       <pubDate>Sat, 20 Mar 2021 10:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/dns-wihtout-a-server/</guid>
+      <guid>https://0e39bf7b.blog/posts/dns-wihtout-a-server/</guid>
       <description>&lt;p&gt;A few days ago I&amp;rsquo;d decided to configure Raspberry PI as a weather station to check temperature,
 humidity, and pressure. So I need to access it on the network with SSH and a web browser. The
 easiest way of solving this problem is using a static IP address. In this case, I have to set static
@@ -59,7 +55,6 @@ human-readable hostname than remembering an IP address. I can modify &lt;code&gt
 Raspberry PI IP with custom hostname but I have to perform this action on all of my devices. It&amp;rsquo;s a
 bit monotonous work if you have several computers and for some mobile devices, it&amp;rsquo;s impossible to
 configure.&lt;/p&gt;
-
 &lt;p&gt;In the case of complicated enterprise networks, it&amp;rsquo;s common to configure a name server to perform
 hostname resolution, but for a small home network with several computers, it can be a bit overkill
 to configure and support a dedicated DNS server. Searching through the Internet I&amp;rsquo;d found
@@ -71,12 +66,11 @@ DNS server for home networks.&lt;/p&gt;</description>
     
     <item>
       <title>Wrong Copying Progress and Long Disk Unmounting on Ubuntu</title>
-      <link>https://0e39bf7b.github.io/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</link>
+      <link>https://0e39bf7b.blog/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</link>
       <pubDate>Mon, 04 Jan 2021 11:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.github.io/unmount-freezes.png&#34; alt=&#34;Unmount freezes&#34; /&gt;&lt;/p&gt;
-
+      <guid>https://0e39bf7b.blog/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.blog/unmount-freezes.png&#34; alt=&#34;Unmount freezes&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Sometimes I need to copy files from an internal SSD to an external hard drive. Recently I&amp;rsquo;ve found a
 strange behavior on Ubuntu 20.04. When I try to copy a fairly big file (like 2Gb - 4Gb) Nautilus
 shows insane writing speed and the progress bar instantly reaches 100%, but when I want to unmount
@@ -89,15 +83,14 @@ until all data will be transferred, so I tried to find the solution to this prob
     
     <item>
       <title>Ubuntu Snap: the Price of the Isolation</title>
-      <link>https://0e39bf7b.github.io/posts/ubuntu-snap-the-price-of-the-isolation/</link>
+      <link>https://0e39bf7b.blog/posts/ubuntu-snap-the-price-of-the-isolation/</link>
       <pubDate>Sat, 12 Sep 2020 06:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/ubuntu-snap-the-price-of-the-isolation/</guid>
+      <guid>https://0e39bf7b.blog/posts/ubuntu-snap-the-price-of-the-isolation/</guid>
       <description>&lt;p&gt;The idea of the majority of Linux distributions is to compile Linux kernel, collect existing Open
 Source and proprietary software, test and then patch it if required, add something own and pack the
 results into the packages, so users can install and use these programs. Ubuntu packages grouped into
 APT repositories. Users can manage packages with &lt;code&gt;apt&lt;/code&gt; command.&lt;/p&gt;
-
 &lt;p&gt;Software developers usually do not write all the code required by their programs, but use different
 libraries and frameworks (e.g. graphical applications can use GTK to draw widgets like button or
 label). It allows developers to save some time and make fewer bugs. As a result the majority of
@@ -106,11 +99,9 @@ GUI programs in Gnome depend on GTK) that is why there is no need to install the
 several times. Each APT package defines a list of dependencies, so when the user executes a command
 like &lt;code&gt;apt install gnome-calculator&lt;/code&gt; package manager install not only &lt;code&gt;gnome-calculator&lt;/code&gt; itself but
 also its dependencies like &lt;code&gt;libgtksourceview-4-0&lt;/code&gt;.&lt;/p&gt;
-
 &lt;p&gt;Such an approach allows users to save disk space and reduce security risks: if there is some problem
 in the common library it&amp;rsquo;s enough to update it once and all dependent programs will use the new
 version. Unfortunately, such an approach is not a silver bullet and has some downsides:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Suppose two programs depend on different versions of the same library. It this case there will be
 a conflict during dependencies resolution that is why &lt;code&gt;apt&lt;/code&gt; command will fail and the user can&amp;rsquo;t
@@ -123,22 +114,20 @@ file with the same name.&lt;/li&gt;
 &lt;li&gt;Traditional programs can access all user files and resources that is why it&amp;rsquo;s difficult to control
 such software. In case of a security vulnerability in one program all user&amp;rsquo;s files are in danger.&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Several years ago Ubuntu introduced &lt;a href=&#34;https://snapcraft.io/&#34;&gt;Snap&lt;/a&gt; - a package manager with an
 alternative approach, designed to solve &lt;code&gt;apt&lt;/code&gt; problems.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>The Most Weird Parts of JavaScript</title>
-      <link>https://0e39bf7b.github.io/posts/the-most-weird-parts-of-javascript/</link>
+      <link>https://0e39bf7b.blog/posts/the-most-weird-parts-of-javascript/</link>
       <pubDate>Thu, 16 Jul 2020 12:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/the-most-weird-parts-of-javascript/</guid>
+      <guid>https://0e39bf7b.blog/posts/the-most-weird-parts-of-javascript/</guid>
       <description>&lt;p&gt;JavaScript is one of the most popular programming languages nowadays. Originally it was created in
 10 days by Brendan Eich in 1995 for building simple scripts on the web pages but now it&amp;rsquo;s used for
 the development of different types of applications like sophisticated frontend or highload backend
 or even terminal tools - the one language to rule them all.&lt;/p&gt;
-
 &lt;p&gt;JavaScript evolves dramatically during the last 25 years. In 2020 it has a bunch of features that
 allow developers to write elegant code for solving everyday problems. JavaScript object model
 differs a lot from other languages like Java or Python. Some people in the community love
@@ -148,10 +137,10 @@ article, I&amp;rsquo;ll try to describe the top 3 things in JavaScript that are 
     
     <item>
       <title>Interesting Things from Webpack Sources</title>
-      <link>https://0e39bf7b.github.io/posts/interesting-things-from-webpack-sources/</link>
+      <link>https://0e39bf7b.blog/posts/interesting-things-from-webpack-sources/</link>
       <pubDate>Wed, 17 Jun 2020 11:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/interesting-things-from-webpack-sources/</guid>
+      <guid>https://0e39bf7b.blog/posts/interesting-things-from-webpack-sources/</guid>
       <description>&lt;p&gt;A lot of frontend projects use &lt;a href=&#34;https://webpack.js.org/&#34;&gt;webpack&lt;/a&gt; as a bundler tool. It allows to
 transform, bundle, or package different resources like JavaScript, styles, images, or fonts.
 Recently I&amp;rsquo;d been exploring &lt;a href=&#34;https://github.com/webpack/webpack&#34;&gt;webpack sources&lt;/a&gt; and I found
@@ -161,26 +150,24 @@ projects.&lt;/p&gt;</description>
     
     <item>
       <title>Proxy and Magical Print</title>
-      <link>https://0e39bf7b.github.io/posts/proxy-and-magical-print/</link>
+      <link>https://0e39bf7b.blog/posts/proxy-and-magical-print/</link>
       <pubDate>Wed, 22 Jan 2020 08:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/proxy-and-magical-print/</guid>
+      <guid>https://0e39bf7b.blog/posts/proxy-and-magical-print/</guid>
       <description>Once upon a time my colleague and I were working on end-to-end tests of one Angular.JS application. We used Node.js v8.9.1. Tests had such workflow:
  open a page; click an element; check if the page has some content.  As you can see it&amp;rsquo;s just a regular workflow for end-to-end tests, nothing special. Such tests allow us to reduce the amount of manual testing and eliminate bugs before the code will be delivered to the users.</description>
     </item>
     
     <item>
       <title>React Journey: componentWillMount in Concurrent Mode</title>
-      <link>https://0e39bf7b.github.io/posts/react-journey-componentwillmount-in-concurrent-mode/</link>
+      <link>https://0e39bf7b.blog/posts/react-journey-componentwillmount-in-concurrent-mode/</link>
       <pubDate>Tue, 17 Dec 2019 12:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/react-journey-componentwillmount-in-concurrent-mode/</guid>
+      <guid>https://0e39bf7b.blog/posts/react-journey-componentwillmount-in-concurrent-mode/</guid>
       <description>&lt;p&gt;Several days ago I was updating one of my React projects and I found deprecation warning like:&lt;/p&gt;
-
 &lt;blockquote&gt;
 &lt;p&gt;Warning: componentWillMount has been renamed, and is not recommended for use. See
 &lt;a href=&#34;https://fb.me/react-unsafe-component-lifecycles&#34;&gt;https://fb.me/react-unsafe-component-lifecycles&lt;/a&gt; for details.&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Move code with side effects to componentDidMount, and set initial state in the constructor.&lt;/li&gt;
 &lt;li&gt;Rename componentWillMount to UNSAFE_componentWillMount to suppress this warning in non-strict
@@ -188,24 +175,19 @@ mode. In React 17.x, only the UNSAFE_ name will work. To rename all deprecated l
 new names, you can run &lt;code&gt;npx react-codemod rename-unsafe-lifecycles&lt;/code&gt; in your project source folder.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;I had followed &lt;a href=&#34;https://fb.me/react-unsafe-component-lifecycles&#34;&gt;the link from this warning&lt;/a&gt; and
 found such an explanation about why this method is deprecated:&lt;/p&gt;
-
 &lt;blockquote&gt;
 &lt;p&gt;One of the biggest lessons we’ve learned is that some of our legacy component lifecycles tend to
 encourage unsafe coding practices. They are:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;componentWillMount&lt;/li&gt;
 &lt;li&gt;componentWillReceiveProps&lt;/li&gt;
 &lt;li&gt;componentWillUpdate&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;These lifecycle methods have often been misunderstood and subtly misused; furthermore, we
 anticipate that their potential misuse may be more problematic with async rendering.&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;I think it&amp;rsquo;s important to understand why using &lt;code&gt;componentWillMount&lt;/code&gt; callback can be unsafe and why
 you need to change your code somehow. First of all, let&amp;rsquo;s find out different usage examples of
 &lt;code&gt;componentWillMount&lt;/code&gt; callback and check if it is safe or not to use this callback in different
@@ -215,25 +197,24 @@ with server rendering but it&amp;rsquo;s a subject of a separate article).&lt;/p
     
     <item>
       <title>Configure Emacs for Python development</title>
-      <link>https://0e39bf7b.github.io/posts/configure-emacs-for-python-development/</link>
+      <link>https://0e39bf7b.blog/posts/configure-emacs-for-python-development/</link>
       <pubDate>Sat, 19 Oct 2019 10:30:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/configure-emacs-for-python-development/</guid>
+      <guid>https://0e39bf7b.blog/posts/configure-emacs-for-python-development/</guid>
       <description>&lt;p&gt;I like to have the same development environment on the local machine and remote servers. In this
 case it&amp;rsquo;s possible to write and debug programs not only with your laptop, but also using lightweight
 tablet or netbook and at the same time have all stuff you have used to like fast CPU, enough memory
 and all the features of IDE like code navigation or autocompletion. I prefer using Emacs on the
 Ubuntu machine to achieve this goal.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.github.io/emacs-gui.png&#34; alt=&#34;Emacs GUI version&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.blog/emacs-gui.png&#34; alt=&#34;Emacs GUI version&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Code Reuse with React Hooks</title>
-      <link>https://0e39bf7b.github.io/posts/code-reuse-with-react-hooks/</link>
+      <link>https://0e39bf7b.blog/posts/code-reuse-with-react-hooks/</link>
       <pubDate>Sun, 07 Jul 2019 12:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/code-reuse-with-react-hooks/</guid>
+      <guid>https://0e39bf7b.blog/posts/code-reuse-with-react-hooks/</guid>
       <description>&lt;p&gt;One of the most challenging problems for frontend developers is the reuse of code. It&amp;rsquo;s especially
 important for big applications. Traditional approaches with higher-order components and render-props
 have advantages and disadvantages. In some cases, it can be inconvenient to use them. React 16.8
@@ -243,30 +224,31 @@ it work and how does it solve the problem of code reuse.&lt;/p&gt;</description>
     
     <item>
       <title>JS vs JPG</title>
-      <link>https://0e39bf7b.github.io/posts/js-vs-jpg/</link>
+      <link>https://0e39bf7b.blog/posts/js-vs-jpg/</link>
       <pubDate>Sat, 25 May 2019 10:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/js-vs-jpg/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.github.io/js-vs-jpg.png&#34; alt=&#34;Comparation between JS and JPG processing&#34; /&gt;&lt;/p&gt;
-
+      <guid>https://0e39bf7b.blog/posts/js-vs-jpg/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.blog/js-vs-jpg.png&#34; alt=&#34;Comparation between JS and JPG processing&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TL;DR: sometimes processing of JS file can be faster than the processing of JPG of the same size
 in bytes, you&amp;rsquo;d better check your own project before optimizing it.&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Overengineering</title>
-      <link>https://0e39bf7b.github.io/posts/overengineering/</link>
+      <link>https://0e39bf7b.blog/posts/overengineering/</link>
       <pubDate>Sat, 20 Apr 2019 11:05:05 +0000</pubDate>
       
-      <guid>https://0e39bf7b.github.io/posts/overengineering/</guid>
+      <guid>https://0e39bf7b.blog/posts/overengineering/</guid>
       <description>&lt;p&gt;In the modern, world there are a lot of different libraries and tools which were created to simplify
-software development, make it faster and less error-prone. Let&amp;rsquo;s talk about frontend development. 10
-- 15 years ago the size of the JavaScript code on a regular Internet resource was much smaller.
+software development, make it faster and less error-prone. Let&amp;rsquo;s talk about frontend development. 10&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;15 years ago the size of the JavaScript code on a regular Internet resource was much smaller.
 The majority of resources used &lt;a href=&#34;https://jquery.com/&#34;&gt;jQuery&lt;/a&gt; with several plugins and a bit of
 business logic. Nowadays web applications become much more complicated, contain a lot of business
 logic and that is why being built using the Single Page Application (SPA) approach. When an
 application is written like SPA it creates page content in the browser dynamically instead of
-rendering HTML received from a server.&lt;/p&gt;</description>
+rendering HTML received from a server.&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
   </channel>

@@ -1,97 +1,57 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>https://0e39bf7b.github.io/</loc>
+    <loc>https://0e39bf7b.blog/</loc>
     <lastmod>2021-07-17T06:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/</loc>
     <lastmod>2021-07-17T06:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/ubuntu-periodic-tasks/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/ubuntu-periodic-tasks/</loc>
     <lastmod>2021-07-17T06:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/mdns-on-ubuntu-server/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/mdns-on-ubuntu-server/</loc>
     <lastmod>2021-05-25T03:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/network-tools/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/network-tools/</loc>
     <lastmod>2021-05-15T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/dns-wihtout-a-server/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/dns-wihtout-a-server/</loc>
     <lastmod>2021-03-20T10:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</loc>
     <lastmod>2021-01-04T11:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/ubuntu-snap-the-price-of-the-isolation/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/ubuntu-snap-the-price-of-the-isolation/</loc>
     <lastmod>2020-09-12T06:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/the-most-weird-parts-of-javascript/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/the-most-weird-parts-of-javascript/</loc>
     <lastmod>2020-07-16T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/interesting-things-from-webpack-sources/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/interesting-things-from-webpack-sources/</loc>
     <lastmod>2020-06-17T11:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/proxy-and-magical-print/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/proxy-and-magical-print/</loc>
     <lastmod>2020-01-22T08:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/react-journey-componentwillmount-in-concurrent-mode/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/react-journey-componentwillmount-in-concurrent-mode/</loc>
     <lastmod>2019-12-17T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/configure-emacs-for-python-development/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/configure-emacs-for-python-development/</loc>
     <lastmod>2019-10-19T10:30:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/code-reuse-with-react-hooks/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/code-reuse-with-react-hooks/</loc>
     <lastmod>2019-07-07T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/js-vs-jpg/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/js-vs-jpg/</loc>
     <lastmod>2019-05-25T10:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/posts/overengineering/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/posts/overengineering/</loc>
     <lastmod>2019-04-20T11:05:05+00:00</lastmod>
+  </url><url>
+    <loc>https://0e39bf7b.blog/categories/</loc>
+  </url><url>
+    <loc>https://0e39bf7b.blog/tags/</loc>
   </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://0e39bf7b.github.io/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
 </urlset>

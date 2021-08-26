@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,10 +26,10 @@ projects.">
   
 
   
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
@@ -44,7 +44,7 @@ projects.">
 </head>
 
   <body class=" ">
-    <h1 class="site-title"><a href="https://0e39bf7b.github.io/">Developer&#39;s blog</a></h1>
+    <h1 class="site-title"><a href="https://0e39bf7b.blog/">Developer&#39;s blog</a></h1>
     <main class="content container">
     <div class="post">
   <h1 class="post-title">Interesting Things from Webpack Sources</h1>
@@ -54,53 +54,47 @@ transform, bundle, or package different resources like JavaScript, styles, image
 Recently I&rsquo;d been exploring <a href="https://github.com/webpack/webpack">webpack sources</a> and I found
 several interesting solutions to different programming problems that can be used in JavaScript
 projects.</p>
-
 <h2 id="function-context">Function context</h2>
-
 <p>Webpack is a highly extensible tool. It allows to process different types of content like
 <a href="https://github.com/webpack-contrib/coffee-loader">coffeescript</a> or
 <a href="https://github.com/webpack-contrib/css-loader">css</a> using
 <a href="https://webpack.js.org/api/loaders/">loaders</a>. The majority of loaders transform input content into
 JavaScript, which can be handled by webpack. The simplest loader receives input data as an argument
 and returns the result as a string:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">module.exports <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(content, map, meta) {
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">module.exports <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(content, map, meta) {
   <span style="color:#719e07">return</span> <span style="color:#2aa198">&#34;module.exports = \&#34;Hello world\&#34;&#34;</span>;
 };
-</code></pre></div>
-<p>More complicated loaders often perform different operations like async function calls, cache
+</code></pre></div><p>More complicated loaders often perform different operations like async function calls, cache
 control, or adding dependencies. In this case, a loader requires some sort of communication with
 webpack but there is no explicit argument for this purpose. Loaders use a different approach:
 calling methods of <code>this</code> context:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">module.exports <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(content, map, meta) {
-  <span style="color:#719e07">const</span> callback <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>.<span style="color:#268bd2">async</span>();
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">module.exports <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(content, map, meta) {
+  <span style="color:#268bd2">const</span> callback <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>.<span style="color:#268bd2">async</span>();
   someAsyncOperation(content, <span style="color:#268bd2">function</span>(err, result) {
     <span style="color:#719e07">if</span> (err) <span style="color:#719e07">return</span> callback(err);
     callback(<span style="color:#cb4b16">null</span>, result, map, meta);
   });
 };
-</code></pre></div>
-<p>The same approach was popular several years ago with <a href="https://jquery.com/">jQuery</a>:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(<span style="color:#2aa198">&#34;li&#34;</span>).each(<span style="color:#268bd2">function</span>(index) {
+</code></pre></div><p>The same approach was popular several years ago with <a href="https://jquery.com/">jQuery</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(<span style="color:#2aa198">&#34;li&#34;</span>).each(<span style="color:#268bd2">function</span>(index) {
   console.log(index <span style="color:#719e07">+</span> <span style="color:#2aa198">&#34;: &#34;</span> <span style="color:#719e07">+</span> $(<span style="color:#719e07">this</span>).text());
 });
-</code></pre></div>
-<p>The idea of providing <code>this</code> for a function call is one of the core ideas of JavaScript. E.g. it&rsquo;s
+</code></pre></div><p>The idea of providing <code>this</code> for a function call is one of the core ideas of JavaScript. E.g. it&rsquo;s
 possible to bind the same callback to different links and determine which link was clicked using
 <code>this</code>:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#b58900">document</span>.querySelectorAll(<span style="color:#2aa198">&#39;a&#39;</span>).forEach(a =&gt; a.onclick <span style="color:#719e07">=</span> onLinkClick);
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#b58900">document</span>.querySelectorAll(<span style="color:#2aa198">&#39;a&#39;</span>).forEach(a =&gt; a.onclick <span style="color:#719e07">=</span> onLinkClick);
 
 <span style="color:#268bd2">function</span> onLinkClick() {
   console.log(<span style="color:#586e75">`link clicked: </span><span style="color:#2aa198">${</span><span style="color:#719e07">this</span>.innerText<span style="color:#2aa198">}</span><span style="color:#586e75">`</span>);
 }
-</code></pre></div>
-<p>To implement webpack-like approach for loaders such code can be used:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#586e75">// Assume loader is a function described earlier
+</code></pre></div><p>To implement webpack-like approach for loaders such code can be used:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#586e75">// Assume loader is a function described earlier
 </span><span style="color:#586e75"></span>
 <span style="color:#268bd2">function</span> processLoaderResult(err, result) {
   <span style="color:#586e75">// do something with loader result
 </span><span style="color:#586e75"></span>}
 
-<span style="color:#719e07">const</span> context <span style="color:#719e07">=</span> {
+<span style="color:#268bd2">const</span> context <span style="color:#719e07">=</span> {
   <span style="color:#268bd2">async</span>() {
     <span style="color:#719e07">this</span>.callbackRequired <span style="color:#719e07">=</span> <span style="color:#cb4b16">true</span>;
     <span style="color:#719e07">return</span> (err, result) =&gt; {
@@ -109,60 +103,52 @@ possible to bind the same callback to different links and determine which link w
   }
 }
 
-<span style="color:#719e07">const</span> result <span style="color:#719e07">=</span> loader.call(context, <span style="color:#2aa198">&#34;some module content&#34;</span>);
+<span style="color:#268bd2">const</span> result <span style="color:#719e07">=</span> loader.call(context, <span style="color:#2aa198">&#34;some module content&#34;</span>);
 
 <span style="color:#719e07">if</span> (<span style="color:#719e07">!</span>context.callbackRequired) {
   processLoaderResult(<span style="color:#cb4b16">null</span>, result);
 }
-</code></pre></div>
-<p>It&rsquo;s important to remember that
+</code></pre></div><p>It&rsquo;s important to remember that
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow functions</a>
 do not allow to change <code>this</code> that is why it&rsquo;s impossible to use the arrow function as a complicated
 loader:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">module.exports <span style="color:#719e07">=</span> content =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">module.exports <span style="color:#719e07">=</span> content =&gt; {
   <span style="color:#586e75">// this === global
 </span><span style="color:#586e75"></span>  <span style="color:#586e75">// this.async === undefined
-</span><span style="color:#586e75"></span>  <span style="color:#719e07">const</span> callback <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>.<span style="color:#268bd2">async</span>(); <span style="color:#586e75">// undefined is not a function
+</span><span style="color:#586e75"></span>  <span style="color:#268bd2">const</span> callback <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>.<span style="color:#268bd2">async</span>(); <span style="color:#586e75">// undefined is not a function
 </span><span style="color:#586e75"></span>  someAsyncOperation(content, (err, result) =&gt; {
     <span style="color:#719e07">if</span> (err) <span style="color:#719e07">return</span> callback(err);
     callback(<span style="color:#cb4b16">null</span>, result);
   });
 };
-</code></pre></div>
-<p>The idea of changing <code>this</code> context can be useful in different frameworks and libraries but in my
+</code></pre></div><p>The idea of changing <code>this</code> context can be useful in different frameworks and libraries but in my
 projects, I prefer to minimize using it. I think it&rsquo;s better to use <code>this</code> with classes and objects.
 When I write a function I provide data for it as explicit arguments. If a function requires some
 sort of context I provide it as a first argument:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">function</span> processRequest(context, request) {
-  <span style="color:#719e07">const</span> session <span style="color:#719e07">=</span> context.db.findSessionForUser(request.user);
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">function</span> processRequest(context, request) {
+  <span style="color:#268bd2">const</span> session <span style="color:#719e07">=</span> context.db.findSessionForUser(request.user);
   <span style="color:#586e75">// ...
 </span><span style="color:#586e75"></span>}
-</code></pre></div>
-<p>In my opinion, such code is easier to understand (e.g. arguments can be described with
+</code></pre></div><p>In my opinion, such code is easier to understand (e.g. arguments can be described with
 <a href="https://jsdoc.app/">JSDoc</a>) and it&rsquo;s possible to use arrow functions.</p>
-
 <h2 id="tapable">Tapable</h2>
-
 <p>Some of webpack algorithms consist of two parts: backbone behavior and customizations, e.g.
 <a href="https://github.com/webpack/webpack/blob/542c6607c82879951005dd92bc9cdc9df1e76e2c/lib/Compilation.js#L1422-L1466">adding an entrypoint</a>
 performs some operations and then calls <code>addEntry</code> hook:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">this</span>.hooks.addEntry.call(entry, options);
-</code></pre></div>
-<p>A hook is a way of defining an extension point. Plugins can bind callbacks to a hook and webpack
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">this</span>.hooks.addEntry.call(entry, options);
+</code></pre></div><p>A hook is a way of defining an extension point. Plugins can bind callbacks to a hook and webpack
 will execute these callbacks at some point in its algorithm.</p>
-
 <p>Such an approach allows to customize different stages of the build process. Moreover some internal
 code like
 <a href="https://github.com/webpack/webpack/blob/542c6607c82879951005dd92bc9cdc9df1e76e2c/lib/rules/RuleSetCompiler.js#L1">RuleSetCompiler</a>
 consists of hooks almost completely. Webpack uses <a href="https://github.com/webpack/tapable">Tapable</a>
 library to introduce and execute hooks.</p>
-
 <p>Take a look at the example. Assume there is a task of processing user requests. There are some
 common logic and several independent actions that should be performed for each request. Code for
 such case can be implemented like this:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> { SyncHook } <span style="color:#719e07">=</span> require(<span style="color:#2aa198">&#34;tapable&#34;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> { SyncHook } <span style="color:#719e07">=</span> require(<span style="color:#2aa198">&#34;tapable&#34;</span>);
 
-<span style="color:#719e07">class</span> RequestProcessor {
+<span style="color:#268bd2">class</span> RequestProcessor {
   constructor() {
     <span style="color:#719e07">this</span>.hooks <span style="color:#719e07">=</span> {
       processRequest<span style="color:#719e07">:</span> <span style="color:#719e07">new</span> SyncHook(<span style="color:#2aa198">&#34;request&#34;</span>)
@@ -171,7 +157,7 @@ such case can be implemented like this:</p>
 
   <span style="color:#268bd2">async</span> processRequests() {
     <span style="color:#719e07">while</span> (<span style="color:#cb4b16">true</span>) {
-      <span style="color:#719e07">const</span> request <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> <span style="color:#719e07">this</span>.getRequest();
+      <span style="color:#268bd2">const</span> request <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> <span style="color:#719e07">this</span>.getRequest();
       logRequest(request);
 
       <span style="color:#719e07">this</span>.hooks.call(request);
@@ -179,7 +165,7 @@ such case can be implemented like this:</p>
   }
 }
 
-<span style="color:#719e07">const</span> requestProcessor <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> RequestProcessor();
+<span style="color:#268bd2">const</span> requestProcessor <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> RequestProcessor();
 
 requestProcessor.hooks.tap(<span style="color:#2aa198">&#34;email&#34;</span>, (request) =&gt; {
   <span style="color:#586e75">// send email
@@ -194,34 +180,28 @@ requestProcessor.hooks.tap(<span style="color:#2aa198">&#34;stats&#34;</span>, (
 </span><span style="color:#586e75"></span>});
 
 requestProcessor.processRequests();
-</code></pre></div>
-<p>It&rsquo;s similar with events processing in the browser when the developer adds several callbacks for
+</code></pre></div><p>It&rsquo;s similar with events processing in the browser when the developer adds several callbacks for
 some event of the DOM node and the browser calls them when the event occurs:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> btn <span style="color:#719e07">=</span> ducument.getElementById(<span style="color:#2aa198">&#39;main-btn&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> btn <span style="color:#719e07">=</span> ducument.getElementById(<span style="color:#2aa198">&#39;main-btn&#39;</span>);
 btn.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, showBanner);
 btn.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, calculateStats);
-</code></pre></div>
-<p>Tapable provides different types of hooks: synchronous, asynchronous, sequential, parallel, and so
+</code></pre></div><p>Tapable provides different types of hooks: synchronous, asynchronous, sequential, parallel, and so
 on. That is why it&rsquo;s possible to embed hooks in almost every algorithm when required.</p>
-
 <p>The idea of hooks looks reasonable for libraries and big projects but can be an overkill for the
 small ones: sometimes it can be very difficult to debug such code because of hidden connection
 between the event emitter and the event listener.</p>
-
 <h2 id="neo-async">neo-async</h2>
-
 <p>A lot of projects noways uses collection methods like <code>forEach</code> or <code>map</code>:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">users.forEach(user =&gt; print(user));
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">users.forEach(user =&gt; print(user));
 emails <span style="color:#719e07">=</span> users.map(user =&gt; user.email);
-</code></pre></div>
-<p>These methods are useful for synchronous code but can&rsquo;t be used with asynchronous code. One of the
+</code></pre></div><p>These methods are useful for synchronous code but can&rsquo;t be used with asynchronous code. One of the
 solutions to such a problem is a <a href="https://github.com/suguru03/neo-async">neo-async</a> library:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> <span style="color:#268bd2">async</span> <span style="color:#719e07">=</span> require(<span style="color:#2aa198">&#39;neo-async&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> <span style="color:#268bd2">async</span> <span style="color:#719e07">=</span> require(<span style="color:#2aa198">&#39;neo-async&#39;</span>);
 
 <span style="color:#586e75">// array
-</span><span style="color:#586e75"></span><span style="color:#719e07">const</span> userIds <span style="color:#719e07">=</span> [<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">3</span>];
+</span><span style="color:#586e75"></span><span style="color:#268bd2">const</span> userIds <span style="color:#719e07">=</span> [<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">3</span>];
 
-<span style="color:#719e07">const</span> iterator <span style="color:#719e07">=</span> (userId, done) {
+<span style="color:#268bd2">const</span> iterator <span style="color:#719e07">=</span> (userId, done) {
   fetchUserInfo(userId).then(info =&gt; {
     done(<span style="color:#cb4b16">null</span>, info);
   });
@@ -230,30 +210,26 @@ solutions to such a problem is a <a href="https://github.com/suguru03/neo-async"
 <span style="color:#268bd2">async</span>.map(array, iterator, (err, res) =&gt; {
   console.log(res);
 });
-</code></pre></div>
-<p>neo-async is useful for the code with callbacks but my code often uses <code>Promises</code> and <code>async/await</code>
+</code></pre></div><p>neo-async is useful for the code with callbacks but my code often uses <code>Promises</code> and <code>async/await</code>
 that is why I prefer a different approach. When the order of execution is not important I write such
 code:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> userIds <span style="color:#719e07">=</span> [<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">3</span>];
-<span style="color:#719e07">const</span> res <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> <span style="color:#b58900">Promise</span>.all(userIds.map(fetchUserInfo));
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> userIds <span style="color:#719e07">=</span> [<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">3</span>];
+<span style="color:#268bd2">const</span> res <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> <span style="color:#b58900">Promise</span>.all(userIds.map(fetchUserInfo));
 console.log(res);
-</code></pre></div>
-<p>In case when the order is important and functions should be performed one after another I write such
+</code></pre></div><p>In case when the order is important and functions should be performed one after another I write such
 code:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> userIds <span style="color:#719e07">=</span> [<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">3</span>];
-<span style="color:#719e07">const</span> res <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> userIds.reduce(<span style="color:#268bd2">async</span> (promise, userId) =&gt; {
-  <span style="color:#719e07">const</span> infos <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> promise;
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> userIds <span style="color:#719e07">=</span> [<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">3</span>];
+<span style="color:#268bd2">const</span> res <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> userIds.reduce(<span style="color:#268bd2">async</span> (promise, userId) =&gt; {
+  <span style="color:#268bd2">const</span> infos <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> promise;
   infos.push(<span style="color:#268bd2">await</span> fetchUserInfo(userId));
   <span style="color:#719e07">return</span> infos;
 }, <span style="color:#b58900">Promise</span>.resolve([]));
 console.log(res);
-</code></pre></div>
-<h2 id="needcalls">needCalls</h2>
-
+</code></pre></div><h2 id="needcalls">needCalls</h2>
 <p>In the
 <a href="https://github.com/webpack/webpack/blob/8070bcd333cd1d07ce13fe5e91530c80779d51c6/lib/NormalModuleFactory.js#L91-L101">NormalModuleFactory.js</a>
 I&rsquo;ve found helper:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> needCalls <span style="color:#719e07">=</span> (times, callback) =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> needCalls <span style="color:#719e07">=</span> (times, callback) =&gt; {
   <span style="color:#719e07">return</span> err =&gt; {
     <span style="color:#719e07">if</span> (<span style="color:#719e07">--</span>times <span style="color:#719e07">===</span> <span style="color:#2aa198">0</span>) {
       <span style="color:#719e07">return</span> callback(err);
@@ -264,10 +240,9 @@ I&rsquo;ve found helper:</p>
     }
   };
 };
-</code></pre></div>
-<p>The idea of it is to call some callback after several asynchronous operations or as soon as an error
+</code></pre></div><p>The idea of it is to call some callback after several asynchronous operations or as soon as an error
 occurs:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> callback <span style="color:#719e07">=</span> needCalls(<span style="color:#2aa198">3</span>, (err) =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> callback <span style="color:#719e07">=</span> needCalls(<span style="color:#2aa198">3</span>, (err) =&gt; {
   <span style="color:#719e07">if</span> (err) {
     console.log(<span style="color:#586e75">`Error found: </span><span style="color:#2aa198">${</span>err<span style="color:#2aa198">}</span><span style="color:#586e75">`</span>);
   } <span style="color:#719e07">else</span> {
@@ -278,36 +253,29 @@ occurs:</p>
 asyncOperation1(callback);
 asyncOperation2(callback);
 asyncOperation3(callback);
-</code></pre></div>
-<p>I think this helper can be very useful in some cases.</p>
-
+</code></pre></div><p>I think this helper can be very useful in some cases.</p>
 <h2 id="recursion-and-stack">Recursion and stack</h2>
-
 <p>When a program calls the function JavaScript Virtual Machine saves the current position of the code,
 executes the required function, and returns to the saved position.</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> result <span style="color:#719e07">=</span> add(<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>);
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> result <span style="color:#719e07">=</span> add(<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>);
 console.log(result);
 
 <span style="color:#268bd2">function</span> add(a, b) {
   <span style="color:#719e07">return</span> a <span style="color:#719e07">+</span> b;
 }
-</code></pre></div>
-<p>In the example above at the first line function <code>add</code> is called. At this moment JavaScript saves
+</code></pre></div><p>In the example above at the first line function <code>add</code> is called. At this moment JavaScript saves
 the position at line 1 and starts execution of <code>add</code> function. After the function returns the value
 JavaScript returns to line 1 and continues the execution.</p>
-
 <p>A mechanism that stores these positions is called the
 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Call_Stack">call stack</a>. The size of the call
 stack is limited so if a program has a lot of nested function calls it can lead to the stack
 overflow error.</p>
-
 <p>When a program processes graph structures it&rsquo;s essential to use recursion algorithms. Each step of
 recursion adds a new frame into the call stack that is why if graph depth is big enough it&rsquo;s
 possible to receive a stack overflow error.</p>
-
 <p>It&rsquo;s easy to check maximum stack size using the example from
 <a href="https://stackoverflow.com/questions/7826992/browser-javascript-stack-size-limit">StackOverflow</a>:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">let</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">let</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
 
 setTimeout(<span style="color:#268bd2">function</span>() {
   console.log(i);
@@ -318,17 +286,15 @@ setTimeout(<span style="color:#268bd2">function</span>() {
   inc();
 }
 inc();
-</code></pre></div>
-<p>Webpack can process a huge amount of modules and dependencies during the building of the chunk graph
+</code></pre></div><p>Webpack can process a huge amount of modules and dependencies during the building of the chunk graph
 that is why an interesting solution of stack overflow problem was introduced: recursion was replaced
 by the
 <a href="https://github.com/webpack/webpack/blob/292036f714543530e0465ebced4585fc26685409/lib/buildChunkGraph.js#L760-L800">loop over actions queue</a>.
 Webpack starts building a chunk graph from entrypoints. When a new module is discovered webpack adds
 it into the queue, processes it, and remove it from the queue. The queue looks like a call stack but
 its size is not limited that is why it can use the whole available memory of the computer.</p>
-
 <p>Let&rsquo;s solve a simple task with such an approach. Assume there is such graph structure:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> graph <span style="color:#719e07">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> graph <span style="color:#719e07">=</span> {
   value<span style="color:#719e07">:</span> <span style="color:#2aa198">10</span>,
   children<span style="color:#719e07">:</span> [
     {
@@ -351,12 +317,10 @@ its size is not limited that is why it can use the whole available memory of the
     }
   ]
 }
-</code></pre></div>
-<p>Each node has a positive integer value and an array of children. The task is to find the maximum
+</code></pre></div><p>Each node has a positive integer value and an array of children. The task is to find the maximum
 value in such a graph.</p>
-
 <p>A solution using recursion can be like this:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(findMax(graph));
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(findMax(graph));
 
 <span style="color:#268bd2">function</span> findMax(node) {
   <span style="color:#268bd2">let</span> maxValue <span style="color:#719e07">=</span> node.value;
@@ -367,16 +331,15 @@ value in such a graph.</p>
 
   <span style="color:#719e07">return</span> maxValue;
 }
-</code></pre></div>
-<p>A solution using a manual stack can be like this:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(findMax(graph));
+</code></pre></div><p>A solution using a manual stack can be like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(findMax(graph));
 
 <span style="color:#268bd2">function</span> findMax(node) {
   <span style="color:#268bd2">let</span> maxValue <span style="color:#719e07">=</span> node.value;
-  <span style="color:#719e07">const</span> queue <span style="color:#719e07">=</span> [node];
+  <span style="color:#268bd2">const</span> queue <span style="color:#719e07">=</span> [node];
 
   <span style="color:#719e07">while</span> (queue.length) {
-    <span style="color:#719e07">const</span> queueItem <span style="color:#719e07">=</span> queue.pop();
+    <span style="color:#268bd2">const</span> queueItem <span style="color:#719e07">=</span> queue.pop();
 
     maxValue <span style="color:#719e07">=</span> <span style="color:#b58900">Math</span>.max(maxValue, queueItem.value);
 
@@ -387,10 +350,8 @@ value in such a graph.</p>
 
   <span style="color:#719e07">return</span> maxValue;
 }
-</code></pre></div>
-<p>I think a code with a manual stack is more difficult to read and understand so use it only if you
+</code></pre></div><p>I think a code with a manual stack is more difficult to read and understand so use it only if you
 have some problems with recursion.</p>
-
 <p>Coming to a conclusion I want to say that it&rsquo;s very useful to explore the code of open source
 projects. Even if you will not use such algorithms in your software it lets you look on everyday
 problems from another perspective and become a better developer.</p>

@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,28 +14,32 @@
   <meta property="og:title" content="Overengineering &middot; Developer&#39;s blog">
   <meta name="description" content="In the modern, world there are a lot of different libraries and tools which were created to simplify
 software development, make it faster and less error-prone. Let&rsquo;s talk about frontend development. 10
-- 15 years ago the size of the JavaScript code on a regular Internet resource was much smaller.
+
+15 years ago the size of the JavaScript code on a regular Internet resource was much smaller.
 The majority of resources used jQuery with several plugins and a bit of
 business logic. Nowadays web applications become much more complicated, contain a lot of business
 logic and that is why being built using the Single Page Application (SPA) approach. When an
 application is written like SPA it creates page content in the browser dynamically instead of
-rendering HTML received from a server.">
+rendering HTML received from a server.
+">
   <meta property="og:description" content="In the modern, world there are a lot of different libraries and tools which were created to simplify
 software development, make it faster and less error-prone. Let&rsquo;s talk about frontend development. 10
-- 15 years ago the size of the JavaScript code on a regular Internet resource was much smaller.
+
+15 years ago the size of the JavaScript code on a regular Internet resource was much smaller.
 The majority of resources used jQuery with several plugins and a bit of
 business logic. Nowadays web applications become much more complicated, contain a lot of business
 logic and that is why being built using the Single Page Application (SPA) approach. When an
 application is written like SPA it creates page content in the browser dynamically instead of
-rendering HTML received from a server.">
+rendering HTML received from a server.
+">
   <title>Overengineering &middot; Developer&#39;s blog</title>
   
 
   
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
@@ -50,66 +54,62 @@ rendering HTML received from a server.">
 </head>
 
   <body class=" ">
-    <h1 class="site-title"><a href="https://0e39bf7b.github.io/">Developer&#39;s blog</a></h1>
+    <h1 class="site-title"><a href="https://0e39bf7b.blog/">Developer&#39;s blog</a></h1>
     <main class="content container">
     <div class="post">
   <h1 class="post-title">Overengineering</h1>
   <time datetime=2019-04-20T11:05:05Z class="post-date">Apr 20, 2019</time>
   <p>In the modern, world there are a lot of different libraries and tools which were created to simplify
-software development, make it faster and less error-prone. Let&rsquo;s talk about frontend development. 10
-- 15 years ago the size of the JavaScript code on a regular Internet resource was much smaller.
+software development, make it faster and less error-prone. Let&rsquo;s talk about frontend development. 10</p>
+<ul>
+<li>15 years ago the size of the JavaScript code on a regular Internet resource was much smaller.
 The majority of resources used <a href="https://jquery.com/">jQuery</a> with several plugins and a bit of
 business logic. Nowadays web applications become much more complicated, contain a lot of business
 logic and that is why being built using the Single Page Application (SPA) approach. When an
 application is written like SPA it creates page content in the browser dynamically instead of
-rendering HTML received from a server.</p>
-
+rendering HTML received from a server.</li>
+</ul>
 <p>Such an approach requires complicated frameworks like <a href="https://reactjs.org/">React</a> or
 <a href="https://angular.io/">Angular</a> so the size of <code>vendor.js</code> is measured in thousands of Kb. It looks
 reasonable when we talk about big enterprise applications but for a simple resource it&rsquo;s strange.
 I&rsquo;ve seen a lot of situations when developers tried to solve consequences of this problem but not
 the problem itself, i.e. they configured code splitting for big <code>vendor.js</code> instead of refusing
 using complicated libraries which actually are not required for the project of that size.</p>
-
 <p>Almost every popular framework or library requires a lot of dependencies, i.e. today I&rsquo;ve created
 empty Angular application using <code>ng new</code> command and it has 1143 dependencies. Furthermore, if you
 need some additional features you install some plugins with additional dependencies. So the size of
 <code>node_modules</code> can reach thousands of megabytes and application building process can take a lot of
 time.</p>
-
 <p>If you have a fast network and high-performance computers such problem is invisible or unimportant.
 There is another problem which can&rsquo;t be solved using better hardware, the problem familiar for every
 developer - overengineering. Let&rsquo;s take a look at a classic &ldquo;Hello world&rdquo; application in JavaScript:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#2aa198">&#34;Hello world&#34;</span>);
-</code></pre></div>
-<p>Nice and easy, but what if tomorrow I&rsquo;ll need to print this text several times in different
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#2aa198">&#34;Hello world&#34;</span>);
+</code></pre></div><p>Nice and easy, but what if tomorrow I&rsquo;ll need to print this text several times in different
 functions? It&rsquo;s good practice to extract it into a constant.</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
 console.log(HELLO_TEXT);
-</code></pre></div>
-<p>I think the logging is tightly coupled with the application logic. It&rsquo;s not OK. Well known books
+</code></pre></div><p>I think the logging is tightly coupled with the application logic. It&rsquo;s not OK. Well known books
 suggest to avoid such situations, so let&rsquo;s add a bit of dependency injection.</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
 
 <span style="color:#268bd2">function</span> run(log) {
   log(HELLO_TEXT);
 }
 
 run(console.log.bind(console));
-</code></pre></div>
-<p>I want my application to be extensible because I don&rsquo;t want to rewrite all the code from scratch
+</code></pre></div><p>I want my application to be extensible because I don&rsquo;t want to rewrite all the code from scratch
 every time when requirements are changed. What if tomorrow I&rsquo;ll need to send this text over the
 network instead of simple printing to the console? Let&rsquo;s add some logger class which I can inherit
 from and overwrite its behavior.</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#719e07">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
 
-<span style="color:#719e07">class</span> Logger {
+<span style="color:#268bd2">class</span> Logger {
   log(msg) {
     <span style="color:#719e07">throw</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Error</span>(<span style="color:#2aa198">&#34;Not Implemented&#34;</span>);
   }
 }
 
-<span style="color:#719e07">class</span> DefaultLogger {
+<span style="color:#268bd2">class</span> DefaultLogger {
   log(msg) {
     console.log(msg);
   }
@@ -120,12 +120,10 @@ from and overwrite its behavior.</p>
 }
 
 run(<span style="color:#719e07">new</span> DefaultLogger);
-</code></pre></div>
-<p>As you see simple one line application grew up a lot. Do you think it&rsquo;s easier to read? Do you think
+</code></pre></div><p>As you see simple one line application grew up a lot. Do you think it&rsquo;s easier to read? Do you think
 this application solves some new problem? Do you think this application will cover all new
 requirements in the future? The only thing I see is that the application became bigger and more
 sophisticated.</p>
-
 <p>Let&rsquo;s consider a real-life example. I&rsquo;ve read an article about <a href="https://redux.js.org/">Redux</a> and
 have watched video from the big respectful frontend conference about the separation of the state and
 the presentation. I&rsquo;ve understood the importance of such ideas and now I want to integrate Redux
@@ -135,7 +133,6 @@ management (I have only one simple form in this project) and
 manage (I have only one request to the server) and test (for now I don&rsquo;t have any tests at all).
 From the one side if this project grows up there will be some probability that project structure
 won&rsquo;t change and it&rsquo;ll save some time. From the other side let&rsquo;s take a look at what I have for now:</p>
-
 <ul>
 <li>If I want to understand where some data is using, I need to search over the whole project,
 because any component can connect to Redux and change the data in some way;</li>
@@ -143,23 +140,19 @@ because any component can connect to Redux and change the data in some way;</li>
 (component, store, file with action name constants, action creator, saga);</li>
 <li>If I want to add a new request to the server I have to add or modify several files.</li>
 </ul>
-
 <p>If you consider Redux integration as some sort of training then it&rsquo;s OK, but if you integrate Redux
 in a small application and don&rsquo;t see all these negative consequences it&rsquo;s a bit strange. I can
 oversimplify and say that Redux is some sort of global variable with several coding conventions
 which protect developers from shooting themselves in the foot. But there is a well-known piece of
 advice being given to any junior developer: avoid global variables if you can. So why Redux or
 <a href="https://reactjs.org/docs/context.html">React Context</a> is different?</p>
-
 <p>I wonder why some developers see only positive sides of technologies they use. They think their code
 is clear and beautiful but for someone who isn&rsquo;t familiar with a new modern complicated library it&rsquo;s
 very difficult to understand anything and requires a lot of time joining the project.</p>
-
 <p>Sometimes developers trust every word of famous engineers: if they say object-oriented programming
 is bad and functional programming is good so it is, if they say use global storage in your project
 you need to rewrite your application and integrate global storage in it, if someone on frontend
 conference says that every application need server side rendering you&rsquo;d better do so.</p>
-
 <p>In my opinion, every developer should think before using any of such suggestions. Maybe a famous
 developer works in a big company which solves its own tasks. What if these tasks require such
 approaches and instruments which will be unacceptable for some other tasks. Sometimes
@@ -167,21 +160,18 @@ object-oriented programming can be more suitable than functional programming and
 isn&rsquo;t the best solution. One more thing, every developer even experienced one is a human and that is
 why can make mistakes. Blind faith in a person leads to an inability of making reasonable decisions
 and that is why it slows down the developer&rsquo;s growth.</p>
-
 <p>Another situation which I meet from time to time is incomprehension of libraries and frameworks used
 in a project. Almost every project use <a href="https://webpack.js.org/">Webpack</a> but only a few developers
 can say how the code of Webpack works and why. Ok, maybe such type of knowledge is too specific but
 almost no one even looks at the bundled file structure. Sometimes during code review, I ask
 developers if they took a look on a code of used libraries and the most popular answer is: &ldquo;No, why
 do I need to do so?&rdquo;</p>
-
 <p>Some developers think that it&rsquo;s unimportant technical details and they can solve business problems
 without it, but it&rsquo;s not true: you can&rsquo;t understand why you can&rsquo;t use <code>if/else</code> in jsx if you don&rsquo;t
 know how it processed with <a href="https://babeljs.io/">Babel</a>, you can&rsquo;t understand why sometimes Webpack
 during building process returns to 30% after it shows 50% if you don&rsquo;t know how it performs
 building, you can&rsquo;t write safe code if you don&rsquo;t know how Webpack modules isolated from each other
 and so on.</p>
-
 <p>Some developers can say that all this information is very interesting but they don&rsquo;t have time to
 explore it, because every day some new instrument is released and they need to look at it to stay in
 trend. As I know employers always need two kinds of developers: someone with deep knowledge of a
@@ -189,16 +179,13 @@ particular instrument or business field and someone who can learn such instrumen
 From the one side, people who don&rsquo;t spend time on learning instruments deeply obviously can&rsquo;t belong
 to the first group. From the other side, all libraries and frameworks are alike, so if you learn one
 of them deeply it&rsquo;ll be easy to switch to another one.</p>
-
 <p>Coming to a conclusion I want to underline three main points:</p>
-
 <ul>
 <li>Do not overcomplicate your code</li>
 <li>Trust no one even famous engineers, always check if some advice or solution is suitable for
 your particular case</li>
 <li>Learn your instruments deeply</li>
 </ul>
-
 <p>These points will make you a better developer.</p>
 </div>
     </main>

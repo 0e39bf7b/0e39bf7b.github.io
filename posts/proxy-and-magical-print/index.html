@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.87.0" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,10 +20,10 @@
   
 
   
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
@@ -38,28 +38,25 @@
 </head>
 
   <body class=" ">
-    <h1 class="site-title"><a href="https://0e39bf7b.github.io/">Developer&#39;s blog</a></h1>
+    <h1 class="site-title"><a href="https://0e39bf7b.blog/">Developer&#39;s blog</a></h1>
     <main class="content container">
     <div class="post">
   <h1 class="post-title">Proxy and Magical Print</h1>
   <time datetime=2020-01-22T08:00:00Z class="post-date">Jan 22, 2020</time>
   <p>Once upon a time my colleague and I were working on end-to-end tests of one Angular.JS application.
 We used Node.js v8.9.1. Tests had such workflow:</p>
-
 <ul>
 <li>open a page;</li>
 <li>click an element;</li>
 <li>check if the page has some content.</li>
 </ul>
-
 <p>As you can see it&rsquo;s just a regular workflow for end-to-end tests, nothing special. Such tests allow
 us to reduce the amount of manual testing and eliminate bugs before the code will be delivered to
 the users. There was a piece of code that makes a screenshot of the page in case of test failure.
 Such behavior makes it easier to debug tests. The problem was that sometimes a test fails but there
 was no screenshot.</p>
-
 <p>The code of a test looks like this:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">beforeEach(<span style="color:#268bd2">async</span> <span style="color:#268bd2">function</span> () =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">beforeEach(<span style="color:#268bd2">async</span> <span style="color:#268bd2">function</span> () =&gt; {
   <span style="color:#719e07">this</span>.browser <span style="color:#719e07">=</span> <span style="color:#268bd2">await</span> prepareBrowser();
 });
 
@@ -74,35 +71,30 @@ it(<span style="color:#2aa198">&#39;likes post&#39;</span>, <span style="color:#
   <span style="color:#268bd2">await</span> <span style="color:#719e07">this</span>.browser.click(<span style="color:#2aa198">&#39;like&#39;</span>);
   <span style="color:#268bd2">await</span> <span style="color:#719e07">this</span>.browser.waitForText(<span style="color:#2aa198">&#39;1 like&#39;</span>);
 });
-</code></pre></div>
-<p>It uses <a href="https://mochajs.org/">mocha</a> test runner and <code>this.browser</code> object uses
+</code></pre></div><p>It uses <a href="https://mochajs.org/">mocha</a> test runner and <code>this.browser</code> object uses
 <a href="https://github.com/puppeteer/puppeteer/">puppeteer</a> under the hood. It was a heisenbug: when I was
 trying to reproduce it on the local machine a screenshot was always in place. Moreover, after a
 simple <code>console.log</code> had been added into <code>afterEach</code> block the bug disappeared completely:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">afterEach(<span style="color:#268bd2">async</span> <span style="color:#268bd2">function</span>() =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">afterEach(<span style="color:#268bd2">async</span> <span style="color:#268bd2">function</span>() =&gt; {
   console.log(<span style="color:#719e07">this</span>.browser);
   <span style="color:#719e07">if</span> (<span style="color:#719e07">this</span>.currentTest.state <span style="color:#719e07">===</span> <span style="color:#2aa198">&#39;failed&#39;</span>) {
     <span style="color:#268bd2">await</span> <span style="color:#719e07">this</span>.browser.makeScreenshot();
   }
 });
-</code></pre></div>
-<p>How is it possible?</p>
-
+</code></pre></div><p>How is it possible?</p>
 <p>To understand it we need to go deeper. There are two sources of errors in this test:</p>
-
 <ul>
 <li>errors caused by test commands (<code>open</code>, <code>click</code>, <code>waitForText</code>);</li>
 <li>errors caused by the browser (if some script on the page emits an error - the test should fail).</li>
 </ul>
-
 <p>If a test command throws an exception then mocha processes it and fails the test. <code>afterEach</code> block
 checks that the test has been failed and makes a screenshot. There was such code for the browser
 object:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#586e75">// commands directory contains a file per command
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#586e75">// commands directory contains a file per command
 </span><span style="color:#586e75">// (click, waitForText, makeScreenshot, etc.)
-</span><span style="color:#586e75"></span><span style="color:#719e07">const</span> commands <span style="color:#719e07">=</span> require(<span style="color:#2aa198">&#39;./commands&#39;</span>);
+</span><span style="color:#586e75"></span><span style="color:#268bd2">const</span> commands <span style="color:#719e07">=</span> require(<span style="color:#2aa198">&#39;./commands&#39;</span>);
 
-<span style="color:#719e07">const</span> proxyHandler <span style="color:#719e07">=</span> {
+<span style="color:#268bd2">const</span> proxyHandler <span style="color:#719e07">=</span> {
   get(target, property) {
     <span style="color:#719e07">if</span> (property <span style="color:#719e07">in</span> commands) {
       <span style="color:#719e07">return</span> (...args) =&gt; {
@@ -114,7 +106,7 @@ object:</p>
   },
 };
 
-<span style="color:#719e07">class</span> Browser {
+<span style="color:#268bd2">class</span> Browser {
   <span style="color:#586e75">// ....
 </span><span style="color:#586e75"></span>
   checkForErrors() {
@@ -126,39 +118,32 @@ object:</p>
 }
 
 <span style="color:#268bd2">function</span> prepareBrowser() {
-  <span style="color:#719e07">const</span> browser <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Browser();
+  <span style="color:#268bd2">const</span> browser <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Browser();
   <span style="color:#719e07">return</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Proxy</span>(browser, proxyHandler);
 }
-</code></pre></div>
-<p>Every command is a function stored in a separate file from the <code>commands</code> directory. Commands
+</code></pre></div><p>Every command is a function stored in a separate file from the <code>commands</code> directory. Commands
 are connected to the browser object using a
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">proxy</a>
 mechanism. A proxy is an object which stands in front of the other object and intercepts every
 property lookup, assignment, and other fundamental operations. Before performing the command proxy
 checks if there were some errors emitted by the browser and throws an error if required.</p>
-
 <p>Consider the case when &ldquo;like&rdquo; button is broken:</p>
-
 <ul>
 <li><code>browser.open('/')</code> opens the page;</li>
 <li><code>browser.click('like')</code> executed successfuly;</li>
 <li><code>browser.waitForText('1 like')</code> fails;</li>
 <li><code>browser.makeScreenshot()</code> works as expected.</li>
 </ul>
-
 <p>Consider another case when some script on the page (let it be called <code>script.js</code>) throws an error:</p>
-
 <ul>
 <li><code>browser.open('/')</code> opens the page;</li>
 <li><code>script.js</code> throws an error so <code>browserErrors</code> is not empty;</li>
 <li><code>browser.click('like')</code> checks <code>browserErrors</code> and throws an error;</li>
 <li><code>browser.makeScreenshot()</code> works as expected.</li>
 </ul>
-
 <p>Finally, consider the rare case which can be reproduced only on the heavily loaded machine (e.g.  CI
 server running tests of several projects simultaneously): &ldquo;like&rdquo; button is broken and <code>script.js</code>
 throws an error during the execution of <code>browser.waitForText</code> command:</p>
-
 <ul>
 <li><code>browser.open('/')</code> opens the page;</li>
 <li><code>browser.click('like')</code> executed successfully;</li>
@@ -167,11 +152,10 @@ throws an error during the execution of <code>browser.waitForText</code> command
 <li><code>browser.waitForText('1 like')</code> fails;</li>
 <li><code>browser.makeScreenshot()</code> checks <code>browserErrors</code> and throws an error.</li>
 </ul>
-
 <p>In this case, screenshot is not generated. It&rsquo;s difficult to predict when <code>script.js</code> will throw an
 error that is why it was difficult to reproduce the bug. The reason for the bug is found and it can
 be fixed by removing checking for errors for particular command:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#719e07">const</span> proxyHandler <span style="color:#719e07">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> proxyHandler <span style="color:#719e07">=</span> {
   get(target, property) {
     <span style="color:#719e07">if</span> (property <span style="color:#719e07">in</span> commands) {
       <span style="color:#719e07">return</span> (...args) =&gt; {
@@ -185,11 +169,9 @@ be fixed by removing checking for errors for particular command:</p>
     <span style="color:#719e07">return</span> target[property];
   },
 };
-</code></pre></div>
-<p>How <code>console.log</code> can influence this situation? Why adding <code>console.log</code> makes <code>makeScreenshot</code>
+</code></pre></div><p>How <code>console.log</code> can influence this situation? Why adding <code>console.log</code> makes <code>makeScreenshot</code>
 function work as expected?  When Node.js prints object it tries to convert it to a string using
 <code>valueOf</code> method that is why it works so:</p>
-
 <ul>
 <li><code>console.log(browser)</code> causes call of <code>browser.valueOf()</code>;</li>
 <li><code>browser.valueOf()</code> intercepted by proxy;</li>
@@ -198,10 +180,9 @@ function work as expected?  When Node.js prints object it tries to convert it to
 <li>Node.js supress this error;</li>
 <li><code>browser.makeScreenshot()</code> works without errors.</li>
 </ul>
-
 <p>To remove such unexpected behavior it&rsquo;s better to check availability of <code>property</code> in the <code>commands</code>
 object using <code>Object.keys()</code>:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#719e07">const</span> proxyHandler <span style="color:#719e07">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> proxyHandler <span style="color:#719e07">=</span> {
   get(target, property) {
     <span style="color:#719e07">if</span> (<span style="color:#b58900">Object</span>.keys(commands).includes(property)) {
       <span style="color:#719e07">return</span> (...args) =&gt; {
@@ -215,18 +196,17 @@ object using <code>Object.keys()</code>:</p>
     <span style="color:#719e07">return</span> target[property];
   },
 };
-</code></pre></div>
-<p>The behavior of <code>console.log</code> is different in different versions of Node.js. I used such a piece of
+</code></pre></div><p>The behavior of <code>console.log</code> is different in different versions of Node.js. I used such a piece of
 code to check it:</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#719e07">class</span> Foo {
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">class</span> Foo {
   constructor() {
     <span style="color:#719e07">this</span>.a <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;b&#39;</span>;
   }
 }
 
-<span style="color:#719e07">const</span> foo <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Foo();
+<span style="color:#268bd2">const</span> foo <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Foo();
 
-<span style="color:#719e07">const</span> p <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Proxy</span>(foo, {
+<span style="color:#268bd2">const</span> p <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Proxy</span>(foo, {
   get(obj, prop) {
     console.log(<span style="color:#586e75">`</span><span style="color:#2aa198">${</span>prop.toString()<span style="color:#2aa198">}</span><span style="color:#586e75"> called`</span>);
 
@@ -235,9 +215,7 @@ code to check it:</p>
 });
 
 console.log(p);
-</code></pre></div>
-<p>I got such results:</p>
-
+</code></pre></div><p>I got such results:</p>
 <table>
 <thead>
 <tr>
@@ -245,25 +223,21 @@ console.log(p);
 <th>Methods called sequentially</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>v8.9.1</td>
 <td><code>util.inspect.custom</code>, <code>inspect</code>, <code>Symbol.iterator</code>, <code>Symbol.toStringTag</code>, <code>valueOf</code></td>
 </tr>
-
 <tr>
 <td>v10.15.1</td>
 <td><code>nodejs.util.inspect.custom</code>, <code>inspect</code>, <code>Symbol.toStringTag</code>, <code>Symbol.iterator</code></td>
 </tr>
-
 <tr>
 <td>v12.14.1</td>
 <td>no methods called</td>
 </tr>
 </tbody>
 </table>
-
 <p>Coming to the conclusion remember about prototype inheritance checking object&rsquo;s properties and be
 cautious with <code>console.log</code> because it can have different behavior for complex structures in
 different JavaScript engines.</p>
