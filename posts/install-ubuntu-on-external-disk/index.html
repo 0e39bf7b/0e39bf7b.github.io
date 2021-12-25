@@ -68,10 +68,10 @@ modifications of the file system like a file creation or installation of a progr
 into the overlay file.</p>
 <p>There are several limitations of such an approach: it&rsquo;s impossible to modify the kernel, install
 hardware drivers or perform major system updates because the overlay file is mounted after the
-kernel is loaded. However, users can install or update most applications, so be sure there is the
+kernel is loaded. However, users can install or update most applications, so the can always use the
 latest version of the web browser or office suite.</p>
 <p>I want to work around these limitations and prepare an environment that will be identical to my
-desktop. It can be achieved by installing Ubuntu on the external drive.</p>
+desktop. It can be achieved by installing Ubuntu on an external drive.</p>
 <p>I have an Ubuntu desktop and external Seagate HDD with a USB 3 interface.</p>
 <p>First of all install <a href="https://www.virtualbox.org/">VirtualBox</a>:</p>
 <pre><code>sudo apt install virtualbox
@@ -90,7 +90,7 @@ sd 5:0:0:0: [sda] Attached SCSI disk
 </code></pre><p>It means that the external HDD is attached as a <code>/dev/sda</code> device. Alternatively, there is the same
 info in the <code>gnome-disks</code> tool:</p>
 <p><img src="/install-ubuntu-on-external-disk/gnome-disks.png" alt="gnome-disks"></p>
-<p>Before continue unmount any mounted partitions of the external drive with a command like
+<p>Before continuing unmount any mounted partitions of the external drive with a command like
 <code>sudo umount /dev/sda1</code>. It&rsquo;s better to avoid using GUI because it can cause errors like:</p>
 <pre><code>BoxManage: error: Cannot open the raw disk '/dev/sda': VERR_MEDIA_NOT_PRESENT
 VBoxManage: error: The raw disk vmdk file was not created
@@ -101,11 +101,11 @@ Ubuntu on it in the virtual machine (VM).</p>
 <p>To install Ubuntu on the external drive, create a virtual hard disk image from the existing contents
 of a physical drive so VirtualBox can mount this disk to the VM:</p>
 <ol>
-<li>create virtual hard drive with the command:
+<li>Create virtual hard drive with the command:
 <code>VBoxManage internalcommands createrawvmdk -filename ~/sda.vmdk -rawdisk /dev/sda</code> where
-<code>/dev/sda</code> is a device name from syslog;</li>
-<li>open VirtualBox and press <code>ctrl-d</code> to show Virtual Media Manager;</li>
-<li>press &ldquo;Add&rdquo; and find a file from step 1.</li>
+<code>/dev/sda</code> is the device name from the syslog.</li>
+<li>Open VirtualBox and press <code>ctrl-d</code> to show Virtual Media Manager.</li>
+<li>Press &ldquo;Add&rdquo; and find the file from step 1.</li>
 </ol>
 <p>Speed of the system can be limited by the speed of an external drive: the portable system can be a
 lot slower than the system with an internal m.2 SSD.</p>
