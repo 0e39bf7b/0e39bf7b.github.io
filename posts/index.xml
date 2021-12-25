@@ -6,7 +6,21 @@
     <description>Recent content in Posts on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Jul 2021 06:00:00 +0000</lastBuildDate><atom:link href="https://0e39bf7b.blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Dec 2021 10:00:00 +0000</lastBuildDate><atom:link href="https://0e39bf7b.blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install Ubuntu on External Disk</title>
+      <link>https://0e39bf7b.blog/posts/install-ubuntu-on-external-disk/</link>
+      <pubDate>Sat, 25 Dec 2021 10:00:00 +0000</pubDate>
+      
+      <guid>https://0e39bf7b.blog/posts/install-ubuntu-on-external-disk/</guid>
+      <description>&lt;p&gt;Sometimes it can be useful to have an external HDD or SSD with a familiar environment installed.
+With such a device it&amp;rsquo;s possible to check the computer from eBay for GPU or memory faults, restore a
+primary OS of the workstation after an unsuccessful software update or just work on another PC with
+a familiar OS without any modifications of any software on this machine.&lt;/p&gt;
+&lt;p&gt;I use Ubuntu 20.04 as a primary OS, that is why in this article, I&amp;rsquo;ll explain how to install it on
+an external drive.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Ubuntu periodic tasks</title>
       <link>https://0e39bf7b.blog/posts/ubuntu-periodic-tasks/</link>
