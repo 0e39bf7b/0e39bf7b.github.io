@@ -77,18 +77,17 @@ smaller than to the RAM. Most CPUs have a hierarchy of multiple cache levels (L1
 level of cache is bigger but slower.</p>
 <p>Data is transferred from the RAM and stored in the cache in blocks of fixed size, called cache
 lines. When the CPU needs to read a location in memory, it first checks for a corresponding entry in
-the cache. If the requested data is not found in the cache, a <em>cache miss</em> has occurred. A cache
-miss is quite expensive because it requires not only to load new data from the memory into the cache
-but also to evict one of the existing entries. That is why one of the crucial software developer&rsquo;s
-tasks is organizing memory access of the program in such a way that minimizes the number of cache
-misses.</p>
+the cache. If the requested data is not found in the cache, a <em>cache miss</em> is occurred. A cache miss
+is quite expensive because it requires not only to load new data from the memory into the cache but
+also to evict one of the existing entries. That is why one of the crucial software developer&rsquo;s tasks
+is organizing memory access of the program in such a way that minimizes the number of cache misses.</p>
 <p>Consider the practical task. Matrix multiplication is one of the most important matrix operations.
-It is used widely in areas as machine learning or 3D graphics. For the huge matrices, the
+It is used widely in such areas as machine learning or 3D graphics. For the huge matrices, the
 computations can take a lot of time, so the optimization of this operation can increase the speed of
 the whole program significantly.</p>
 <p>The description of an algorithm can be easily found on
 <a href="https://en.wikipedia.org/wiki/Matrix_multiplication">Wikipedia</a>.</p>
-<p>The naive Plain C implementation looks like this</p>
+<p>The naive Plain C implementation looks like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#dc322f">void</span> <span style="color:#268bd2">matrix_multiply</span>(size_t sz, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul1, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul2, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>res) {
   size_t i, j, k;
 
