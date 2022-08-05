@@ -13,7 +13,7 @@
       <pubDate>Thu, 04 Aug 2022 18:00:00 +0000</pubDate>
       
       <guid>https://0e39bf7b.blog/posts/working-with-multiple-vpns/</guid>
-      <description>&lt;p&gt;I work on several projects. Each of them requires a VPN connection. Sometimes, I work from remote
+      <description>&lt;p&gt;I work on several projects. Each of them require a VPN connection. Sometimes, I work from remote
 locations and I need to access my home network. It&amp;rsquo;s one more VPN connection. It&amp;rsquo;s convenient to
 have an ability to access different private networks at the same time. Let&amp;rsquo;s discuss the issues of
 multi-VPN setups and possible.&lt;/p&gt;
@@ -21,7 +21,7 @@ multi-VPN setups and possible.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Use NetworkManager to manage VPN connections.&lt;/li&gt;
 &lt;li&gt;Disable systemd-resolved.&lt;/li&gt;
-&lt;li&gt;Use dnsseq to process DNS requests.&lt;/li&gt;
+&lt;li&gt;Use dnsmasq to process DNS requests.&lt;/li&gt;
 &lt;/ol&gt;</description>
     </item>
     

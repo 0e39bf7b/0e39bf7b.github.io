@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2022-08-04">
   <meta property="og:title" content="Working With Multiple VPNs &middot; Developer&#39;s blog">
-  <meta name="description" content="I work on several projects. Each of them requires a VPN connection. Sometimes, I work from remote
+  <meta name="description" content="I work on several projects. Each of them require a VPN connection. Sometimes, I work from remote
 locations and I need to access my home network. It&rsquo;s one more VPN connection. It&rsquo;s convenient to
 have an ability to access different private networks at the same time. Let&rsquo;s discuss the issues of
 multi-VPN setups and possible.
@@ -20,9 +20,9 @@ TL;DR:
 
 Use NetworkManager to manage VPN connections.
 Disable systemd-resolved.
-Use dnsseq to process DNS requests.
+Use dnsmasq to process DNS requests.
 ">
-  <meta property="og:description" content="I work on several projects. Each of them requires a VPN connection. Sometimes, I work from remote
+  <meta property="og:description" content="I work on several projects. Each of them require a VPN connection. Sometimes, I work from remote
 locations and I need to access my home network. It&rsquo;s one more VPN connection. It&rsquo;s convenient to
 have an ability to access different private networks at the same time. Let&rsquo;s discuss the issues of
 multi-VPN setups and possible.
@@ -30,7 +30,7 @@ TL;DR:
 
 Use NetworkManager to manage VPN connections.
 Disable systemd-resolved.
-Use dnsseq to process DNS requests.
+Use dnsmasq to process DNS requests.
 ">
   <title>Working With Multiple VPNs &middot; Developer&#39;s blog</title>
   
@@ -60,7 +60,7 @@ Use dnsseq to process DNS requests.
     <div class="post">
   <h1 class="post-title">Working With Multiple VPNs</h1>
   <time datetime=2022-08-04T18:00:00Z class="post-date">Aug 4, 2022</time>
-  <p>I work on several projects. Each of them requires a VPN connection. Sometimes, I work from remote
+  <p>I work on several projects. Each of them require a VPN connection. Sometimes, I work from remote
 locations and I need to access my home network. It&rsquo;s one more VPN connection. It&rsquo;s convenient to
 have an ability to access different private networks at the same time. Let&rsquo;s discuss the issues of
 multi-VPN setups and possible.</p>
@@ -68,7 +68,7 @@ multi-VPN setups and possible.</p>
 <ol>
 <li>Use NetworkManager to manage VPN connections.</li>
 <li>Disable systemd-resolved.</li>
-<li>Use dnsseq to process DNS requests.</li>
+<li>Use dnsmasq to process DNS requests.</li>
 </ol>
 <p>The most common commercial VPN I&rsquo;d encountered is Cisco AnyConnect. For my personal projects, I use
 WireGuard. When I need to access my home network, I have an OpenVPN server on my router. It&rsquo;s an
@@ -97,9 +97,9 @@ then creates a connection. To stop this connection, <code>Ctrl-C</code> can be u
 <code>vpnc-script</code> when the connection starts to set the routing and name service up. On Kubuntu 22.04,
 the location of this script is <code>/usr/share/vpnc-scripts/vpnc-script</code>. The default script accepts all
 routes and DNS settings from the server. The script can be redefined with <code>--script</code> option. From
-<a href="https://unix.stackexchange.com/questions/220380/openconnect-setting-default-routes">the stackexchange post</a>
+<a href="https://unix.stackexchange.com/questions/220380/openconnect-setting-default-routes">the Stack Exchange post</a>
 I&rsquo;d found the way to create a wrapper for the default script that restricts the routes for the
-connection, but there is an easier way to solve this problem -
+connection, but there is an easier way to solve this problem —
 <a href="https://github.com/dlenski/vpn-slice">vpn-slice</a>. Assume I want to route only <code>10.0.8.0/24</code> network
 through the VPN connection. It can be achieved this way:</p>
 <pre><code>sudo openconnect vpn.example.com --script 'vpn-slice 10.0.8.0/24'
@@ -118,24 +118,25 @@ Endpoint = 1.2.3.4:12345 # Public address of VPN server
 unnecessary networks. <code>DNS</code> option makes WireGuard to change the system DNS server on the connection
 startup. For multi-VPN setup, It&rsquo;s better to remove this option and configure domain name resolution
 manually in a different way.</p>
-<p>For the OpenVPN connection, use <code>no-pull</code> option to restrict routes. It says that the client should
-ignore routes from the server, so it&rsquo;s possible to define all required routes in the client&rsquo;s config
-file:</p>
+<p>For the OpenVPN connection, use <code>route-nopull</code> option to restrict routes. It says that the client
+should ignore routes from the server, so it&rsquo;s possible to define all required routes in the client&rsquo;s
+config file:</p>
 <pre><code>route 10.0.8.0 255.255.255.0
 route-nopull
-</code></pre><p>I prefer to manage all my VPN connections through the NetworkManager GUI. First, I install the packages:</p>
-<pre><code>sudo apt install network-manager-openconnect \
-                 network-manager-openvpn
+</code></pre><p>I prefer to manage all my VPN connections through the NetworkManager GUI. First, I install the
+packages:</p>
+<pre><code>sudo apt install network-manager-openconnect network-manager-openvpn
 </code></pre><p>OpenConnect connection has a few settings, so it&rsquo;s easy to create and configure new connection
 through the network settings GUI of Gnome or KDE. In the IPv4 section choose
 <code>Automatic (Only addresses)</code> option, press <code>Routes</code> button, configure necessary networks and select
 <code>Ignore automatically obtained routes</code> checkbox.</p>
+<p><img src="/working-with-multiple-vpns/vpn-config.png" alt="vpn config"></p>
 <p>It&rsquo;s difficult to configure OpenVPN through the GUI because there are a lot of different settings.
 That is why I prefer to import the connection config to the NetworkManager with
 <code>nmcli connection import type openvpn file home.ovpn</code> where <code>home.ovpn</code> is a connection config file
 name.</p>
 <p>For the WireGuard I import a connection with a command
-<code>nmcli connection import type wireguard file wg0.conf</code> where <code>wg0.conf</code> is a name of config file.
+<code>nmcli connection import type wireguard file wg0.conf</code> where <code>wg0.conf</code> is a name of a config file.
 After the import, connection activates automatically. To turn the WireGuard VPN off, use the command
 <code>nmcli connection down wg0</code>. It is also possible to control WireGuard connection through KDE GUI.
 There is no support for WireGuard in a Gnome NetworkManager GUI (here is a
@@ -153,11 +154,11 @@ is a part of systemd that provides network name resolution,
 <a href="https://en.wikipedia.org/wiki/Link-Local_Multicast_Name_Resolution">LLMNR</a> and MulticastDNS
 resolver and responder. It can be used as a network service and through a
 <a href="https://www.freedesktop.org/wiki/Software/dbus/">D-Bus</a> API. The most applications use only basic
-feature of DNS resolution so it&rsquo;s safe to disable systemd-resolved. I tried to set different DNS
-servers for different domains with systemd-resolved, but it&rsquo;s a too hard task. From the
+feature of DNS resolution so it&rsquo;s safe to disable <code>systemd-resolved</code>. I tried to set different DNS
+servers for different domains with <code>systemd-resolved</code>, but it&rsquo;s a too hard task. From the
 <a href="https://gist.github.com/brasey/fa2277a6d7242cdf4e4b7c720d42b567">discussion on GitHub</a>, I&rsquo;d found
 that it&rsquo;s possible, but the configuration is obscure and it makes more troubles than solves. So I&rsquo;d
-disabled systemd-resolved and switch to the dnsmasq. To disable systemd-resolved in the config
+disabled <code>systemd-resolved</code> and switched to the dnsmasq. To disable <code>systemd-resolved</code> in the config
 <code>/etc/NetworkManager/NetworkManager.conf</code> add <code>dns=none</code> to the <code>[main]</code> section and execute the
 following commands:</p>
 <pre><code>systemctl stop systemd-resolved
@@ -165,7 +166,7 @@ systemctl disable systemd-resolved
 rm /etc/resolv.conf
 systemctl restart NetworkManager
 </code></pre><p><a href="https://en.wikipedia.org/wiki/Dnsmasq">dnsmasq</a> is a DNS forwarder that can be used as a local DNS
-server. It does not host DNS zones itself, but only forward requests to the configured servers.
+server. It does not host DNS zones itself, but only forwards requests to the configured servers.
 Install dnsmasq with <code>apt install dnsmasq</code> and add such lines to the <code>/etc/dnsmasq.conf</code>:</p>
 <pre><code># Do not use or poll /etc/resolv.conf
 no-resolv
@@ -189,9 +190,9 @@ server=/example2.com/5.6.7.8
 # Set default DNS forwarder
 server=8.8.8.8
 </code></pre><p>Start the server:</p>
-<pre><code>systemctl start dnsseq
-systemctl enable dnsseq
-</code></pre><p>Set dnsseq as a system resolver in <code>/etc/resolv.conf</code>:</p>
+<pre><code>systemctl start dnsmasq
+systemctl enable dnsmasq
+</code></pre><p>Set dnsmasq as a system resolver in <code>/etc/resolv.conf</code>:</p>
 <pre><code>nameserver 127.0.0.1
 </code></pre><p>Such setup allows me to work simultaneously with several projects in different private networks,
 resolve domain names correctly and send only required traffic to the particular VPN connection.</p>
