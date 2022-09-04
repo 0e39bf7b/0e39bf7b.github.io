@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.102.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,44 +84,44 @@ time.</p>
 <p>If you have a fast network and high-performance computers such problem is invisible or unimportant.
 There is another problem which can&rsquo;t be solved using better hardware, the problem familiar for every
 developer - overengineering. Let&rsquo;s take a look at a classic &ldquo;Hello world&rdquo; application in JavaScript:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#2aa198">&#34;Hello world&#34;</span>);
-</code></pre></div><p>Nice and easy, but what if tomorrow I&rsquo;ll need to print this text several times in different
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>console.log(<span style="color:#2aa198">&#34;Hello world&#34;</span>);
+</span></span></code></pre></div><p>Nice and easy, but what if tomorrow I&rsquo;ll need to print this text several times in different
 functions? It&rsquo;s good practice to extract it into a constant.</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
-console.log(HELLO_TEXT);
-</code></pre></div><p>I think the logging is tightly coupled with the application logic. It&rsquo;s not OK. Well known books
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#268bd2">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
+</span></span><span style="display:flex;"><span>console.log(HELLO_TEXT);
+</span></span></code></pre></div><p>I think the logging is tightly coupled with the application logic. It&rsquo;s not OK. Well known books
 suggest to avoid such situations, so let&rsquo;s add a bit of dependency injection.</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
-
-<span style="color:#268bd2">function</span> run(log) {
-  log(HELLO_TEXT);
-}
-
-run(console.log.bind(console));
-</code></pre></div><p>I want my application to be extensible because I don&rsquo;t want to rewrite all the code from scratch
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#268bd2">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">function</span> run(log) {
+</span></span><span style="display:flex;"><span>  log(HELLO_TEXT);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>run(console.log.bind(console));
+</span></span></code></pre></div><p>I want my application to be extensible because I don&rsquo;t want to rewrite all the code from scratch
 every time when requirements are changed. What if tomorrow I&rsquo;ll need to send this text over the
 network instead of simple printing to the console? Let&rsquo;s add some logger class which I can inherit
 from and overwrite its behavior.</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
-
-<span style="color:#268bd2">class</span> Logger {
-  log(msg) {
-    <span style="color:#719e07">throw</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Error</span>(<span style="color:#2aa198">&#34;Not Implemented&#34;</span>);
-  }
-}
-
-<span style="color:#268bd2">class</span> DefaultLogger {
-  log(msg) {
-    console.log(msg);
-  }
-}
-
-<span style="color:#268bd2">function</span> run(logger) {
-  logger.log(HELLO_TEXT);
-}
-
-run(<span style="color:#719e07">new</span> DefaultLogger);
-</code></pre></div><p>As you see simple one line application grew up a lot. Do you think it&rsquo;s easier to read? Do you think
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#268bd2">const</span> HELLO_TEXT <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hello world&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">class</span> Logger {
+</span></span><span style="display:flex;"><span>  log(msg) {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">throw</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Error</span>(<span style="color:#2aa198">&#34;Not Implemented&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">class</span> DefaultLogger {
+</span></span><span style="display:flex;"><span>  log(msg) {
+</span></span><span style="display:flex;"><span>    console.log(msg);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">function</span> run(logger) {
+</span></span><span style="display:flex;"><span>  logger.log(HELLO_TEXT);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>run(<span style="color:#719e07">new</span> DefaultLogger);
+</span></span></code></pre></div><p>As you see simple one line application grew up a lot. Do you think it&rsquo;s easier to read? Do you think
 this application solves some new problem? Do you think this application will cover all new
 requirements in the future? The only thing I see is that the application became bigger and more
 sophisticated.</p>

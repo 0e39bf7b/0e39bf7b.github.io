@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.102.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,7 +65,7 @@ I&rsquo;d found that memory access is more tricky than I used to think about.</p
 <a href="https://en.wikipedia.org/wiki/Processor_register">the registers</a>. There is no delay when accessing
 data from the registers, <a href="https://en.wikipedia.org/wiki/Execution_unit">the functional units</a> can
 operate on this data directly. Each CPU core has its own registers, so the access time does not
-depend on the other cores' load.</p>
+depend on the other cores&rsquo; load.</p>
 <p>If there is no requested data in the CPU registers it should be loaded from the RAM to execute
 operations on it. Accessing the RAM is 10 times slower than accessing the registers, so the CPU has
 to request the data and wait a significant amount of time before it will be loaded into the
@@ -89,18 +89,18 @@ the whole program significantly.</p>
 <p>The description of an algorithm can be easily found on
 <a href="https://en.wikipedia.org/wiki/Matrix_multiplication">Wikipedia</a>.</p>
 <p>The naive Plain C implementation looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#dc322f">void</span> <span style="color:#268bd2">matrix_multiply</span>(size_t sz, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul1, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul2, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>res) {
-  size_t i, j, k;
-
-  <span style="color:#719e07">for</span> (i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> sz; i<span style="color:#719e07">++</span>) {
-    <span style="color:#719e07">for</span> (j <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j <span style="color:#719e07">&lt;</span> sz; j<span style="color:#719e07">++</span>) {
-      <span style="color:#719e07">for</span> (k <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; k <span style="color:#719e07">&lt;</span> sz; k<span style="color:#719e07">++</span>) {
-        res[i][j] <span style="color:#719e07">+=</span> mul1[i][k] <span style="color:#719e07">*</span> mul2[k][j];
-      }
-    }
-  }
-}
-</code></pre></div><p>The function receives two square matrices <code>mul1</code> and <code>mul2</code> of size <code>sz x sz</code> and calculates their
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">void</span> <span style="color:#268bd2">matrix_multiply</span>(size_t sz, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul1, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul2, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>res) {
+</span></span><span style="display:flex;"><span>  size_t i, j, k;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">for</span> (i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> sz; i<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">for</span> (j <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j <span style="color:#719e07">&lt;</span> sz; j<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#719e07">for</span> (k <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; k <span style="color:#719e07">&lt;</span> sz; k<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>        res[i][j] <span style="color:#719e07">+=</span> mul1[i][k] <span style="color:#719e07">*</span> mul2[k][j];
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The function receives two square matrices <code>mul1</code> and <code>mul2</code> of size <code>sz x sz</code> and calculates their
 multiplication into <code>res</code>. It&rsquo;s expected, that <code>res</code> is initialized by zeros.</p>
 <p>Assume the matrix of size <code>1000x1000</code>. In this case, CPU cache can&rsquo;t hold an entire matrix. In the
 inner loop, the elements of <code>mul1</code> are accessed sequentially, so it uses CPU cache effectively. For
@@ -142,28 +142,28 @@ matrix, 1000 random elements should be retrieved from the RAM.</p>
 </tbody>
 </table>
 <p>First optimization is a <code>mul2</code> transposition:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#dc322f">void</span> <span style="color:#268bd2">matrix_multiply_t</span>(size_t sz, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul1, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul2, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>res) {
-  size_t i, j, k;
-
-  <span style="color:#dc322f">double</span> tmp;
-
-  <span style="color:#719e07">for</span> (i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> sz; i<span style="color:#719e07">++</span>) {
-    <span style="color:#719e07">for</span> (j <span style="color:#719e07">=</span> i; j <span style="color:#719e07">&lt;</span> sz; j<span style="color:#719e07">++</span>) {
-      tmp <span style="color:#719e07">=</span> mul2[i][j];
-      mul2[i][j] <span style="color:#719e07">=</span> mul2[j][i];
-      mul2[j][i] <span style="color:#719e07">=</span> tmp;
-    }
-  }
-
-  <span style="color:#719e07">for</span> (i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> sz; i<span style="color:#719e07">++</span>) {
-    <span style="color:#719e07">for</span> (j <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j <span style="color:#719e07">&lt;</span> sz; j<span style="color:#719e07">++</span>) {
-      <span style="color:#719e07">for</span> (k <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; k <span style="color:#719e07">&lt;</span> sz; k<span style="color:#719e07">++</span>) {
-        res[i][j] <span style="color:#719e07">+=</span> mul1[i][k] <span style="color:#719e07">*</span> mul2[j][k];
-      }
-    }
-  }
-}
-</code></pre></div><p>After <code>mul2</code> transposition, it&rsquo;s possible to access both arguments sequentially, so CPU cache is
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#dc322f">void</span> <span style="color:#268bd2">matrix_multiply_t</span>(size_t sz, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul1, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul2, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>res) {
+</span></span><span style="display:flex;"><span>  size_t i, j, k;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">double</span> tmp;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">for</span> (i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> sz; i<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">for</span> (j <span style="color:#719e07">=</span> i; j <span style="color:#719e07">&lt;</span> sz; j<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>      tmp <span style="color:#719e07">=</span> mul2[i][j];
+</span></span><span style="display:flex;"><span>      mul2[i][j] <span style="color:#719e07">=</span> mul2[j][i];
+</span></span><span style="display:flex;"><span>      mul2[j][i] <span style="color:#719e07">=</span> tmp;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">for</span> (i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> sz; i<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">for</span> (j <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j <span style="color:#719e07">&lt;</span> sz; j<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#719e07">for</span> (k <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; k <span style="color:#719e07">&lt;</span> sz; k<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>        res[i][j] <span style="color:#719e07">+=</span> mul1[i][k] <span style="color:#719e07">*</span> mul2[j][k];
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>After <code>mul2</code> transposition, it&rsquo;s possible to access both arguments sequentially, so CPU cache is
 used effectively. The function needs some time for the transposition operation that is why the
 results can be similar to naive implementation for small input matrices.</p>
 <p>The function modifies <code>mul2</code> argument, that is why it can&rsquo;t be used further. It&rsquo;s possible to make a
@@ -213,32 +213,32 @@ should decide what is the best option for the particular task.</p>
 </table>
 <p>The second optimization is accessing data in such a way that utilizes CPU cache as much as possible
 without matrix transposition:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#719e07">#define SM (CLS / sizeof(double))
-</span><span style="color:#719e07"></span>
-<span style="color:#dc322f">void</span> <span style="color:#268bd2">matrix_multiply_fast</span>(size_t sz, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul1, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul2, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>res) {
-  size_t i, i2, j, j2, k, k2;
-
-  <span style="color:#719e07">for</span> (i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> sz; i <span style="color:#719e07">+=</span> SM) {
-    <span style="color:#719e07">for</span> (j <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j <span style="color:#719e07">&lt;</span> sz; j <span style="color:#719e07">+=</span> SM) {
-      <span style="color:#719e07">for</span> (k <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; k <span style="color:#719e07">&lt;</span> sz; k <span style="color:#719e07">+=</span> SM) {
-        size_t i2_max <span style="color:#719e07">=</span> MIN(SM, sz <span style="color:#719e07">-</span> i);
-        <span style="color:#719e07">for</span> (i2 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i2 <span style="color:#719e07">&lt;</span> i2_max; i2<span style="color:#719e07">++</span>) {
-          <span style="color:#dc322f">double</span> <span style="color:#719e07">*</span>rres <span style="color:#719e07">=</span> res[i <span style="color:#719e07">+</span> i2] <span style="color:#719e07">+</span> j;
-          <span style="color:#dc322f">double</span> <span style="color:#719e07">*</span>rmul1 <span style="color:#719e07">=</span> mul1[i <span style="color:#719e07">+</span> i2] <span style="color:#719e07">+</span> k;
-          size_t k2_max <span style="color:#719e07">=</span> MIN(SM, sz <span style="color:#719e07">-</span> k);
-          <span style="color:#719e07">for</span> (k2 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; k2 <span style="color:#719e07">&lt;</span> k2_max; k2<span style="color:#719e07">++</span>) {
-            <span style="color:#dc322f">double</span> <span style="color:#719e07">*</span>rmul2 <span style="color:#719e07">=</span> mul2[k <span style="color:#719e07">+</span> k2] <span style="color:#719e07">+</span> j;
-            size_t j2_max <span style="color:#719e07">=</span> MIN(SM, sz <span style="color:#719e07">-</span> j);
-            <span style="color:#719e07">for</span> (j2 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j2 <span style="color:#719e07">&lt;</span> j2_max; j2<span style="color:#719e07">++</span>) {
-              res[i <span style="color:#719e07">+</span> i2][j <span style="color:#719e07">+</span> j2] <span style="color:#719e07">+=</span> mul1[i <span style="color:#719e07">+</span> i2][k <span style="color:#719e07">+</span> k2] <span style="color:#719e07">*</span> mul2[j <span style="color:#719e07">+</span> j2][k <span style="color:#719e07">+</span> k2];
-            }
-          }
-        }
-      }
-    }
-  }
-}
-</code></pre></div><p>The algorithm makes the same calculations as a naive implementation but in a different order. There
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#719e07">#define SM (CLS / sizeof(double))
+</span></span></span><span style="display:flex;"><span><span style="color:#719e07"></span>
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">void</span> <span style="color:#268bd2">matrix_multiply_fast</span>(size_t sz, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul1, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul2, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>res) {
+</span></span><span style="display:flex;"><span>  size_t i, i2, j, j2, k, k2;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">for</span> (i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> sz; i <span style="color:#719e07">+=</span> SM) {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">for</span> (j <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j <span style="color:#719e07">&lt;</span> sz; j <span style="color:#719e07">+=</span> SM) {
+</span></span><span style="display:flex;"><span>      <span style="color:#719e07">for</span> (k <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; k <span style="color:#719e07">&lt;</span> sz; k <span style="color:#719e07">+=</span> SM) {
+</span></span><span style="display:flex;"><span>        size_t i2_max <span style="color:#719e07">=</span> MIN(SM, sz <span style="color:#719e07">-</span> i);
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">for</span> (i2 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i2 <span style="color:#719e07">&lt;</span> i2_max; i2<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#dc322f">double</span> <span style="color:#719e07">*</span>rres <span style="color:#719e07">=</span> res[i <span style="color:#719e07">+</span> i2] <span style="color:#719e07">+</span> j;
+</span></span><span style="display:flex;"><span>          <span style="color:#dc322f">double</span> <span style="color:#719e07">*</span>rmul1 <span style="color:#719e07">=</span> mul1[i <span style="color:#719e07">+</span> i2] <span style="color:#719e07">+</span> k;
+</span></span><span style="display:flex;"><span>          size_t k2_max <span style="color:#719e07">=</span> MIN(SM, sz <span style="color:#719e07">-</span> k);
+</span></span><span style="display:flex;"><span>          <span style="color:#719e07">for</span> (k2 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; k2 <span style="color:#719e07">&lt;</span> k2_max; k2<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#dc322f">double</span> <span style="color:#719e07">*</span>rmul2 <span style="color:#719e07">=</span> mul2[k <span style="color:#719e07">+</span> k2] <span style="color:#719e07">+</span> j;
+</span></span><span style="display:flex;"><span>            size_t j2_max <span style="color:#719e07">=</span> MIN(SM, sz <span style="color:#719e07">-</span> j);
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">for</span> (j2 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j2 <span style="color:#719e07">&lt;</span> j2_max; j2<span style="color:#719e07">++</span>) {
+</span></span><span style="display:flex;"><span>              res[i <span style="color:#719e07">+</span> i2][j <span style="color:#719e07">+</span> j2] <span style="color:#719e07">+=</span> mul1[i <span style="color:#719e07">+</span> i2][k <span style="color:#719e07">+</span> k2] <span style="color:#719e07">*</span> mul2[j <span style="color:#719e07">+</span> j2][k <span style="color:#719e07">+</span> k2];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The algorithm makes the same calculations as a naive implementation but in a different order. There
 are six nested loops. The outer loops iterate with intervals of SM (the cache line size divided by
 <code>sizeof(double)</code>). This divides the multiplication into several smaller problems which can be
 handled with more cache locality. The inner loops iterate over the missing indexes of the outer
@@ -291,31 +291,31 @@ effectively.</p>
 </table>
 <p>The most optimized version can be found in the
 <a href="https://people.freebsd.org/~lstewart/articles/cpumemory.pdf">article</a> (p.50):</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#719e07">#define SM (CLS / sizeof(double))
-</span><span style="color:#719e07"></span>
-<span style="color:#dc322f">void</span> <span style="color:#268bd2">matrix_multiply_seq</span>(size_t sz, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul1, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul2, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>res) {
-  size_t i, i2, j, j2, k, k2;
-
-  <span style="color:#dc322f">double</span> <span style="color:#719e07">*</span>rres, <span style="color:#719e07">*</span>rmul1, <span style="color:#719e07">*</span>rmul2;
-
-  <span style="color:#719e07">for</span> (i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> sz; i <span style="color:#719e07">+=</span> SM) {
-    <span style="color:#719e07">for</span> (j <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j <span style="color:#719e07">&lt;</span> sz; j <span style="color:#719e07">+=</span> SM) {
-      <span style="color:#719e07">for</span> (k <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; k <span style="color:#719e07">&lt;</span> sz; k <span style="color:#719e07">+=</span> SM) {
-        size_t i2_max <span style="color:#719e07">=</span> MIN(SM, sz <span style="color:#719e07">-</span> i);
-        <span style="color:#719e07">for</span> (i2 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>, rres <span style="color:#719e07">=</span> <span style="color:#719e07">&amp;</span>res[i][j], rmul1 <span style="color:#719e07">=</span> <span style="color:#719e07">&amp;</span>mul1[i][k]; i2 <span style="color:#719e07">&lt;</span> i2_max; <span style="color:#719e07">++</span>i2, rres <span style="color:#719e07">+=</span> sz, rmul1 <span style="color:#719e07">+=</span> sz) {
-          size_t k2_max <span style="color:#719e07">=</span> MIN(SM, sz <span style="color:#719e07">-</span> k);
-          <span style="color:#719e07">for</span> (k2 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>, rmul2 <span style="color:#719e07">=</span> <span style="color:#719e07">&amp;</span>mul2[k][j]; k2 <span style="color:#719e07">&lt;</span> k2_max; <span style="color:#719e07">++</span>k2, rmul2 <span style="color:#719e07">+=</span> sz) {
-            size_t j2_max <span style="color:#719e07">=</span> MIN(SM, sz <span style="color:#719e07">-</span> j);
-            <span style="color:#719e07">for</span> (j2 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j2 <span style="color:#719e07">&lt;</span> j2_max; <span style="color:#719e07">++</span>j2) {
-              rres[j2] <span style="color:#719e07">+=</span> rmul1[k2] <span style="color:#719e07">*</span> rmul2[j2];
-            }
-          }
-        }
-      }
-    }
-  }
-}
-</code></pre></div><p>Compared to <code>matrix_multiply_fast</code> this function uses temp variables to hold intermediate values and
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#719e07">#define SM (CLS / sizeof(double))
+</span></span></span><span style="display:flex;"><span><span style="color:#719e07"></span>
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">void</span> <span style="color:#268bd2">matrix_multiply_seq</span>(size_t sz, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul1, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>mul2, <span style="color:#dc322f">double</span> <span style="color:#719e07">**</span>res) {
+</span></span><span style="display:flex;"><span>  size_t i, i2, j, j2, k, k2;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">double</span> <span style="color:#719e07">*</span>rres, <span style="color:#719e07">*</span>rmul1, <span style="color:#719e07">*</span>rmul2;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">for</span> (i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> sz; i <span style="color:#719e07">+=</span> SM) {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">for</span> (j <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j <span style="color:#719e07">&lt;</span> sz; j <span style="color:#719e07">+=</span> SM) {
+</span></span><span style="display:flex;"><span>      <span style="color:#719e07">for</span> (k <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; k <span style="color:#719e07">&lt;</span> sz; k <span style="color:#719e07">+=</span> SM) {
+</span></span><span style="display:flex;"><span>        size_t i2_max <span style="color:#719e07">=</span> MIN(SM, sz <span style="color:#719e07">-</span> i);
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">for</span> (i2 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>, rres <span style="color:#719e07">=</span> <span style="color:#719e07">&amp;</span>res[i][j], rmul1 <span style="color:#719e07">=</span> <span style="color:#719e07">&amp;</span>mul1[i][k]; i2 <span style="color:#719e07">&lt;</span> i2_max; <span style="color:#719e07">++</span>i2, rres <span style="color:#719e07">+=</span> sz, rmul1 <span style="color:#719e07">+=</span> sz) {
+</span></span><span style="display:flex;"><span>          size_t k2_max <span style="color:#719e07">=</span> MIN(SM, sz <span style="color:#719e07">-</span> k);
+</span></span><span style="display:flex;"><span>          <span style="color:#719e07">for</span> (k2 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>, rmul2 <span style="color:#719e07">=</span> <span style="color:#719e07">&amp;</span>mul2[k][j]; k2 <span style="color:#719e07">&lt;</span> k2_max; <span style="color:#719e07">++</span>k2, rmul2 <span style="color:#719e07">+=</span> sz) {
+</span></span><span style="display:flex;"><span>            size_t j2_max <span style="color:#719e07">=</span> MIN(SM, sz <span style="color:#719e07">-</span> j);
+</span></span><span style="display:flex;"><span>            <span style="color:#719e07">for</span> (j2 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; j2 <span style="color:#719e07">&lt;</span> j2_max; <span style="color:#719e07">++</span>j2) {
+</span></span><span style="display:flex;"><span>              rres[j2] <span style="color:#719e07">+=</span> rmul1[k2] <span style="color:#719e07">*</span> rmul2[j2];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Compared to <code>matrix_multiply_fast</code> this function uses temp variables to hold intermediate values and
 also uses <code>+= sz</code> instruction to iterate over the matrices. As a result, the compilation produces
 more compact machine code, so less instruction should be executed for each iteration.</p>
 <p>This function requires data to be stored sequentially in the memory, so

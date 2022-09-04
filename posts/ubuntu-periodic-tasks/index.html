@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.102.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,7 +73,7 @@ like a minute after some hardware had been plugged.</li>
 </ul>
 <p>The command <code>systemctl list-timers</code> lists all active timers in the system. A fresh Ubuntu 21.04
 installation gives such output:</p>
-<pre><code>logrotate.timer
+<pre tabindex="0"><code>logrotate.timer
 fstrim.timer
 systemd-tmpfiles-clean.timer
 e2scrub_all.timer
@@ -139,7 +139,7 @@ hardware vendors to upload firmware updates that will be used by all major Linux
 that downloads the latest metadata from LVFS regularly using fwupdmgr. It&rsquo;s an important process and
 should be done from time to time but I prefer to do it by hand. That is why I choose to disable
 this timer with such commands:</p>
-<pre><code>sudo systemctl stop fwupd-refresh.timer
+<pre tabindex="0"><code>sudo systemctl stop fwupd-refresh.timer
 sudo systemctl disable fwupd-refresh.timer
 </code></pre><h3 id="motd-news">motd news</h3>
 <p>There is a message displayed on different Unix-like systems on the login called &ldquo;message of the day&rdquo;
@@ -148,7 +148,7 @@ from <a href="https://motd.ubuntu.com">https://motd.ubuntu.com</a>. According to
 request to the Ubuntu server containing information about release version, kernel version, CPU
 architecture, and cloud ID, so the server can send messages that are relevant to a particular
 distribution or hardware. The typical message looks like this:</p>
-<pre><code> * Super-optimized for small spaces - read how we shrank the memory
+<pre tabindex="0"><code> * Super-optimized for small spaces - read how we shrank the memory
    footprint of MicroK8s to make it the smallest full K8s around.
 
    https://ubuntu.com/blog/microk8s-memory-optimisation
@@ -160,7 +160,7 @@ advertising rather than useful info.</p>
 <code>base-files</code>, that is why it&rsquo;s difficult to delete it safely. Fortunately, this feature is disabled
 for desktops and no external requests are being sent. Also, I turn off this timer with such
 commands:</p>
-<pre><code>sudo systemctl stop motd-news.timer
+<pre tabindex="0"><code>sudo systemctl stop motd-news.timer
 sudo systemctl disable motd-news.timer
 </code></pre><h3 id="anacron">anacron</h3>
 <p><a href="https://man7.org/linux/man-pages/man8/anacron.8.html">Anacron</a> is a tool that is used to execute

@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.102.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,83 +75,83 @@ of the core concepts connected with objects is a
 <p>The idea of prototypal inheritance is simple: every object has a prototype and when the program
 tries to receive one of the object&rsquo;s properties and doesn&rsquo;t find any value it tries to find this
 property in the object&rsquo;s prototype.</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> langs <span style="color:#719e07">=</span> [<span style="color:#2aa198">&#39;JavaScript&#39;</span>, <span style="color:#2aa198">&#39;Python&#39;</span>, <span style="color:#2aa198">&#39;Java&#39;</span>];
-console.log(langs.indexOf(<span style="color:#2aa198">&#39;Python&#39;</span>)); <span style="color:#586e75">// 1
-</span></code></pre></div><p>In the example above object <code>langs</code> has no <code>indexOf</code> property but it has a prototype equals to
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#268bd2">const</span> langs <span style="color:#719e07">=</span> [<span style="color:#2aa198">&#39;JavaScript&#39;</span>, <span style="color:#2aa198">&#39;Python&#39;</span>, <span style="color:#2aa198">&#39;Java&#39;</span>];
+</span></span><span style="display:flex;"><span>console.log(langs.indexOf(<span style="color:#2aa198">&#39;Python&#39;</span>)); <span style="color:#586e75">// 1
+</span></span></span></code></pre></div><p>In the example above object <code>langs</code> has no <code>indexOf</code> property but it has a prototype equals to
 <code>Array.prototype</code> which has such property. That is why this code works.</p>
 <p>It&rsquo;s possible to implement some functionality in the prototype and use it in all objects inherited
 from this prototype:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">function</span> Country(name, capital) {
-  <span style="color:#719e07">this</span>.name <span style="color:#719e07">=</span> name;
-  <span style="color:#719e07">this</span>.capital <span style="color:#719e07">=</span> capital;
-}
-
-Country.prototype.print <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>() {
-  console.log(<span style="color:#586e75">`Country </span><span style="color:#2aa198">${</span><span style="color:#719e07">this</span>.name<span style="color:#2aa198">}</span><span style="color:#586e75"> with capital </span><span style="color:#2aa198">${</span><span style="color:#719e07">this</span>.capital<span style="color:#2aa198">}</span><span style="color:#586e75">`</span>);
-}
-
-<span style="color:#268bd2">const</span> Italy <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Country(<span style="color:#2aa198">&#39;Italy&#39;</span>, <span style="color:#2aa198">&#39;Rome&#39;</span>);
-<span style="color:#268bd2">const</span> Vietnam <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Country(<span style="color:#2aa198">&#39;Vietnam&#39;</span>, <span style="color:#2aa198">&#39;Hanoi&#39;</span>);
-<span style="color:#268bd2">const</span> Dominicana <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Country(<span style="color:#2aa198">&#39;Dominican Republic&#39;</span>, <span style="color:#2aa198">&#39;Santo Domingo&#39;</span>);
-
-Italy.print();
-Vietnam.print();
-Dominicana.print();
-</code></pre></div><p>All objects can use <code>print</code> method because it&rsquo;s defined in the prototype <code>Country.prototype</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#268bd2">function</span> Country(name, capital) {
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">this</span>.name <span style="color:#719e07">=</span> name;
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">this</span>.capital <span style="color:#719e07">=</span> capital;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Country.prototype.print <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>() {
+</span></span><span style="display:flex;"><span>  console.log(<span style="color:#586e75">`Country </span><span style="color:#2aa198">${</span><span style="color:#719e07">this</span>.name<span style="color:#2aa198">}</span><span style="color:#586e75"> with capital </span><span style="color:#2aa198">${</span><span style="color:#719e07">this</span>.capital<span style="color:#2aa198">}</span><span style="color:#586e75">`</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> Italy <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Country(<span style="color:#2aa198">&#39;Italy&#39;</span>, <span style="color:#2aa198">&#39;Rome&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> Vietnam <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Country(<span style="color:#2aa198">&#39;Vietnam&#39;</span>, <span style="color:#2aa198">&#39;Hanoi&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> Dominicana <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Country(<span style="color:#2aa198">&#39;Dominican Republic&#39;</span>, <span style="color:#2aa198">&#39;Santo Domingo&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Italy.print();
+</span></span><span style="display:flex;"><span>Vietnam.print();
+</span></span><span style="display:flex;"><span>Dominicana.print();
+</span></span></code></pre></div><p>All objects can use <code>print</code> method because it&rsquo;s defined in the prototype <code>Country.prototype</code>.</p>
 <p>The idea of prototypal inheritance is simple but the devil is in the detail.</p>
 <p>Almost every object has <code>Object.prototype</code> in its prototype chain and it can be mutated. This means
 it&rsquo;s possible to add or overwrite some behavior for almost all objects:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#b58900">Object</span>.prototype.sayHello <span style="color:#719e07">=</span> () =&gt; { console.log(<span style="color:#2aa198">&#39;Hello!&#39;</span>) };
-<span style="color:#2aa198">&#34;test string&#34;</span>.sayHello(); <span style="color:#586e75">// Hello!
-</span></code></pre></div><p>From the one side, such a feature allows you to implement polyfills (like
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#b58900">Object</span>.prototype.sayHello <span style="color:#719e07">=</span> () =&gt; { console.log(<span style="color:#2aa198">&#39;Hello!&#39;</span>) };
+</span></span><span style="display:flex;"><span><span style="color:#2aa198">&#34;test string&#34;</span>.sayHello(); <span style="color:#586e75">// Hello!
+</span></span></span></code></pre></div><p>From the one side, such a feature allows you to implement polyfills (like
 <a href="https://github.com/zloirock/core-js">core-js</a> does) but from the other side, it can affect
 performance if you accidentally replace native code by the polyfill or even break down some code
 because you can&rsquo;t predict who and when will change core objects behavior.</p>
 <p>Another operator related to inheritance is <a href="https://javascript.info/instanceof"><code>instanceof</code></a>. It
 allows to check whether an object has some other object in its prototype chain:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">function</span> Country(name, capital) {
-  <span style="color:#719e07">this</span>.name <span style="color:#719e07">=</span> name;
-  <span style="color:#719e07">this</span>.capital <span style="color:#719e07">=</span> capital;
-}
-
-<span style="color:#268bd2">const</span> Italy <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Country(<span style="color:#2aa198">&#39;Italy&#39;</span>, <span style="color:#2aa198">&#39;Rome&#39;</span>);
-
-console.log(Italy <span style="color:#719e07">instanceof</span> Country); <span style="color:#586e75">// true
-</span><span style="color:#586e75"></span>console.log(Italy <span style="color:#719e07">instanceof</span> <span style="color:#b58900">Object</span>); <span style="color:#586e75">// true
-</span></code></pre></div><p>In the code above <code>instanceof</code> checks if <code>Italy</code> object has <code>Country.prototype</code> and
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#268bd2">function</span> Country(name, capital) {
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">this</span>.name <span style="color:#719e07">=</span> name;
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">this</span>.capital <span style="color:#719e07">=</span> capital;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> Italy <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Country(<span style="color:#2aa198">&#39;Italy&#39;</span>, <span style="color:#2aa198">&#39;Rome&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console.log(Italy <span style="color:#719e07">instanceof</span> Country); <span style="color:#586e75">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>console.log(Italy <span style="color:#719e07">instanceof</span> <span style="color:#b58900">Object</span>); <span style="color:#586e75">// true
+</span></span></span></code></pre></div><p>In the code above <code>instanceof</code> checks if <code>Italy</code> object has <code>Country.prototype</code> and
 <code>Object.prototype</code> in its prototype chain:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">Italy.<span style="color:#2aa198">__</span>proto__ <span style="color:#719e07">===</span> Country.prototype
-Italy.<span style="color:#2aa198">__</span>proto__ <span style="color:#719e07">===</span> <span style="color:#b58900">Object</span>.prototype
-Italy.<span style="color:#2aa198">__</span>proto__.<span style="color:#2aa198">__</span>proto__ <span style="color:#719e07">===</span> <span style="color:#b58900">Object</span>.prototype
-</code></pre></div><p>The tricky question, is it possible to evaluate such code as true?</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">(a <span style="color:#719e07">instanceof</span> b) <span style="color:#719e07">&amp;&amp;</span> (b <span style="color:#719e07">instanceof</span> a);
-</code></pre></div><p>At first sight, it seems impossible but <code>instanceof</code> checks not objects <code>a</code> and <code>b</code> but
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>Italy.__proto__ <span style="color:#719e07">===</span> Country.prototype
+</span></span><span style="display:flex;"><span>Italy.__proto__ <span style="color:#719e07">===</span> <span style="color:#b58900">Object</span>.prototype
+</span></span><span style="display:flex;"><span>Italy.__proto__.__proto__ <span style="color:#719e07">===</span> <span style="color:#b58900">Object</span>.prototype
+</span></span></code></pre></div><p>The tricky question, is it possible to evaluate such code as true?</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>(a <span style="color:#719e07">instanceof</span> b) <span style="color:#719e07">&amp;&amp;</span> (b <span style="color:#719e07">instanceof</span> a);
+</span></span></code></pre></div><p>At first sight, it seems impossible but <code>instanceof</code> checks not objects <code>a</code> and <code>b</code> but
 <code>a.__proto__</code> and <code>b.prototype</code>. After such an observation it&rsquo;s possible to write such code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> a <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>() {};
-<span style="color:#268bd2">const</span> b <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>() {};
-
-a.<span style="color:#2aa198">__</span>proto__ <span style="color:#719e07">=</span> b.prototype;
-b.<span style="color:#2aa198">__</span>proto__ <span style="color:#719e07">=</span> a.prototype;
-
-console.log((a <span style="color:#719e07">instanceof</span> b) <span style="color:#719e07">&amp;&amp;</span> (b <span style="color:#719e07">instanceof</span> a)); <span style="color:#586e75">// true
-</span></code></pre></div><p>The example above looks like a hack but it&rsquo;s easy to meet such case in real life:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> a <span style="color:#719e07">=</span> <span style="color:#b58900">Object</span>;
-<span style="color:#268bd2">const</span> b <span style="color:#719e07">=</span> <span style="color:#b58900">Function</span>;
-
-console.log((a <span style="color:#719e07">instanceof</span> b) <span style="color:#719e07">&amp;&amp;</span> (b <span style="color:#719e07">instanceof</span> a)); <span style="color:#586e75">// true
-</span></code></pre></div><p>Almost every object in JavaScript has Object.prototype in it&rsquo;s prototype chain, but at the same time
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#268bd2">const</span> a <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>() {};
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> b <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>() {};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>a.__proto__ <span style="color:#719e07">=</span> b.prototype;
+</span></span><span style="display:flex;"><span>b.__proto__ <span style="color:#719e07">=</span> a.prototype;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console.log((a <span style="color:#719e07">instanceof</span> b) <span style="color:#719e07">&amp;&amp;</span> (b <span style="color:#719e07">instanceof</span> a)); <span style="color:#586e75">// true
+</span></span></span></code></pre></div><p>The example above looks like a hack but it&rsquo;s easy to meet such case in real life:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#268bd2">const</span> a <span style="color:#719e07">=</span> <span style="color:#b58900">Object</span>;
+</span></span><span style="display:flex;"><span><span style="color:#268bd2">const</span> b <span style="color:#719e07">=</span> <span style="color:#b58900">Function</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console.log((a <span style="color:#719e07">instanceof</span> b) <span style="color:#719e07">&amp;&amp;</span> (b <span style="color:#719e07">instanceof</span> a)); <span style="color:#586e75">// true
+</span></span></span></code></pre></div><p>Almost every object in JavaScript has Object.prototype in it&rsquo;s prototype chain, but at the same time
 Object is a constructor that is why it has Function.prototype in it&rsquo;s prototype chain.</p>
 <p>Moreover for some objects even such case is possible:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#b58900">Object</span> <span style="color:#719e07">instanceof</span> <span style="color:#b58900">Object</span>); <span style="color:#586e75">// true
-</span></code></pre></div><h2 id="2-equality-operator-">2. Equality operator (==)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>console.log(<span style="color:#b58900">Object</span> <span style="color:#719e07">instanceof</span> <span style="color:#b58900">Object</span>); <span style="color:#586e75">// true
+</span></span></span></code></pre></div><h2 id="2-equality-operator-">2. Equality operator (==)</h2>
 <p>As JavaScript is a dynamically typed language there is a problem of comparing values of different
 types. E.g. there is a text field and a script expects user to input number but the value of the
 text field is always a string. Developers can cast a value to a number manually or use an equality
 operator. Sometimes it works as expected but in some cases, the behavior can be counterintuitive:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#2aa198">&#39;&#39;</span> <span style="color:#719e07">==</span> []; <span style="color:#586e75">// true
-</span><span style="color:#586e75"></span>[] <span style="color:#719e07">==</span> []; <span style="color:#586e75">// false
-</span><span style="color:#586e75"></span>[] <span style="color:#719e07">==</span> <span style="color:#719e07">!</span>[]; <span style="color:#586e75">// true
-</span></code></pre></div><p>This example looks strange when array equals to an empty string but not equals to another empty
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#2aa198">&#39;&#39;</span> <span style="color:#719e07">==</span> []; <span style="color:#586e75">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>[] <span style="color:#719e07">==</span> []; <span style="color:#586e75">// false
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>[] <span style="color:#719e07">==</span> <span style="color:#719e07">!</span>[]; <span style="color:#586e75">// true
+</span></span></span></code></pre></div><p>This example looks strange when array equals to an empty string but not equals to another empty
 array and even more strange when <code>[]</code> equals <code>![]</code>. Fortunately, this behavior is described in
 detail in the
 <a href="https://www.ecma-international.org/ecma-262/#sec-abstract-equality-comparison">language spec</a> or
@@ -173,15 +173,15 @@ which has a simpler algorithm.</p>
 <p>The most insane thing in JavaScript that blows my mind completely is <code>document.all</code>. This property
 is an <code>HTMLAllCollection</code> rooted at the document node. It returns all of the document&rsquo;s elements
 accessible by order as in an array:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#b58900">document</span>.all[<span style="color:#2aa198">0</span>]; <span style="color:#586e75">// html node
-</span><span style="color:#586e75"></span><span style="color:#b58900">document</span>.all[<span style="color:#2aa198">1</span>]; <span style="color:#586e75">// head node
-</span></code></pre></div><p>At the same time, it&rsquo;s possible to use <code>document.all</code> as a function to access elements by identifier
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#b58900">document</span>.all[<span style="color:#2aa198">0</span>]; <span style="color:#586e75">// html node
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#b58900">document</span>.all[<span style="color:#2aa198">1</span>]; <span style="color:#586e75">// head node
+</span></span></span></code></pre></div><p>At the same time, it&rsquo;s possible to use <code>document.all</code> as a function to access elements by identifier
 like <code>document.getElementById</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#b58900">document</span>.all(<span style="color:#2aa198">&#39;btn&#39;</span>); <span style="color:#586e75">// equivalent to document.getElementById(&#39;btn&#39;)
-</span></code></pre></div><p>Moreover <code>document.all</code> is the only falsy object accessible to JavaScript:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#719e07">typeof</span> <span style="color:#b58900">document</span>.all); <span style="color:#586e75">// undefined
-</span><span style="color:#586e75"></span>console.log(<span style="color:#b58900">document</span>.all <span style="color:#719e07">?</span> <span style="color:#2aa198">1</span> <span style="color:#719e07">:</span> <span style="color:#2aa198">0</span>); <span style="color:#586e75">// 0
-</span></code></pre></div><p>This was done using
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#b58900">document</span>.all(<span style="color:#2aa198">&#39;btn&#39;</span>); <span style="color:#586e75">// equivalent to document.getElementById(&#39;btn&#39;)
+</span></span></span></code></pre></div><p>Moreover <code>document.all</code> is the only falsy object accessible to JavaScript:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>console.log(<span style="color:#719e07">typeof</span> <span style="color:#b58900">document</span>.all); <span style="color:#586e75">// undefined
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>console.log(<span style="color:#b58900">document</span>.all <span style="color:#719e07">?</span> <span style="color:#2aa198">1</span> <span style="color:#719e07">:</span> <span style="color:#2aa198">0</span>); <span style="color:#586e75">// 0
+</span></span></span></code></pre></div><p>This was done using
 <a href="https://tc39.es/ecma262/#sec-IsHTMLDDA-internal-slot">[[IsHTMLDDA]] internal slot</a> because of
 compatibility with older versions of Internet Explorer.</p>
 <p><code>document.all</code> is a proprietary Microsoft extension to the W3C standard. It&rsquo;s not recommended to use

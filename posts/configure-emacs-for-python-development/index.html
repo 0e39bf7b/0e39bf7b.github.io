@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.102.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,28 +60,28 @@ Ubuntu machine to achieve this goal.</p>
 <p><img src="/emacs-gui.png" alt="Emacs GUI version"></p>
 <p>In this article I&rsquo;ll show how to install and configure Emacs for Python development.</p>
 <p>Assume you have minimal installation of Ubuntu 18.04. First of all, install python and dependencies:</p>
-<pre><code>sudo apt-get install python3 python3-pip python3-venv
+<pre tabindex="0"><code>sudo apt-get install python3 python3-pip python3-venv
 </code></pre><p>Install Emacs (<code>emacs</code> package for desktop or <code>emacs-nox</code> for server):</p>
-<pre><code>sudo apt-get install emacs-nox
+<pre tabindex="0"><code>sudo apt-get install emacs-nox
 </code></pre><p>A lot of projects use <a href="https://www.git-scm.com/">git</a> as a version control system, so it&rsquo;s better to
 have it installed:</p>
-<pre><code>sudo apt-get install git
+<pre tabindex="0"><code>sudo apt-get install git
 </code></pre><p>Emacs has it&rsquo;s own package system <code>package.el</code>. It allows to download and install different Emacs
 extensions from the Internet. <code>package.el</code> allows to use different repositories with packages. One
 of the most popular is <a href="https://melpa.org/">MELPA</a>. Add such lines into <code>~/.emacs/init.el</code> file to
 configure <code>package.el</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#b58900">require</span> <span style="color:#2aa198">&#39;package</span>)
-(<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;package-archives</span>
-             <span style="color:#719e07">&#39;</span>(<span style="color:#2aa198">&#34;melpa&#34;</span> <span style="color:#719e07">.</span> <span style="color:#2aa198">&#34;https://melpa.org/packages/&#34;</span>))
-
-(<span style="color:#268bd2">package-initialize</span>)
-</code></pre></div><p>When Emacs installs packages it checks integrity using package signature. Unfortunately Emacs in
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#b58900">require</span> <span style="color:#2aa198">&#39;package</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">add-to-list</span> <span style="color:#2aa198">&#39;package-archives</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#719e07">&#39;</span>(<span style="color:#2aa198">&#34;melpa&#34;</span> <span style="color:#719e07">.</span> <span style="color:#2aa198">&#34;https://melpa.org/packages/&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">package-initialize</span>)
+</span></span></code></pre></div><p>When Emacs installs packages it checks integrity using package signature. Unfortunately Emacs in
 Ubuntu 18.04 distribution doesn&rsquo;t have public keys to verify MELPA packages, so if signature
 checking is enabled then you&rsquo;ll have error like this during package installation:</p>
-<pre><code>Failed to verify signature archive-contents.sig:
+<pre tabindex="0"><code>Failed to verify signature archive-contents.sig:
 No public key for 066DAFCB81E42C40
 Command output:
-gpg: Can't check signature: No public key
+gpg: Can&#39;t check signature: No public key
 </code></pre><p>There are to options how to solve this problem:</p>
 <ol>
 <li>disable signature checking;</li>
@@ -89,8 +89,8 @@ gpg: Can't check signature: No public key
 </ol>
 <p>The first option increases security risks, so we&rsquo;ll use the second one.</p>
 <p>Add such line at the beginning of <code>~/.emacs/init.el</code> to disable signature checking temporarily:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#b58900">setq</span> <span style="color:#268bd2">package-check-signature</span> <span style="color:#cb4b16">nil</span>)
-</code></pre></div><p>Then open Emacs, press <code>M-x</code> and type <code>package-refresh-contents</code> to download packages info. Press
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#b58900">setq</span> <span style="color:#268bd2">package-check-signature</span> <span style="color:#cb4b16">nil</span>)
+</span></span></code></pre></div><p>Then open Emacs, press <code>M-x</code> and type <code>package-refresh-contents</code> to download packages info. Press
 <code>M-x</code> and type <code>package-install</code> then enter package name <code>gnu-elpa-keyring-update</code>. This package
 updates the GPG keys used by Emacs package manager to verify authenticity of packages downloaded
 from the MELPA archive.</p>
@@ -108,29 +108,29 @@ Emacs and popular terminal emulators.</li>
 </ul>
 <p>To select package use <code>i</code>. After all packages have been selected use <code>x</code> to install them.</p>
 <p>To enable and configure installed package add following lines into <code>~/.emacs/init.el</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp"><span style="color:#586e75">;; Activate better-defaults package</span>
-(<span style="color:#b58900">require</span> <span style="color:#2aa198">&#39;better-defaults</span>)
-
-<span style="color:#586e75">;; Activate zenburn theme</span>
-(<span style="color:#268bd2">load-theme</span> <span style="color:#2aa198">&#39;zenburn</span> <span style="color:#cb4b16">t</span>)
-
-<span style="color:#586e75">;; Enable line numbers for python files</span>
-(<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;python-mode-hook</span> <span style="color:#2aa198">&#39;linum-mode</span>)
-<span style="color:#586e75">;; Insert space after line number to make it easier to read</span>
-(<span style="color:#b58900">setq</span> <span style="color:#268bd2">linum-format</span> <span style="color:#2aa198">&#34;%d &#34;</span>)
-
-<span style="color:#586e75">;; Use python3 for autocompletion and code navigation</span>
-(<span style="color:#b58900">setq</span> <span style="color:#268bd2">elpy-rpc-python-command</span> <span style="color:#2aa198">&#34;python3&#34;</span>)
-<span style="color:#586e75">;; Use python3 as a interpreter in integrated python shell</span>
-(<span style="color:#b58900">setq</span> <span style="color:#268bd2">python-shell-interpreter</span> <span style="color:#2aa198">&#34;python3&#34;</span>)
-
-<span style="color:#586e75">;; Activate elpy</span>
-(<span style="color:#268bd2">elpy-enable</span>)
-
-<span style="color:#586e75">;; Activate projectile</span>
-(<span style="color:#268bd2">projectile-mode</span> <span style="color:#2aa198">+1</span>)
-(<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">projectile-mode-map</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-c p&#34;</span>) <span style="color:#2aa198">&#39;projectile-command-map</span>)
-</code></pre></div><p>Open some python file and start typing. Emacs will ask you for installing elpy dependencies required
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span><span style="color:#586e75">;; Activate better-defaults package</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#b58900">require</span> <span style="color:#2aa198">&#39;better-defaults</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; Activate zenburn theme</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">load-theme</span> <span style="color:#2aa198">&#39;zenburn</span> <span style="color:#cb4b16">t</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; Enable line numbers for python files</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">add-hook</span> <span style="color:#2aa198">&#39;python-mode-hook</span> <span style="color:#2aa198">&#39;linum-mode</span>)
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; Insert space after line number to make it easier to read</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#b58900">setq</span> <span style="color:#268bd2">linum-format</span> <span style="color:#2aa198">&#34;%d &#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; Use python3 for autocompletion and code navigation</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#b58900">setq</span> <span style="color:#268bd2">elpy-rpc-python-command</span> <span style="color:#2aa198">&#34;python3&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; Use python3 as a interpreter in integrated python shell</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#b58900">setq</span> <span style="color:#268bd2">python-shell-interpreter</span> <span style="color:#2aa198">&#34;python3&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; Activate elpy</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">elpy-enable</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">;; Activate projectile</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">projectile-mode</span> <span style="color:#2aa198">+1</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#268bd2">define-key</span> <span style="color:#268bd2">projectile-mode-map</span> (<span style="color:#268bd2">kbd</span> <span style="color:#2aa198">&#34;C-c p&#34;</span>) <span style="color:#2aa198">&#39;projectile-command-map</span>)
+</span></span></code></pre></div><p>Open some python file and start typing. Emacs will ask you for installing elpy dependencies required
 for autocompletion and code navigation. Install it and that&rsquo;s it.</p>
 <p>If you use Emacs from terminal make sure your <code>TERM</code> environment variable equals to
 <code>xterm-256color</code>. Terminal version looks almost the same as GUI one:</p>

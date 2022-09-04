@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.102.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,10 +72,10 @@ desktop is a bit overkill. So I prefer to configure
 NetowkManager are stored in <code>/etc/NetworkManager</code> directory. It&rsquo;s possible to modify configs by hand
 but I prefer to use <code>nmcli</code> utility. E.g. to make static IP ethernet connection with preconfigured
 DNS address I use these commands:</p>
-<pre><code># eno1 - my network interface
+<pre tabindex="0"><code># eno1 - my network interface
 nmcli con mod eno1 ipv4.addresses 192.168.2.10/24
 nmcli con mod eno1 ipv4.gateway 192.168.2.1
-nmcli con mod eno1 ipv4.dns &quot;8.8.8.8&quot;
+nmcli con mod eno1 ipv4.dns &#34;8.8.8.8&#34;
 nmcli con mod eno1 ipv4.method manual
 nmcli con up eno1
 </code></pre><p>One more useful command is <code>nmcli general status</code>. It prints the current network status including

@@ -202,7 +202,7 @@ projects.&lt;/p&gt;</description>
       
       <guid>https://0e39bf7b.blog/posts/proxy-and-magical-print/</guid>
       <description>Once upon a time my colleague and I were working on end-to-end tests of one Angular.JS application. We used Node.js v8.9.1. Tests had such workflow:
- open a page; click an element; check if the page has some content.  As you can see it&amp;rsquo;s just a regular workflow for end-to-end tests, nothing special. Such tests allow us to reduce the amount of manual testing and eliminate bugs before the code will be delivered to the users.</description>
+open a page; click an element; check if the page has some content. As you can see it&amp;rsquo;s just a regular workflow for end-to-end tests, nothing special. Such tests allow us to reduce the amount of manual testing and eliminate bugs before the code will be delivered to the users.</description>
     </item>
     
     <item>

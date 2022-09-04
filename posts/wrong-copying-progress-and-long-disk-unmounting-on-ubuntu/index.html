@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.102.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,11 +100,11 @@ start</li>
 <p>If my computer has 32Gb of RAM and <code>dirty_ratio</code> is 20 then the cache size will be over 6Gb what
 leads to a long unmounting time. It&rsquo;s possible to reduce cache size to 48Mb and ask operating system
 to start writing to the device when the cache has more than 16Mb of data using the command:</p>
-<pre><code>sudo bash -c 'echo $((16*1024*1024)) &gt; /proc/sys/vm/dirty_background_bytes'
-sudo bash -c 'echo $((48*1024*1024)) &gt; /proc/sys/vm/dirty_bytes'
+<pre tabindex="0"><code>sudo bash -c &#39;echo $((16*1024*1024)) &gt; /proc/sys/vm/dirty_background_bytes&#39;
+sudo bash -c &#39;echo $((48*1024*1024)) &gt; /proc/sys/vm/dirty_bytes&#39;
 </code></pre><p>In this case, coping progress shows correct speed, and unmounting takes only several seconds.
 To save this setting after reboot it&rsquo;s required to add such a line into <code>/etc/sysctl.conf</code>:</p>
-<pre><code>vm.dirty_background_bytes = 16777216
+<pre tabindex="0"><code>vm.dirty_background_bytes = 16777216
 vm.dirty_bytes = 50331648
 </code></pre><p>This option is applied to all disks - external and internal ones what can reduce system performance.</p>
 <h4 id="mount-usb-flash-drive-with-sync-or-flush-option">Mount USB flash drive with &ldquo;sync&rdquo; or &ldquo;flush&rdquo; option</h4>
@@ -112,7 +112,7 @@ vm.dirty_bytes = 50331648
 writes will be used. It&rsquo;s possible to ask the kernel to write all data synchronously. Assume flash
 drive is a <code>/dev/sda1</code> device and it&rsquo;s required to mount it on <code>/mnt</code> directory. I can use a command
 like:</p>
-<pre><code>sudo mount /dev/sda1 /mnt -o rw,sync
+<pre tabindex="0"><code>sudo mount /dev/sda1 /mnt -o rw,sync
 </code></pre><p>This option can
 <a href="https://askubuntu.com/questions/1176927/is-there-an-alternative-to-the-sync-option-of-mount-when-mounting-an-external">reduce write speed dramatically</a>
 and moreover it can influence the lifetime of the device: Linux kernel can&rsquo;t reorder writes and has
@@ -130,7 +130,7 @@ idea is used in the library called <a href="https://github.com/i-rinat/autofsync
 Limit size is adjusted at run time to keep <code>sync</code> durations around predefined value. The goal is to
 express the writeback cache size limit in seconds rather than in bytes.</p>
 <p>The library should be attached to the process using <code>LD_PRELOAD</code>:</p>
-<pre><code># Download and build library
+<pre tabindex="0"><code># Download and build library
 git clone https://github.com/i-rinat/autofsync.git
 cd autofsync
 cmake .

@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.102.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,16 +75,16 @@ latest version of the web browser or office suite.</p>
 desktop. It can be achieved by installing Ubuntu on an external drive.</p>
 <p>I have an Ubuntu desktop and external Seagate HDD with a USB 3 interface.</p>
 <p>First of all install <a href="https://www.virtualbox.org/">VirtualBox</a>:</p>
-<pre><code>sudo apt install virtualbox
+<pre tabindex="0"><code>sudo apt install virtualbox
 </code></pre><p>Only members of the <code>disk</code> group can perform different actions with USB disks without <code>sudo</code>, so
 execute such command:</p>
-<pre><code>sudo gpasswd -a `whoami` disk
+<pre tabindex="0"><code>sudo gpasswd -a `whoami` disk
 </code></pre><p>After this command re-login or restart the computer to apply changes.</p>
 <p>Connect the external drive and take a look on the messages from <code>/var/log/syslog</code> (it&rsquo;s also
 possible to use <code>glome-logs</code> GUI tool to explore these logs):</p>
-<pre><code>tail -30 /var/log/syslog
+<pre tabindex="0"><code>tail -30 /var/log/syslog
 </code></pre><p>There should be something like:</p>
-<pre><code>usb 1-11: new high-speed USB device number 8 using xhci_hcd
+<pre tabindex="0"><code>usb 1-11: new high-speed USB device number 8 using xhci_hcd
 usb 1-11: New USB device found, idVendor=0bc2, idProduct=231a, bcdDevice= 7.08
 usb 1-11: New USB device strings: Mfr=1, Product=2, SerialNumber=3
 sd 5:0:0:0: [sda] Attached SCSI disk
@@ -93,7 +93,7 @@ info in the <code>gnome-disks</code> tool:</p>
 <p><img src="/install-ubuntu-on-external-disk/gnome-disks.png" alt="gnome-disks"></p>
 <p>Before continuing unmount any mounted partitions of the external drive with a command like
 <code>sudo umount /dev/sda1</code>. It&rsquo;s better to avoid using GUI because it can cause errors like:</p>
-<pre><code>BoxManage: error: Cannot open the raw disk '/dev/sda': VERR_MEDIA_NOT_PRESENT
+<pre tabindex="0"><code>BoxManage: error: Cannot open the raw disk &#39;/dev/sda&#39;: VERR_MEDIA_NOT_PRESENT
 VBoxManage: error: The raw disk vmdk file was not created
 </code></pre><p>on further steps.</p>
 <p>By default, VirtualBox hard drive is just a file but it&rsquo;s possible to connect a block device as a
@@ -125,7 +125,7 @@ settings:</p>
 <p>Install Ubuntu in the VM. I suggest enabling disk encryption because it helps with data protection
 that is especially important for portable installations. When the installation is completed perform
 a software upgrade and install the required hardware drivers. In my case, it&rsquo;s Nvidia drivers.</p>
-<pre><code>sudo apt update
+<pre tabindex="0"><code>sudo apt update
 sudo apt upgrade
 sudo apt install nvidia-driver-460
 </code></pre><p>Any additional software, like an image editor or instant messengers, can be installed now or later.</p>

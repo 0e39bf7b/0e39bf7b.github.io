@@ -3,7 +3,7 @@
 <head>
   <link href="//gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.102.3" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -102,10 +102,10 @@ I&rsquo;d found the way to create a wrapper for the default script that restrict
 connection, but there is an easier way to solve this problem —
 <a href="https://github.com/dlenski/vpn-slice">vpn-slice</a>. Assume I want to route only <code>10.0.8.0/24</code> network
 through the VPN connection. It can be achieved this way:</p>
-<pre><code>sudo openconnect vpn.example.com --script 'vpn-slice 10.0.8.0/24'
+<pre tabindex="0"><code>sudo openconnect vpn.example.com --script &#39;vpn-slice 10.0.8.0/24&#39;
 </code></pre><p>Any additional routes or DNS config will be ignored.</p>
 <p>For the WireGuard the configuration looks like:</p>
-<pre><code>[Interface]
+<pre tabindex="0"><code>[Interface]
 PrivateKey = client-private-key
 Address = 10.0.8.2/32 # IP address of the client in the VPN network
 DNS = 10.0.8.5
@@ -121,11 +121,11 @@ manually in a different way.</p>
 <p>For the OpenVPN connection, use <code>route-nopull</code> option to restrict routes. It says that the client
 should ignore routes from the server, so it&rsquo;s possible to define all required routes in the client&rsquo;s
 config file:</p>
-<pre><code>route 10.0.8.0 255.255.255.0
+<pre tabindex="0"><code>route 10.0.8.0 255.255.255.0
 route-nopull
 </code></pre><p>I prefer to manage all my VPN connections through the NetworkManager GUI. First, I install the
 packages:</p>
-<pre><code>sudo apt install network-manager-openconnect network-manager-openvpn
+<pre tabindex="0"><code>sudo apt install network-manager-openconnect network-manager-openvpn
 </code></pre><p>OpenConnect connection has a few settings, so it&rsquo;s easy to create and configure new connection
 through the network settings GUI of Gnome or KDE. In the IPv4 section choose
 <code>Automatic (Only addresses)</code> option, press <code>Routes</code> button, configure necessary networks and select
@@ -161,14 +161,14 @@ that it&rsquo;s possible, but the configuration is obscure and it makes more tro
 disabled <code>systemd-resolved</code> and switched to the dnsmasq. To disable <code>systemd-resolved</code> in the config
 <code>/etc/NetworkManager/NetworkManager.conf</code> add <code>dns=none</code> to the <code>[main]</code> section and execute the
 following commands:</p>
-<pre><code>systemctl stop systemd-resolved
+<pre tabindex="0"><code>systemctl stop systemd-resolved
 systemctl disable systemd-resolved
 rm /etc/resolv.conf
 systemctl restart NetworkManager
 </code></pre><p><a href="https://en.wikipedia.org/wiki/Dnsmasq">dnsmasq</a> is a DNS forwarder that can be used as a local DNS
 server. It does not host DNS zones itself, but only forwards requests to the configured servers.
 Install dnsmasq with <code>apt install dnsmasq</code> and add such lines to the <code>/etc/dnsmasq.conf</code>:</p>
-<pre><code># Do not use or poll /etc/resolv.conf
+<pre tabindex="0"><code># Do not use or poll /etc/resolv.conf
 no-resolv
 no-poll
 
@@ -190,10 +190,10 @@ server=/example2.com/5.6.7.8
 # Set default DNS forwarder
 server=8.8.8.8
 </code></pre><p>Start the server:</p>
-<pre><code>systemctl start dnsmasq
+<pre tabindex="0"><code>systemctl start dnsmasq
 systemctl enable dnsmasq
 </code></pre><p>Set dnsmasq as a system resolver in <code>/etc/resolv.conf</code>:</p>
-<pre><code>nameserver 127.0.0.1
+<pre tabindex="0"><code>nameserver 127.0.0.1
 </code></pre><p>Such setup allows me to work simultaneously with several projects in different private networks,
 resolve domain names correctly and send only required traffic to the particular VPN connection.</p>
 </div>
