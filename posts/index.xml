@@ -6,7 +6,24 @@
     <description>Recent content in Posts on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Aug 2022 18:00:00 +0000</lastBuildDate><atom:link href="https://0e39bf7b.blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Nov 2022 13:00:00 +0000</lastBuildDate><atom:link href="https://0e39bf7b.blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Vim Story</title>
+      <link>https://0e39bf7b.blog/posts/my-vim-story/</link>
+      <pubDate>Sun, 06 Nov 2022 13:00:00 +0000</pubDate>
+      
+      <guid>https://0e39bf7b.blog/posts/my-vim-story/</guid>
+      <description>&lt;p&gt;TLDR; after several years with Vim I&amp;rsquo;d found that it&amp;rsquo;s difficult to leave the editor even if I know
+about &lt;code&gt;:q!&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.blog/my-vim-story/vim.png&#34; alt=&#34;Vim&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I use Vim for a long time. For the first time, Vim looked confusing and illogical comparing with
+mainstream IDEs like Eclipse or NetBeans. What is the purpose of different Vim modes? Why there are
+no menu and tabs on the interface? Why do commands for ordinary actions look like combos from Mortal
+Kombat? I asked myself these questions every day. Today I do not understand why I&amp;rsquo;d started this
+journey and why I&amp;rsquo;d not abandoned it after several months. I&amp;rsquo;m pretty sure that today I would not
+start something like this.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Working With Multiple VPNs</title>
       <link>https://0e39bf7b.blog/posts/working-with-multiple-vpns/</link>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.102.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2022-11-06">
+  <meta property="og:title" content="My Vim Story &middot; Developer&#39;s blog">
+  <meta name="description" content="TLDR; after several years with Vim I&rsquo;d found that it&rsquo;s difficult to leave the editor even if I know
+about :q!.
+
+I use Vim for a long time. For the first time, Vim looked confusing and illogical comparing with
+mainstream IDEs like Eclipse or NetBeans. What is the purpose of different Vim modes? Why there are
+no menu and tabs on the interface? Why do commands for ordinary actions look like combos from Mortal
+Kombat? I asked myself these questions every day. Today I do not understand why I&rsquo;d started this
+journey and why I&rsquo;d not abandoned it after several months. I&rsquo;m pretty sure that today I would not
+start something like this.">
+  <meta property="og:description" content="TLDR; after several years with Vim I&rsquo;d found that it&rsquo;s difficult to leave the editor even if I know
+about :q!.
+
+I use Vim for a long time. For the first time, Vim looked confusing and illogical comparing with
+mainstream IDEs like Eclipse or NetBeans. What is the purpose of different Vim modes? Why there are
+no menu and tabs on the interface? Why do commands for ordinary actions look like combos from Mortal
+Kombat? I asked myself these questions every day. Today I do not understand why I&rsquo;d started this
+journey and why I&rsquo;d not abandoned it after several months. I&rsquo;m pretty sure that today I would not
+start something like this.">
+  <title>My Vim Story &middot; Developer&#39;s blog</title>
+  
+
+  
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Developer&#39;s blog" />
+</head>
+
+  <body>
+    <header class="site-title">
+      <h1><a href="https://0e39bf7b.blog/">Developer&#39;s blog</a></h1>
+      <h4><a href="https://notes.0e39bf7b.blog">Go to Notes</a></h4>
+    </header>
+    <main class="container">
+    <div class="post">
+  <h1 class="post-title">My Vim Story</h1>
+  <time datetime=2022-11-06T13:00:00Z class="post-date">Nov 6, 2022</time>
+  <p>TLDR; after several years with Vim I&rsquo;d found that it&rsquo;s difficult to leave the editor even if I know
+about <code>:q!</code>.</p>
+<p><img src="/my-vim-story/vim.png" alt="Vim"></p>
+<p>I use Vim for a long time. For the first time, Vim looked confusing and illogical comparing with
+mainstream IDEs like Eclipse or NetBeans. What is the purpose of different Vim modes? Why there are
+no menu and tabs on the interface? Why do commands for ordinary actions look like combos from Mortal
+Kombat? I asked myself these questions every day. Today I do not understand why I&rsquo;d started this
+journey and why I&rsquo;d not abandoned it after several months. I&rsquo;m pretty sure that today I would not
+start something like this.</p>
+<p>The primary task that I solved using Vim was the editing of source code and configs on the Linux
+servers. There was <a href="https://www.nano-editor.org/">nano</a>, but I did not like it, because it was too
+primitive and lacked a lot of useful features, so I was looking for something more advanced. I had
+no admin rights on that servers, that is why it was impossible to install something different. Even
+today I do not know what alternative editor I could try. Emacs? May be. But life turned out the way
+it turned out.</p>
+<p>It was difficult to get used to the idea of
+<a href="https://www.freecodecamp.org/news/vim-editor-modes-explained/">modes</a>, that is why typing was a
+torture. But everything changed as soon as I&rsquo;d stopped using arrow keys and switched to <code>hjkl</code>.
+Later, I&rsquo;d achieved the next level of Vim skills when I&rsquo;d found
+<a href="https://vim.fandom.com/wiki/Macros">macros</a>. Assume, there are 100 uniform lines (it&rsquo;s a typical
+for some sort of Linux configs) and I need to change these lines somehow. Sometimes it&rsquo;s easier for
+me to plan a sequence of actions (like, delete a word, move the cursor to the end of the line, add a
+comma and go to the next line) rather than write a regular expression. Here, recording a macro is
+the best way to solve the problem.</p>
+<p>I&rsquo;d tried to switch from Vim to <a href="https://code.visualstudio.com/">Visual Studio Code</a> and <a href="https://www.sublimetext.com/">Sublime
+Text</a> several times, but always returned, because it&rsquo;s difficult to
+work without core Vim features like <a href="https://vim.fandom.com/wiki/Using_marks">marks</a>,
+<a href="https://vim.fandom.com/wiki/Folding">folding</a> or
+<a href="https://www.sourceallies.com/2009/11/vim-splits-an-introduction/">splits</a>. An example of my
+everyday task: remove all symbols before <code>:</code>. It&rsquo;s possible to do this in Vim simply type <code>dt:</code>,
+without mouse, without deleting symbols manually one by one.</p>
+<p>Vim is a hugely customizable platform: just compare default config, <a href="https://spacevim.org">spacevim</a>
+and <a href="https://vim.spf13.com">vim.spf13</a>. Nowadays,
+<a href="https://microsoft.github.io/language-server-protocol/">LSP</a>s are available for different
+programming languages, so even if Vim does not have build in support for some programming language,
+it&rsquo;s always possible to use plugins from the other editors.</p>
+<p><img src="/my-vim-story/spacevim.png" alt="SpaceVim"></p>
+<p>If you want to try Vim, I suggest looking through the official tutorial: type <code>vimtutor</code> in the
+terminal and follow the instructions. Recently I&rsquo;d found that Frontend Masters have developed a
+high-quality course <a href="https://frontendmasters.com/courses/vim-fundamentals/">VIM Fundamentals</a> that
+covers different aspects of the editor, so you can try it.</p>
+<p>Some time ago I&rsquo;d found a <a href="https://github.com/foxweb/vim-pedal">vim-pedal</a> project on GitHub. It&rsquo;s a
+device, recognized by as a USB keyboard. The device generates <code>i</code> symbol on press and <code>ESC</code> on
+release. The user moves the cursor around the document in normal mode and when it&rsquo;s required to
+inserts something — presses the pedal, insert some string and then releases the pedal. It looked
+interesting.</p>
+<p>I&rsquo;d decided to implement a prototype of such a device using STM32 microcontroller and digital piano
+pedal. I&rsquo;d bought <a href="https://www.amazon.com/Cherub-WTB-004-Sustain-Pedal/dp/B008LMSDKI">Cherub
+WTB-004</a>. Some user reviews said
+that the pedal had a loud click, and that is why it&rsquo;s not the best choice for piano players, but for
+me the pedal sounds like a mechanical keyboard with blue switches and I like it. I&rsquo;d taken my
+Nucleo-64 evaluation kit out of the cabinet and had started prototyping.</p>
+<p>I can&rsquo;t say that I&rsquo;d developed nothing for microcontrollers, but most of the time I used
+<a href="https://en.wikipedia.org/wiki/AVR_microcontrollers">AVR</a> chips. I used Vim to write code,
+<a href="https://gcc.gnu.org/wiki/avr-gcc">avr-gcc</a> to build a binary and
+<a href="https://github.com/avrdudes/avrdude">avrdude</a> to upload the program to the on-chip memory. As I
+found, in the STM32 world the software development looks a bit more complicated, especially for
+newbie. Almost any tutorial from the Internet relies on the IDE and some standard libraries. I&rsquo;m
+sure that it&rsquo;s possible to use only Vim and the terminal to build STM32 software, but I have limited
+time, so I went a mainstream way.</p>
+<p>Most of the tutorials rely on the official IDE by ST Electronics — STM32CubeIDE. I&rsquo;d found a Linux
+version on the <a href="https://www.st.com/en/development-tools/stm32cubeide.html">ST Electronics site</a>. One
+of the useful features of this IDE is a code generation: the developer selects a target
+microcontroller, enables and configures hardware interfaces and timers using GUI, then IDE generates
+all required boilerplate code and then the developer can focus on the business logic.</p>
+<p><img src="/my-vim-story/mcu-configuration.png" alt="MCU Configuration"></p>
+<p>The first program I wrote was the classic &ldquo;Hello, World&rdquo; with blinking led. I found all the required
+information in <a href="https://www.hackster.io/jenfoxbot/hello-world-with-the-st-nucleo-64-6cd97f">the article from
+Hackster</a>.</p>
+<p>The next step was controlling the button state. It&rsquo;s possible to read MCU pin state synchronously in
+the main loop, using <code>HAL_GPIO_ReadPin</code> function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>GPIO_PINState btn_state;
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// Main loop
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">while</span> (<span style="color:#2aa198">1</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  btn_state <span style="color:#719e07">=</span> HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">if</span> (btn_state <span style="color:#719e07">==</span> GPIO_PIN_SET)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// High level on PC13
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#719e07">else</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// Low level on PC13
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Sometimes such an approach is inconvenient. Assume an application should perform two actions: react
+on the button state change and send a block of data through UART. The transmission function is
+implemented in a synchronous manner, so if it starts sending data, the MCU can&rsquo;t do anything else
+until the transmission is complete. If transmission takes a lot of time, the MCU can&rsquo;t react on the
+button state change on time.</p>
+<p>There is an approach that allows to perform several operations simultaneously. It&rsquo;s called
+<a href="https://deepbluembedded.com/stm32-interrupts-tutorial-nvic-exti/">interrupts</a>. When some external
+events, like button state change, occur, the MCU stops its main loop and executes an interrupt
+handler function. After that, MCU continues to execute the main loop. An example of button state
+change processing with interrupts is explained in <a href="https://deepbluembedded.com/stm32-external-interrupt-example-lab/">the article from
+DeepBlue</a>.</p>
+<p>One problem I need to solve when working with mechanical buttons is a <a href="https://www.allaboutcircuits.com/textbook/digital/chpt-4/contact-bounce/">contact
+bounce</a>. The button&rsquo;s
+switches comprise spring materials. When any switch actuates, the contact touches one another.
+Under the force of actuation, continuity is expected at a single steady moment. But the momentum
+produced because of the mass of the moving contact and the inherent elasticity in this mechanism
+makes the contact bounce several times before achieving a steady contact and coming to a full rest.
+This effect is unnoticeable for devices like LED flashlight but it causes unwanted consequences when
+working with MCU.</p>
+<p>One of the software ways to neutralize the contact bounce is adding a delay after first button state
+change detection. The MCU detects button state change, waits for some time (e.g. 20 ms) and after
+that checks the button state again.</p>
+<p>In my code, I&rsquo;d implemented contact bounce protection in such a way:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>GPIO_PinState old_btn_state <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
+</span></span><span style="display:flex;"><span>GPIO_PinState new_btn_state <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> <span style="color:#268bd2">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">// Main loop
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  <span style="color:#719e07">while</span> (<span style="color:#2aa198">1</span>)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">if</span> (old_btn_state <span style="color:#719e07">!=</span> new_btn_state) {
+</span></span><span style="display:flex;"><span>      old_btn_state <span style="color:#719e07">=</span> new_btn_state;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#586e75">// Button state had changed
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>      <span style="color:#586e75">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// External interrupt handler
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#dc322f">void</span> <span style="color:#268bd2">HAL_GPIO_EXTI_Callback</span>(<span style="color:#dc322f">uint16_t</span> GPIO_Pin)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">// The same interrupt handler is called for different buttons,
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  <span style="color:#586e75">// so check the target pin before further actions
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  <span style="color:#719e07">if</span>(GPIO_Pin <span style="color:#719e07">==</span> GPIO_PIN_13)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// Disable further interrupts to solve contact bounce issues
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// Start timer
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    HAL_TIM_Base_Start_IT(<span style="color:#719e07">&amp;</span>htim2);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#586e75">// Timer interrupt handler
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#dc322f">void</span> <span style="color:#268bd2">HAL_TIM_PeriodElapsedCallback</span>(TIM_HandleTypeDef <span style="color:#719e07">*</span>htim)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">// The same interrupt handler is called for different timers,
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  <span style="color:#586e75">// so check the target timer before further actions
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  <span style="color:#719e07">if</span>(htim<span style="color:#719e07">-&gt;</span>Instance <span style="color:#719e07">==</span> TIM2)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// Stop the timer
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    HAL_TIM_Base_Stop_IT(<span style="color:#719e07">&amp;</span>htim2);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// Enable external interrupts
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_13);
+</span></span><span style="display:flex;"><span>    NVIC_ClearPendingIRQ(EXTI15_10_IRQn);
+</span></span><span style="display:flex;"><span>    HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#586e75">// Save new button state to process it in the main loop
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>    new_btn_state <span style="color:#719e07">=</span> HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Let&rsquo;s say a few words about USB. Today, it&rsquo;s one of the most popular protocols. It is used in
+different devices like keyboards, mice, cameras, flash drives and a lot more. The USB protocol
+specification can be found on an <a href="https://www.usb.org/documents">official site</a>. It&rsquo;s a huge
+document that is difficult to read, that is why I suggest reading <a href="https://www.beyondlogic.org/usbnutshell/usb1.shtml">USB in a
+NutShell</a> first.</p>
+<p>STM32F446 has a hardware USB support. It allows to work as a USB device using interrupts. Read an
+<a href="https://www.instructables.com/STM32-As-HID-USB-Keyboard-STM32-Tutorials/">article from instructables
+circuits</a> to find out how
+to configure STM MCU to work with USB.</p>
+<p>I used code generation to add USB support into my project and found an annoying issue. By default,
+IDE configures the MCU to work as a USB mouse. I need to change several files to switch from a mouse
+to a keyboard. When I change some MCU settings in the GUI, it starts a new code generation cycle and
+reverts all previous changes. I use git and commit my changes from time to time. That is why this
+issue does not affect me a lot, but it&rsquo;s better to know about it in advance.</p>
+<p>After all modifications, my <code>main</code> function looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#719e07">extern</span> USBD_HandleTypeDef hUsbDeviceFS;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">typedef</span> <span style="color:#719e07">struct</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">uint8_t</span> MODIFIER;
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">uint8_t</span> RESERVED;
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">uint8_t</span> KEYCODE1;
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">uint8_t</span> KEYCODE2;
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">uint8_t</span> KEYCODE3;
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">uint8_t</span> KEYCODE4;
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">uint8_t</span> KEYCODE5;
+</span></span><span style="display:flex;"><span>  <span style="color:#dc322f">uint8_t</span> KEYCODE6;
+</span></span><span style="display:flex;"><span>} keyboardHID;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>keyboardHID keyboardhid <span style="color:#719e07">=</span> {<span style="color:#2aa198">0</span>, <span style="color:#2aa198">0</span>, <span style="color:#2aa198">0</span>, <span style="color:#2aa198">0</span>, <span style="color:#2aa198">0</span>, <span style="color:#2aa198">0</span>, <span style="color:#2aa198">0</span>, <span style="color:#2aa198">0</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>GPIO_PinState old_btn_state <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
+</span></span><span style="display:flex;"><span>GPIO_PinState new_btn_state <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> <span style="color:#268bd2">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">/* Reset of all peripherals, Initializes the Flash interface and the Systick. */</span>
+</span></span><span style="display:flex;"><span>  HAL_Init();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">/* Configure the system clock */</span>
+</span></span><span style="display:flex;"><span>  SystemClock_Config();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">/* Initialize all configured peripherals */</span>
+</span></span><span style="display:flex;"><span>  MX_GPIO_Init();
+</span></span><span style="display:flex;"><span>  MX_USART2_UART_Init();
+</span></span><span style="display:flex;"><span>  MX_USB_DEVICE_Init();
+</span></span><span style="display:flex;"><span>  MX_TIM2_Init();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">// Read initial button state
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  new_btn_state <span style="color:#719e07">=</span> HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+</span></span><span style="display:flex;"><span>  old_btn_state <span style="color:#719e07">=</span> new_btn_state;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#586e75">// Main loop
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>  <span style="color:#719e07">while</span> (<span style="color:#2aa198">1</span>)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">if</span> (old_btn_state <span style="color:#719e07">!=</span> new_btn_state) {
+</span></span><span style="display:flex;"><span>      old_btn_state <span style="color:#719e07">=</span> new_btn_state;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#719e07">if</span> (new_btn_state)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        keyboardhid.KEYCODE1 <span style="color:#719e07">=</span> <span style="color:#2aa198">0x29</span>; <span style="color:#586e75">// Button released, generate ESC
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#719e07">else</span>
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        keyboardhid.KEYCODE1 <span style="color:#719e07">=</span> <span style="color:#2aa198">0x0C</span>; <span style="color:#586e75">// Button pressed, generate i
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#586e75">// Send virtual keyboard key pressed
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>      USBD_HID_SendReport(<span style="color:#719e07">&amp;</span>hUsbDeviceFS, (<span style="color:#dc322f">uint8_t</span> <span style="color:#719e07">*</span>)<span style="color:#719e07">&amp;</span>keyboardhid, <span style="color:#719e07">sizeof</span>(keyboardhid));
+</span></span><span style="display:flex;"><span>      HAL_Delay(<span style="color:#2aa198">50</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#586e75">// Send virtual keyboard key released
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>      keyboardhid.KEYCODE1 <span style="color:#719e07">=</span> <span style="color:#2aa198">0x00</span>;
+</span></span><span style="display:flex;"><span>      USBD_HID_SendReport(<span style="color:#719e07">&amp;</span>hUsbDeviceFS, (<span style="color:#dc322f">uint8_t</span> <span style="color:#719e07">*</span>)<span style="color:#719e07">&amp;</span>keyboardhid, <span style="color:#719e07">sizeof</span>(keyboardhid));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>I was working with Vim pedal for several days. It was an interesting experiment. Suddenly, I&rsquo;d
+realized, that I often switches from normal mode to insert mode not only with <code>i</code> key but also with
+different commands like <code>cw</code>, <code>cc</code>, <code>A</code> and <code>I</code>. I can&rsquo;t use Vim pedal for such cases for now, so
+some sort of further improvements are required.</p>
+<p>In conclusion, I want to say that building the Vim keyboard was an outstanding adventure. I learned
+a lot of useful info about USB protocol, mechanical switches and improved STM32 programming skills.</p>
+</div>
+    </main>
+  </body>
+</html>
