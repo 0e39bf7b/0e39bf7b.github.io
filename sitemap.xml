@@ -2,64 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://0e39bf7b.blog/</loc>
+    <loc>/</loc>
     <lastmod>2022-11-06T13:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/my-vim-story/</loc>
+    <loc>/posts/my-vim-story/</loc>
     <lastmod>2022-11-06T13:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/</loc>
+    <loc>/posts/</loc>
     <lastmod>2022-11-06T13:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/working-with-multiple-vpns/</loc>
+    <loc>/posts/working-with-multiple-vpns/</loc>
     <lastmod>2022-08-04T18:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/how-much-access-to-ram-costs/</loc>
+    <loc>/posts/how-much-access-to-ram-costs/</loc>
     <lastmod>2022-01-17T05:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/install-ubuntu-on-external-disk/</loc>
+    <loc>/posts/install-ubuntu-on-external-disk/</loc>
     <lastmod>2021-12-25T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/ubuntu-periodic-tasks/</loc>
+    <loc>/posts/ubuntu-periodic-tasks/</loc>
     <lastmod>2021-07-17T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/mdns-on-ubuntu-server/</loc>
+    <loc>/posts/mdns-on-ubuntu-server/</loc>
     <lastmod>2021-05-25T03:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/network-tools/</loc>
+    <loc>/posts/network-tools/</loc>
     <lastmod>2021-05-15T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/dns-wihtout-a-server/</loc>
+    <loc>/posts/dns-wihtout-a-server/</loc>
     <lastmod>2021-03-20T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</loc>
+    <loc>/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</loc>
     <lastmod>2021-01-04T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/ubuntu-snap-the-price-of-the-isolation/</loc>
+    <loc>/posts/ubuntu-snap-the-price-of-the-isolation/</loc>
     <lastmod>2020-09-12T06:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/the-most-weird-parts-of-javascript/</loc>
+    <loc>/posts/the-most-weird-parts-of-javascript/</loc>
     <lastmod>2020-07-16T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/interesting-things-from-webpack-sources/</loc>
+    <loc>/posts/interesting-things-from-webpack-sources/</loc>
     <lastmod>2020-06-17T11:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/proxy-and-magical-print/</loc>
+    <loc>/posts/proxy-and-magical-print/</loc>
     <lastmod>2020-01-22T08:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/react-journey-componentwillmount-in-concurrent-mode/</loc>
+    <loc>/posts/react-journey-componentwillmount-in-concurrent-mode/</loc>
     <lastmod>2019-12-17T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/configure-emacs-for-python-development/</loc>
+    <loc>/posts/configure-emacs-for-python-development/</loc>
     <lastmod>2019-10-19T10:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/code-reuse-with-react-hooks/</loc>
+    <loc>/posts/code-reuse-with-react-hooks/</loc>
     <lastmod>2019-07-07T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/js-vs-jpg/</loc>
+    <loc>/posts/js-vs-jpg/</loc>
     <lastmod>2019-05-25T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://0e39bf7b.blog/posts/overengineering/</loc>
+    <loc>/posts/overengineering/</loc>
     <lastmod>2019-04-20T11:05:05+00:00</lastmod>
   </url>
 </urlset>

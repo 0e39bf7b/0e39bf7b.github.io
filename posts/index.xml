@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Developer&#39;s blog</title>
-    <link>https://0e39bf7b.blog/posts/</link>
+    <link>/posts/</link>
     <description>Recent content in Posts on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Nov 2022 13:00:00 +0000</lastBuildDate><atom:link href="https://0e39bf7b.blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Nov 2022 13:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Vim Story</title>
-      <link>https://0e39bf7b.blog/posts/my-vim-story/</link>
+      <link>/posts/my-vim-story/</link>
       <pubDate>Sun, 06 Nov 2022 13:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/my-vim-story/</guid>
+      <guid>/posts/my-vim-story/</guid>
       <description>&lt;p&gt;TLDR; after several years with Vim I&amp;rsquo;d found that it&amp;rsquo;s difficult to leave the editor even if I know
 about &lt;code&gt;:q!&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.blog/my-vim-story/vim.png&#34; alt=&#34;Vim&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../my-vim-story/vim.png&#34; alt=&#34;Vim&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I use Vim for a long time. For the first time, Vim looked confusing and illogical comparing with
 mainstream IDEs like Eclipse or NetBeans. What is the purpose of different Vim modes? Why there are
 no menu and tabs on the interface? Why do commands for ordinary actions look like combos from Mortal
@@ -26,10 +26,10 @@ start something like this.&lt;/p&gt;</description>
     
     <item>
       <title>Working With Multiple VPNs</title>
-      <link>https://0e39bf7b.blog/posts/working-with-multiple-vpns/</link>
+      <link>/posts/working-with-multiple-vpns/</link>
       <pubDate>Thu, 04 Aug 2022 18:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/working-with-multiple-vpns/</guid>
+      <guid>/posts/working-with-multiple-vpns/</guid>
       <description>&lt;p&gt;I work on several projects. Each of them require a VPN connection. Sometimes, I work from remote
 locations and I need to access my home network. It&amp;rsquo;s one more VPN connection. It&amp;rsquo;s convenient to
 have an ability to access different private networks at the same time. Let&amp;rsquo;s discuss the issues of
@@ -44,10 +44,10 @@ multi-VPN setups and possible.&lt;/p&gt;
     
     <item>
       <title>How Much Access to RAM Costs</title>
-      <link>https://0e39bf7b.blog/posts/how-much-access-to-ram-costs/</link>
+      <link>/posts/how-much-access-to-ram-costs/</link>
       <pubDate>Mon, 17 Jan 2022 05:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/how-much-access-to-ram-costs/</guid>
+      <guid>/posts/how-much-access-to-ram-costs/</guid>
       <description>&lt;p&gt;Every computer program uses the main memory (RAM) to store data. RAM is considered to be fast
 storage compared even to the fastest NVMe SSD or 100Gbit network. It seems that the RAM speed is
 high enough and that is why no optimizations are required: just read or write any memory cell when
@@ -59,10 +59,10 @@ I&amp;rsquo;d found that memory access is more tricky than I used to think about
     
     <item>
       <title>Install Ubuntu on External Disk</title>
-      <link>https://0e39bf7b.blog/posts/install-ubuntu-on-external-disk/</link>
+      <link>/posts/install-ubuntu-on-external-disk/</link>
       <pubDate>Sat, 25 Dec 2021 10:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/install-ubuntu-on-external-disk/</guid>
+      <guid>/posts/install-ubuntu-on-external-disk/</guid>
       <description>&lt;p&gt;Sometimes it can be useful to have an external HDD or SSD with a familiar environment installed.
 With such a device it&amp;rsquo;s possible to check the computer from eBay for GPU or memory faults, restore a
 primary OS of the workstation after an unsuccessful software update or just work on another PC with
@@ -73,10 +73,10 @@ an external drive.&lt;/p&gt;</description>
     
     <item>
       <title>Ubuntu periodic tasks</title>
-      <link>https://0e39bf7b.blog/posts/ubuntu-periodic-tasks/</link>
+      <link>/posts/ubuntu-periodic-tasks/</link>
       <pubDate>Sat, 17 Jul 2021 06:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/ubuntu-periodic-tasks/</guid>
+      <guid>/posts/ubuntu-periodic-tasks/</guid>
       <description>&lt;p&gt;Ubuntu is an open-source system that allows users to control different components. Default desktop
 installation has a bunch of periodic tasks out of the box. It&amp;rsquo;s important to understand what is the
 purpose of these tasks and how often they are called. This knowledge allows to predict the network
@@ -86,10 +86,10 @@ the default tasks can be redundant for the particular user and that is why shoul
     
     <item>
       <title>mDNS on Ubuntu Server</title>
-      <link>https://0e39bf7b.blog/posts/mdns-on-ubuntu-server/</link>
+      <link>/posts/mdns-on-ubuntu-server/</link>
       <pubDate>Tue, 25 May 2021 03:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/mdns-on-ubuntu-server/</guid>
+      <guid>/posts/mdns-on-ubuntu-server/</guid>
       <description>&lt;p&gt;Recently I was configuring a virtual network of several KVM machines for the testing of Gitlab
 installation. It&amp;rsquo;s more convenient when I can access machines by hostname but I don&amp;rsquo;t want to
 install and support a DNS server. So I&amp;rsquo;d decided to use mDNS.&lt;/p&gt;</description>
@@ -97,20 +97,20 @@ install and support a DNS server. So I&amp;rsquo;d decided to use mDNS.&lt;/p&gt
     
     <item>
       <title>Network Tools</title>
-      <link>https://0e39bf7b.blog/posts/network-tools/</link>
+      <link>/posts/network-tools/</link>
       <pubDate>Sat, 15 May 2021 08:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/network-tools/</guid>
+      <guid>/posts/network-tools/</guid>
       <description>Almost every user sooner or later faces network problems, so it&amp;rsquo;s essential to have at least a basic understanding of network troubleshooting. In this article, I&amp;rsquo;d like to overview tools I use to explore network configuration and solve network issues on the Ubuntu desktop. Most of these applications can be used on a server but some of them are specific to desktop systems.
 ip and NetworkManager ip is a tool that allows to show or manipulate routing and network devices.</description>
     </item>
     
     <item>
       <title>DNS without a Server</title>
-      <link>https://0e39bf7b.blog/posts/dns-wihtout-a-server/</link>
+      <link>/posts/dns-wihtout-a-server/</link>
       <pubDate>Sat, 20 Mar 2021 10:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/dns-wihtout-a-server/</guid>
+      <guid>/posts/dns-wihtout-a-server/</guid>
       <description>&lt;p&gt;A few days ago I&amp;rsquo;d decided to configure Raspberry PI as a weather station to check temperature,
 humidity, and pressure. So I need to access it on the network with SSH and a web browser. The
 easiest way of solving this problem is using a static IP address. In this case, I have to set static
@@ -130,11 +130,11 @@ DNS server for home networks.&lt;/p&gt;</description>
     
     <item>
       <title>Wrong Copying Progress and Long Disk Unmounting on Ubuntu</title>
-      <link>https://0e39bf7b.blog/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</link>
+      <link>/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</link>
       <pubDate>Mon, 04 Jan 2021 11:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.blog/unmount-freezes.png&#34; alt=&#34;Unmount freezes&#34;&gt;&lt;/p&gt;
+      <guid>/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;../unmount-freezes.png&#34; alt=&#34;Unmount freezes&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Sometimes I need to copy files from an internal SSD to an external hard drive. Recently I&amp;rsquo;ve found a
 strange behavior on Ubuntu 20.04. When I try to copy a fairly big file (like 2Gb - 4Gb) Nautilus
 shows insane writing speed and the progress bar instantly reaches 100%, but when I want to unmount
@@ -147,10 +147,10 @@ until all data will be transferred, so I tried to find the solution to this prob
     
     <item>
       <title>Ubuntu Snap: the Price of the Isolation</title>
-      <link>https://0e39bf7b.blog/posts/ubuntu-snap-the-price-of-the-isolation/</link>
+      <link>/posts/ubuntu-snap-the-price-of-the-isolation/</link>
       <pubDate>Sat, 12 Sep 2020 06:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/ubuntu-snap-the-price-of-the-isolation/</guid>
+      <guid>/posts/ubuntu-snap-the-price-of-the-isolation/</guid>
       <description>&lt;p&gt;The idea of the majority of Linux distributions is to compile Linux kernel, collect existing Open
 Source and proprietary software, test and then patch it if required, add something own and pack the
 results into the packages, so users can install and use these programs. Ubuntu packages grouped into
@@ -184,10 +184,10 @@ alternative approach, designed to solve &lt;code&gt;apt&lt;/code&gt; problems.&l
     
     <item>
       <title>The Most Weird Parts of JavaScript</title>
-      <link>https://0e39bf7b.blog/posts/the-most-weird-parts-of-javascript/</link>
+      <link>/posts/the-most-weird-parts-of-javascript/</link>
       <pubDate>Thu, 16 Jul 2020 12:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/the-most-weird-parts-of-javascript/</guid>
+      <guid>/posts/the-most-weird-parts-of-javascript/</guid>
       <description>&lt;p&gt;JavaScript is one of the most popular programming languages nowadays. Originally it was created in
 10 days by Brendan Eich in 1995 for building simple scripts on the web pages but now it&amp;rsquo;s used for
 the development of different types of applications like sophisticated frontend or highload backend
@@ -201,10 +201,10 @@ article, I&amp;rsquo;ll try to describe the top 3 things in JavaScript that are 
     
     <item>
       <title>Interesting Things from Webpack Sources</title>
-      <link>https://0e39bf7b.blog/posts/interesting-things-from-webpack-sources/</link>
+      <link>/posts/interesting-things-from-webpack-sources/</link>
       <pubDate>Wed, 17 Jun 2020 11:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/interesting-things-from-webpack-sources/</guid>
+      <guid>/posts/interesting-things-from-webpack-sources/</guid>
       <description>&lt;p&gt;A lot of frontend projects use &lt;a href=&#34;https://webpack.js.org/&#34;&gt;webpack&lt;/a&gt; as a bundler tool. It allows to
 transform, bundle, or package different resources like JavaScript, styles, images, or fonts.
 Recently I&amp;rsquo;d been exploring &lt;a href=&#34;https://github.com/webpack/webpack&#34;&gt;webpack sources&lt;/a&gt; and I found
@@ -214,20 +214,20 @@ projects.&lt;/p&gt;</description>
     
     <item>
       <title>Proxy and Magical Print</title>
-      <link>https://0e39bf7b.blog/posts/proxy-and-magical-print/</link>
+      <link>/posts/proxy-and-magical-print/</link>
       <pubDate>Wed, 22 Jan 2020 08:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/proxy-and-magical-print/</guid>
+      <guid>/posts/proxy-and-magical-print/</guid>
       <description>Once upon a time my colleague and I were working on end-to-end tests of one Angular.JS application. We used Node.js v8.9.1. Tests had such workflow:
 open a page; click an element; check if the page has some content. As you can see it&amp;rsquo;s just a regular workflow for end-to-end tests, nothing special. Such tests allow us to reduce the amount of manual testing and eliminate bugs before the code will be delivered to the users.</description>
     </item>
     
     <item>
       <title>React Journey: componentWillMount in Concurrent Mode</title>
-      <link>https://0e39bf7b.blog/posts/react-journey-componentwillmount-in-concurrent-mode/</link>
+      <link>/posts/react-journey-componentwillmount-in-concurrent-mode/</link>
       <pubDate>Tue, 17 Dec 2019 12:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/react-journey-componentwillmount-in-concurrent-mode/</guid>
+      <guid>/posts/react-journey-componentwillmount-in-concurrent-mode/</guid>
       <description>&lt;p&gt;Several days ago I was updating one of my React projects and I found deprecation warning like:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Warning: componentWillMount has been renamed, and is not recommended for use. See
@@ -261,24 +261,24 @@ with server rendering but it&amp;rsquo;s a subject of a separate article).&lt;/p
     
     <item>
       <title>Configure Emacs for Python development</title>
-      <link>https://0e39bf7b.blog/posts/configure-emacs-for-python-development/</link>
+      <link>/posts/configure-emacs-for-python-development/</link>
       <pubDate>Sat, 19 Oct 2019 10:30:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/configure-emacs-for-python-development/</guid>
+      <guid>/posts/configure-emacs-for-python-development/</guid>
       <description>&lt;p&gt;I like to have the same development environment on the local machine and remote servers. In this
 case it&amp;rsquo;s possible to write and debug programs not only with your laptop, but also using lightweight
 tablet or netbook and at the same time have all stuff you have used to like fast CPU, enough memory
 and all the features of IDE like code navigation or autocompletion. I prefer using Emacs on the
 Ubuntu machine to achieve this goal.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.blog/emacs-gui.png&#34; alt=&#34;Emacs GUI version&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;../emacs-gui.png&#34; alt=&#34;Emacs GUI version&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Code Reuse with React Hooks</title>
-      <link>https://0e39bf7b.blog/posts/code-reuse-with-react-hooks/</link>
+      <link>/posts/code-reuse-with-react-hooks/</link>
       <pubDate>Sun, 07 Jul 2019 12:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/code-reuse-with-react-hooks/</guid>
+      <guid>/posts/code-reuse-with-react-hooks/</guid>
       <description>&lt;p&gt;One of the most challenging problems for frontend developers is the reuse of code. It&amp;rsquo;s especially
 important for big applications. Traditional approaches with higher-order components and render-props
 have advantages and disadvantages. In some cases, it can be inconvenient to use them. React 16.8
@@ -288,21 +288,21 @@ it work and how does it solve the problem of code reuse.&lt;/p&gt;</description>
     
     <item>
       <title>JS vs JPG</title>
-      <link>https://0e39bf7b.blog/posts/js-vs-jpg/</link>
+      <link>/posts/js-vs-jpg/</link>
       <pubDate>Sat, 25 May 2019 10:00:00 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/js-vs-jpg/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://0e39bf7b.blog/js-vs-jpg.png&#34; alt=&#34;Comparation between JS and JPG processing&#34;&gt;&lt;/p&gt;
+      <guid>/posts/js-vs-jpg/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;../js-vs-jpg.png&#34; alt=&#34;Comparation between JS and JPG processing&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TL;DR: sometimes processing of JS file can be faster than the processing of JPG of the same size
 in bytes, you&amp;rsquo;d better check your own project before optimizing it.&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Overengineering</title>
-      <link>https://0e39bf7b.blog/posts/overengineering/</link>
+      <link>/posts/overengineering/</link>
       <pubDate>Sat, 20 Apr 2019 11:05:05 +0000</pubDate>
       
-      <guid>https://0e39bf7b.blog/posts/overengineering/</guid>
+      <guid>/posts/overengineering/</guid>
       <description>&lt;p&gt;In the modern, world there are a lot of different libraries and tools which were created to simplify
 software development, make it faster and less error-prone. Let&amp;rsquo;s talk about frontend development. 10&lt;/p&gt;
 &lt;ul&gt;

@@ -28,16 +28,16 @@ an external drive.">
   
 
   
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="https://0e39bf7b.blog/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="../../css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="../../css/poole.css">
+  <link type="text/css" rel="stylesheet" href="../../css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="../../css/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
   
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="../../favicon.png">
 
   
   <link href="" rel="alternate" type="application/rss+xml" title="Developer&#39;s blog" />
@@ -45,8 +45,8 @@ an external drive.">
 
   <body>
     <header class="site-title">
-      <h1><a href="https://0e39bf7b.blog/">Developer&#39;s blog</a></h1>
-      <h4><a href="https://notes.0e39bf7b.blog">Go to Notes</a></h4>
+      <h1><a href="https://0e39bf7b.blog">Developer&#39;s blog</a></h1>
+      <h4><a href="https://0e39bf7b.blog/notes">Go to Notes</a></h4>
     </header>
     <main class="container">
     <div class="post">
@@ -90,7 +90,7 @@ usb 1-11: New USB device strings: Mfr=1, Product=2, SerialNumber=3
 sd 5:0:0:0: [sda] Attached SCSI disk
 </code></pre><p>It means that the external HDD is attached as a <code>/dev/sda</code> device. Alternatively, there is the same
 info in the <code>gnome-disks</code> tool:</p>
-<p><img src="/install-ubuntu-on-external-disk/gnome-disks.png" alt="gnome-disks"></p>
+<p><img src="../../install-ubuntu-on-external-disk/gnome-disks.png" alt="gnome-disks"></p>
 <p>Before continuing unmount any mounted partitions of the external drive with a command like
 <code>sudo umount /dev/sda1</code>. It&rsquo;s better to avoid using GUI because it can cause errors like:</p>
 <pre tabindex="0"><code>BoxManage: error: Cannot open the raw disk &#39;/dev/sda&#39;: VERR_MEDIA_NOT_PRESENT
@@ -111,7 +111,7 @@ of a physical drive so VirtualBox can mount this disk to the VM:</p>
 <p>Speed of the system can be limited by the speed of an external drive: the portable system can be a
 lot slower than the system with an internal m.2 SSD.</p>
 <p>Create an Ubuntu VM without a hard drive:</p>
-<p><img src="/install-ubuntu-on-external-disk/vm-without-hard-drive.png" alt="VM without hard drive"></p>
+<p><img src="../../install-ubuntu-on-external-disk/vm-without-hard-drive.png" alt="VM without hard drive"></p>
 <p>Open VM settings with <code>Ctrl-S</code> and add previously created hard drive <code>sda.vmdk</code> in the <em>Storage</em>
 section.</p>
 <p>The majority of modern computers use
@@ -121,7 +121,7 @@ bootable disk partition if required. VirtualBox has <strong>Enable EFI</strong> 
 real computer, but it&rsquo;s disabled by default, so Ubuntu does not create a special disk partition and
 the system will not work on the real PC. That is why it&rsquo;s required to enable this option in the
 settings:</p>
-<p><img src="/install-ubuntu-on-external-disk/enable-efi.png" alt="Enable EFI"></p>
+<p><img src="../../install-ubuntu-on-external-disk/enable-efi.png" alt="Enable EFI"></p>
 <p>Install Ubuntu in the VM. I suggest enabling disk encryption because it helps with data protection
 that is especially important for portable installations. When the installation is completed perform
 a software upgrade and install the required hardware drivers. In my case, it&rsquo;s Nvidia drivers.</p>

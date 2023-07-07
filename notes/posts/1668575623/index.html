@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.102.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Developer&#39;s notes</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="../../css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="../../css/poole.css">
+  <link type="text/css" rel="stylesheet" href="../../css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="../../css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="../../favicon.png">
+</head>
+
+  <body>
+    <header class="site-title">
+      <h1><a href="https://0e39bf7b.blog/notes">Developer&#39;s notes</a></h1>
+      <h4><a href="https://0e39bf7b.blog/">Go to Blog</a></h4>
+    </header>
+    <main class="container">
+    <div class="post">
+  <p>It&rsquo;s time to update my desktop at Kubuntu 22.04. To be sure that there will be no problems with
+devices and the software that I use every day, it&rsquo;s important to a check new distro before
+installing it on the internal hard drive. I&rsquo;d decided to <a href="https://0e39bf7b.blog/posts/install-ubuntu-on-external-disk/">install Kubuntu on an external
+disk</a>.</p>
+<p>First, I&rsquo;d used one of my USB flash drives. Unfortunately, all of them were extremely slow, that is
+why I gave up on this idea. Also, I have one relatively old HDD that I used for backups several
+years ago. Usually, HDD is much faster and reliable than USB flash drives, so it looked like a
+suitable solution for my task. I&rsquo;d bought 2.5&quot; HDD enclosure and connected the HDD to my desktop. I
+tried to install Kubuntu on it, but with no luck: it had shown an I/O error on the FS creation step.
+An error reproduced on different distros, so it was not a distro-specific.</p>
+<p>I thought the HDD was too old and had a lot of bad blocks, so I tried to run <code>badblocks -svn -b 512 -c 65536 /dev/sda</code> to check the device. Unfortunately, it took an hour to check 0.1%, so I&rsquo;d
+canceled the operation. I was ready to give up on the whole idea, but suddenly I tried a different
+USB cable, and it worked! Kubuntu had installed with no errors.</p>
+<p>The moral: all parts of the chain can be faulty, so check all of them one by one, and it can help
+you solve the problem.</p>
+
+  <time datetime=2022-11-16T05:13:43Z class="post-date">Nov 16, 2022 05:13</time>
+</div>
+    </main>
+  </body>
+</html>
