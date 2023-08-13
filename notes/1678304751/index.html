@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.102.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2023-03-08">
+  <meta property="og:title" content="1678304751 &middot; Developer&#39;s blog">
+  <meta name="description" content="GENERATED ALWAYS AS IDENTITY is a PostgreSQL construction that creates an identity column for a table and forbids to specify a value for this field manually. E.g.
+CREATE TABLE users ( id INT GENERATED ALWAYS AS IDENTITY, name VARCHAR NOT NULL ); INSERT INTO users(name) VALUES (&#39;John Smith&#39;); -- generates id value INSERT INTO users(id, name) VALUES (42, &#39;Sam Smith&#39;); -- throws an error ">
+  <meta property="og:description" content="GENERATED ALWAYS AS IDENTITY is a PostgreSQL construction that creates an identity column for a table and forbids to specify a value for this field manually. E.g.
+CREATE TABLE users ( id INT GENERATED ALWAYS AS IDENTITY, name VARCHAR NOT NULL ); INSERT INTO users(name) VALUES (&#39;John Smith&#39;); -- generates id value INSERT INTO users(id, name) VALUES (42, &#39;Sam Smith&#39;); -- throws an error ">
+  <title>1678304751 &middot; Developer&#39;s blog</title>
+  
+
+  
+  <link type="text/css" rel="stylesheet" href="../../css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="../../css/poole.css">
+  <link type="text/css" rel="stylesheet" href="../../css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="../../css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="../../favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Developer&#39;s blog" />
+</head>
+
+  <body>
+    <header class="site-title">
+      <h1><a href="../../notes">Developer's notes</a></h1>
+      <h4><a href="../../">Go to Blog</a></h4>
+    </header>
+    <main class="container">
+    <div class="post">
+  <p><code>GENERATED ALWAYS AS IDENTITY</code> is a PostgreSQL construction that creates an identity column for
+a table and forbids to specify a value for this field manually. E.g.</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#719e07">CREATE</span> <span style="color:#719e07">TABLE</span> users (
+</span></span><span style="display:flex;"><span>    id <span style="color:#b58900">INT</span> <span style="color:#719e07">GENERATED</span> ALWAYS <span style="color:#719e07">AS</span> <span style="color:#719e07">IDENTITY</span>,
+</span></span><span style="display:flex;"><span>    name <span style="color:#b58900">VARCHAR</span> <span style="color:#719e07">NOT</span> <span style="color:#719e07">NULL</span>
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">INSERT</span> <span style="color:#719e07">INTO</span> users(name) <span style="color:#719e07">VALUES</span> (<span style="color:#2aa198">&#39;John Smith&#39;</span>); <span style="color:#586e75">-- generates id value
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span><span style="color:#719e07">INSERT</span> <span style="color:#719e07">INTO</span> users(id, name) <span style="color:#719e07">VALUES</span> (<span style="color:#2aa198">42</span>, <span style="color:#2aa198">&#39;Sam Smith&#39;</span>); <span style="color:#586e75">-- throws an error
+</span></span></span></code></pre></div>
+  <time datetime=2023-03-08T19:45:51Z class="post-date">Mar 8, 2023 19:45</time>
+</div>
+    </main>
+  </body>
+</html>

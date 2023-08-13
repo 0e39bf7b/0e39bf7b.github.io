@@ -1,561 +1,542 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Developer&#39;s notes</title>
-    <link>/</link>
-    <description>Recent content on Developer&#39;s notes</description>
+    <title>Notes on Developer&#39;s blog</title>
+    <link>/notes/</link>
+    <description>Recent content in Notes on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 May 2023 14:22:27 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>1685197347</title>
-      <link>/posts/1685197347/</link>
-      <pubDate>Sat, 27 May 2023 14:22:27 +0000</pubDate>
-      
-      <guid>/posts/1685197347/</guid>
-      <description>Playing with AWX. It provides a web-based user interface, REST API, and task engine built on top of Ansible. It&amp;rsquo;s a bit strange that the default way to deploy AWX requires K8s. I know that popular cloud providers like AWS or DigitalOcean offer managed K8s, but for private installations such a requirement is a high entry threshold.</description>
-    </item>
-    
-    <item>
-      <title>1683631672</title>
-      <link>/posts/1683631672/</link>
-      <pubDate>Tue, 09 May 2023 11:27:52 +0000</pubDate>
-      
-      <guid>/posts/1683631672/</guid>
-      <description>Heroes of Might and Magic III is one of the greatest games of my childhood. The game is still popular nowadays and there is a vast community that makes it possible to play the game on the modern operating systems and brings a lot of new towns, creatures and missions.
-Also, there is an Open Source reimplementation of Heroes engine — VCMI. I use it to play Heroes on my Linux desktop.</description>
-    </item>
-    
+    <lastBuildDate>Thu, 27 Apr 2023 09:43:41 +0000</lastBuildDate><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>1682588621</title>
-      <link>/posts/1682588621/</link>
+      <link>/notes/1682588621/</link>
       <pubDate>Thu, 27 Apr 2023 09:43:41 +0000</pubDate>
       
-      <guid>/posts/1682588621/</guid>
+      <guid>/notes/1682588621/</guid>
       <description>I&amp;rsquo;d found an article &amp;ldquo;Now available: Fedora on Lenovo laptops!&amp;rdquo;. It is said that Lenovo sells ThinkPad X1 Carbon Gen 8, ThinkPad P53, and ThinkPad P1 Gen 2 laptops with Fedora pre-installed. From the one side, it&amp;rsquo;s great for the Linux community, because pre-installed Linux means that all laptop systems are tested and work properly. From the other side, Fedora provides updated packages for approximately 13 months, so it&amp;rsquo;s not the best choice for a pre-installed system.</description>
     </item>
     
     <item>
       <title>1681681157</title>
-      <link>/posts/1681681157/</link>
+      <link>/notes/1681681157/</link>
       <pubDate>Sun, 16 Apr 2023 21:39:17 +0000</pubDate>
       
-      <guid>/posts/1681681157/</guid>
+      <guid>/notes/1681681157/</guid>
       <description>All smartphones are similar to each other nowadays. It&amp;rsquo;s just a screen with several buttons on the edge. Most of the time it&amp;rsquo;s OK, but some tasks require typing a lot of text, so an on-screen keyboard is not the best solution. Several years ago, it was possible to buy a slider keyboard case for popular smartphones, so most of the time you use your smartphone as usual, but when you want to type a long email or execute several command over SSH you just slide a physical keyboard and use your device like a PDA.</description>
     </item>
     
     <item>
       <title>1681560124</title>
-      <link>/posts/1681560124/</link>
+      <link>/notes/1681560124/</link>
       <pubDate>Sat, 15 Apr 2023 12:02:04 +0000</pubDate>
       
-      <guid>/posts/1681560124/</guid>
+      <guid>/notes/1681560124/</guid>
       <description>It looks like Mastodon is becoming more and more popular. Maybe in the future it will become a real alternative to Twitter.</description>
     </item>
     
     <item>
       <title>1680425973</title>
-      <link>/posts/1680425973/</link>
+      <link>/notes/1680425973/</link>
       <pubDate>Sun, 02 Apr 2023 08:59:33 +0000</pubDate>
       
-      <guid>/posts/1680425973/</guid>
+      <guid>/notes/1680425973/</guid>
       <description>After the installation of language packages in Kubuntu 22.04, I&amp;rsquo;d found that LANGUAGE variable had been changed. There was nothing in /etc/default/locale or ~/.pam_environment, so it looked a bit strange. I&amp;rsquo;d realized that KDE writes locale configs into ~/.config/plasma-localerc, so I changed settings there and reload session. Now I have the desired value of the LANGUAGE variable.</description>
     </item>
     
     <item>
       <title>1680370774</title>
-      <link>/posts/1680370774/</link>
+      <link>/notes/1680370774/</link>
       <pubDate>Sat, 01 Apr 2023 17:39:34 +0000</pubDate>
       
-      <guid>/posts/1680370774/</guid>
+      <guid>/notes/1680370774/</guid>
       <description>After almost three years with Ubuntu 20.04 on my desktop, I&amp;rsquo;ve finally updated to Kubuntu 22.04.</description>
     </item>
     
     <item>
       <title>1679757044</title>
-      <link>/posts/1679757044/</link>
+      <link>/notes/1679757044/</link>
       <pubDate>Sat, 25 Mar 2023 15:10:44 +0000</pubDate>
       
-      <guid>/posts/1679757044/</guid>
+      <guid>/notes/1679757044/</guid>
       <description>Sometimes I come across an idea that today&amp;rsquo;s computers are too complicated, and it&amp;rsquo;s difficult to understand them. People think that it was a lot easier in the 80s during the 8-Bit computer era to grasp all of what is going on inside of any single machine, because the computers were relatively simple and constrained.
 I think it&amp;rsquo;s a controversial question. In the 80s, the computers were easier, but it was more difficult to find the information about them.</description>
     </item>
     
     <item>
       <title>1678474413</title>
-      <link>/posts/1678474413/</link>
+      <link>/notes/1678474413/</link>
       <pubDate>Fri, 10 Mar 2023 18:53:33 +0000</pubDate>
       
-      <guid>/posts/1678474413/</guid>
+      <guid>/notes/1678474413/</guid>
       <description>Never used savepoints in SQL in my projects, but this feature can be really useful for some edge cases.</description>
     </item>
     
     <item>
       <title>1678304751</title>
-      <link>/posts/1678304751/</link>
+      <link>/notes/1678304751/</link>
       <pubDate>Wed, 08 Mar 2023 19:45:51 +0000</pubDate>
       
-      <guid>/posts/1678304751/</guid>
+      <guid>/notes/1678304751/</guid>
       <description>GENERATED ALWAYS AS IDENTITY is a PostgreSQL construction that creates an identity column for a table and forbids to specify a value for this field manually. E.g.
 CREATE TABLE users ( id INT GENERATED ALWAYS AS IDENTITY, name VARCHAR NOT NULL ); INSERT INTO users(name) VALUES (&amp;#39;John Smith&amp;#39;); -- generates id value INSERT INTO users(id, name) VALUES (42, &amp;#39;Sam Smith&amp;#39;); -- throws an error </description>
     </item>
     
     <item>
       <title>1678273741</title>
-      <link>/posts/1678273741/</link>
+      <link>/notes/1678273741/</link>
       <pubDate>Wed, 08 Mar 2023 11:09:01 +0000</pubDate>
       
-      <guid>/posts/1678273741/</guid>
+      <guid>/notes/1678273741/</guid>
       <description>When I need to access my home network from remote locations, I use WireGuard. It&amp;rsquo;s fast and simple to configure. In some countries, WireGuard is blocked by authorities. OpenVPN and L2TP/IPSec are often blocked as well. The option that works almost always is Cisco AnyConnect. It&amp;rsquo;s possible to run AnyConnect compatible server with ocserv. It is slower than WireGuard, but it can solve the problem when everything else is blocked.</description>
     </item>
     
     <item>
       <title>1677397576</title>
-      <link>/posts/1677397576/</link>
+      <link>/notes/1677397576/</link>
       <pubDate>Sun, 26 Feb 2023 07:46:16 +0000</pubDate>
       
-      <guid>/posts/1677397576/</guid>
+      <guid>/notes/1677397576/</guid>
       <description>I&amp;rsquo;d tried DeepL. It produces accurate translations for my use cases.</description>
     </item>
     
     <item>
       <title>1677142283</title>
-      <link>/posts/1677142283/</link>
+      <link>/notes/1677142283/</link>
       <pubDate>Thu, 23 Feb 2023 08:51:24 +0000</pubDate>
       
-      <guid>/posts/1677142283/</guid>
+      <guid>/notes/1677142283/</guid>
       <description>KDE Plasma 5.27 has initial implementation of window tiling.</description>
     </item>
     
     <item>
       <title>1674540731</title>
-      <link>/posts/1674540731/</link>
+      <link>/notes/1674540731/</link>
       <pubDate>Tue, 24 Jan 2023 06:12:11 +0000</pubDate>
       
-      <guid>/posts/1674540731/</guid>
+      <guid>/notes/1674540731/</guid>
       <description>In September 2020 I&amp;rsquo;d written an article Ubuntu Snap: the Price of the Isolation. One inconvenience with Snap was the updates mechanism: it was impossible to disable auto-updates and check for new versions of software by hands. The epic with updates in Snap finally has ended:
 August 15, 2022: the PR that allows to hold refreshes indefinitely for all the system&amp;rsquo;s snaps; November 15, 2022: it&amp;rsquo;s possible to disable auto-updates in Snap from the edge channel (here is the post in snapcraft blog); January 10, 2023: snapd 2.</description>
     </item>
     
     <item>
       <title>1674038448</title>
-      <link>/posts/1674038448/</link>
+      <link>/notes/1674038448/</link>
       <pubDate>Wed, 18 Jan 2023 10:40:48 +0000</pubDate>
       
-      <guid>/posts/1674038448/</guid>
+      <guid>/notes/1674038448/</guid>
       <description>Interesting article about Open Source software for creators. The author provides the annual recap and preview of FOSS projects across the ecosystem: image editing, painting, photography, 3D, special effects, CAD, animation, video, and audio.</description>
     </item>
     
     <item>
       <title>1673174608</title>
-      <link>/posts/1673174608/</link>
+      <link>/notes/1673174608/</link>
       <pubDate>Sun, 08 Jan 2023 10:43:28 +0000</pubDate>
       
-      <guid>/posts/1673174608/</guid>
+      <guid>/notes/1673174608/</guid>
       <description>Continue talking about self-hosted services. There is a subreddit r/selfhosted where people discuss alternatives to popular online services that can be self-hosted without giving up privacy or locking you into a service you don&amp;rsquo;t control. In this subreddit I&amp;rsquo;d found a link to a repository awesome-sysadmin that contains a list of different Open Source admin tools.</description>
     </item>
     
     <item>
       <title>1672425121</title>
-      <link>/posts/1672425121/</link>
+      <link>/notes/1672425121/</link>
       <pubDate>Fri, 30 Dec 2022 18:32:02 +0000</pubDate>
       
-      <guid>/posts/1672425121/</guid>
+      <guid>/notes/1672425121/</guid>
       <description>Some people use GitHub&amp;rsquo;s Gist as a blogging platform. It seems like an interesting idea: you can publish posts using built in Markdown, follow the other GitHub members and comment on their posts. Gist has a lot of useful features for technical writing, like source code syntax highlighting, or advanced formatting.
 On the other hand, Gist is another vendor lock, like Twitter or Facebook. Actually, you do not own your account and it can be terminated any time without violation of the GitHub user agreement.</description>
     </item>
     
     <item>
       <title>1671690580</title>
-      <link>/posts/1671690580/</link>
+      <link>/notes/1671690580/</link>
       <pubDate>Thu, 22 Dec 2022 06:29:40 +0000</pubDate>
       
-      <guid>/posts/1671690580/</guid>
+      <guid>/notes/1671690580/</guid>
       <description>I use Evolution mail client because it&amp;rsquo;s the only client that works well with Exchange. I used to install Evolution using flatpak, and it requires a password each time I start it. Today I&amp;rsquo;ve switched from flatpak version to apt version and now Evolution starts gnome-keyring-daemon and uses it to store passwords. So I type my keyring password only once. It&amp;rsquo;s a lot more convenient.</description>
     </item>
     
     <item>
       <title>1670911951</title>
-      <link>/posts/1670911951/</link>
+      <link>/notes/1670911951/</link>
       <pubDate>Tue, 13 Dec 2022 06:12:32 +0000</pubDate>
       
-      <guid>/posts/1670911951/</guid>
+      <guid>/notes/1670911951/</guid>
       <description>I use NRF24L01 chips from time to time. It&amp;rsquo;s a low-cost radio with small power consumption. That is why these chips are really useful for communications between IoT devices. NRF24L01 exposes an interface for low-level communications between two chips. Sometimes it&amp;rsquo;s enough, but the other tasks require higher-level network protocols like TCP. Recently I&amp;rsquo;ve found an inspiring post that explains how to set up a TCP/IP stack over NRF24L01. The author had developed nrfnet — an application that creates virtual interface on Raspberry PI and uses NRF24L01 as a backend for data transmission.</description>
     </item>
     
     <item>
       <title>1668575623</title>
-      <link>/posts/1668575623/</link>
+      <link>/notes/1668575623/</link>
       <pubDate>Wed, 16 Nov 2022 05:13:43 +0000</pubDate>
       
-      <guid>/posts/1668575623/</guid>
+      <guid>/notes/1668575623/</guid>
       <description>It&amp;rsquo;s time to update my desktop at Kubuntu 22.04. To be sure that there will be no problems with devices and the software that I use every day, it&amp;rsquo;s important to a check new distro before installing it on the internal hard drive. I&amp;rsquo;d decided to install Kubuntu on an external disk.
 First, I&amp;rsquo;d used one of my USB flash drives. Unfortunately, all of them were extremely slow, that is why I gave up on this idea.</description>
     </item>
     
     <item>
       <title>1668257505</title>
-      <link>/posts/1668257505/</link>
+      <link>/notes/1668257505/</link>
       <pubDate>Sat, 12 Nov 2022 12:51:45 +0000</pubDate>
       
-      <guid>/posts/1668257505/</guid>
+      <guid>/notes/1668257505/</guid>
       <description>Suppose you configure network settings on a remote Linux machine. The only way to access this machine is an SSH connection. To prevent access problems in case of network configuration failure, try such option:
 open tmux; write sleep 600 &amp;amp;&amp;amp; reboot (you should cancel this command every 5-9 minutes and start again); perform network configuration in a separate tab. It&amp;rsquo;s important to make only temporary changes that will be lost after a reboot:</description>
     </item>
     
     <item>
       <title>1667560202</title>
-      <link>/posts/1667560202/</link>
+      <link>/notes/1667560202/</link>
       <pubDate>Fri, 04 Nov 2022 11:10:02 +0000</pubDate>
       
-      <guid>/posts/1667560202/</guid>
+      <guid>/notes/1667560202/</guid>
       <description>ired.team — a site dedicated to pentesting, security tools and techniques. Recently I&amp;rsquo;d read an article about Windows API Hooking from this resource. It describes a technique that can be used to intercept API calls. Malware software often uses such technique to different malware software to inject malicious code into the user&amp;rsquo;s process.</description>
     </item>
     
     <item>
       <title>1667203537</title>
-      <link>/posts/1667203537/</link>
+      <link>/notes/1667203537/</link>
       <pubDate>Mon, 31 Oct 2022 08:05:37 +0000</pubDate>
       
-      <guid>/posts/1667203537/</guid>
+      <guid>/notes/1667203537/</guid>
       <description>Nginx is a standard de facto in my projects. On the weekend, I&amp;rsquo;d read The Complete NGINX Cookbook. I&amp;rsquo;d found some useful tips about $request_id variable or rate_limit directive. I think the book is worth reading.</description>
     </item>
     
     <item>
       <title>1667027350</title>
-      <link>/posts/1667027350/</link>
+      <link>/notes/1667027350/</link>
       <pubDate>Sat, 29 Oct 2022 07:09:10 +0000</pubDate>
       
-      <guid>/posts/1667027350/</guid>
+      <guid>/notes/1667027350/</guid>
       <description>Most of the time, I use nginx as an HTTP load balancer, but it can also balance raw TCP and UDP streams with stream block.</description>
     </item>
     
     <item>
       <title>1665949478</title>
-      <link>/posts/1665949478/</link>
+      <link>/notes/1665949478/</link>
       <pubDate>Sun, 16 Oct 2022 19:44:38 +0000</pubDate>
       
-      <guid>/posts/1665949478/</guid>
+      <guid>/notes/1665949478/</guid>
       <description>hping is a really flexible network diagnostic tool. It supports TCP, UDP, ICMP and RAW-IP protocols, has a traceroute mode, the ability to send files between a covered channel, and many other features. It helps to investigate network failures and fix its, so I think, it&amp;rsquo;s a must-have instrument for every developer and admin.</description>
     </item>
     
     <item>
       <title>1665914946</title>
-      <link>/posts/1665914946/</link>
+      <link>/notes/1665914946/</link>
       <pubDate>Sun, 16 Oct 2022 10:09:06 +0000</pubDate>
       
-      <guid>/posts/1665914946/</guid>
+      <guid>/notes/1665914946/</guid>
       <description>Today I&amp;rsquo;d accidentally pressed some buttons and Firefox changed text alignment from left to right. It was a bit confusing. If someone experienced the same issue and wants to return everything back, it can be done with Ctrl-Shift-X.</description>
     </item>
     
     <item>
       <title>1665297164</title>
-      <link>/posts/1665297164/</link>
+      <link>/notes/1665297164/</link>
       <pubDate>Sun, 09 Oct 2022 06:32:44 +0000</pubDate>
       
-      <guid>/posts/1665297164/</guid>
+      <guid>/notes/1665297164/</guid>
       <description>The required things for offline coding:
 Books about programming environment (OS, network, compiler, security and so on). pdfgrep to search through these books. zeal to browse documentation about programming language, web server and different libraries like Qt. Full stackoverflow dump made by kiwix. </description>
     </item>
     
     <item>
       <title>1665269268</title>
-      <link>/posts/1665269268/</link>
+      <link>/notes/1665269268/</link>
       <pubDate>Sat, 08 Oct 2022 22:47:48 +0000</pubDate>
       
-      <guid>/posts/1665269268/</guid>
+      <guid>/notes/1665269268/</guid>
       <description>Do you know that it&amp;rsquo;s possible to download the whole Wikipedia or Stack Overflow with kiwix? Just go to library.kiwix.org, select required resource and download the dump. It can take several hours, even on a fast connection. Then use the reader to explore the resource offline. I prefer to install the reader from Flatpak: flatpak install flathub org.kiwix.desktop.
 Kiwix is barely useful for fast Internet connection, but for some corner cases it can be extremely important.</description>
     </item>
     
     <item>
       <title>1664982645</title>
-      <link>/posts/1664982645/</link>
+      <link>/notes/1664982645/</link>
       <pubDate>Wed, 05 Oct 2022 15:10:45 +0000</pubDate>
       
-      <guid>/posts/1664982645/</guid>
+      <guid>/notes/1664982645/</guid>
       <description>Today I&amp;rsquo;ve discovered Command Line Heroes — the podcast from RedHat. It tells stories about different tech fields like security, programming languages or open source. It&amp;rsquo;s more like an audio book than a radio show. I think it&amp;rsquo;s worth listening.</description>
     </item>
     
     <item>
       <title>1664972966</title>
-      <link>/posts/1664972966/</link>
+      <link>/notes/1664972966/</link>
       <pubDate>Wed, 05 Oct 2022 12:29:26 +0000</pubDate>
       
-      <guid>/posts/1664972966/</guid>
+      <guid>/notes/1664972966/</guid>
       <description>Found chat.stackoverflow.com. Stackoverflow had reinvented IRC.</description>
     </item>
     
     <item>
       <title>1664551116</title>
-      <link>/posts/1664551116/</link>
+      <link>/notes/1664551116/</link>
       <pubDate>Fri, 30 Sep 2022 15:18:37 +0000</pubDate>
       
-      <guid>/posts/1664551116/</guid>
+      <guid>/notes/1664551116/</guid>
       <description>When you need to transfer Git repo, e.g. send it by email, it&amp;rsquo;s possible to use git bundle. Create .bundle file with git bundle create my-repo.bundle master, send it, and then extract data with git checkout my-repo.bundle my-repo.</description>
     </item>
     
     <item>
       <title>1663436755</title>
-      <link>/posts/1663436755/</link>
+      <link>/notes/1663436755/</link>
       <pubDate>Sat, 17 Sep 2022 17:45:55 +0000</pubDate>
       
-      <guid>/posts/1663436755/</guid>
+      <guid>/notes/1663436755/</guid>
       <description>Also, there is a Reddit thread about development environments for STM32 on Linux. So if you think STM32CubeIDE is not your choice, you&amp;rsquo;d better look at this discussion.</description>
     </item>
     
     <item>
       <title>1663435954</title>
-      <link>/posts/1663435954/</link>
+      <link>/notes/1663435954/</link>
       <pubDate>Sat, 17 Sep 2022 17:32:34 +0000</pubDate>
       
-      <guid>/posts/1663435954/</guid>
+      <guid>/notes/1663435954/</guid>
       <description>Found a nice wiki page about STM32 Development tools. There are some interesting alternatives to the STM32CubeIDE. It&amp;rsquo;s worth reading.</description>
     </item>
     
     <item>
       <title>1662243994</title>
-      <link>/posts/1662243994/</link>
+      <link>/notes/1662243994/</link>
       <pubDate>Sat, 03 Sep 2022 22:26:34 +0000</pubDate>
       
-      <guid>/posts/1662243994/</guid>
+      <guid>/notes/1662243994/</guid>
       <description>Talking about Linux Kernel on Ubuntu 20.04 Server: found that it&amp;rsquo;s possible to install 5.15 LTS manually using sudo apt install --install-recommends linux-generic-hwe-20.04. Looks reasonable: for server installations it may be dangerous to perform such updates automatically.</description>
     </item>
     
     <item>
       <title>1662226606</title>
-      <link>/posts/1662226606/</link>
+      <link>/notes/1662226606/</link>
       <pubDate>Sat, 03 Sep 2022 17:36:47 +0000</pubDate>
       
-      <guid>/posts/1662226606/</guid>
+      <guid>/notes/1662226606/</guid>
       <description>Switched from Adobe Acrobat Reader to Sumatra PDF for viewing PDFs on my Windows machine. It&amp;rsquo;s a lot smaller, faster and the source code is available on GitHub.</description>
     </item>
     
     <item>
       <title>1661450929</title>
-      <link>/posts/1661450929/</link>
+      <link>/notes/1661450929/</link>
       <pubDate>Thu, 25 Aug 2022 18:08:49 +0000</pubDate>
       
-      <guid>/posts/1661450929/</guid>
+      <guid>/notes/1661450929/</guid>
       <description>I always thought that PNG is a file format for static images, but today I was searching for a new emoji for Slack and found an animated image with .png extension. Surprisingly, there is an Animated Portable Network graphics (APNG) file format, and it&amp;rsquo;s supported by the most of the modern web browsers.</description>
     </item>
     
     <item>
       <title>1661425714</title>
-      <link>/posts/1661425714/</link>
+      <link>/notes/1661425714/</link>
       <pubDate>Thu, 25 Aug 2022 11:08:34 +0000</pubDate>
       
-      <guid>/posts/1661425714/</guid>
+      <guid>/notes/1661425714/</guid>
       <description>Actually, the previous message is correct for desktop version only: Ubuntu Server 20.04 uses Linux kernel 5.4.0.</description>
     </item>
     
     <item>
       <title>1661281240</title>
-      <link>/posts/1661281240/</link>
+      <link>/notes/1661281240/</link>
       <pubDate>Tue, 23 Aug 2022 19:00:40 +0000</pubDate>
       
-      <guid>/posts/1661281240/</guid>
+      <guid>/notes/1661281240/</guid>
       <description>Found that Ubuntu 20.04.4 and Ubuntu 22.04.1 have the same kernel 5.15.0. I thought that 22.04 should have a later version, like 5.19.3.</description>
     </item>
     
     <item>
       <title>1660623217</title>
-      <link>/posts/1660623217/</link>
+      <link>/notes/1660623217/</link>
       <pubDate>Tue, 16 Aug 2022 04:13:37 +0000</pubDate>
       
-      <guid>/posts/1660623217/</guid>
+      <guid>/notes/1660623217/</guid>
       <description>After updating to Kubuntu 22.04 my OpenVPN stop working with an error like:
 OpenSSL: error:0A00018E:SSL routines::ca md too weak Cannot load inline certificate file Exiting due to fatal error The correct way to solve this issue is certificate regeneration, but I do not control the server. So the temporary solution is to add the line tls-cipher &amp;quot;DEFAULT:@SECLEVEL=0&amp;quot; into ovpn config file. It allows OpenVPN to use weak tls cipher, so the connection starts as usual.</description>
     </item>
     
     <item>
       <title>1660460219</title>
-      <link>/posts/1660460219/</link>
+      <link>/notes/1660460219/</link>
       <pubDate>Sun, 14 Aug 2022 06:56:59 +0000</pubDate>
       
-      <guid>/posts/1660460219/</guid>
+      <guid>/notes/1660460219/</guid>
       <description>Found an interesting article about curl&amp;rsquo;s options for connecting to the different host. Most of the time I&amp;rsquo;d changed Host HTTP header, and it was enough for my cases, but today I&amp;rsquo;ve realized that this solution is not acceptable when for HTTPS resources. Here, I need to specify the host name during SSL connection negotiation, so I can&amp;rsquo;t use HTTP headers. There is an SNI field that allows to tell the server which host I want to access.</description>
     </item>
     
     <item>
       <title>1660420739</title>
-      <link>/posts/1660420739/</link>
+      <link>/notes/1660420739/</link>
       <pubDate>Sat, 13 Aug 2022 19:58:59 +0000</pubDate>
       
-      <guid>/posts/1660420739/</guid>
+      <guid>/notes/1660420739/</guid>
       <description>And one more useful Vim command: to make my markdown files easy to read, I limit the line width with 100 chars and highlight longer lines:
 set tw=100 2mat ErrorMsg &amp;#39;\%101v.&amp;#39; The editor split lines automatically as I type, but if I add some text in the middle of the line, I have to select a paragraph with vap command and reformat it with gq.</description>
     </item>
     
     <item>
       <title>1660420024</title>
-      <link>/posts/1660420024/</link>
+      <link>/notes/1660420024/</link>
       <pubDate>Sat, 13 Aug 2022 19:47:04 +0000</pubDate>
       
-      <guid>/posts/1660420024/</guid>
+      <guid>/notes/1660420024/</guid>
       <description>I write articles and docs using Vim. It&amp;rsquo;s convenient when the editor can check spelling on the fly, so I can fix mistakes as soon as possible. Sometimes I use different languages in one file and I want the editor to find spelling issues for all languages in it. It&amp;rsquo;s possible to set multiple languages for spell check in Vim with a command like :set spelllang=en_us,de_de, so the editor will use several dictionaries.</description>
     </item>
     
     <item>
       <title>1659500215</title>
-      <link>/posts/1659500215/</link>
+      <link>/notes/1659500215/</link>
       <pubDate>Wed, 03 Aug 2022 04:16:55 +0000</pubDate>
       
-      <guid>/posts/1659500215/</guid>
+      <guid>/notes/1659500215/</guid>
       <description>Update for the previous message: A moment ago I&amp;rsquo;ve realized that Ubuntu apt repo contains grip 4.2.0. It&amp;rsquo;s an old version that generates strange pages. The best decision was to switch from an old apt version to the grip 4.6.1 from PyPi. It can be installed with such a command: pip3 install --user grip. Now the page looks great with no additional options in the config file.</description>
     </item>
     
     <item>
       <title>1659498630</title>
-      <link>/posts/1659498630/</link>
+      <link>/notes/1659498630/</link>
       <pubDate>Wed, 03 Aug 2022 03:50:30 +0000</pubDate>
       
-      <guid>/posts/1659498630/</guid>
+      <guid>/notes/1659498630/</guid>
       <description>I use grip to preview markdown documents locally. To make the generated page looks like README on GitHub add such line into ~/.grip/settings.py:
 STYLE_URLS = [&amp;#39;https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css&amp;#39;] It&amp;rsquo;s a CDN URL for github-markdown-css. This library is a minimal amount of CSS to replicate the GitHub Markdown style.</description>
     </item>
     
     <item>
       <title>1659290553</title>
-      <link>/posts/1659290553/</link>
+      <link>/notes/1659290553/</link>
       <pubDate>Sun, 31 Jul 2022 18:02:33 +0000</pubDate>
       
-      <guid>/posts/1659290553/</guid>
+      <guid>/notes/1659290553/</guid>
       <description>Found an outstanding notes.vim plugin for Vim. It allows to write some notes with basic formatting and navigation. The syntax highlighting of the source code can be useful for notes of software developers.</description>
     </item>
     
     <item>
       <title>1659288194</title>
-      <link>/posts/1659288194/</link>
+      <link>/notes/1659288194/</link>
       <pubDate>Sun, 31 Jul 2022 17:23:14 +0000</pubDate>
       
-      <guid>/posts/1659288194/</guid>
+      <guid>/notes/1659288194/</guid>
       <description>Useful tip: it&amp;rsquo;s possible to execute some code on the Vim&amp;rsquo;s startup with -c argument. I use it to prepare Vim for blog post editing like this: vim -c &#39;call ConfigDoc()&#39; post.md. I don&amp;rsquo;t want to add this function call into .vimrc for all .md files, because there are a lot of different markdown files that do not require this configuration. So command line argument does the trick.</description>
     </item>
     
     <item>
       <title>1657969466</title>
-      <link>/posts/1657969466/</link>
+      <link>/notes/1657969466/</link>
       <pubDate>Sat, 16 Jul 2022 11:04:26 +0000</pubDate>
       
-      <guid>/posts/1657969466/</guid>
+      <guid>/notes/1657969466/</guid>
       <description>I tried to download a file with curl on Oracle Linux 8 and got an error: routines:ssl_choose_client_version:unsupported protocol. It&amp;rsquo;s an old host and I have no access to upgrade the software. So I had to relax my encryption settings with update-crypto-policies --set LEGACY. It&amp;rsquo;s not the best way to solve this issue, but if you need to download a file and you don&amp;rsquo;t have any other options, it is worth doing.</description>
     </item>
     
     <item>
       <title>1657799440</title>
-      <link>/posts/1657799440/</link>
+      <link>/notes/1657799440/</link>
       <pubDate>Thu, 14 Jul 2022 11:50:40 +0000</pubDate>
       
-      <guid>/posts/1657799440/</guid>
+      <guid>/notes/1657799440/</guid>
       <description>The easiest way to find Ubuntu installation date is checking the installer&amp;rsquo;s directory: ls -lt /var/log/installer.</description>
     </item>
     
     <item>
       <title>1657717546</title>
-      <link>/posts/1657717546/</link>
+      <link>/notes/1657717546/</link>
       <pubDate>Wed, 13 Jul 2022 13:05:46 +0000</pubDate>
       
-      <guid>/posts/1657717546/</guid>
+      <guid>/notes/1657717546/</guid>
       <description>Sometimes I need to test new software or prepare isolated stands. I use VirtualBox for these tasks. I want to access VMs from the host PC and the easiest way to achieve this is by using bridged network adapters. Unfortunately, VM with a bridged network is exposed not only to the host but also to all machines in the network. VM relies on the router DHCP. It&amp;rsquo;s can be unacceptable for some locations.</description>
     </item>
     
     <item>
       <title>1657695928</title>
-      <link>/posts/1657695928/</link>
+      <link>/notes/1657695928/</link>
       <pubDate>Wed, 13 Jul 2022 07:05:28 +0000</pubDate>
       
-      <guid>/posts/1657695928/</guid>
+      <guid>/notes/1657695928/</guid>
       <description>Found an outstanding video about VGA signal. Ben Eater explains what VGA display actually does when it receives an input, how it processes this input to display pixels on the screen and how to make a circuit using primitive ICs that can generate such signal for the display.</description>
     </item>
     
     <item>
       <title>1657608401</title>
-      <link>/posts/1657608401/</link>
+      <link>/notes/1657608401/</link>
       <pubDate>Tue, 12 Jul 2022 06:46:41 +0000</pubDate>
       
-      <guid>/posts/1657608401/</guid>
+      <guid>/notes/1657608401/</guid>
       <description>I have several devices that I use every day: PC, laptop and phone. I want to share some notes between them, but I don&amp;rsquo;t want to use cloud solutions like Google Docs. So today I&amp;rsquo;ve installed Wiki.js instance on my Ubuntu server. It works fast, uses a few resources on my workloads and has a lot of useful docs.</description>
     </item>
     
     <item>
       <title>1657109836</title>
-      <link>/posts/1657109836/</link>
+      <link>/notes/1657109836/</link>
       <pubDate>Wed, 06 Jul 2022 12:17:16 +0000</pubDate>
       
-      <guid>/posts/1657109836/</guid>
+      <guid>/notes/1657109836/</guid>
       <description>This article about sudo rules troubleshooting helped me a lot with FreeIPA configuration. It was difficult to understand what was going on before I turn debug logs of the SSSD on.</description>
     </item>
     
     <item>
       <title>1656760056</title>
-      <link>/posts/1656760056/</link>
+      <link>/notes/1656760056/</link>
       <pubDate>Sat, 02 Jul 2022 11:07:36 +0000</pubDate>
       
-      <guid>/posts/1656760056/</guid>
+      <guid>/notes/1656760056/</guid>
       <description>Vim 9.0 had been released several days ago. I started using Vim when the latest version was 6.4. The modes idea and navigation with j, k, k and l keys were unfamiliar to me and I&amp;rsquo;d spent a lot of time to get used to it. Now it&amp;rsquo;s something natural, so sometimes it&amp;rsquo;s difficult to use mainstream editors without Vim features. The most annoying thing with Vim 6.4 was the lack of editor tabs.</description>
     </item>
     
     <item>
       <title>1656743408</title>
-      <link>/posts/1656743408/</link>
+      <link>/notes/1656743408/</link>
       <pubDate>Sat, 02 Jul 2022 06:30:08 +0000</pubDate>
       
-      <guid>/posts/1656743408/</guid>
+      <guid>/notes/1656743408/</guid>
       <description>One task that I perform these days is the configuration of the FreeIPA domain. Sometimes it&amp;rsquo;s not trivial, so I need to debug some sort of quirky errors from time to time. Today I&amp;rsquo;d found Thomas C. Foulds&amp;rsquo;s blog that contains a lot of useful information about FreeIPA debugging. It&amp;rsquo;s definitely worth reading.</description>
     </item>
     
     <item>
       <title>1654367223</title>
-      <link>/posts/1654367223/</link>
+      <link>/notes/1654367223/</link>
       <pubDate>Sat, 04 Jun 2022 18:27:03 +0000</pubDate>
       
-      <guid>/posts/1654367223/</guid>
+      <guid>/notes/1654367223/</guid>
       <description>It&amp;rsquo;s possible to connect to a remote host over SSH using a public key. It&amp;rsquo;s a well-known feature which I use every day. SSH protocol is also used for the git clone command. I was curious about how Gitea implements the support of the SSH protocol. The first idea was about the custom SSH server. I&amp;rsquo;d inspected my local Gitea installation and found that there was no custom SSH server running, just the default sshd.</description>
     </item>
     
     <item>
       <title>1653742728</title>
-      <link>/posts/1653742728/</link>
+      <link>/notes/1653742728/</link>
       <pubDate>Sat, 28 May 2022 12:58:48 +0000</pubDate>
       
-      <guid>/posts/1653742728/</guid>
+      <guid>/notes/1653742728/</guid>
       <description>Ubuntu 22.04 distributes Firefox as a snap package. It starts slower than Firefox installed as a deb-package and it&amp;rsquo;s difficult to control updates of the browser. It&amp;rsquo;s possible to install Firefox as a deb package from Mozilla Team PPA. There is a useful guide from omgubuntu.co.uk about how to configure the system to use this PPA.</description>
     </item>
     
     <item>
       <title>1652165698</title>
-      <link>/posts/1652165698/</link>
+      <link>/notes/1652165698/</link>
       <pubDate>Tue, 10 May 2022 06:54:58 +0000</pubDate>
       
-      <guid>/posts/1652165698/</guid>
+      <guid>/notes/1652165698/</guid>
       <description>Most of RPM-based Linux distributions use frontends like yum or dnf. Most of deb-based Linux distributions use apt-get, aptitude or apt. Surprisingly, there is an APT-RPM package manager — a version of apt-get modified to work with RPM.</description>
     </item>
     
     <item>
       <title>1651653237</title>
-      <link>/posts/1651653237/</link>
+      <link>/notes/1651653237/</link>
       <pubDate>Wed, 04 May 2022 08:33:57 +0000</pubDate>
       
-      <guid>/posts/1651653237/</guid>
+      <guid>/notes/1651653237/</guid>
       <description>Annoying bug: it&amp;rsquo;s impossible to add a route without a gateway in NetworkManager GUI in Ubuntu 20.04. Fortunately, there is a workaround: use 0.0.0.0 as a gateway.</description>
     </item>
     
     <item>
       <title>1651607294</title>
-      <link>/posts/1651607294/</link>
+      <link>/notes/1651607294/</link>
       <pubDate>Tue, 03 May 2022 19:48:14 +0000</pubDate>
       
-      <guid>/posts/1651607294/</guid>
+      <guid>/notes/1651607294/</guid>
       <description>Systemd allows to pass a single argument to a service. This feature is called Service Templates. It can be used for such applications as OpenVPN (the argument is a connection config name) or PostgreSQL (the argument is a cluster version).</description>
     </item>
     
     <item>
       <title>1650723317</title>
-      <link>/posts/1650723317/</link>
+      <link>/notes/1650723317/</link>
       <pubDate>Sat, 23 Apr 2022 14:15:17 +0000</pubDate>
       
-      <guid>/posts/1650723317/</guid>
+      <guid>/notes/1650723317/</guid>
       <description>Kubuntu 22.04 has libssl 3.0.2, that is not compatible with libssl from old releases, so Viber messenger is not working. It shows an error message &amp;ldquo;No Connection&amp;rdquo; even the other network apps like Firefox work well. I think this bug will be fixed in future Viber versions. For now, it&amp;rsquo;s possible to perform a hotfix:
 Install libssl 1.2.1 from Ubuntu 21.10:
 wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1l-1ubuntu1.2_amd64.deb sudo dpkg -i libssl1.1_1.1.1l-1ubuntu1.2_amd64.deb Preload libssl 1.2.1 into Viber.</description>
@@ -563,238 +544,238 @@ wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1l-1ubu
     
     <item>
       <title>1650661745</title>
-      <link>/posts/1650661745/</link>
+      <link>/notes/1650661745/</link>
       <pubDate>Fri, 22 Apr 2022 21:09:05 +0000</pubDate>
       
-      <guid>/posts/1650661745/</guid>
+      <guid>/notes/1650661745/</guid>
       <description>I&amp;rsquo;ve just updated from Kubuntu 21.04 to Kubuntu 22.04 on my laptop. From the release notes I found no breaking changes, but only minor updates for different programs. Everything works as expected.</description>
     </item>
     
     <item>
       <title>1650613842</title>
-      <link>/posts/1650613842/</link>
+      <link>/notes/1650613842/</link>
       <pubDate>Fri, 22 Apr 2022 07:50:42 +0000</pubDate>
       
-      <guid>/posts/1650613842/</guid>
+      <guid>/notes/1650613842/</guid>
       <description>It&amp;rsquo;s convenient to monitor network activity in the terminal. There are several tools for this task: bmon, slurm or tcptrack. I prefer to use slurm.</description>
     </item>
     
     <item>
       <title>1650372413</title>
-      <link>/posts/1650372413/</link>
+      <link>/notes/1650372413/</link>
       <pubDate>Tue, 19 Apr 2022 12:46:53 +0000</pubDate>
       
-      <guid>/posts/1650372413/</guid>
+      <guid>/notes/1650372413/</guid>
       <description>Some people prefer to use self-hosting services instead of consuming from SaaSS providers. It&amp;rsquo;s useful to look through the comprehensive list of different software which can be hosted on your own server.</description>
     </item>
     
     <item>
       <title>1650186560</title>
-      <link>/posts/1650186560/</link>
+      <link>/notes/1650186560/</link>
       <pubDate>Sun, 17 Apr 2022 09:09:20 +0000</pubDate>
       
-      <guid>/posts/1650186560/</guid>
+      <guid>/notes/1650186560/</guid>
       <description>What’s The Deal With Snap Packages? Snap package system offers a controversial approach for managing software. It&amp;rsquo;s definitely not a silver bullet. Two years ago I wrote an article with such a point of view and today I&amp;rsquo;ve found an article that shares my point of view in some way. It&amp;rsquo;s definitely worth reading. I think the user should control the system and package manager should allow to do it.</description>
     </item>
     
     <item>
       <title>1650184950</title>
-      <link>/posts/1650184950/</link>
+      <link>/notes/1650184950/</link>
       <pubDate>Sun, 17 Apr 2022 08:42:30 +0000</pubDate>
       
-      <guid>/posts/1650184950/</guid>
+      <guid>/notes/1650184950/</guid>
       <description>KernelNewbies is an extremely useful resource for those who want to explore kernel changes but yet not ready for reading lkml.</description>
     </item>
     
     <item>
       <title>1649939747</title>
-      <link>/posts/1649939747/</link>
+      <link>/notes/1649939747/</link>
       <pubDate>Thu, 14 Apr 2022 12:35:48 +0000</pubDate>
       
-      <guid>/posts/1649939747/</guid>
+      <guid>/notes/1649939747/</guid>
       <description>From time to time I have to check my disk usage. It&amp;rsquo;s possible to use df and du for rough estimate, but it&amp;rsquo;s more convenient to have some UI for further analysis. I prefer to use ncdu. Some other tools are described in the article.</description>
     </item>
     
     <item>
       <title>1649006347</title>
-      <link>/posts/1649006347/</link>
+      <link>/notes/1649006347/</link>
       <pubDate>Sun, 03 Apr 2022 17:19:07 +0000</pubDate>
       
-      <guid>/posts/1649006347/</guid>
+      <guid>/notes/1649006347/</guid>
       <description>OpenSnitch is a GNU/Linux port of the Little Snitch application firewall. Tried it today on Kubuntu 21.04. It works as expected, so if you got used to Little Snitch on MacOS and switched to Linux you should definitely give it a chance.</description>
     </item>
     
     <item>
       <title>1648910196</title>
-      <link>/posts/1648910196/</link>
+      <link>/notes/1648910196/</link>
       <pubDate>Sat, 02 Apr 2022 14:36:36 +0000</pubDate>
       
-      <guid>/posts/1648910196/</guid>
+      <guid>/notes/1648910196/</guid>
       <description>Looked at Gitea as a self-hosted alternative for GitHub. It looks nice: a lot of useful features like global code search and template repositories. There is a comprehensive comparison of Gitea to other Git hosting solutions. It can help decide if Gitea is suited for your needs or not.
 The only thing that surprised me a bit: the information about package registry is already in the official docs, but PR with this feature was merged only several days ago, so it will be available only in v1.</description>
     </item>
     
     <item>
       <title>1648796908</title>
-      <link>/posts/1648796908/</link>
+      <link>/notes/1648796908/</link>
       <pubDate>Fri, 01 Apr 2022 07:08:28 +0000</pubDate>
       
-      <guid>/posts/1648796908/</guid>
+      <guid>/notes/1648796908/</guid>
       <description>Surprisingly found that Linux has multiple routing tables and set of rules that tell the kernel how to choose the particular table for each packet. There are an article and a reddit discussion explaining this subject.</description>
     </item>
     
     <item>
       <title>1648670838</title>
-      <link>/posts/1648670838/</link>
+      <link>/notes/1648670838/</link>
       <pubDate>Wed, 30 Mar 2022 20:07:18 +0000</pubDate>
       
-      <guid>/posts/1648670838/</guid>
+      <guid>/notes/1648670838/</guid>
       <description>Today I&amp;rsquo;ve created a test stand that consisted of several Debian VMs to learn some basic network management and firewall and VPN configuration. It looks astonishing. My primary job is writing software, that is why I configure Linux networks rarely, and it&amp;rsquo;s a bit complicated for me. Maybe a bit later I&amp;rsquo;ll write an article about all this stuff.</description>
     </item>
     
     <item>
       <title>1646983221</title>
-      <link>/posts/1646983221/</link>
+      <link>/notes/1646983221/</link>
       <pubDate>Fri, 11 Mar 2022 07:20:21 +0000</pubDate>
       
-      <guid>/posts/1646983221/</guid>
+      <guid>/notes/1646983221/</guid>
       <description>Really awesome video about hacking the Nintendo Game &amp;amp; Watch. It uses STM32 locked processor and AES-CTR encrypted flash, but it had not helped, and the console was hacked one day before release.</description>
     </item>
     
     <item>
       <title>1646669969</title>
-      <link>/posts/1646669969/</link>
+      <link>/notes/1646669969/</link>
       <pubDate>Mon, 07 Mar 2022 16:19:29 +0000</pubDate>
       
-      <guid>/posts/1646669969/</guid>
+      <guid>/notes/1646669969/</guid>
       <description>I&amp;rsquo;d used CentOS as a production environment for working projects. Some time ago Red Hat announced its plans to replace stable CentOS 8 with rolling release CentOS Stream. So, CentOS had been replaced with Oracle Linux. Today I&amp;rsquo;ve found that Oracle has its own Linux kernel build that is called Unbreakable Enterprise Kernel. They add some features like Ksplice that look interesting for high-load enterprise platforms.</description>
     </item>
     
     <item>
       <title>1645598791</title>
-      <link>/posts/1645598791/</link>
+      <link>/notes/1645598791/</link>
       <pubDate>Wed, 23 Feb 2022 06:46:31 +0000</pubDate>
       
-      <guid>/posts/1645598791/</guid>
+      <guid>/notes/1645598791/</guid>
       <description>Unexpectedly discovered a lot of paid proprietary apps in snapcraft. I think it&amp;rsquo;s great because Linux users and developers have more choices.</description>
     </item>
     
     <item>
       <title>1645221056</title>
-      <link>/posts/1645221056/</link>
+      <link>/notes/1645221056/</link>
       <pubDate>Fri, 18 Feb 2022 21:50:56 +0000</pubDate>
       
-      <guid>/posts/1645221056/</guid>
+      <guid>/notes/1645221056/</guid>
       <description>Do you feel like you getting old and new technologies do not excite you anymore? Do you think that you have seen most things before? I&amp;rsquo;ve found an interesting discussion on Hacker News about this topic. Different people share their feelings and ways of getting through this period of life.</description>
     </item>
     
     <item>
       <title>1644658585</title>
-      <link>/posts/1644658585/</link>
+      <link>/notes/1644658585/</link>
       <pubDate>Sat, 12 Feb 2022 09:36:25 +0000</pubDate>
       
-      <guid>/posts/1644658585/</guid>
+      <guid>/notes/1644658585/</guid>
       <description>Falling down the rabbit hole of HiDPI screens and fractional scaling on Linux desktops I came across an interesting discussion on Reddit. It contains a lot of useful links that help to form an opinion on the subject.
 I found that in the KDE X11 session fractional scaling is implemented on Qt Framework level, so each app scales its output itself. Gnome uses a different technique. It implies rendering everything at an integer factor and then downscaling using a raster operation.</description>
     </item>
     
     <item>
       <title>1644617329</title>
-      <link>/posts/1644617329/</link>
+      <link>/notes/1644617329/</link>
       <pubDate>Fri, 11 Feb 2022 22:08:49 +0000</pubDate>
       
-      <guid>/posts/1644617329/</guid>
+      <guid>/notes/1644617329/</guid>
       <description>The majority of GUI apps on Linux are written using some toolkit like GTK or Qt. Such libs provide high-level abstractions like buttons or labels but the real rendering is executed on the backend like X11 or Wayland. I&amp;rsquo;d never thought about it. Today I&amp;rsquo;ve found that the X11 backend uses Xlib. To understand what level of abstraction GUI libraries provide, you can take a look at this small tutorial. After writing a Hello World with Xlib it becomes clear for me why developers introduce more abstraction layers.</description>
     </item>
     
     <item>
       <title>1644078399</title>
-      <link>/posts/1644078399/</link>
+      <link>/notes/1644078399/</link>
       <pubDate>Sat, 05 Feb 2022 16:26:39 +0000</pubDate>
       
-      <guid>/posts/1644078399/</guid>
+      <guid>/notes/1644078399/</guid>
       <description>I&amp;rsquo;m learning the STM32 platform. The code generation in STM32CubeIDE makes it easier to configure different MCU subsystems and start writing &amp;ldquo;hello world&amp;rdquo; apps. However, it can be difficult to understand how all this magic works. Fortunately, there is a comprehensive explanation in the STM32CubeMX for STM32 configuration and initialization C code generation user manual in section 6.1.</description>
     </item>
     
     <item>
       <title>1643143370</title>
-      <link>/posts/1643143370/</link>
+      <link>/notes/1643143370/</link>
       <pubDate>Tue, 25 Jan 2022 20:42:50 +0000</pubDate>
       
-      <guid>/posts/1643143370/</guid>
+      <guid>/notes/1643143370/</guid>
       <description>To make L2TP/IPsec VPN client work under Kubuntu install network-manager-l2tp package.</description>
     </item>
     
     <item>
       <title>1643060990</title>
-      <link>/posts/1643060990/</link>
+      <link>/notes/1643060990/</link>
       <pubDate>Mon, 24 Jan 2022 21:49:50 +0000</pubDate>
       
-      <guid>/posts/1643060990/</guid>
+      <guid>/notes/1643060990/</guid>
       <description>Today I&amp;rsquo;ve found that youtube-dl downloads video too slow. Switching to yt-dlp helped: 10MiB/s instead of 50KiB/s.</description>
     </item>
     
     <item>
       <title>1641756063</title>
-      <link>/posts/1641756063/</link>
+      <link>/notes/1641756063/</link>
       <pubDate>Sun, 09 Jan 2022 19:21:03 +0000</pubDate>
       
-      <guid>/posts/1641756063/</guid>
+      <guid>/notes/1641756063/</guid>
       <description>Some time ago I&amp;rsquo;d bought Focusrite Scarlett gen3 audio interface because it&amp;rsquo;s one of the devices that work on Linux out of the box. Unfortunately, some features of the device can be accessed only through Focusrite Control that is not available on Linux. Recently I&amp;rsquo;d found an interesting stream about improving Focusrite Scarlett Driver that shows how to access additional features of the device on the Linux platform. It is worth watching if you are interested in reverse engineering and Linux drivers.</description>
     </item>
     
     <item>
       <title>1641155092</title>
-      <link>/posts/1641155092/</link>
+      <link>/notes/1641155092/</link>
       <pubDate>Sun, 02 Jan 2022 20:24:52 +0000</pubDate>
       
-      <guid>/posts/1641155092/</guid>
+      <guid>/notes/1641155092/</guid>
       <description>I have a network smb share with different videos that I want to watch over network on my devices. Today I&amp;rsquo;d tried to watch a video on my Kubuntu laptop with VLC. It prints errors like:
 Your input can&amp;#39;t be opened: VLC is unable to open the MRL &amp;#39;smb://10.0.0.1/Share/video.mkv&amp;#39;. Check the log for details. I&amp;rsquo;d checked logs and found nothing. I&amp;rsquo;d tried to set username and password in the settings as suggested on the Internet with no results.</description>
     </item>
     
     <item>
       <title>1640974351</title>
-      <link>/posts/1640974351/</link>
+      <link>/notes/1640974351/</link>
       <pubDate>Fri, 31 Dec 2021 18:12:31 +0000</pubDate>
       
-      <guid>/posts/1640974351/</guid>
+      <guid>/notes/1640974351/</guid>
       <description>Today I&amp;rsquo;ve found Albert. It&amp;rsquo;s a great Alfred-like app for Linux.</description>
     </item>
     
     <item>
       <title>1638453327</title>
-      <link>/posts/1638453327/</link>
+      <link>/notes/1638453327/</link>
       <pubDate>Thu, 02 Dec 2021 13:55:27 +0000</pubDate>
       
-      <guid>/posts/1638453327/</guid>
+      <guid>/notes/1638453327/</guid>
       <description>Zoom has become the de facto standard for online communications for me. On Linux Zoom depends on ibus. It looks a bit strange because Zoom works fine without this dependency and in some cases, ibus can make problems. There is a nice article about how to repack Zoom to work without ibus.</description>
     </item>
     
     <item>
       <title>1638126669</title>
-      <link>/posts/1638126669/</link>
+      <link>/notes/1638126669/</link>
       <pubDate>Sun, 28 Nov 2021 19:11:09 +0000</pubDate>
       
-      <guid>/posts/1638126669/</guid>
+      <guid>/notes/1638126669/</guid>
       <description>Recently, I&amp;rsquo;ve found a page, explaining the types of packages in Ubuntu. It gives the information about strengths and weaknesses of each packaging system and discusses what is the best choice for different usage scenarios. The article gives me a lot to think about. Although certain solutions seem controversial to me, the article clarifies the vision of Canonical for package systems.</description>
     </item>
     
     <item>
       <title>1637445162</title>
-      <link>/posts/1637445162/</link>
+      <link>/notes/1637445162/</link>
       <pubDate>Sat, 20 Nov 2021 21:52:42 +0000</pubDate>
       
-      <guid>/posts/1637445162/</guid>
+      <guid>/notes/1637445162/</guid>
       <description>Is it time to switch from Docker to Podman?</description>
     </item>
     
     <item>
       <title>1637062416</title>
-      <link>/posts/1637062416/</link>
+      <link>/notes/1637062416/</link>
       <pubDate>Tue, 16 Nov 2021 11:33:36 +0000</pubDate>
       
-      <guid>/posts/1637062416/</guid>
+      <guid>/notes/1637062416/</guid>
       <description>I have a dual boot setup on my PC: Ubuntu and Windows 10. Sometimes it&amp;rsquo;s required to reload Windows for processing system updates. By default, Grub loads the first system from the list, which is Ubuntu. It&amp;rsquo;s inconvenient. I think it&amp;rsquo;s better to make Grub remember the last loaded OS and start it after reboot.
 To achieve this behaviour you need to perform such steps:
 Add to /etc/default/grub following strings:</description>
@@ -802,19 +783,19 @@ Add to /etc/default/grub following strings:</description>
     
     <item>
       <title>1634247448</title>
-      <link>/posts/1634247448/</link>
+      <link>/notes/1634247448/</link>
       <pubDate>Thu, 14 Oct 2021 21:37:28 +0000</pubDate>
       
-      <guid>/posts/1634247448/</guid>
+      <guid>/notes/1634247448/</guid>
       <description>Found KDE Timeline. Looks interesting. The times of KDE 3 were really awesome.</description>
     </item>
     
     <item>
       <title>1632296253</title>
-      <link>/posts/1632296253/</link>
+      <link>/notes/1632296253/</link>
       <pubDate>Wed, 22 Sep 2021 07:37:33 +0000</pubDate>
       
-      <guid>/posts/1632296253/</guid>
+      <guid>/notes/1632296253/</guid>
       <description>Recently I&amp;rsquo;d found that ping utility on Ubuntu 20.04 and Ubuntu 21.04 works without root permissions, suid flag, or CAP_NET_RAW capability. In the Kernel documentation it is said that ping uses ICMP_PROTO datagram sockets and it&amp;rsquo;s possible to allow users without root permissions to create such sockets:
 ping_group_range - 2 INTEGERS
 Restrict ICMP_PROTO datagram sockets to users in the group range. The default is &amp;ldquo;1 0&amp;rdquo;, meaning, that nobody (not even root) may create ping sockets.</description>
@@ -822,47 +803,47 @@ Restrict ICMP_PROTO datagram sockets to users in the group range. The default is
     
     <item>
       <title>1631610988</title>
-      <link>/posts/1631610988/</link>
+      <link>/notes/1631610988/</link>
       <pubDate>Tue, 14 Sep 2021 09:16:28 +0000</pubDate>
       
-      <guid>/posts/1631610988/</guid>
+      <guid>/notes/1631610988/</guid>
       <description>I use Thunderbird as an e-mail client. I&amp;rsquo;d configured several rules on the server side for splitting messages from INBOX into several folders (Jira, GitLab, etc.). It&amp;rsquo;s important to execute these rules on the server side because I have several clients and, I don&amp;rsquo;t want to make the same rules for each client. By default, Thunderbird checks only the INBOX folder of the IMAP account, so I had no notifications about new mail in the other folders.</description>
     </item>
     
     <item>
       <title>1631122832</title>
-      <link>/posts/1631122832/</link>
+      <link>/notes/1631122832/</link>
       <pubDate>Wed, 08 Sep 2021 17:40:32 +0000</pubDate>
       
-      <guid>/posts/1631122832/</guid>
+      <guid>/notes/1631122832/</guid>
       <description>There is a Full HD screen on my 14&amp;quot; laptop. It looks like some sort of HiDPI for me, and that is why controls of an interface on native resolution are too small, so it&amp;rsquo;s difficult to use. On Windows, an interface was scaled for 125% and looks a lot better.
 I tried to make the same settings on Ubuntu 21.04, and there were some issues. There are two options: a new Wayland session and a more traditional Xorg session.</description>
     </item>
     
     <item>
       <title>1630740946</title>
-      <link>/posts/1630740946/</link>
+      <link>/notes/1630740946/</link>
       <pubDate>Sat, 04 Sep 2021 07:35:46 +0000</pubDate>
       
-      <guid>/posts/1630740946/</guid>
+      <guid>/notes/1630740946/</guid>
       <description>I&amp;rsquo;ve used to ask questions about different open source projects on Freenode IRC several years ago. Today I&amp;rsquo;ve found that Freenode staff members had left the company and started Libera.Chat. You can find the roots of this decision on Wiki page.</description>
     </item>
     
     <item>
       <title>1630503528</title>
-      <link>/posts/1630503528/</link>
+      <link>/notes/1630503528/</link>
       <pubDate>Wed, 01 Sep 2021 13:38:48 +0000</pubDate>
       
-      <guid>/posts/1630503528/</guid>
+      <guid>/notes/1630503528/</guid>
       <description>Recently Docker has updated subscriptions, and now Docker Desktop remains free only for individuals or small businesses. I think it&amp;rsquo;s OK that Docker as a company wants to get money from their products. At the same time, it&amp;rsquo;s a bit strange to change the rules of the game for existing products. We&amp;rsquo;ll see how the community reacts to this announcement.</description>
     </item>
     
     <item>
       <title>1630395790</title>
-      <link>/posts/1630395790/</link>
+      <link>/notes/1630395790/</link>
       <pubDate>Tue, 31 Aug 2021 07:43:10 +0000</pubDate>
       
-      <guid>/posts/1630395790/</guid>
+      <guid>/notes/1630395790/</guid>
       <description>One of the most important parts of laptop security is disk encryption. It can help to save your personal data if you lost your computer or it was stolen. It&amp;rsquo;s impossible to encrypt everything. You need some code to ask for the password from the user and decrypt the system.
 There are several options when you work with Ubuntu:
 encrypt only home directory; encrypt the operating system partition during the installation process and rely on UEFI Secure Boot for Linux kernel verification; encrypt not only the operating system partition, but also the boot partition; look at Full Disk Encryption Howto for more details.</description>
@@ -870,29 +851,29 @@ encrypt only home directory; encrypt the operating system partition during the i
     
     <item>
       <title>1630181380</title>
-      <link>/posts/1630181380/</link>
+      <link>/notes/1630181380/</link>
       <pubDate>Sat, 28 Aug 2021 20:09:40 +0000</pubDate>
       
-      <guid>/posts/1630181380/</guid>
+      <guid>/notes/1630181380/</guid>
       <description>I have been using macOS on the laptop for a few years, but recently I switched back to Ubuntu. It has several advantages for my usage pattern: the environment which my programs use in production, Docker with fast FS and without imposed updates, and a lot more control over the system.
 One thing that I miss is Time Machine. Having up-to-date backups is extremely important. It helps when your computer stops working normally, or it has been stolen, or you just want to move from one laptop to another.</description>
     </item>
     
     <item>
       <title>1630170209</title>
-      <link>/posts/1630170209/</link>
+      <link>/notes/1630170209/</link>
       <pubDate>Sat, 28 Aug 2021 17:03:29 +0000</pubDate>
       
-      <guid>/posts/1630170209/</guid>
+      <guid>/notes/1630170209/</guid>
       <description>Sometimes I find interesting links or have some thoughts about software engineering problems that I want to save and share. It&amp;rsquo;s not enough for an article in the blog, so I don&amp;rsquo;t publish it there. That is why I&amp;rsquo;d created this page, and I&amp;rsquo;m going to post some short messages here.</description>
     </item>
     
     <item>
       <title>1630067102</title>
-      <link>/posts/1630067102/</link>
+      <link>/notes/1630067102/</link>
       <pubDate>Fri, 27 Aug 2021 12:25:02 +0000</pubDate>
       
-      <guid>/posts/1630067102/</guid>
+      <guid>/notes/1630067102/</guid>
       <description>Hello world!</description>
     </item>
     
