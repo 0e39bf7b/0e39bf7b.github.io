@@ -6,7 +6,16 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Aug 2023 03:34:33 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Aug 2023 14:23:31 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1692455011</title>
+      <link>/notes/1692455011/</link>
+      <pubDate>Sat, 19 Aug 2023 14:23:31 +0000</pubDate>
+      
+      <guid>/notes/1692455011/</guid>
+      <description>Today I&amp;rsquo;ve found aerc. It&amp;rsquo;s a terminal email client that can be good alternative to mutt. I&amp;rsquo;ll try to use it for a few weeks.</description>
+    </item>
+    
     <item>
       <title>1691984073</title>
       <link>/notes/1691984073/</link>
