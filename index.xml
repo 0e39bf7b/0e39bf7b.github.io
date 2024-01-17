@@ -6,7 +6,18 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Aug 2023 07:16:10 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Jan 2024 13:30:12 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1705498212</title>
+      <link>/notes/1705498212/</link>
+      <pubDate>Wed, 17 Jan 2024 13:30:12 +0000</pubDate>
+      
+      <guid>/notes/1705498212/</guid>
+      <description>Sometimes you need to configure HTTPS for a web resource that works in a network without Internet access. It&amp;rsquo;s impossible to use Let&amp;rsquo;s Encrypt to issue a certificate. One solution is using your own certificate authority and sign certificates yourself.
+Generate CA (Certificate Authority) key and certificate with a command:
+openssl req -x509 -nodes \ -newkey RSA:2048 \ -keyout root-ca.key \ -days 3650 \ -out root-ca.crt \ -subj &amp;#39;/C=GB/ST=London/L=London/O=Home/CN=Home&amp;#39; Copy root-ca.</description>
+    </item>
+    
     <item>
       <title>1692602169</title>
       <link>/notes/1692602169/</link>
