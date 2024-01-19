@@ -38,6 +38,19 @@
     <main class="container">
     <div class="posts">
 <article class="post">
+  <p>I used to work with <a href="https://docs.gitlab.com/ee/ci/">GitLab CI/CD</a>, but today I&rsquo;ve tried
+<a href="https://docs.github.com/en/actions">GitHub Actions</a>. It is similar solutions but there is one
+important difference: GitLab CI/CD performs all workspace manipulations (like <code>git clone</code>) in
+a separate preconfigured container, so you can use any Docker image for your jobs. In GitHub Actions
+everything works in one container, so you can&rsquo;t use any Docker image that you want to use. You have
+to install all essential tools that perform <code>actions/checkout@v4</code> and similar things
+(Node.JS stack). On the one side it&rsquo;s less convenient, but on the other it allows to control all
+workspace manipulation more precisely.</p>
+
+  <div class="post-date">
+    <a href="../notes/1705668080/"><time datetime="2024-01-19T12:41:20Z">Jan 19, 2024 12:41</time></a>
+  </div>
+</article><article class="post">
   <p>Sometimes you need to configure HTTPS for a web resource that works in a network without Internet
 access. It&rsquo;s impossible to use Let&rsquo;s Encrypt to issue a certificate. One solution is using your own
 certificate authority and sign certificates yourself.</p>

@@ -6,7 +6,16 @@
     <description>Recent content in Notes on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 17 Jan 2024 13:30:12 +0000</lastBuildDate><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Jan 2024 12:41:20 +0000</lastBuildDate><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1705668080</title>
+      <link>/notes/1705668080/</link>
+      <pubDate>Fri, 19 Jan 2024 12:41:20 +0000</pubDate>
+      
+      <guid>/notes/1705668080/</guid>
+      <description>I used to work with GitLab CI/CD, but today I&amp;rsquo;ve tried GitHub Actions. It is similar solutions but there is one important difference: GitLab CI/CD performs all workspace manipulations (like git clone) in a separate preconfigured container, so you can use any Docker image for your jobs. In GitHub Actions everything works in one container, so you can&amp;rsquo;t use any Docker image that you want to use. You have to install all essential tools that perform actions/checkout@v4 and similar things (Node.</description>
+    </item>
+    
     <item>
       <title>1705498212</title>
       <link>/notes/1705498212/</link>
