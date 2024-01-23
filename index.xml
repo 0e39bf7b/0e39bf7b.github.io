@@ -6,7 +6,16 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Jan 2024 12:41:20 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Jan 2024 11:09:22 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1706008162</title>
+      <link>/notes/1706008162/</link>
+      <pubDate>Tue, 23 Jan 2024 11:09:22 +0000</pubDate>
+      
+      <guid>/notes/1706008162/</guid>
+      <description>Why are slow computers from 80s were solving the same problems as modern computers nowadays? Why 1000x times faster hardware can freeze with text editors? Some everyday tasks become more complicated. E.g. text rendering in 80s was just a coping of fixed-size bitmaps to video memory. Nowadays, this process becomes a lot more sophisticated. It consists of several stages that depend on each other and the processor can spend a lot of time on this widespread task.</description>
+    </item>
+    
     <item>
       <title>1705668080</title>
       <link>/notes/1705668080/</link>
