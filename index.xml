@@ -6,7 +6,18 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Feb 2024 09:12:11 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Mar 2024 14:47:29 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1710686849</title>
+      <link>/notes/1710686849/</link>
+      <pubDate>Sun, 17 Mar 2024 14:47:29 +0000</pubDate>
+      
+      <guid>/notes/1710686849/</guid>
+      <description>There is a Rocky Linux 9 VM in the VirtualBox. It&amp;rsquo;s required to extend the root partition. By default, RHEL-based distros use LVM. It allows to use several physical disks as one logical volume.
+Check the name of root partition device with df -h:
+Filesystem Size Used Avail Use% Mounted on devtmpfs 4.0M 0 4.0M 0% /dev tmpfs 882M 0 882M 0% /dev/shm tmpfs 353M 5.0M 348M 2% /run /dev/mapper/rl-root 8.</description>
+    </item>
+    
     <item>
       <title>1708247531</title>
       <link>/notes/1708247531/</link>

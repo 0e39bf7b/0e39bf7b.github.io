@@ -38,6 +38,74 @@
     <main class="container">
     <div class="posts">
 <article class="post">
+  <p>There is a Rocky Linux 9 VM in the VirtualBox. It&rsquo;s required to extend the root partition. By
+default, RHEL-based distros use <a href="https://wiki.archlinux.org/title/LVM">LVM</a>. It allows to use
+several physical disks as one logical volume.</p>
+<ol>
+<li>
+<p>Check the name of root partition device with <code>df -h</code>:</p>
+<pre><code> Filesystem           Size  Used Avail Use% Mounted on
+ devtmpfs             4.0M     0  4.0M   0% /dev
+ tmpfs                882M     0  882M   0% /dev/shm
+ tmpfs                353M  5.0M  348M   2% /run
+ /dev/mapper/rl-root  8.0G  1.2G  6.9G  14% /
+ /dev/sda1            960M  223M  738M  24% /boot
+ tmpfs                177M     0  177M   0% /run/user/0
+</code></pre>
+<p>The name of the root partition device is <code>/dev/mapper/rl-root</code>. The volume group name is <code>rl</code>
+and the logical volume name is <code>root</code>.</p>
+</li>
+<li>
+<p>Check logical volumes using a command <code>lvs -a -o +devices</code>:</p>
+<pre><code>   LV   VG Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert Devices
+   root rl -wi-ao---- &lt;8.00g                                                     /dev/sda2(256)
+   swap rl -wi-ao----  1.00g                                                     /dev/sda2(0)
+</code></pre>
+<p><code>/dev/mapper/rl-root</code> using a physical device <code>/dev/sda2</code> and has a size 8Gb.</p>
+</li>
+<li>
+<p>Add one more 10Gb disk to the VM using the VirtualBox configuration screen.</p>
+</li>
+<li>
+<p>Check a name of a new partition with <code>fdisk -l</code>:</p>
+<pre><code> ...
+
+ Disk /dev/sdb: 10 GiB, 10737418240 bytes, 20971520 sectors
+ Disk model: VBOX HARDDISK
+ Units: sectors of 1 * 512 = 512 bytes
+ Sector size (logical/physical): 512 bytes / 512 bytes
+ I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+ ...
+</code></pre>
+<p>New disk name is <code>/dev/sdb</code>.</p>
+</li>
+<li>
+<p>Add new physical disk to the existing volume group: <code>vgextend rl /dev/sdb</code>.</p>
+</li>
+<li>
+<p>Resize root partition: <code>lvextend -l +100%FREE /dev/mapper/rl-root</code>.</p>
+</li>
+<li>
+<p>Resize file system: <code>xfs_growfs /dev/mapper/rl-root</code>.</p>
+</li>
+<li>
+<p>Check if the root partition was extended successfully with <code>df -h</code>:</p>
+<pre><code> Filesystem           Size  Used Avail Use% Mounted on
+ devtmpfs             4.0M     0  4.0M   0% /dev
+ tmpfs                882M     0  882M   0% /dev/shm
+ tmpfs                353M  5.0M  348M   2% /run
+ /dev/mapper/rl-root   18G  1.3G   17G   7% /
+ /dev/sda1            960M  223M  738M  24% /boot
+ tmpfs                177M     0  177M   0% /run/user/0
+</code></pre>
+</li>
+</ol>
+
+  <div class="post-date">
+    <a href="../notes/1710686849/"><time datetime="2024-03-17T14:47:29Z">Mar 17, 2024 14:47</time></a>
+  </div>
+</article><article class="post">
   <p>Today I have found <a href="https://www.geeksforgeeks.org/">GeeksforGeeks</a>. This resource contains a lot of
 useful information about data structures, algorithms, data science and other programming themes.
 E.g. I have read about different <a href="https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/">tree traversal
