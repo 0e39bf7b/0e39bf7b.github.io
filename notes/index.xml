@@ -6,7 +6,16 @@
     <description>Recent content in Notes on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Mar 2024 08:06:41 +0000</lastBuildDate><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Mar 2024 15:40:05 +0000</lastBuildDate><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1711381205</title>
+      <link>/notes/1711381205/</link>
+      <pubDate>Mon, 25 Mar 2024 15:40:05 +0000</pubDate>
+      
+      <guid>/notes/1711381205/</guid>
+      <description>I use Flatpak apps everyday. Flatseal is a graphical utility to review and modify Flatpak apps permissions. It&amp;rsquo;s really worth a try.</description>
+    </item>
+    
     <item>
       <title>1711267601</title>
       <link>/notes/1711267601/</link>
