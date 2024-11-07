@@ -6,7 +6,16 @@
     <description>Recent content in Notes on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Jun 2024 20:45:39 +0000</lastBuildDate><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Nov 2024 19:21:17 +0000</lastBuildDate><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1731007277</title>
+      <link>/notes/1731007277/</link>
+      <pubDate>Thu, 07 Nov 2024 19:21:17 +0000</pubDate>
+      
+      <guid>/notes/1731007277/</guid>
+      <description>I use Solarized Dark color scheme for a long time. Also, I use htop utility to inspect system processes on my Linux machines. Unfortunately, some numbers (like 1 min load average, and totals in the cpu/mem bar graphs) are barely visible with Solarized Dark. Today I&amp;rsquo;ve found that htop has &amp;ldquo;Broken Gray&amp;rdquo; theme that fixes this glitch. Just press F2, select &amp;ldquo;Colors&amp;rdquo; and set an appropriate theme.</description>
+    </item>
+    
     <item>
       <title>1718225139</title>
       <link>/notes/1718225139/</link>
