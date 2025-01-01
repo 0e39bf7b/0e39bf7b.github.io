@@ -6,7 +6,16 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Nov 2024 18:50:26 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Jan 2025 11:10:56 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1735729856</title>
+      <link>/notes/1735729856/</link>
+      <pubDate>Wed, 01 Jan 2025 11:10:56 +0000</pubDate>
+      
+      <guid>/notes/1735729856/</guid>
+      <description>The Linux kernel has traditionally been compiled using GCC and binutils. However, it is now possible to build the Linux kernel with Clang. Distributions such as Android, ChromeOS, OpenMandriva, and Chimera Linux already use Clang-built kernels. ClangBuildLinux is an effort to get the Linux kernel to compile with Clang.</description>
+    </item>
+    
     <item>
       <title>1732042226</title>
       <link>/notes/1732042226/</link>
