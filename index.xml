@@ -6,7 +6,16 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jan 2025 16:18:08 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Jan 2025 18:18:27 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1735841907</title>
+      <link>/notes/1735841907/</link>
+      <pubDate>Thu, 02 Jan 2025 18:18:27 +0000</pubDate>
+      
+      <guid>/notes/1735841907/</guid>
+      <description>Unfortunately, Java Virtual Threads have some issues with deadlocks. For more information read the article Java 21 Virtual Threads - Dude, Where’s My Lock?.</description>
+    </item>
+    
     <item>
       <title>1735834688</title>
       <link>/notes/1735834688/</link>
