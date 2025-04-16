@@ -38,6 +38,21 @@
     <main class="container">
     <div class="posts">
 <article class="post">
+  <p>Recently I have bought GoPro 12. It&rsquo;s a really nice action camera, but I was interesting if it is
+possible to use it as a webcam. I have found that GoPro 12 exposes a network interface when
+connected over USB, so I can use <code>curl</code> to switch the device to the webcam mode and listen the UDP
+video stream. <code>ffmpeg</code> can output into <code>v4l2loopback</code>, so all messengers and browsers can use this
+virtual device as a webcam.</p>
+<p>Video latency is about 500-700ms on my i7-10700K, so it&rsquo;s possible to use the device for video
+calls.</p>
+<p>There is a GitHub repo
+<a href="https://github.com/jschmid1/gopro_as_webcam_on_linux">gopro_as_webcam_on_linux</a> which contains a
+shell script that makes all required actions easier.</p>
+
+  <div class="post-date">
+    <a href="../notes/1744784015/"><time datetime="2025-04-16T06:13:35Z">Apr 16, 2025 06:13</time></a>
+  </div>
+</article><article class="post">
   <p>Suppose you have downloaded video from YouTube using <a href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a> and
 VLC plays only sound, but there is no video. How to fix it?</p>
 <ol>

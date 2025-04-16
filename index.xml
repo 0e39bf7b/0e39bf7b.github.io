@@ -6,7 +6,16 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Feb 2025 12:22:04 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Apr 2025 06:13:35 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1744784015</title>
+      <link>/notes/1744784015/</link>
+      <pubDate>Wed, 16 Apr 2025 06:13:35 +0000</pubDate>
+      
+      <guid>/notes/1744784015/</guid>
+      <description>Recently I have bought GoPro 12. It&amp;rsquo;s a really nice action camera, but I was interesting if it is possible to use it as a webcam. I have found that GoPro 12 exposes a network interface when connected over USB, so I can use curl to switch the device to the webcam mode and listen the UDP video stream. ffmpeg can output into v4l2loopback, so all messengers and browsers can use this virtual device as a webcam.</description>
+    </item>
+    
     <item>
       <title>1738671724</title>
       <link>/notes/1738671724/</link>
