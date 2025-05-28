@@ -14,7 +14,7 @@
       
       <guid>/notes/1748379742/</guid>
       <description>I&amp;rsquo;d faced with fractional scaling issues on Linux desktop in 2022 for the first time. I&amp;rsquo;d tried Ubuntu and other distributions with Gnome and KDE, X11 and Wayland. There were different graphical artifacts. After several attempts, I&amp;rsquo;d found that the only suitable option for my 14&amp;quot; 1080p laptop was KDE 5 X11.
-Today I&amp;rsquo;ve tried Fedora 42 Workstation Fedora 42 KDE Plasma Desktop. Both use Wayland by default and it works perfectly for 125% scaling on my laptop: smooth animations, nice Nvidia driver support, no tearing, no artifacts.</description>
+Today I&amp;rsquo;ve tried Fedora 42 Workstation and Fedora 42 KDE Plasma Desktop. Both use Wayland by default and it works perfectly for 125% scaling on my laptop: smooth animations, nice Nvidia driver support, no tearing, no artifacts.</description>
     </item>
     
     <item>
