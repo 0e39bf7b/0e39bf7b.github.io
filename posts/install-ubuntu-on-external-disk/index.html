@@ -110,6 +110,12 @@ of a physical drive so VirtualBox can mount this disk to the VM:</p>
 </ol>
 <p>Speed of the system can be limited by the speed of an external drive: the portable system can be a
 lot slower than the system with an internal m.2 SSD.</p>
+<p><strong>UPDATE:</strong> sometimes it&rsquo;s impossible to boot OS after installation on raw disk.</p>
+<p>To fix this issue:</p>
+<ol>
+<li>Install <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox Extension Pack</a>.</li>
+<li>Attach external HDD as a USB device.</li>
+</ol>
 <p>Create an Ubuntu VM without a hard drive:</p>
 <p><img src="../../install-ubuntu-on-external-disk/vm-without-hard-drive.png" alt="VM without hard drive"></p>
 <p>Open VM settings with <code>Ctrl-S</code> and add previously created hard drive <code>sda.vmdk</code> in the <em>Storage</em>
