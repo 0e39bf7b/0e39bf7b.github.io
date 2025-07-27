@@ -38,6 +38,18 @@
     <main class="container">
     <div class="posts">
 <article class="post">
+  <p>Intellij Idea
+<a href="https://intellij-support.jetbrains.com/hc/en-us/articles/4403794663570-Blurry-text-when-using-Sway-or-fractional-scaling-on-Wayland">does not work well</a>
+with Wayland fractional scaling. It looks blurry at 125%. Fortunately, it has its own scaling
+feature. So, the best option is to disable fractional scaling for the desktop environment and allow
+Idea to do all the stuff. There is an experimental setting <code>xwayland-native-scaling</code> in Gnome that
+disables scaling for apps that can scale themselves, but it was introduced only in Gnome 47. The
+same thing in KDE works since 5.27. So, KDE still the best choice if you need fractional scaling.</p>
+
+  <div class="post-date">
+    <a href="../notes/1753600398/"><time datetime="2025-07-27T07:13:18Z">Jul 27, 2025 07:13</time></a>
+  </div>
+</article><article class="post">
   <p>I&rsquo;d faced with fractional scaling issues on Linux desktop in 2022 for the first time. I&rsquo;d tried
 Ubuntu and other distributions with Gnome and KDE, X11 and Wayland. There were different graphical
 artifacts. After several attempts, I&rsquo;d found that the only suitable option for my 14&quot; 1080p laptop
