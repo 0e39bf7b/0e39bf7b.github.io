@@ -38,6 +38,23 @@
     <main class="container">
     <div class="posts">
 <article class="post">
+  <p>A few days ago I&rsquo;d flashed BIOS on my Asus TUF Gaming Z490. Today I&rsquo;ve found that the network
+adaptor is assigned MAC <code>88:88:88:88:87:88</code>. It looks weird. Ask Ubuntu says it&rsquo;s a
+<a href="https://askubuntu.com/questions/1338578/mac-address-stuck-at-888888888788">common issue</a> with BIOS
+flashing.</p>
+<p>Use such solution:</p>
+<ol>
+<li>Download <a href="https://download.msi.com/dvr_exe/mb/Intel_Network_skl.zip">LAN driver package</a>.
+It suites different motherboards like mine one.</li>
+<li>Unload Intel driver: <code>sudo modprobe -r e1000e</code>.</li>
+<li>Update MAC using a command like <code>sudo eeupdate64e /NIC=1 /MAC=&lt;your-address&gt;</code>.</li>
+<li>Load Intel driver: <code>sudo modprobe e1000e</code>.</li>
+</ol>
+
+  <div class="post-date">
+    <a href="../notes/1760817280/"><time datetime="2025-10-18T19:54:40Z">Oct 18, 2025 19:54</time></a>
+  </div>
+</article><article class="post">
   <p>Intellij Idea
 <a href="https://intellij-support.jetbrains.com/hc/en-us/articles/4403794663570-Blurry-text-when-using-Sway-or-fractional-scaling-on-Wayland">does not work well</a>
 with Wayland fractional scaling. It looks blurry at 125%. Fortunately, it has its own scaling

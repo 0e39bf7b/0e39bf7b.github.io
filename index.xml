@@ -6,7 +6,18 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Jul 2025 07:13:18 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Oct 2025 19:54:40 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1760817280</title>
+      <link>/notes/1760817280/</link>
+      <pubDate>Sat, 18 Oct 2025 19:54:40 +0000</pubDate>
+      
+      <guid>/notes/1760817280/</guid>
+      <description>A few days ago I&amp;rsquo;d flashed BIOS on my Asus TUF Gaming Z490. Today I&amp;rsquo;ve found that the network adaptor is assigned MAC 88:88:88:88:87:88. It looks weird. Ask Ubuntu says it&amp;rsquo;s a common issue with BIOS flashing.
+Use such solution:
+Download LAN driver package. It suites different motherboards like mine one. Unload Intel driver: sudo modprobe -r e1000e. Update MAC using a command like sudo eeupdate64e /NIC=1 /MAC=&amp;lt;your-address&amp;gt;. Load Intel driver: sudo modprobe e1000e.</description>
+    </item>
+    
     <item>
       <title>1753600398</title>
       <link>/notes/1753600398/</link>
