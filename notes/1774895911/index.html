@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.102.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-03-30">
+  <meta property="og:title" content="1774895911 &middot; Developer&#39;s blog">
+  <meta name="description" content="I use a command like nmcli connection import type wireguard file wg.conf to create new network connections on my laptop and server. I&rsquo;d found that it&rsquo;s possible to create a new connection on the Ubuntu 24.04 laptop without entering a password, but my AlmaLinux 10 server always asks me to type my password to proceed.
+I was curious why the behavior differs on different Linux distributions.
+NetworkManager relies on Polkit for user access control.">
+  <meta property="og:description" content="I use a command like nmcli connection import type wireguard file wg.conf to create new network connections on my laptop and server. I&rsquo;d found that it&rsquo;s possible to create a new connection on the Ubuntu 24.04 laptop without entering a password, but my AlmaLinux 10 server always asks me to type my password to proceed.
+I was curious why the behavior differs on different Linux distributions.
+NetworkManager relies on Polkit for user access control.">
+  <title>1774895911 &middot; Developer&#39;s blog</title>
+  
+
+  
+  <link type="text/css" rel="stylesheet" href="../../css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="../../css/poole.css">
+  <link type="text/css" rel="stylesheet" href="../../css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="../../css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="../../favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Developer&#39;s blog" />
+</head>
+
+  <body>
+    <header class="site-title">
+      <h1><a href="../../notes">Developer's notes</a></h1>
+      <h4><a href="../../">Go to Blog</a></h4>
+    </header>
+    <main class="container">
+    <div class="post">
+  <p>I use a command like <code>nmcli connection import type wireguard file wg.conf</code> to create new network
+connections on my laptop and server. I&rsquo;d found that it&rsquo;s possible to create a new connection on the
+Ubuntu 24.04 laptop without entering a password, but my AlmaLinux 10 server always asks me to type
+my password to proceed.</p>
+<p>I was curious why the behavior differs on different Linux distributions.</p>
+<p>NetworkManager relies on <a href="https://en.wikipedia.org/wiki/Polkit">Polkit</a> for user access control. It
+allows execute privileged operations without sudo and SUID bit.</p>
+<p>Ubuntu has a file <code>/usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules</code> that allows all
+users from <code>sudo</code> and <code>netdev</code> groups to modify system network connections. AlmaLinux has stricter
+access control, so there are no such Polkit rules. That is why the system asks to type password to
+modify network connections.</p>
+<p>It&rsquo;s possible to duplicate Ubuntu&rsquo;s behavior for AlmaLinux: just create a file
+<code>/etc/polkit-1/rules.d/99-NetworkManager.rules</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>polkit.addRule(<span style="color:#268bd2">function</span>(action, subject) {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">if</span> (action.id <span style="color:#719e07">==</span> <span style="color:#2aa198">&#34;org.freedesktop.NetworkManager.settings.modify.system&#34;</span> <span style="color:#719e07">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>        subject.local <span style="color:#719e07">&amp;&amp;</span> subject.active <span style="color:#719e07">&amp;&amp;</span> subject.isInGroup(<span style="color:#2aa198">&#34;wheel&#34;</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">return</span> polkit.Result.YES;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div>
+  <time datetime=2026-03-30T18:38:31Z class="post-date">Mar 30, 2026 18:38</time>
+</div>
+    </main>
+  </body>
+</html>

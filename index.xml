@@ -6,7 +6,18 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Dec 2025 16:52:13 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Mar 2026 18:38:31 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1774895911</title>
+      <link>/notes/1774895911/</link>
+      <pubDate>Mon, 30 Mar 2026 18:38:31 +0000</pubDate>
+      
+      <guid>/notes/1774895911/</guid>
+      <description>I use a command like nmcli connection import type wireguard file wg.conf to create new network connections on my laptop and server. I&amp;rsquo;d found that it&amp;rsquo;s possible to create a new connection on the Ubuntu 24.04 laptop without entering a password, but my AlmaLinux 10 server always asks me to type my password to proceed.
+I was curious why the behavior differs on different Linux distributions.
+NetworkManager relies on Polkit for user access control.</description>
+    </item>
+    
     <item>
       <title>1766422332</title>
       <link>/notes/1766422332/</link>

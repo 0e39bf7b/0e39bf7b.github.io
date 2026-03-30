@@ -38,6 +38,30 @@
     <main class="container">
     <div class="posts">
 <article class="post">
+  <p>I use a command like <code>nmcli connection import type wireguard file wg.conf</code> to create new network
+connections on my laptop and server. I&rsquo;d found that it&rsquo;s possible to create a new connection on the
+Ubuntu 24.04 laptop without entering a password, but my AlmaLinux 10 server always asks me to type
+my password to proceed.</p>
+<p>I was curious why the behavior differs on different Linux distributions.</p>
+<p>NetworkManager relies on <a href="https://en.wikipedia.org/wiki/Polkit">Polkit</a> for user access control. It
+allows execute privileged operations without sudo and SUID bit.</p>
+<p>Ubuntu has a file <code>/usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules</code> that allows all
+users from <code>sudo</code> and <code>netdev</code> groups to modify system network connections. AlmaLinux has stricter
+access control, so there are no such Polkit rules. That is why the system asks to type password to
+modify network connections.</p>
+<p>It&rsquo;s possible to duplicate Ubuntu&rsquo;s behavior for AlmaLinux: just create a file
+<code>/etc/polkit-1/rules.d/99-NetworkManager.rules</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>polkit.addRule(<span style="color:#268bd2">function</span>(action, subject) {
+</span></span><span style="display:flex;"><span>    <span style="color:#719e07">if</span> (action.id <span style="color:#719e07">==</span> <span style="color:#2aa198">&#34;org.freedesktop.NetworkManager.settings.modify.system&#34;</span> <span style="color:#719e07">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>        subject.local <span style="color:#719e07">&amp;&amp;</span> subject.active <span style="color:#719e07">&amp;&amp;</span> subject.isInGroup(<span style="color:#2aa198">&#34;wheel&#34;</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#719e07">return</span> polkit.Result.YES;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div>
+  <div class="post-date">
+    <a href="../notes/1774895911/"><time datetime="2026-03-30T18:38:31Z">Mar 30, 2026 18:38</time></a>
+  </div>
+</article><article class="post">
   <p>I use <code>lspci</code> and <code>lsusb</code> almost every day, but only today I&rsquo;ve found <code>lscpu</code> and <code>lsmem</code>.</p>
 
   <div class="post-date">
