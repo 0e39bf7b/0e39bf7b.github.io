@@ -6,7 +6,16 @@
     <description>Recent content on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Mar 2026 18:38:31 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jun 2026 18:26:57 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1780511217</title>
+      <link>/notes/1780511217/</link>
+      <pubDate>Wed, 03 Jun 2026 18:26:57 +0000</pubDate>
+      
+      <guid>/notes/1780511217/</guid>
+      <description>Command nmcli -f active,ssid,bssid,chan,rate,signal,security dev wifi lists all available WiFi networks with useful info.</description>
+    </item>
+    
     <item>
       <title>1774895911</title>
       <link>/notes/1774895911/</link>
