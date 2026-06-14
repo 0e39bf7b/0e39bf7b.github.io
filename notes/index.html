@@ -38,6 +38,42 @@
     <main class="container">
     <div class="posts">
 <article class="post">
+  <p>Today I needed to migrate a ~200 GB PostgreSQL database from one server to another. The source was
+PostgreSQL 17.10 running in a Docker container, and the destination was PostgreSQL 18.4, also in
+Docker.</p>
+<p>There are several ways to move a PostgreSQL database between servers. I chose the simplest approach:
+create a dump with <code>pg_dump</code> and restore it with <code>pg_restore</code>.</p>
+<p>I ran: <code>docker exec -it postgres pg_dump -U postgres -Fc mydb &gt; mydb.dump</code>. This produced a 56 GB
+dump file. After transferring it to the destination server, I tried to restore it with: <code>pg_restore -U postgres -d postgres -C mydb.dump</code>. Instead of restoring the database, pg_restore crashed with a
+segmentation fault.</p>
+<p>I investigated several possible causes:</p>
+<ul>
+<li><strong>Corrupted dump.</strong> The dump looked fine: SHA-256 checksums matched on both servers, and <code>xxd mydb.dump | head -3</code> showed the expected PGDMP header.</li>
+<li><strong>Broken pg_restore binary.</strong> I was using the official Docker image, making this unlikely. I also
+couldn&rsquo;t find any reports of a similar bug.</li>
+<li><strong>PostgreSQL version incompatibility.</strong> PostgreSQL dumps created with version 17 are normally
+restorable with version 18. To verify, I also tried restoring with PostgreSQL 17.10 and got the
+same error.</li>
+</ul>
+<p>After some debugging and a discussion with Claude, I discovered that the dump contained <code>\r\n</code>
+sequences. The problem was the <code>-it</code> option in <code>docker exec</code>, which had corrupted the binary output.</p>
+<p>Allocating a TTY (<code>-t</code>) can:</p>
+<ul>
+<li>Convert LF (<code>\n</code>) to CRLF (<code>\r\n</code>) on output.</li>
+<li>Corrupt binary data passing through it.</li>
+<li>Leave the dump header intact (<code>PGDMP</code>) while damaging the actual content.</li>
+</ul>
+<p>You can detect this issue with: <code>cat -v mydb.dump | head -20 | grep '\^M'</code>.</p>
+<p>The fix was simple: use <code>-i</code> instead of <code>-it</code>:</p>
+<pre tabindex="0"><code>docker exec -i postgres pg_dump -U postgres -Fc mydb &gt; mydb.dump
+</code></pre><p>The new dump restored successfully.</p>
+<p>Now I know the difference between <code>docker exec -it</code> and <code>docker exec -i</code> — and why TTY allocation
+and binary output don&rsquo;t mix.</p>
+
+  <div class="post-date">
+    <a href="../notes/1781463498/"><time datetime="2026-06-14T18:58:18Z">Jun 14, 2026 18:58</time></a>
+  </div>
+</article><article class="post">
   <p>Command <code>nmcli -f active,ssid,bssid,chan,rate,signal,security dev wifi</code> lists all available WiFi
 networks with useful info.</p>
 

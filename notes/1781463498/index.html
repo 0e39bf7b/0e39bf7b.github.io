@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.102.3" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-06-14">
+  <meta property="og:title" content="1781463498 &middot; Developer&#39;s blog">
+  <meta name="description" content="Today I needed to migrate a ~200 GB PostgreSQL database from one server to another. The source was PostgreSQL 17.10 running in a Docker container, and the destination was PostgreSQL 18.4, also in Docker.
+There are several ways to move a PostgreSQL database between servers. I chose the simplest approach: create a dump with pg_dump and restore it with pg_restore.
+I ran: docker exec -it postgres pg_dump -U postgres -Fc mydb &gt; mydb.">
+  <meta property="og:description" content="Today I needed to migrate a ~200 GB PostgreSQL database from one server to another. The source was PostgreSQL 17.10 running in a Docker container, and the destination was PostgreSQL 18.4, also in Docker.
+There are several ways to move a PostgreSQL database between servers. I chose the simplest approach: create a dump with pg_dump and restore it with pg_restore.
+I ran: docker exec -it postgres pg_dump -U postgres -Fc mydb &gt; mydb.">
+  <title>1781463498 &middot; Developer&#39;s blog</title>
+  
+
+  
+  <link type="text/css" rel="stylesheet" href="../../css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="../../css/poole.css">
+  <link type="text/css" rel="stylesheet" href="../../css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="../../css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="../../favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Developer&#39;s blog" />
+</head>
+
+  <body>
+    <header class="site-title">
+      <h1><a href="../../notes">Developer's notes</a></h1>
+      <h4><a href="../../">Go to Blog</a></h4>
+    </header>
+    <main class="container">
+    <div class="post">
+  <p>Today I needed to migrate a ~200 GB PostgreSQL database from one server to another. The source was
+PostgreSQL 17.10 running in a Docker container, and the destination was PostgreSQL 18.4, also in
+Docker.</p>
+<p>There are several ways to move a PostgreSQL database between servers. I chose the simplest approach:
+create a dump with <code>pg_dump</code> and restore it with <code>pg_restore</code>.</p>
+<p>I ran: <code>docker exec -it postgres pg_dump -U postgres -Fc mydb &gt; mydb.dump</code>. This produced a 56 GB
+dump file. After transferring it to the destination server, I tried to restore it with: <code>pg_restore -U postgres -d postgres -C mydb.dump</code>. Instead of restoring the database, pg_restore crashed with a
+segmentation fault.</p>
+<p>I investigated several possible causes:</p>
+<ul>
+<li><strong>Corrupted dump.</strong> The dump looked fine: SHA-256 checksums matched on both servers, and <code>xxd mydb.dump | head -3</code> showed the expected PGDMP header.</li>
+<li><strong>Broken pg_restore binary.</strong> I was using the official Docker image, making this unlikely. I also
+couldn&rsquo;t find any reports of a similar bug.</li>
+<li><strong>PostgreSQL version incompatibility.</strong> PostgreSQL dumps created with version 17 are normally
+restorable with version 18. To verify, I also tried restoring with PostgreSQL 17.10 and got the
+same error.</li>
+</ul>
+<p>After some debugging and a discussion with Claude, I discovered that the dump contained <code>\r\n</code>
+sequences. The problem was the <code>-it</code> option in <code>docker exec</code>, which had corrupted the binary output.</p>
+<p>Allocating a TTY (<code>-t</code>) can:</p>
+<ul>
+<li>Convert LF (<code>\n</code>) to CRLF (<code>\r\n</code>) on output.</li>
+<li>Corrupt binary data passing through it.</li>
+<li>Leave the dump header intact (<code>PGDMP</code>) while damaging the actual content.</li>
+</ul>
+<p>You can detect this issue with: <code>cat -v mydb.dump | head -20 | grep '\^M'</code>.</p>
+<p>The fix was simple: use <code>-i</code> instead of <code>-it</code>:</p>
+<pre tabindex="0"><code>docker exec -i postgres pg_dump -U postgres -Fc mydb &gt; mydb.dump
+</code></pre><p>The new dump restored successfully.</p>
+<p>Now I know the difference between <code>docker exec -it</code> and <code>docker exec -i</code> — and why TTY allocation
+and binary output don&rsquo;t mix.</p>
+
+  <time datetime=2026-06-14T18:58:18Z class="post-date">Jun 14, 2026 18:58</time>
+</div>
+    </main>
+  </body>
+</html>

@@ -6,7 +6,18 @@
     <description>Recent content in Notes on Developer&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Jun 2026 18:26:57 +0000</lastBuildDate><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Jun 2026 18:58:18 +0000</lastBuildDate><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1781463498</title>
+      <link>/notes/1781463498/</link>
+      <pubDate>Sun, 14 Jun 2026 18:58:18 +0000</pubDate>
+      
+      <guid>/notes/1781463498/</guid>
+      <description>Today I needed to migrate a ~200 GB PostgreSQL database from one server to another. The source was PostgreSQL 17.10 running in a Docker container, and the destination was PostgreSQL 18.4, also in Docker.
+There are several ways to move a PostgreSQL database between servers. I chose the simplest approach: create a dump with pg_dump and restore it with pg_restore.
+I ran: docker exec -it postgres pg_dump -U postgres -Fc mydb &amp;gt; mydb.</description>
+    </item>
+    
     <item>
       <title>1780511217</title>
       <link>/notes/1780511217/</link>
