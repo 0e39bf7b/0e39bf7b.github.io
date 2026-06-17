@@ -55,11 +55,13 @@ Use dnsmasq to process DNS requests.
     <header class="site-title">
       <h1><a href="../../">Developer&#39;s blog</a></h1>
       <h4><a href="../../notes">Go to Notes</a></h4>
+      <h4><a href="../../tags">Tags</a></h4>
     </header>
     <main class="container">
     <div class="post">
   <h1 class="post-title">Working With Multiple VPNs</h1>
   <time datetime=2022-08-04T18:00:00Z class="post-date">Aug 4, 2022</time>
+
   <p>I work on several projects. Each of them require a VPN connection. Sometimes, I work from remote
 locations and I need to access my home network. It&rsquo;s one more VPN connection. It&rsquo;s convenient to
 have an ability to access different private networks at the same time. Let&rsquo;s discuss the issues of
@@ -196,6 +198,12 @@ systemctl enable dnsmasq
 <pre tabindex="0"><code>nameserver 127.0.0.1
 </code></pre><p>Such setup allows me to work simultaneously with several projects in different private networks,
 resolve domain names correctly and send only required traffic to the particular VPN connection.</p>
+
+  
+    <div class="post-tags">
+      <a href="../../tags/vpn/">#vpn</a>&nbsp;<a href="../../tags/networking/">#networking</a>&nbsp;<a href="../../tags/linux/">#linux</a>&nbsp;<a href="../../tags/system-administration/">#system-administration</a>&nbsp;
+    </div>
+  
 </div>
     </main>
   </body>

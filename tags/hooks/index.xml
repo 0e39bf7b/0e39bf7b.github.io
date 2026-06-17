@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hooks on Developer&#39;s blog</title>
+    <link>/tags/hooks/</link>
+    <description>Recent content in hooks on Developer&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Jul 2019 12:00:00 +0000</lastBuildDate><atom:link href="/tags/hooks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code Reuse with React Hooks</title>
+      <link>/posts/code-reuse-with-react-hooks/</link>
+      <pubDate>Sun, 07 Jul 2019 12:00:00 +0000</pubDate>
+      
+      <guid>/posts/code-reuse-with-react-hooks/</guid>
+      <description>&lt;p&gt;One of the most challenging problems for frontend developers is the reuse of code. It&amp;rsquo;s especially
+important for big applications. Traditional approaches with higher-order components and render-props
+have advantages and disadvantages. In some cases, it can be inconvenient to use them. React 16.8
+introduced a new feature called React Hooks. Let&amp;rsquo;s take a look at it and try to figure out how does
+it work and how does it solve the problem of code reuse.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

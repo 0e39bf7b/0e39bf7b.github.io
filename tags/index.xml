@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Developer&#39;s blog</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Developer&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Nov 2022 13:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>developer-tools</title>
+      <link>/tags/developer-tools/</link>
+      <pubDate>Sun, 06 Nov 2022 13:00:00 +0000</pubDate>
+      
+      <guid>/tags/developer-tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>editor</title>
+      <link>/tags/editor/</link>
+      <pubDate>Sun, 06 Nov 2022 13:00:00 +0000</pubDate>
+      
+      <guid>/tags/editor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>productivity</title>
+      <link>/tags/productivity/</link>
+      <pubDate>Sun, 06 Nov 2022 13:00:00 +0000</pubDate>
+      
+      <guid>/tags/productivity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>/tags/vim/</link>
+      <pubDate>Sun, 06 Nov 2022 13:00:00 +0000</pubDate>
+      
+      <guid>/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>/tags/linux/</link>
+      <pubDate>Thu, 04 Aug 2022 18:00:00 +0000</pubDate>
+      
+      <guid>/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>networking</title>
+      <link>/tags/networking/</link>
+      <pubDate>Thu, 04 Aug 2022 18:00:00 +0000</pubDate>
+      
+      <guid>/tags/networking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>system-administration</title>
+      <link>/tags/system-administration/</link>
+      <pubDate>Thu, 04 Aug 2022 18:00:00 +0000</pubDate>
+      
+      <guid>/tags/system-administration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vpn</title>
+      <link>/tags/vpn/</link>
+      <pubDate>Thu, 04 Aug 2022 18:00:00 +0000</pubDate>
+      
+      <guid>/tags/vpn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>memory-management</title>
+      <link>/tags/memory-management/</link>
+      <pubDate>Mon, 17 Jan 2022 05:00:00 +0000</pubDate>
+      
+      <guid>/tags/memory-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>operating-systems</title>
+      <link>/tags/operating-systems/</link>
+      <pubDate>Mon, 17 Jan 2022 05:00:00 +0000</pubDate>
+      
+      <guid>/tags/operating-systems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>performance</title>
+      <link>/tags/performance/</link>
+      <pubDate>Mon, 17 Jan 2022 05:00:00 +0000</pubDate>
+      
+      <guid>/tags/performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>installation</title>
+      <link>/tags/installation/</link>
+      <pubDate>Sat, 25 Dec 2021 10:00:00 +0000</pubDate>
+      
+      <guid>/tags/installation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>storage</title>
+      <link>/tags/storage/</link>
+      <pubDate>Sat, 25 Dec 2021 10:00:00 +0000</pubDate>
+      
+      <guid>/tags/storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu</title>
+      <link>/tags/ubuntu/</link>
+      <pubDate>Sat, 25 Dec 2021 10:00:00 +0000</pubDate>
+      
+      <guid>/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>automation</title>
+      <link>/tags/automation/</link>
+      <pubDate>Sat, 17 Jul 2021 06:00:00 +0000</pubDate>
+      
+      <guid>/tags/automation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cron</title>
+      <link>/tags/cron/</link>
+      <pubDate>Sat, 17 Jul 2021 06:00:00 +0000</pubDate>
+      
+      <guid>/tags/cron/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dns</title>
+      <link>/tags/dns/</link>
+      <pubDate>Tue, 25 May 2021 03:00:00 +0000</pubDate>
+      
+      <guid>/tags/dns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mdns</title>
+      <link>/tags/mdns/</link>
+      <pubDate>Tue, 25 May 2021 03:00:00 +0000</pubDate>
+      
+      <guid>/tags/mdns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>diagnostics</title>
+      <link>/tags/diagnostics/</link>
+      <pubDate>Sat, 15 May 2021 08:00:00 +0000</pubDate>
+      
+      <guid>/tags/diagnostics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>/tags/tools/</link>
+      <pubDate>Sat, 15 May 2021 08:00:00 +0000</pubDate>
+      
+      <guid>/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>self-hosting</title>
+      <link>/tags/self-hosting/</link>
+      <pubDate>Sat, 20 Mar 2021 10:00:00 +0000</pubDate>
+      
+      <guid>/tags/self-hosting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>troubleshooting</title>
+      <link>/tags/troubleshooting/</link>
+      <pubDate>Mon, 04 Jan 2021 11:00:00 +0000</pubDate>
+      
+      <guid>/tags/troubleshooting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>containers</title>
+      <link>/tags/containers/</link>
+      <pubDate>Sat, 12 Sep 2020 06:00:00 +0000</pubDate>
+      
+      <guid>/tags/containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>packaging</title>
+      <link>/tags/packaging/</link>
+      <pubDate>Sat, 12 Sep 2020 06:00:00 +0000</pubDate>
+      
+      <guid>/tags/packaging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>snap</title>
+      <link>/tags/snap/</link>
+      <pubDate>Sat, 12 Sep 2020 06:00:00 +0000</pubDate>
+      
+      <guid>/tags/snap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>/tags/javascript/</link>
+      <pubDate>Thu, 16 Jul 2020 12:00:00 +0000</pubDate>
+      
+      <guid>/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>language-features</title>
+      <link>/tags/language-features/</link>
+      <pubDate>Thu, 16 Jul 2020 12:00:00 +0000</pubDate>
+      
+      <guid>/tags/language-features/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web-development</title>
+      <link>/tags/web-development/</link>
+      <pubDate>Thu, 16 Jul 2020 12:00:00 +0000</pubDate>
+      
+      <guid>/tags/web-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>build-tools</title>
+      <link>/tags/build-tools/</link>
+      <pubDate>Wed, 17 Jun 2020 11:00:00 +0000</pubDate>
+      
+      <guid>/tags/build-tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webpack</title>
+      <link>/tags/webpack/</link>
+      <pubDate>Wed, 17 Jun 2020 11:00:00 +0000</pubDate>
+      
+      <guid>/tags/webpack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>metaprogramming</title>
+      <link>/tags/metaprogramming/</link>
+      <pubDate>Wed, 22 Jan 2020 08:00:00 +0000</pubDate>
+      
+      <guid>/tags/metaprogramming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proxies</title>
+      <link>/tags/proxies/</link>
+      <pubDate>Wed, 22 Jan 2020 08:00:00 +0000</pubDate>
+      
+      <guid>/tags/proxies/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>concurrent-mode</title>
+      <link>/tags/concurrent-mode/</link>
+      <pubDate>Tue, 17 Dec 2019 12:00:00 +0000</pubDate>
+      
+      <guid>/tags/concurrent-mode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>frontend</title>
+      <link>/tags/frontend/</link>
+      <pubDate>Tue, 17 Dec 2019 12:00:00 +0000</pubDate>
+      
+      <guid>/tags/frontend/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>react</title>
+      <link>/tags/react/</link>
+      <pubDate>Tue, 17 Dec 2019 12:00:00 +0000</pubDate>
+      
+      <guid>/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emacs</title>
+      <link>/tags/emacs/</link>
+      <pubDate>Sat, 19 Oct 2019 10:30:00 +0000</pubDate>
+      
+      <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>/tags/python/</link>
+      <pubDate>Sat, 19 Oct 2019 10:30:00 +0000</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>architecture</title>
+      <link>/tags/architecture/</link>
+      <pubDate>Sun, 07 Jul 2019 12:00:00 +0000</pubDate>
+      
+      <guid>/tags/architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hooks</title>
+      <link>/tags/hooks/</link>
+      <pubDate>Sun, 07 Jul 2019 12:00:00 +0000</pubDate>
+      
+      <guid>/tags/hooks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>optimization</title>
+      <link>/tags/optimization/</link>
+      <pubDate>Sat, 25 May 2019 10:00:00 +0000</pubDate>
+      
+      <guid>/tags/optimization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>best-practices</title>
+      <link>/tags/best-practices/</link>
+      <pubDate>Sat, 20 Apr 2019 11:05:05 +0000</pubDate>
+      
+      <guid>/tags/best-practices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>software-engineering</title>
+      <link>/tags/software-engineering/</link>
+      <pubDate>Sat, 20 Apr 2019 11:05:05 +0000</pubDate>
+      
+      <guid>/tags/software-engineering/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

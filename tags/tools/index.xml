@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tools on Developer&#39;s blog</title>
+    <link>/tags/tools/</link>
+    <description>Recent content in tools on Developer&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 May 2021 08:00:00 +0000</lastBuildDate><atom:link href="/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Network Tools</title>
+      <link>/posts/network-tools/</link>
+      <pubDate>Sat, 15 May 2021 08:00:00 +0000</pubDate>
+      
+      <guid>/posts/network-tools/</guid>
+      <description>Almost every user sooner or later faces network problems, so it&amp;rsquo;s essential to have at least a basic understanding of network troubleshooting. In this article, I&amp;rsquo;d like to overview tools I use to explore network configuration and solve network issues on the Ubuntu desktop. Most of these applications can be used on a server but some of them are specific to desktop systems.
+ip and NetworkManager ip is a tool that allows to show or manipulate routing and network devices.</description>
+    </item>
+    
+  </channel>
+</rss>

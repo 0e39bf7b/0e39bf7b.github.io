@@ -149,10 +149,25 @@
     <loc>/notes/1668257505/</loc>
     <lastmod>2022-11-12T12:51:45+00:00</lastmod>
   </url><url>
+    <loc>/tags/developer-tools/</loc>
+    <lastmod>2022-11-06T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/editor/</loc>
+    <lastmod>2022-11-06T13:00:00+00:00</lastmod>
+  </url><url>
     <loc>/posts/my-vim-story/</loc>
     <lastmod>2022-11-06T13:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
+    <lastmod>2022-11-06T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/productivity/</loc>
+    <lastmod>2022-11-06T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-11-06T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/vim/</loc>
     <lastmod>2022-11-06T13:00:00+00:00</lastmod>
   </url><url>
     <loc>/notes/1667560202/</loc>
@@ -217,6 +232,18 @@
   </url><url>
     <loc>/notes/1660420024/</loc>
     <lastmod>2022-08-13T19:47:04+00:00</lastmod>
+  </url><url>
+    <loc>/tags/linux/</loc>
+    <lastmod>2022-08-04T18:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/networking/</loc>
+    <lastmod>2022-08-04T18:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/system-administration/</loc>
+    <lastmod>2022-08-04T18:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/vpn/</loc>
+    <lastmod>2022-08-04T18:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/working-with-multiple-vpns/</loc>
     <lastmod>2022-08-04T18:00:00+00:00</lastmod>
@@ -335,6 +362,15 @@
     <loc>/posts/how-much-access-to-ram-costs/</loc>
     <lastmod>2022-01-17T05:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/memory-management/</loc>
+    <lastmod>2022-01-17T05:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/operating-systems/</loc>
+    <lastmod>2022-01-17T05:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/performance/</loc>
+    <lastmod>2022-01-17T05:00:00+00:00</lastmod>
+  </url><url>
     <loc>/notes/1641756063/</loc>
     <lastmod>2022-01-09T19:21:03+00:00</lastmod>
   </url><url>
@@ -345,6 +381,15 @@
     <lastmod>2021-12-31T18:12:31+00:00</lastmod>
   </url><url>
     <loc>/posts/install-ubuntu-on-external-disk/</loc>
+    <lastmod>2021-12-25T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/installation/</loc>
+    <lastmod>2021-12-25T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/storage/</loc>
+    <lastmod>2021-12-25T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/ubuntu/</loc>
     <lastmod>2021-12-25T10:00:00+00:00</lastmod>
   </url><url>
     <loc>/notes/1638453327/</loc>
@@ -389,32 +434,95 @@
     <loc>/notes/1630067102/</loc>
     <lastmod>2021-08-27T12:25:02+00:00</lastmod>
   </url><url>
+    <loc>/tags/automation/</loc>
+    <lastmod>2021-07-17T06:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/cron/</loc>
+    <lastmod>2021-07-17T06:00:00+00:00</lastmod>
+  </url><url>
     <loc>/posts/ubuntu-periodic-tasks/</loc>
     <lastmod>2021-07-17T06:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/dns/</loc>
+    <lastmod>2021-05-25T03:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/mdns/</loc>
+    <lastmod>2021-05-25T03:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/mdns-on-ubuntu-server/</loc>
     <lastmod>2021-05-25T03:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/diagnostics/</loc>
+    <lastmod>2021-05-15T08:00:00+00:00</lastmod>
+  </url><url>
     <loc>/posts/network-tools/</loc>
+    <lastmod>2021-05-15T08:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/tools/</loc>
     <lastmod>2021-05-15T08:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/dns-wihtout-a-server/</loc>
     <lastmod>2021-03-20T10:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/self-hosting/</loc>
+    <lastmod>2021-03-20T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/troubleshooting/</loc>
+    <lastmod>2021-01-04T11:00:00+00:00</lastmod>
+  </url><url>
     <loc>/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</loc>
     <lastmod>2021-01-04T11:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/containers/</loc>
+    <lastmod>2020-09-12T06:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/packaging/</loc>
+    <lastmod>2020-09-12T06:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/snap/</loc>
+    <lastmod>2020-09-12T06:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/ubuntu-snap-the-price-of-the-isolation/</loc>
     <lastmod>2020-09-12T06:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/javascript/</loc>
+    <lastmod>2020-07-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/language-features/</loc>
+    <lastmod>2020-07-16T12:00:00+00:00</lastmod>
+  </url><url>
     <loc>/posts/the-most-weird-parts-of-javascript/</loc>
     <lastmod>2020-07-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/web-development/</loc>
+    <lastmod>2020-07-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/build-tools/</loc>
+    <lastmod>2020-06-17T11:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/interesting-things-from-webpack-sources/</loc>
     <lastmod>2020-06-17T11:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/webpack/</loc>
+    <lastmod>2020-06-17T11:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/metaprogramming/</loc>
+    <lastmod>2020-01-22T08:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/proxies/</loc>
+    <lastmod>2020-01-22T08:00:00+00:00</lastmod>
+  </url><url>
     <loc>/posts/proxy-and-magical-print/</loc>
     <lastmod>2020-01-22T08:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/concurrent-mode/</loc>
+    <lastmod>2019-12-17T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/frontend/</loc>
+    <lastmod>2019-12-17T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/react/</loc>
+    <lastmod>2019-12-17T12:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/react-journey-componentwillmount-in-concurrent-mode/</loc>
     <lastmod>2019-12-17T12:00:00+00:00</lastmod>
@@ -422,13 +530,34 @@
     <loc>/posts/configure-emacs-for-python-development/</loc>
     <lastmod>2019-10-19T10:30:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2019-10-19T10:30:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/python/</loc>
+    <lastmod>2019-10-19T10:30:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/architecture/</loc>
+    <lastmod>2019-07-07T12:00:00+00:00</lastmod>
+  </url><url>
     <loc>/posts/code-reuse-with-react-hooks/</loc>
+    <lastmod>2019-07-07T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/hooks/</loc>
     <lastmod>2019-07-07T12:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/js-vs-jpg/</loc>
     <lastmod>2019-05-25T10:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/optimization/</loc>
+    <lastmod>2019-05-25T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/best-practices/</loc>
+    <lastmod>2019-04-20T11:05:05+00:00</lastmod>
+  </url><url>
     <loc>/posts/overengineering/</loc>
+    <lastmod>2019-04-20T11:05:05+00:00</lastmod>
+  </url><url>
+    <loc>/tags/software-engineering/</loc>
     <lastmod>2019-04-20T11:05:05+00:00</lastmod>
   </url>
 </urlset>

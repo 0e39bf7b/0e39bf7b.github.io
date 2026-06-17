@@ -65,11 +65,13 @@ DNS server for home networks.">
     <header class="site-title">
       <h1><a href="../../">Developer&#39;s blog</a></h1>
       <h4><a href="../../notes">Go to Notes</a></h4>
+      <h4><a href="../../tags">Tags</a></h4>
     </header>
     <main class="container">
     <div class="post">
   <h1 class="post-title">DNS without a Server</h1>
   <time datetime=2021-03-20T10:00:00Z class="post-date">Mar 20, 2021</time>
+
   <p>A few days ago I&rsquo;d decided to configure Raspberry PI as a weather station to check temperature,
 humidity, and pressure. So I need to access it on the network with SSH and a web browser. The
 easiest way of solving this problem is using a static IP address. In this case, I have to set static
@@ -125,6 +127,12 @@ Raspberry PI with IP address from my Android devices.</p>
 <p>After all, a just set a hostname <code>weather</code> for the Raspberry PI, configured nginx to listen to port
 80 and it made it possible to check the weather with <code>http://weather.local</code> from my computers and
 iOS devices.</p>
+
+  
+    <div class="post-tags">
+      <a href="../../tags/dns/">#dns</a>&nbsp;<a href="../../tags/networking/">#networking</a>&nbsp;<a href="../../tags/self-hosting/">#self-hosting</a>&nbsp;
+    </div>
+  
 </div>
     </main>
   </body>

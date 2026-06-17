@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>system-administration on Developer&#39;s blog</title>
+    <link>/tags/system-administration/</link>
+    <description>Recent content in system-administration on Developer&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Aug 2022 18:00:00 +0000</lastBuildDate><atom:link href="/tags/system-administration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Working With Multiple VPNs</title>
+      <link>/posts/working-with-multiple-vpns/</link>
+      <pubDate>Thu, 04 Aug 2022 18:00:00 +0000</pubDate>
+      
+      <guid>/posts/working-with-multiple-vpns/</guid>
+      <description>&lt;p&gt;I work on several projects. Each of them require a VPN connection. Sometimes, I work from remote
+locations and I need to access my home network. It&amp;rsquo;s one more VPN connection. It&amp;rsquo;s convenient to
+have an ability to access different private networks at the same time. Let&amp;rsquo;s discuss the issues of
+multi-VPN setups and possible.&lt;/p&gt;
+&lt;p&gt;TL;DR:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Use NetworkManager to manage VPN connections.&lt;/li&gt;
+&lt;li&gt;Disable systemd-resolved.&lt;/li&gt;
+&lt;li&gt;Use dnsmasq to process DNS requests.&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu periodic tasks</title>
+      <link>/posts/ubuntu-periodic-tasks/</link>
+      <pubDate>Sat, 17 Jul 2021 06:00:00 +0000</pubDate>
+      
+      <guid>/posts/ubuntu-periodic-tasks/</guid>
+      <description>&lt;p&gt;Ubuntu is an open-source system that allows users to control different components. Default desktop
+installation has a bunch of periodic tasks out of the box. It&amp;rsquo;s important to understand what is the
+purpose of these tasks and how often they are called. This knowledge allows to predict the network
+activity, reduce the number of unexpected CPU spikes and improve user experience. Moreover, some of
+the default tasks can be redundant for the particular user and that is why should be disabled.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

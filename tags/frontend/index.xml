@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>frontend on Developer&#39;s blog</title>
+    <link>/tags/frontend/</link>
+    <description>Recent content in frontend on Developer&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Dec 2019 12:00:00 +0000</lastBuildDate><atom:link href="/tags/frontend/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React Journey: componentWillMount in Concurrent Mode</title>
+      <link>/posts/react-journey-componentwillmount-in-concurrent-mode/</link>
+      <pubDate>Tue, 17 Dec 2019 12:00:00 +0000</pubDate>
+      
+      <guid>/posts/react-journey-componentwillmount-in-concurrent-mode/</guid>
+      <description>&lt;p&gt;Several days ago I was updating one of my React projects and I found deprecation warning like:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Warning: componentWillMount has been renamed, and is not recommended for use. See
+&lt;a href=&#34;https://fb.me/react-unsafe-component-lifecycles&#34;&gt;https://fb.me/react-unsafe-component-lifecycles&lt;/a&gt; for details.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Move code with side effects to componentDidMount, and set initial state in the constructor.&lt;/li&gt;
+&lt;li&gt;Rename componentWillMount to UNSAFE_componentWillMount to suppress this warning in non-strict
+mode. In React 17.x, only the UNSAFE_ name will work. To rename all deprecated lifecycles to their
+new names, you can run &lt;code&gt;npx react-codemod rename-unsafe-lifecycles&lt;/code&gt; in your project source folder.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I had followed &lt;a href=&#34;https://fb.me/react-unsafe-component-lifecycles&#34;&gt;the link from this warning&lt;/a&gt; and
+found such an explanation about why this method is deprecated:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;One of the biggest lessons we’ve learned is that some of our legacy component lifecycles tend to
+encourage unsafe coding practices. They are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;componentWillMount&lt;/li&gt;
+&lt;li&gt;componentWillReceiveProps&lt;/li&gt;
+&lt;li&gt;componentWillUpdate&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These lifecycle methods have often been misunderstood and subtly misused; furthermore, we
+anticipate that their potential misuse may be more problematic with async rendering.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I think it&amp;rsquo;s important to understand why using &lt;code&gt;componentWillMount&lt;/code&gt; callback can be unsafe and why
+you need to change your code somehow. First of all, let&amp;rsquo;s find out different usage examples of
+&lt;code&gt;componentWillMount&lt;/code&gt; callback and check if it is safe or not to use this callback in different
+situations in the stable version of React 16.12.0 for browser rendering (there are some issues
+with server rendering but it&amp;rsquo;s a subject of a separate article).&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Reuse with React Hooks</title>
+      <link>/posts/code-reuse-with-react-hooks/</link>
+      <pubDate>Sun, 07 Jul 2019 12:00:00 +0000</pubDate>
+      
+      <guid>/posts/code-reuse-with-react-hooks/</guid>
+      <description>&lt;p&gt;One of the most challenging problems for frontend developers is the reuse of code. It&amp;rsquo;s especially
+important for big applications. Traditional approaches with higher-order components and render-props
+have advantages and disadvantages. In some cases, it can be inconvenient to use them. React 16.8
+introduced a new feature called React Hooks. Let&amp;rsquo;s take a look at it and try to figure out how does
+it work and how does it solve the problem of code reuse.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

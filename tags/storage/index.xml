@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>storage on Developer&#39;s blog</title>
+    <link>/tags/storage/</link>
+    <description>Recent content in storage on Developer&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Dec 2021 10:00:00 +0000</lastBuildDate><atom:link href="/tags/storage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install Ubuntu on External Disk</title>
+      <link>/posts/install-ubuntu-on-external-disk/</link>
+      <pubDate>Sat, 25 Dec 2021 10:00:00 +0000</pubDate>
+      
+      <guid>/posts/install-ubuntu-on-external-disk/</guid>
+      <description>&lt;p&gt;Sometimes it can be useful to have an external HDD or SSD with a familiar environment installed.
+With such a device it&amp;rsquo;s possible to check the computer from eBay for GPU or memory faults, restore a
+primary OS of the workstation after an unsuccessful software update or just work on another PC with
+a familiar OS without any modifications of any software on this machine.&lt;/p&gt;
+&lt;p&gt;I use Ubuntu 20.04 as a primary OS, that is why in this article, I&amp;rsquo;ll explain how to install it on
+an external drive.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Wrong Copying Progress and Long Disk Unmounting on Ubuntu</title>
+      <link>/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</link>
+      <pubDate>Mon, 04 Jan 2021 11:00:00 +0000</pubDate>
+      
+      <guid>/posts/wrong-copying-progress-and-long-disk-unmounting-on-ubuntu/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;../../unmount-freezes.png&#34; alt=&#34;Unmount freezes&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Sometimes I need to copy files from an internal SSD to an external hard drive. Recently I&amp;rsquo;ve found a
+strange behavior on Ubuntu 20.04. When I try to copy a fairly big file (like 2Gb - 4Gb) Nautilus
+shows insane writing speed and the progress bar instantly reaches 100%, but when I want to unmount
+the device - it freezes for several minutes. I tried different file managers like
+&lt;a href=&#34;https://docs.xfce.org/xfce/thunar/start&#34;&gt;Thunar&lt;/a&gt; from Xfce,
+&lt;a href=&#34;https://midnight-commander.org/&#34;&gt;midnight-commander&lt;/a&gt;, or even utilities like &lt;code&gt;rsync&lt;/code&gt; or &lt;code&gt;pv&lt;/code&gt; - the
+result was the same. For me, it&amp;rsquo;s a bit inconvenient when I don&amp;rsquo;t know how much time I have to wait
+until all data will be transferred, so I tried to find the solution to this problem.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

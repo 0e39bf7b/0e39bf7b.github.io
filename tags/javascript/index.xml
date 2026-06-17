@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on Developer&#39;s blog</title>
+    <link>/tags/javascript/</link>
+    <description>Recent content in javascript on Developer&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Jul 2020 12:00:00 +0000</lastBuildDate><atom:link href="/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Most Weird Parts of JavaScript</title>
+      <link>/posts/the-most-weird-parts-of-javascript/</link>
+      <pubDate>Thu, 16 Jul 2020 12:00:00 +0000</pubDate>
+      
+      <guid>/posts/the-most-weird-parts-of-javascript/</guid>
+      <description>&lt;p&gt;JavaScript is one of the most popular programming languages nowadays. Originally it was created in
+10 days by Brendan Eich in 1995 for building simple scripts on the web pages but now it&amp;rsquo;s used for
+the development of different types of applications like sophisticated frontend or highload backend
+or even terminal tools - the one language to rule them all.&lt;/p&gt;
+&lt;p&gt;JavaScript evolves dramatically during the last 25 years. In 2020 it has a bunch of features that
+allow developers to write elegant code for solving everyday problems. JavaScript object model
+differs a lot from other languages like Java or Python. Some people in the community love
+JavaScript, but it would be futile to deny that the language has some weird moments. In this
+article, I&amp;rsquo;ll try to describe the top 3 things in JavaScript that are most weird for me.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Interesting Things from Webpack Sources</title>
+      <link>/posts/interesting-things-from-webpack-sources/</link>
+      <pubDate>Wed, 17 Jun 2020 11:00:00 +0000</pubDate>
+      
+      <guid>/posts/interesting-things-from-webpack-sources/</guid>
+      <description>&lt;p&gt;A lot of frontend projects use &lt;a href=&#34;https://webpack.js.org/&#34;&gt;webpack&lt;/a&gt; as a bundler tool. It allows to
+transform, bundle, or package different resources like JavaScript, styles, images, or fonts.
+Recently I&amp;rsquo;d been exploring &lt;a href=&#34;https://github.com/webpack/webpack&#34;&gt;webpack sources&lt;/a&gt; and I found
+several interesting solutions to different programming problems that can be used in JavaScript
+projects.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Proxy and Magical Print</title>
+      <link>/posts/proxy-and-magical-print/</link>
+      <pubDate>Wed, 22 Jan 2020 08:00:00 +0000</pubDate>
+      
+      <guid>/posts/proxy-and-magical-print/</guid>
+      <description>Once upon a time my colleague and I were working on end-to-end tests of one Angular.JS application. We used Node.js v8.9.1. Tests had such workflow:
+open a page; click an element; check if the page has some content. As you can see it&amp;rsquo;s just a regular workflow for end-to-end tests, nothing special. Such tests allow us to reduce the amount of manual testing and eliminate bugs before the code will be delivered to the users.</description>
+    </item>
+    
+  </channel>
+</rss>

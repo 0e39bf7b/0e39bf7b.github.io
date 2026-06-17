@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>emacs on Developer&#39;s blog</title>
+    <link>/tags/emacs/</link>
+    <description>Recent content in emacs on Developer&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Oct 2019 10:30:00 +0000</lastBuildDate><atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Configure Emacs for Python development</title>
+      <link>/posts/configure-emacs-for-python-development/</link>
+      <pubDate>Sat, 19 Oct 2019 10:30:00 +0000</pubDate>
+      
+      <guid>/posts/configure-emacs-for-python-development/</guid>
+      <description>&lt;p&gt;I like to have the same development environment on the local machine and remote servers. In this
+case it&amp;rsquo;s possible to write and debug programs not only with your laptop, but also using lightweight
+tablet or netbook and at the same time have all stuff you have used to like fast CPU, enough memory
+and all the features of IDE like code navigation or autocompletion. I prefer using Emacs on the
+Ubuntu machine to achieve this goal.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../emacs-gui.png&#34; alt=&#34;Emacs GUI version&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
